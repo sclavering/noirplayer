@@ -1369,7 +1369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == \"Release\" ]; then\ncodesign -f -s NicePlayer \"$TARGET_BUILD_DIR/NicePlayer.app\"\nfi";
+			shellScript = "if [ $CONFIGURATION == \"Release\" ]; then\n    true\n    # codesign -f -s NicePlayer \"$TARGET_BUILD_DIR/NicePlayer.app\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
