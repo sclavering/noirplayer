@@ -60,8 +60,6 @@
     IBOutlet id toggleOnTopMenuItem;
     id antiSleepTimer;
     IBOutlet id toggleFixedAspectMenuItem;
-	IBOutlet id openURLField;
-	IBOutlet id openURLWindow;
 	IBOutlet id partiallyTransparent;
 }
 
@@ -87,8 +85,6 @@
 -(IBAction)toggleAlwaysOnTop:(id)sender;
 -(IBAction)setPartiallyTransparent:(id)sender;
 -(IBAction)toggleFixedAspectRatio:(id)sender;
-
--(IBAction)openWebURL:(id)sender;
 
 #pragma mark -
 #pragma mark Presentation

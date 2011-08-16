@@ -332,13 +332,6 @@ id swapForWindows(id each, void* context){
     [partiallyTransparent setState:[((NiceWindow *)[NSApp mainWindow]) partiallyTransparent]];
 }
 
--(IBAction)openWebURL:(id)sender
-{
-	NSURL *newURL = [NSURL URLWithString:[openURLField stringValue]];
-	[self openURLs:[NSArray arrayWithObjects:newURL, nil]];
-	[openURLWindow performClose:self];
-}
-
 #pragma mark -
 #pragma mark Presentation
 
