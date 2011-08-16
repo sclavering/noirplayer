@@ -248,14 +248,6 @@ BOOL selectNiceWindow(id each, void* context){
 }
 
 #pragma mark -
-#pragma mark Delegate Methods
-
--(void)application:(NSApplication *)sender openFiles:(NSArray *)filenames
-{
-    [[NiceController controller] openFiles:filenames];
-}
-
-#pragma mark -
 #pragma mark Application Web Links
 
 -(IBAction)visitNicePlayerWebSite:(id)sender

@@ -67,7 +67,6 @@
 +(void)setController:(id)aNiceController;
 
 -(id)mainWindowProxy;
--(void)openFiles:(NSArray *)files;
 -(void)openURLs:(NSArray *)files;
 -(void)checkMouseLocation:(id)sender;
 -(id)mainDocument;

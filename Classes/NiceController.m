@@ -140,23 +140,6 @@ id swapForWindows(id each, void* context){
                            forTypes:[[NPPluginReader pluginReader] allowedExtensions]];
 }
 
-
-/**
-* Takes an array of NSString files, converts them to NSURLs and opens them, adding subsequent files to the
- *	playlist.
- */
--(void)openFiles:(NSArray *)files
-{
-    NSMutableArray* tArray = [NSMutableArray array];
-    
-    BOOL tVerifyType = NO;
-    tArray =[files injectUsingFunction:NPInjectNestedDirectories into:tArray context:&tVerifyType];
-  //  NSLog(@"%@",tArray);
-    
-    tArray =[tArray collectUsingFunction:NPConvertFileNamesToURLs context:nil];
-    [self openURLs:NPSortUrls(tArray)];
-}
-
 -(void)openURLs:(NSArray *)files
 {
 
@@ -257,9 +240,7 @@ id swapForWindows(id each, void* context){
 
 -(IBAction)openDocument:(id)sender
 {
-    NSArray* tempFiles = [self fileNamesFromRunningOpenPanel];
-				
-    [self openFiles:tempFiles];
+    [self openURLs: [self URLsFromRunningOpenPanel]];
 }
 
 -(IBAction)newDocument:(id)sender
