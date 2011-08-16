@@ -1,0 +1,165 @@
+// !$*UTF8*$!
+{
+	2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+		activeBuildConfigurationName = Debug;
+		activeExecutable = AAA0344413F9CF76005908FB /* NicePlayer */;
+		activeTarget = 8D15AC270486D014006FF6A4 /* NicePlayer */;
+		codeSenseManager = AAA0346F13F9CF95005908FB /* Code sense */;
+		executables = (
+			AAA0344413F9CF76005908FB /* NicePlayer */,
+		);
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					578,
+					20,
+					48.16259765625,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 335138678;
+			PBXWorkspaceStateSaveDate = 335138678;
+		};
+		perUserProjectItems = {
+			AAA0347713FAAF24005908FB /* XCBuildMessageTextBookmark */ = AAA0347713FAAF24005908FB /* XCBuildMessageTextBookmark */;
+			AAA0347C13FAAFF5005908FB /* XCBuildMessageTextBookmark */ = AAA0347C13FAAFF5005908FB /* XCBuildMessageTextBookmark */;
+			AAA0347E13FAAFF5005908FB /* PBXTextBookmark */ = AAA0347E13FAAFF5005908FB /* PBXTextBookmark */;
+			AAA0348513FAAFF5005908FB /* PBXTextBookmark */ = AAA0348513FAAFF5005908FB /* PBXTextBookmark */;
+		};
+		sourceControlManager = AAA0346E13F9CF95005908FB /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1215, 19409}}";
+			sepNavSelRange = "{2082, 0}";
+			sepNavVisRange = "{1815, 541}";
+			sepNavWindowFrame = "{{19, 215}, {750, 558}}";
+		};
+	};
+	6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1215, 5226}}";
+			sepNavSelRange = "{16571, 0}";
+			sepNavVisRange = "{13766, 1111}";
+		};
+	};
+	8D15AC270486D014006FF6A4 /* NicePlayer */ = {
+		activeExec = 0;
+		executables = (
+			AAA0344413F9CF76005908FB /* NicePlayer */,
+		);
+	};
+	AAA0344413F9CF76005908FB /* NicePlayer */ = {
+		isa = PBXExecutable;
+		activeArgIndices = (
+		);
+		argumentStrings = (
+		);
+		autoAttachOnCrash = 1;
+		breakpointsEnabled = 0;
+		configStateDict = {
+		};
+		customDataFormattersEnabled = 1;
+		dataTipCustomDataFormattersEnabled = 1;
+		dataTipShowTypeColumn = 1;
+		dataTipSortType = 0;
+		debuggerPlugin = GDBDebugging;
+		disassemblyDisplayState = 0;
+		enableDebugStr = 1;
+		environmentEntries = (
+		);
+		executableSystemSymbolLevel = 0;
+		executableUserSymbolLevel = 0;
+		libgmallocEnabled = 0;
+		name = NicePlayer;
+		showTypeColumn = 0;
+		sourceDirectories = (
+		);
+	};
+	AAA0346E13F9CF95005908FB /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	AAA0346F13F9CF95005908FB /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	AAA0347713FAAF24005908FB /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "STEnum/STEnum.h: No such file or directory";
+		fRef = 2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 51;
+		rType = 1;
+	};
+	AAA0347C13FAAFF5005908FB /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Passing argument 1 of 'DVDUnregisterEventCallBack' makes pointer from integer without a cast";
+		fRef = AAA0347D13FAAFF5005908FB /* DVDPlayerView.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 177;
+		rType = 1;
+	};
+	AAA0347D13FAAFF5005908FB /* DVDPlayerView.m */ = {
+		isa = PBXFileReference;
+		lastKnownFileType = sourcecode.c.objc;
+		name = DVDPlayerView.m;
+		path = "/Users/steve/niceplayer/Plugin Sources/DVDPlayer/DVDPlayerView.m";
+		sourceTree = "<absolute>";
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {756, 17953}}";
+			sepNavSelRange = "{5168, 0}";
+			sepNavVisRange = "{4797, 649}";
+		};
+	};
+	AAA0347E13FAAFF5005908FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = AAA0347F13FAAFF5005908FB /* DVDPlayerView.m */;
+		name = "DVDPlayerView.m: 178";
+		rLen = 0;
+		rLoc = 5168;
+		rType = 0;
+		vrLen = 652;
+		vrLoc = 4797;
+	};
+	AAA0347F13FAAFF5005908FB /* DVDPlayerView.m */ = {
+		isa = PBXFileReference;
+		name = DVDPlayerView.m;
+		path = "/Users/steve/niceplayer/Plugin Sources/DVDPlayer/DVDPlayerView.m";
+		sourceTree = "<absolute>";
+	};
+	AAA0348513FAAFF5005908FB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */;
+		name = "NiceDocument.m: 52";
+		rLen = 0;
+		rLoc = 2082;
+		rType = 0;
+		vrLen = 875;
+		vrLoc = 1585;
+	};
+}
