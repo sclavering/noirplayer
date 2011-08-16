@@ -47,25 +47,17 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NiceController.h"
-@class SUUpdater;
 @class RemoteControl;
 
 @interface NPApplication : NSApplication {
 	NSTimer *inactiveTimer;
 	NSPoint lastPoint;
-	IBOutlet SUUpdater* sparkleUpdater;
 	RemoteControl* remote;
-
 }
 -(IBAction)emailAuthor:(id)sender;
 
 -(RemoteControl*) remote;
 -(void)setRemote:(RemoteControl*)aRemote;
-
--(void)setShouldCheckAtStartup:(bool)aBool;
--(bool)shouldCheckAtStartUp;
--(IBAction)checkForUpdatesMain:(id)sender;
-
 
 -(void)copyDefaultScriptsToApplicationSupport;
 -(void)moveOldDefaultScriptsAndCopy;

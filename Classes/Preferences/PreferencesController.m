@@ -46,7 +46,6 @@
 
 #import "PreferencesController.h"
 #import "../Viewer Interface/NPPluginReader.h"
-#import <Sparkle/Sparkle.h>
 #import "NPApplication.h"
 #import "NiceUtilities.h"
 #import <Preferable/Preferable.h>
@@ -58,9 +57,6 @@
     
     NSString* tGeneralPrefIcon = [tempBundle pathForResource:@"GeneralPreferenceIcon" ofType:@"png"];
     NSString* tActionPrefIcon =[tempBundle pathForResource:@"ActionsPreferenceIcon" ofType:@"png"];
-
-	id sparkleBundle =[NSBundle bundleForClass:[SUUpdater class]];
-	NSString* tSparklePrefIcon =[sparkleBundle pathForResource:@"Sparkle" ofType:@"icns"];
 
 	[prefWindowController addPane:paneMain
                    withIcon:[[[NSImage alloc]initWithContentsOfFile:tGeneralPrefIcon] autorelease]
@@ -86,15 +82,6 @@
 			  withLabel:@"Actions"
 			withToolTip:@"Actions on Movies"
 		 allowingResize:NO];
-	
-	if(!NPBuildingForMacPorts){
-	[prefWindowController addPane:paneSparkle
-			   withIcon:[[[NSImage alloc]initWithContentsOfFile:tSparklePrefIcon] autorelease]
-		 withIdentifier:@"Sparkle"
-			  withLabel:@"Auto Update"
-			withToolTip:@"Auto Update"
-		 allowingResize:NO];
-	}
 	
 	[prefWindowController addPane:paneOverlays
 		   withIcon:[NSImage imageNamed:@"OverPrefIcon"] 
@@ -153,13 +140,7 @@
 	[audioVolumeSimilarToLastWindow setState:[[Preferences mainPrefs] audioVolumeSimilarToLastWindow]];
 	[disableShowingOverlaysOnKeyPress setState:[[Preferences mainPrefs] disableShowingOverlaysOnKeyPress]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
-	
-	if([((NPApplication*)NSApp) shouldCheckAtStartUp])
-		[sparkleAuto setState:NSOnState];
-	else		
-		[sparkleAuto setState:NSOffState];
-	
-	
+		
 	[bundlePriorityTable setDataSource:self];
 	[bundlePriorityTable setDelegate:self];
 	[bundlePriorityTable registerForDraggedTypes:[NSArray arrayWithObjects:@"draggingData", nil]];
@@ -232,11 +213,6 @@
     total += 60 * [[sender objectValue] minuteOfHour];
     total += 60* 60* [[sender objectValue] hourOfDay];
     [[Preferences mainPrefs] setFfSpeed:total];
-}
-
-
--(IBAction)sparkleStartCheck:(id)sender{
-	[NSApp setShouldCheckAtStartup:[sparkleAuto state]==NSOnState];
 }
 
 

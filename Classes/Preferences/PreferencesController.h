@@ -54,15 +54,9 @@
     IBOutlet id paneView;
 	IBOutlet id paneInput;
 	IBOutlet id paneWindowDefaults;
-	IBOutlet id paneSparkle;
-
     
     IBOutlet id bundlePriorityTable;
     
-	
-	IBOutlet id sparkleAuto;
-	IBOutlet id spakleInterval;
-	
     IBOutlet id doubleClickMoviePref;
     IBOutlet id rightClickMoviePref;
     IBOutlet id scrollWheelMoviePref;
@@ -100,8 +94,6 @@
     BOOL _tableLocked;
 }
 
-
--(IBAction)sparkleStartCheck:(id)sender;
 
 -(IBAction)doubleClickMoviePref:(id)sender;
 -(IBAction)rightClickMoviePref:(id)sender;
