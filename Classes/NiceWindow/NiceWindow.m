@@ -165,7 +165,7 @@
 	
 	id textShadow =[[[NSShadow alloc]init] autorelease];
 	NSSize      shadowSize = NSMakeSize(0.0f, -2.0f); 
-	[textShadow setShadowOffset:shadowSize]; 
+	// [textShadow setShadowOffset:shadowSize];
 	[textShadow setShadowBlurRadius:5.0f]; 
 	[textShadow setShadowColor:[NSColor blackColor]]; 
 	
