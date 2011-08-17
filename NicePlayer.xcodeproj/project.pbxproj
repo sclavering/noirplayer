@@ -59,8 +59,6 @@
 		25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */; };
 		25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */; };
 		25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */; };
-		25E10911076CF11100042500 /* PrefPluginConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 25E1090F076CF11100042500 /* PrefPluginConfig.h */; };
-		25E10912076CF11100042500 /* PrefPluginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E10910076CF11100042500 /* PrefPluginConfig.m */; };
 		3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */; };
 		3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */; };
 		3E0457B8073C7CE4009D4E33 /* shuffle_ordered.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E0457B6073C7CE4009D4E33 /* shuffle_ordered.png */; };
@@ -129,7 +127,6 @@
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
 		3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEB7DB7076B754F0090E740 /* NiceUtilities.h */; };
 		3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB7DB8076B754F0090E740 /* NiceUtilities.m */; };
-		3EEB7F3A076BB1F60090E740 /* ViewerPrefIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EEB7F38076BB1F60090E740 /* ViewerPrefIcon.png */; };
 		3EEDF753065B3E8800E3545C /* JTMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEDF751065B3E8800E3545C /* JTMovieView.h */; };
 		3EEDF754065B3E8800E3545C /* JTMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF752065B3E8800E3545C /* JTMovieView.m */; };
 		3EEDF762065B4CFF00E3545C /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EEDF761065B4CFF00E3545C /* black.png */; };
@@ -173,14 +170,14 @@
 		6990B5140CF0B2F300DA15C2 /* SEReferenceGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6990B5090CF0B2F300DA15C2 /* SEReferenceGlue.m */; };
 		6990B5150CF0B2F300DA15C2 /* SEReferenceRendererGlue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6990B50A0CF0B2F300DA15C2 /* SEReferenceRendererGlue.h */; };
 		6990B5160CF0B2F300DA15C2 /* SEReferenceRendererGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */; };
-		6990B63F0CF0CF8300DA15C2 /* Appscript.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 6990B4E80CF0A9D300DA15C2 /* Appscript.framework */; };
+		6990B63F0CF0CF8300DA15C2 /* Appscript.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6990B4E80CF0A9D300DA15C2 /* Appscript.framework */; };
 		69945E6E0CCA639600CE0AD3 /* inputpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 69945E6C0CCA639500CE0AD3 /* inputpref.png */; };
 		69945E6F0CCA639600CE0AD3 /* windpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 69945E6D0CCA639600CE0AD3 /* windpref.png */; };
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
 		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
-		69B11BF50E581372005B3775 /* STEnum.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
+		69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
 		69B11D1D0E5818B8005B3775 /* Preferable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11C6A0E5818AF005B3775 /* Preferable.framework */; };
-		69B11D1E0E5818C5005B3775 /* Preferable.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 69B11C6A0E5818AF005B3775 /* Preferable.framework */; };
+		69B11D1E0E5818C5005B3775 /* Preferable.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11C6A0E5818AF005B3775 /* Preferable.framework */; };
 		69B2197A0BC72AA60054E10E /* AEDescUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219760BC72AA60054E10E /* AEDescUtils.h */; };
 		69B2197B0BC72AA60054E10E /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219770BC72AA60054E10E /* AEDescUtils.m */; };
 		69B2197C0BC72AA60054E10E /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219780BC72AA60054E10E /* TCallScript.h */; };
@@ -272,16 +269,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E5302E90684096B00923E9B /* CopyFiles */ = {
+		3E5302E90684096B00923E9B /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69B11D1E0E5818C5005B3775 /* Preferable.framework in CopyFiles */,
-				69B11BF50E581372005B3775 /* STEnum.framework in CopyFiles */,
-				6990B63F0CF0CF8300DA15C2 /* Appscript.framework in CopyFiles */,
+				69B11D1E0E5818C5005B3775 /* Preferable.framework in Copy Files */,
+				69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */,
+				6990B63F0CF0CF8300DA15C2 /* Appscript.framework in Copy Files */,
 			);
+			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -341,8 +339,6 @@
 		25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceDocumentScripting.m; sourceTree = "<group>"; };
 		25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceWindowScripting.m; sourceTree = "<group>"; };
 		25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceControllerScripting.m; sourceTree = "<group>"; };
-		25E1090F076CF11100042500 /* PrefPluginConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefPluginConfig.h; path = Classes/Preferences/PrefPluginConfig.h; sourceTree = "<group>"; };
-		25E10910076CF11100042500 /* PrefPluginConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PrefPluginConfig.m; path = Classes/Preferences/PrefPluginConfig.m; sourceTree = "<group>"; };
 		2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NiceDocument.m; path = Classes/NiceDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* NiceDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NiceDocument.h; path = Classes/NiceDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Other Sources/main.m"; sourceTree = "<group>"; };
@@ -631,8 +627,6 @@
 				257029AD0734CE4E00967356 /* Preferences.m */,
 				257029C10734D14500967356 /* PreferencesController.h */,
 				257029C20734D14500967356 /* PreferencesController.m */,
-				25E1090F076CF11100042500 /* PrefPluginConfig.h */,
-				25E10910076CF11100042500 /* PrefPluginConfig.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -933,7 +927,6 @@
 				252BDDFA076A4775006CF96B /* ControlRR.h in Headers */,
 				252BDE00076A4780006CF96B /* ControlFF.h in Headers */,
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
-				25E10911076CF11100042500 /* PrefPluginConfig.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
 				253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */,
 				253C064D07C0891300172C2F /* ResizeTriangle.h in Headers */,
@@ -972,7 +965,7 @@
 				8D15AC280486D014006FF6A4 /* Headers */,
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
-				3E5302E90684096B00923E9B /* CopyFiles */,
+				3E5302E90684096B00923E9B /* Copy Files */,
 				259DE26B0760F769000FE804 /* CopyFiles */,
 				2513D30D07BDACBC00BB6055 /* ShellScript */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
@@ -1120,7 +1113,6 @@
 				3E8C96D1073EF4730048CB70 /* mp4.icns in Resources */,
 				3E8C96D2073EF4730048CB70 /* mpg.icns in Resources */,
 				3E8C96D3073EF4730048CB70 /* swf.icns in Resources */,
-				3EEB7F3A076BB1F60090E740 /* ViewerPrefIcon.png in Resources */,
 				25294AA9076E937E00D4B325 /* pause_over.png in Resources */,
 				25294AAA076E937E00D4B325 /* play_over.png in Resources */,
 				25294AAB076E937E00D4B325 /* rr_over.png in Resources */,
@@ -1211,7 +1203,6 @@
 				252BDDFB076A4775006CF96B /* ControlRR.m in Sources */,
 				252BDE01076A4780006CF96B /* ControlFF.m in Sources */,
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
-				25E10912076CF11100042500 /* PrefPluginConfig.m in Sources */,
 				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
 				25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */,
 				25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */,

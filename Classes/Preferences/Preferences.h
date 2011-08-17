@@ -70,8 +70,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 	BOOL windowLeaveFullScreen;
 	
 	float opacityWhenWindowIsTransparent;
-	
-	NSMutableArray *viewerPluginPrefs;
 }
 
 +(Preferences *)mainPrefs;
@@ -114,7 +112,4 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 -(NSString*)windowPosition;
 -(void)setWindowPosition:(NSPoint) aPoint;
 
--(void)integrateViewerPluginPrefs;
--(NSMutableArray *)viewerPluginPrefs;
--(void)setViewerPluginPrefs:(NSMutableArray *)aDictionary;
 @end

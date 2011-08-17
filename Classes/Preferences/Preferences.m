@@ -102,7 +102,6 @@
 		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
 		windowLeaveFullScreen = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotLeaveFullScreen"];
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
-		[self integrateViewerPluginPrefs];
 	}
 	return self;
 }
@@ -288,25 +287,6 @@
 	opacityWhenWindowIsTransparent = aFloat;
 	[[NSUserDefaults standardUserDefaults] setFloat:aFloat forKey:@"opacityWhenWindowIsTransparent"];
 	[self didChangeValueForKey:@"opacityWhenWindowIsTransparent"];
-}
-
-#pragma mark -
-
--(void)integrateViewerPluginPrefs
-{
-	viewerPluginPrefs = [[NPPluginReader pluginReader] integratePrefs:
-		[[NSUserDefaults standardUserDefaults] valueForKey:@"viewerPluginPrefs"]];
-}
-
--(NSMutableArray *)viewerPluginPrefs
-{
-	return viewerPluginPrefs;
-}
-
--(void)setViewerPluginPrefs:(NSMutableArray *)anArray
-{
-	viewerPluginPrefs = anArray;
-	[[NSUserDefaults standardUserDefaults] setObject:anArray forKey:@"viewerPluginPrefs"];
 }
 
 @end

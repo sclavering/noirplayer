@@ -1157,3 +1157,5 @@ proposedItem:(id)tItem
 	
     return NSDragOperationGeneric;
 }
+
+@end
