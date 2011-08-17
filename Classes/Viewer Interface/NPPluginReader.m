@@ -54,8 +54,6 @@
 #import "RCMovieView.h"
 #import <STEnum/STEnum.h>
 
-@class DVDPlayerView;
-
 static NPPluginReader *pluginReader = nil;
 
 id injectAllowedTypesOfEnabledPlugins(id each, id allowedExt,void* context){

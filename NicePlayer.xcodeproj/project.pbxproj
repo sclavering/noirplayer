@@ -59,7 +59,6 @@
 		25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */; };
 		25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */; };
 		25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */; };
-		25D4FE8D08ED06CC00006815 /* DVDPlayer.nicebundle in CopyFiles */ = {isa = PBXBuildFile; fileRef = 25C5C1E908D4B81400987A95 /* DVDPlayer.nicebundle */; };
 		25E10911076CF11100042500 /* PrefPluginConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 25E1090F076CF11100042500 /* PrefPluginConfig.h */; };
 		25E10912076CF11100042500 /* PrefPluginConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E10910076CF11100042500 /* PrefPluginConfig.m */; };
 		3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */; };
@@ -116,7 +115,6 @@
 		3E9E629D0661724600B788A8 /* scrubbar_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62980661724600B788A8 /* scrubbar_right.png */; };
 		3E9E64820661B95900B788A8 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64800661B95900B788A8 /* pause.png */; };
 		3E9E64830661B95900B788A8 /* pauseClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64810661B95900B788A8 /* pauseClick.png */; };
-		3EB4F72E08F62C37004692D3 /* Useful Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 3EB4F72A08F62C37004692D3 /* Useful Scripts */; };
 		3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 3EB4F72F08F62C4C004692D3 /* Default Scripts */; };
 		3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7EC5F065F39AA0002A470 /* Carbon.framework */; };
 		3EB7ECFA065F39BC0002A470 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7ECF9065F39BC0002A470 /* QuickTime.framework */; };
@@ -206,20 +204,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		25C5C1E808D4B81400987A95 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8D5B49B6048680CD000E48DA;
-			remoteInfo = DVDPlayer;
-		};
-		691F9D580DFF6A3F000FB98B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8D5B49AC048680CD000E48DA;
-			remoteInfo = DVDPlayer;
-		};
 		691F9D600DFF6A3F000FB98B /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6990B4E00CF0A9D300DA15C2 /* Appscript.xcodeproj */;
@@ -293,7 +277,6 @@
 			dstSubfolderSpec = 13;
 			files = (
 				2513D00407BC659800BB6055 /* Plugins.rtf in CopyFiles */,
-				25D4FE8D08ED06CC00006815 /* DVDPlayer.nicebundle in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +342,6 @@
 		25B07BF108077776006724D8 /* NiceDocumentScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceDocumentScripting.h; sourceTree = "<group>"; };
 		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = "Classes/Overlay Widgets/OverlaysControl.h"; sourceTree = "<group>"; };
 		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = "Classes/Overlay Widgets/OverlaysControl.m"; sourceTree = "<group>"; };
-		25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DVDPlayer.xcodeproj; path = "Plugin Sources/DVDPlayer/DVDPlayer.xcodeproj"; sourceTree = "<group>"; };
 		25CC00580A315A45002FB428 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = acknowledgements.html; path = Documents/acknowledgements.html; sourceTree = "<group>"; };
 		25CC864E0831DA2A00027929 /* RCMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCMovieView.h; path = "Classes/Viewer Interface/Pluggable Players/RCMovieView.h"; sourceTree = "<group>"; };
 		25CC864F0831DA2A00027929 /* RCMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCMovieView.m; path = "Classes/Viewer Interface/Pluggable Players/RCMovieView.m"; sourceTree = "<group>"; };
@@ -426,7 +408,6 @@
 		3E9E62980661724600B788A8 /* scrubbar_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubbar_right.png; path = Resources/scrubbar_right.png; sourceTree = "<group>"; };
 		3E9E64800661B95900B788A8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
-		3EB4F72A08F62C37004692D3 /* Useful Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Useful Scripts"; path = "Resources/Useful Scripts"; sourceTree = "<group>"; };
 		3EB4F72F08F62C4C004692D3 /* Default Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Default Scripts"; path = "Resources/Default Scripts"; sourceTree = "<group>"; };
 		3EB7EC5F065F39AA0002A470 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3EB7ECF9065F39BC0002A470 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
@@ -747,17 +728,8 @@
 				69B11C600E5818AF005B3775 /* Preferable.xcodeproj */,
 				69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */,
 				6990B4E00CF0A9D300DA15C2 /* Appscript.xcodeproj */,
-				25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */,
 			);
 			name = "Other Projects";
-			sourceTree = "<group>";
-		};
-		25C5C1E508D4B81400987A95 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				25C5C1E908D4B81400987A95 /* DVDPlayer.nicebundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		25D2E7B407BF36D5004BEF7D /* Scripting */ = {
@@ -828,7 +800,6 @@
 				69257CFD111DD2A700C28210 /* NiceDocument.xib */,
 				25CC00580A315A45002FB428 /* acknowledgements.html */,
 				3EB4F72F08F62C4C004692D3 /* Default Scripts */,
-				3EB4F72A08F62C37004692D3 /* Useful Scripts */,
 				2513CDAE07BC658900BB6055 /* Plugins.rtf */,
 				2513D20407BDA31600BB6055 /* Images */,
 				3E8C96C1073EF4730048CB70 /* doc_icons */,
@@ -1046,7 +1017,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				691F9D590DFF6A3F000FB98B /* PBXTargetDependency */,
 				691F9D610DFF6A3F000FB98B /* PBXTargetDependency */,
 				69B11C3C0E58161A005B3775 /* PBXTargetDependency */,
 				69B11D200E5818DA005B3775 /* PBXTargetDependency */,
@@ -1090,10 +1060,6 @@
 					ProjectRef = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
 				},
 				{
-					ProductGroup = 25C5C1E508D4B81400987A95 /* Products */;
-					ProjectRef = 25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */;
-				},
-				{
 					ProductGroup = 69B11C610E5818AF005B3775 /* Products */;
 					ProjectRef = 69B11C600E5818AF005B3775 /* Preferable.xcodeproj */;
 				},
@@ -1110,13 +1076,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		25C5C1E908D4B81400987A95 /* DVDPlayer.nicebundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DVDPlayer.nicebundle;
-			remoteRef = 25C5C1E808D4B81400987A95 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		6990B4E80CF0A9D300DA15C2 /* Appscript.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1209,7 +1168,6 @@
 				3E918436086E28BA00F4ED34 /* OverPrefIcon.png in Resources */,
 				3EFEF998086E6E50003E05C3 /* nicelist.icns in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
-				3EB4F72E08F62C37004692D3 /* Useful Scripts in Resources */,
 				3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */,
 				697496200B55F7A90030D4D2 /* titlebg.png in Resources */,
 				690B61170B5981A4008D13CE /* flv.icns in Resources */,
@@ -1325,11 +1283,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		691F9D590DFF6A3F000FB98B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DVDPlayer;
-			targetProxy = 691F9D580DFF6A3F000FB98B /* PBXContainerItemProxy */;
-		};
 		691F9D610DFF6A3F000FB98B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Appscript;
