@@ -67,7 +67,6 @@
 }
 
 -(BOOL)openURL:(NSURL *)url;
--(void)switchToPluginClass:(Class)aClass;
 -(BOOL)loadMovie;
 -(void)closeReopen;
 -(void)close;
@@ -108,7 +107,6 @@
 -(void)cancelPreviousPerformRequestsWithSelector:(NSString *)aStringSelector;
 -(void)hideOverlayWithSelector:(NSString *)aStringSelector;
 
--(Class)currentPluginClass;
 -(id)myMenu;
 -(id)menuTitle;
 -(id)pluginMenu;

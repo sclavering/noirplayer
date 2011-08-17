@@ -61,6 +61,4 @@
 
 -(NSString*)name;
 
--(NSArray*)suitablePlugins;
-
 @end

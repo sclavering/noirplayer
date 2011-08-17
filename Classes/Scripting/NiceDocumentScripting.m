@@ -47,7 +47,6 @@
 #import "NiceDocument.h"
 #import "NiceMovie.h"
 #import "NiceDocumentScripting.h"
-#import "NicePlugin.h"
 #import <STEnum/STEnum.h>
 
 id collectMovies(id each, void* context){
@@ -78,17 +77,7 @@ id collectMovies(id each, void* context){
 
 -(NSArray *)niceMovies
 {
-
     return [thePlaylist collectUsingFunction:collectMovies context:(void*)self];
-    
-}
-
--(NicePlugin*)currentPlugin{
-    return [NicePlugin pluginForClass:[theMovieView currentPluginClass]];
-}
-
--(void)setCurrentPlugin:(NicePlugin*)aPlugin{
-    [theMovieView switchToPluginClass:[aPlugin classRep]];
 }
 
 -(NiceMovie*)currentMovie

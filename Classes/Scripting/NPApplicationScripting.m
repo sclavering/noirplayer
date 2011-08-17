@@ -45,11 +45,10 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NPApplicationScripting.h"
-#import "NicePlugin.h"
-#import "NPPluginReader.h"
 #import <STEnum/STEnum.h>
+
 BOOL dectectIdentifier(id each, void* context){
-    return ([[each identifier] isEqualTo:(id)context]);            
+    return ([[each identifier] isEqualTo:(id)context]);
 }
 
 @implementation NPApplication(Scripting)
@@ -62,25 +61,6 @@ BOOL dectectIdentifier(id each, void* context){
     for(i=0;i<[tPlaylist count];i++){
         [tArray addObjectsFromArray:[[tPlaylist objectAtIndex:i] niceMovies]];
     }
-    return tArray;
-}
-
-
--(NSArray*)nicePlugins{
-    NSMutableArray* tArray = [NSMutableArray array];
-    id pluginOrder = [[NPPluginReader pluginReader] cachedPluginOrder];
-    id pluginDict = [[NPPluginReader pluginReader] prefDictionary];
-    
-    unsigned i;
-    for(i = 0; i < [pluginOrder count]; i++){
-	NSDictionary *currentPlugin = [pluginOrder objectAtIndex:i];
-	if(![[currentPlugin objectForKey:@"Chosen"] boolValue])
-	    continue;
-	id pluginClass = [[pluginDict objectForKey:[currentPlugin objectForKey:@"Name"]] objectForKey:@"Class"];
-        
-        [tArray addObject:[NicePlugin pluginForClass:pluginClass]];
-    }
-    
     return tArray;
 }
 

@@ -44,7 +44,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "Preferences.h"
-#import "../Viewer Interface/NPPluginReader.h"
 #import "NPApplication.h"
 
 @implementation Preferences

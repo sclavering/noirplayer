@@ -46,13 +46,14 @@
 
 
 #import "NiceController.h"
-#import "NPPluginReader.h"
 #import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "Preferences.h"
 #import "NiceDocument.h"
 #import <Preferable/Preferable.h>
 #import <STEnum/STEnum.h>
+#import "Viewer Interface/Pluggable Players/RCMovieView.h"
+
 id controller;
 
 BOOL detectIsPlaying(id each, void* context){
@@ -131,9 +132,7 @@ id swapForWindows(id each, void* context){
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
-    
-    return [super runModalOpenPanel:openPanel
-                           forTypes:[[NPPluginReader pluginReader] allowedExtensions]];
+    return [super runModalOpenPanel:openPanel forTypes:[RCMovieView supportedFileExtensions]];
 }
 
 -(void)openURLs:(NSArray *)files

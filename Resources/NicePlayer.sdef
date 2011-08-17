@@ -186,9 +186,6 @@
 				<cocoa key="screens"/>
 				<accessor style="index"/>
 			</element>
-			<element description="loaded plugins" type="plugin" access="r">
-				<cocoa key="nicePlugins"/>
-			</element>
 			<property name="resources posix path" code="NpRp" description="Posix path to bundle resources folder of application" type="text" access="r">
 				<cocoa key="resourcesPath"/>
 			</property>
@@ -236,9 +233,6 @@
 			</property>
 			<property name="identifier" code="npid" description="unique identifier" type="text" access="rw">
 				<cocoa key="identifier"/>
-			</property>
-			<property name="current plugin" code="NpCg" description="Current plugin to view playlist" type="plugin" access="rw">
-				<cocoa key="currentPlugin"/>
 			</property>
 			<responds-to name="play">
 				<cocoa method="play:"/>
@@ -306,9 +300,6 @@
 		</class>
 		<class name="movie" code="NPmv" plural="movies" inherits="item">
 			<cocoa class="NiceMovie"/>
-			<element description="Plugins availble for this movie" type="plugin" access="r">
-				<cocoa key="suitablePlugins"/>
-			</element>
 			<property name="name" code="pnam" description="The movie name" type="text" access="r">
 				<cocoa key="name"/>
 			</property>
@@ -348,19 +339,6 @@
 			</property>
 			<property name="bounds" code="pbnd" type="rectangle" access="r">
 				<cocoa key="boundsAsQDRect"/>
-			</property>
-		</class>
-		<class name="plugin" code="NcPg" plural="plugins" inherits="item">
-			<cocoa class="NicePlugin"/>
-			<property name="name" code="pnam" description="Unique name for plugin" type="text" access="r">
-				<cocoa key="name"/>
-			</property>
-			<property name="human name" code="NpHn" description="Human descriptive name" type="text" access="r">
-				<cocoa key="humanName"/>
-			</property>
-			<property name="file types" code="NfLt" description="Supported file types of plugin" access="r">
-				<cocoa key="fileTypes"/>
-				<type type="text" list="yes"/>
 			</property>
 		</class>
 		<command name="play" code="NIceplay" description="Starts a movie or current movie in a playlist (depending on if you reference the movie or the playlist)">

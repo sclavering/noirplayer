@@ -61,6 +61,8 @@
     NSDictionary* movieCache;
 }
 
++(NSArray *)supportedFileExtensions;
+
 -(double)totalTimePrecise;
 -(long)currentMovieTimePrecise;
 -(void)setCurrentMovieTimePrecise:(long)newMovieTime;

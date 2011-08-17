@@ -48,19 +48,15 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-
-
 #import "NPMovieView.h"
 #import "ControlPlay.h"
-
 #import "NPMovieProtocol.h"
 #import "NiceWindow.h"
 #import "ControlButton.h"
-#import "NPPluginReader.h"
 #import "Preferences.h"
 #import "BlankView.h"
 #import "NiceDocument.h"
-@class NPPluginReader;
+#import "Pluggable Players/RCMovieView.h"
 
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;
@@ -195,32 +191,21 @@
 	[fileExtension retain];
     
     BOOL didOpen = NO;
-    unsigned i;
     NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
-    id pluginOrder = [[NPPluginReader pluginReader] cachedPluginOrder];
-    id pluginDict = [[NPPluginReader pluginReader] prefDictionary];
 	NSException *noLoadException = [NSException exceptionWithName:@"NoLoadPlugin"
 							       reason:@"CouldntLoad"
 							     userInfo:nil];	
-    /* Try to choose the proper plugin by finding out first whether the plugin is enabled, and then if it handles the type. */
-	@try {
-		for(i = 0; (i < [pluginOrder count]) && (didOpen == NO); i++){
-			NSDictionary *currentPlugin = [pluginOrder objectAtIndex:i];
-			if(![[currentPlugin objectForKey:@"Chosen"] boolValue])
-				continue;
 
-			id newViewClass = [[pluginDict objectForKey:[currentPlugin objectForKey:@"Name"]] objectForKey:@"Class"];
-			/* We should change the line below to be more graceful if a plugin can't load. */
-			trueMovieView = [newViewClass alloc];
-			if(!trueMovieView)
-				@throw noLoadException;
-			if([trueMovieView initWithFrame:subview] == nil){   /* This is used by RCMovieView gestalt check for Tiger, fail-safe no-load. */
-			    [trueMovieView release];
-			    trueMovieView = nil;
-			    continue;
-			}
+	@try {
+        trueMovieView = [RCMovieView alloc];
+        if(!trueMovieView)
+            @throw noLoadException;
+        if([trueMovieView initWithFrame:subview] == nil){   /* This is used by RCMovieView gestalt check for Tiger, fail-safe no-load. */
+            [trueMovieView release];
+            trueMovieView = nil;
+        } else {
 			didOpen = [trueMovieView openURL:url];
-		}
+        }
 		if(didOpen){
 			[self addSubview:trueMovieView];
 			if(![self loadMovie])
@@ -249,52 +234,6 @@
     openedURL = nil;
     return didOpen;
 }
-
--(void)switchToPluginClass:(Class)aClass
-{
-    BOOL didOpen = NO;
-    NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
-    id oldClass = [trueMovieView class];
-    double currentMovieTime = [self currentMovieTime];
-    BOOL playingBeforeSwitch = [self isPlaying];
-    NSException *noLoadException = [NSException exceptionWithName:@"NoLoadPlugin"
-							   reason:@"CouldntLoad"
-							 userInfo:nil];	    
-    @try {
-	[self clearTrueMovieView];
-	id newViewClass = aClass;
-	/* We should change the line below to be more graceful if a plugin can't load. */
-	trueMovieView = [newViewClass alloc];
-	if(!trueMovieView)
-	    @throw noLoadException;
-	/* This is used by RCMovieView gestalt check for Tiger, fail-safe no-load. */
-	if([trueMovieView initWithFrame:subview] == nil){
-	    [trueMovieView release];
-	    @throw noLoadException;
-	}
-	if([trueMovieView openURL:openedURL])
-	    [self addSubview:trueMovieView];
-	else
-	    @throw noLoadException;
-	if(![self loadMovie])
-	    @throw noLoadException;
-    }
-    @catch(NSException *exception) {
-	didOpen = NO;
-	if(trueMovieView)
-	    [trueMovieView release];
-	trueMovieView = [[oldClass alloc] initWithFrame:subview];
-	[self addSubview:trueMovieView];
-    }
-    @finally {
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-	[self finalProxyViewLoad];
-	[self setCurrentMovieTime:currentMovieTime];
-	if(playingBeforeSwitch)
-	    [self start];
-    }
-}
-
 
 -(BOOL)loadMovie
 {
@@ -840,10 +779,6 @@ while ((object = [enumerator nextObject])) {
 		[string appendString:@")"];
 	}
 	return string;
-}
-
--(Class)currentPluginClass{
-    return [trueMovieView class];
 }
 
 -(id)pluginMenu

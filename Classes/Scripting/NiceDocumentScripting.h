@@ -46,7 +46,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NiceDocument.h"
-@class NicePlugin;
+
 @interface NiceDocument (NiceDocumentScripting)
 
 -(double)currentMovieDuration;
@@ -59,9 +59,6 @@
 -(NiceMovie*)prevMovie;
 -(NiceMovie*)nextMovie;
 -(int)indexForMovie:(NiceMovie*)aMovie;
-
--(void)setCurrentPlugin:(NicePlugin*)aPlugin;
--(NicePlugin*)currentPlugin;
 
 +(BOOL)accessInstanceVariablesDirectly;
 -(void)handlePlayPauseCommand:(id)sender;

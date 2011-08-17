@@ -63,7 +63,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
  * The keys that should exist are: Name, Class.
  */
  
-+(NSDictionary *)plugInfo;
 +(BOOL)hasConfigurableNib;
 +(id)configureNibView;
 

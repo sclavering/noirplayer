@@ -661,9 +661,9 @@ stuff won't work properly! */
         
         for(i = 0; i < (int)[pluginMenu count]; i++)
             [mSubMenu addItem:[pluginMenu objectAtIndex:i]];*/
-    }[self rebuildPlaylistMenu];
-		[self reloadPlaylist];
-
+    }
+    [self rebuildPlaylistMenu];
+    [self reloadPlaylist];
 }
 
 -(id)window

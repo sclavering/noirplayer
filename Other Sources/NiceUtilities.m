@@ -46,8 +46,9 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NiceUtilities.h"
-#import "NPPluginReader.h"
 #import <STEnum/STEnum.h>
+#import "../Classes/Viewer Interface/Pluggable Players/RCMovieView.h"
+
 id NPConvertFileNamesToURLs(id obj, void* context){
     return [NSURL fileURLWithPath:obj];
 }
@@ -79,18 +80,16 @@ id NPInjectNestedDirectories(id each, id injected, void* verifyBool){
                 [injected addObject:[each stringByDeletingLastPathComponent]];
             } else if([tSubPaths containsObject:@"VIDEO_TS"]){
                 [injected addObject:each];
-            }else{
-
+            } else {
 				BOOL tNestedVerify = YES;
                 tSubPaths = [tSubPaths collectUsingFunction:appendToEach context:(void*)each];
                 injected =[tSubPaths injectUsingFunction:NPInjectNestedDirectories into:injected context:&tNestedVerify];
             }
-
-        }else if(!tVerify || [[[NPPluginReader pluginReader] allowedExtensions] containsObject: NSHFSTypeOfFile(each)] ){
+        } else if(!tVerify || [[RCMovieView supportedFileExtensions] containsObject: NSHFSTypeOfFile(each)]) {
             [injected addObject:each];
         }
-    } else if(!tVerify || [[[NPPluginReader pluginReader] allowedExtensions] containsObject: [each pathExtension]] ){
-            [injected addObject:each];
+    } else if(!tVerify || [[RCMovieView supportedFileExtensions] containsObject: [each pathExtension]]) {
+        [injected addObject:each];
     }
     return injected;
 }

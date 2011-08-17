@@ -19,12 +19,6 @@
 	[self unlockFocus];
 }
 
-
-
-+(NSDictionary *)plugInfo{
-	return [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Empty",	[NSArray arrayWithObject:@""],			nil]
-                                       forKeys:[NSArray arrayWithObjects:@"Name",		@"FileExtensions",	nil]];
-}
 +(BOOL)hasConfigurableNib{
 	return false;
 }

@@ -45,10 +45,10 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "PreferencesController.h"
-#import "../Viewer Interface/NPPluginReader.h"
 #import "NPApplication.h"
 #import "NiceUtilities.h"
 #import <Preferable/Preferable.h>
+
 @implementation PreferencesController
 
 -(void)awakeFromNib
