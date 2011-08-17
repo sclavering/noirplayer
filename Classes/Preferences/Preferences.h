@@ -49,7 +49,6 @@ enum rightClickMoviePrefValues { RIGHT_CLICK_DISPLAY_CONTEXT_MENU, RIGHT_CLICK_P
 enum scrollWheelMoviePrefValues { SCROLL_WHEEL_ADJUSTS_SIZE, SCROLL_WHEEL_ADJUSTS_VOLUME, SCROLL_WHEEL_ADJUSTS_NONE, SCROLL_WHEEL_SCRUBS };
 enum scrollResizePinValues { PIN_LEFT_TOP, PIN_CENTER, PIN_SMART };
 enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
-enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 
 @interface Preferences : NSObject {
 	enum doubleClickMoviePrefValues doubleClickMoviePref;
@@ -58,7 +57,6 @@ enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 	enum scrollWheelMoviePrefValues scrollWheelHorizontalMoviePref;
 	enum scrollResizePinValues scrollResizePin;
 	enum defaultTimeDisplayValues defaultTimeDisplay;
-	enum defaultRepeatModeValues defaultRepeatMode;
 
 	int rrSpeed;
 	int ffSpeed;
@@ -78,7 +76,6 @@ enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 
 +(Preferences *)mainPrefs;
 +(int)defaultTimeDisplayValuesNum;
-+(int)defaultRepeatModeValuesNum;
 
 -(enum doubleClickMoviePrefValues)doubleClickMoviePref;
 -(void)setDoubleClickMoviePref:(enum doubleClickMoviePrefValues)anInt;
@@ -93,8 +90,6 @@ enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 -(void)setScrollResizePin:(enum scrollResizePinValues)anInt;
 -(enum defaultTimeDisplayValues)defaultTimeDisplay;
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
--(enum defaultRepeatModeValues)defaultRepeatMode;
--(void)setDefaultRepeatMode:(enum defaultRepeatModeValues)anInt;
 
 -(int)rrSpeed;
 -(void)setRrSpeed:(int)anInt;

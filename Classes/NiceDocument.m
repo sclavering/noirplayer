@@ -132,13 +132,10 @@ void findSpace(id each, void* context, BOOL* endthis){
     self = [super init];
     if(self){
         hasRealMovie = NO;
-        isRandom = NO;
         asffrrTimer = nil;
         thePlaylist = [[NSMutableArray alloc] init];
 		theDataSourceCache  = [[NSMutableArray alloc] init];
                 theMainItemCache = [[NSMutableDictionary alloc] init];
-		_randomList = [[NSMutableArray alloc] init];
-        theRepeatMode = [[Preferences mainPrefs] defaultRepeatMode];
         movieMenuItem = nil;
         menuObjects = nil;
         playlistFilename = nil;
@@ -173,7 +170,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     [theID release];
 	[theDataSourceCache release];
         [theMainItemCache release];
-	[_randomList release];
     [super dealloc];
 }
 
@@ -201,15 +197,16 @@ void findSpace(id each, void* context, BOOL* endthis){
 - (NSData *)dataRepresentationOfType:(NSString *)aType
 {
     // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
-    
 
-    
-    id tDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:0],@"MajorVersion",
-                                                        [NSNumber numberWithInt:1],@"MinorVersion",
-                                                        [NSDictionary dictionaryWithObjectsAndKeys:[thePlaylist collectUsingFunction:collectURLToStrings context:nil],@"Playlist",
-                                                                                        [NSNumber numberWithFloat:[theMovieView volume]],@"Volume",
-                                                                        [NSNumber numberWithInt:theRepeatMode],@"Repeat",
-                                                                        [NSNumber numberWithBool:isRandom],@"Random",nil],@"Contents",nil];
+    id tDict = [NSDictionary dictionaryWithObjectsAndKeys:
+        [NSNumber numberWithInt:0],@"MajorVersion",
+        [NSNumber numberWithInt:1],@"MinorVersion",
+        [NSDictionary dictionaryWithObjectsAndKeys:
+                [thePlaylist collectUsingFunction:collectURLToStrings context:nil], @"Playlist",
+                [NSNumber numberWithFloat:[theMovieView volume]], @"Volume",
+                nil
+            ], @"Contents",
+            nil];
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
     
@@ -357,7 +354,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 	[thePlaylistTable setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
     [thePlaylistTable setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
 	
-    [self refreshRepeatModeGUI];
     [self calculateAspectRatio];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [[self window] updateVolume];
@@ -426,12 +422,10 @@ void findSpace(id each, void* context, BOOL* endthis){
  */
 -(void)movieHasEnded
 {
-    if( (theRepeatMode == REPEAT_LIST) || (theRepeatMode == REPEAT_NONE)){
-        [[theWindow playButton] setImage:[NSImage imageNamed:@"play"]];
-        [[theWindow playButton] setAlternateImage:[NSImage imageNamed:@"playClick"]];
-        if([theMovieView wasPlaying] && ![(NiceWindow*)[self window] scrubberInUse])
-            [self playNext];
-    }
+    [[theWindow playButton] setImage:[NSImage imageNamed:@"play"]];
+    [[theWindow playButton] setAlternateImage:[NSImage imageNamed:@"playClick"]];
+    if([theMovieView wasPlaying] && ![(NiceWindow*)[self window] scrubberInUse])
+        [self playNext];
 }
 
 -(NSMenu *)movieMenu
@@ -447,12 +441,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 
 -(IBAction)switchPlaylistItem:(NSMenuItem*)sender{
 	[self playAtIndex:[[sender representedObject] unsignedIntValue] obeyingPreviousState:YES];
-}
-
--(IBAction)switchRepeatMode:(NSMenuItem*)sender{
-	theRepeatMode =[[sender representedObject] intValue];
-	[self refreshRepeatModeGUI];
-	
 }
 
 -(NSArray*)playlistMenuItems{
@@ -479,8 +467,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 
 -(NSArray*)BasicPlaylistMenuItems{
 		NSMutableArray* tArray = [NSMutableArray array];
-
-	[tArray addObject:[self playOrderMenu]];
 
 	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
 	[tItem setTitle:NSLocalizedString(@"Previous",@"Previous menu item")];
@@ -509,10 +495,7 @@ void findSpace(id each, void* context, BOOL* endthis){
 
 	[tArray addObject:[self volumeMenu]];
 	
-		[tArray addObject:[NSMenuItem separatorItem]];
-
-
-	[tArray addObject:[self playOrderMenu]];
+    [tArray addObject:[NSMenuItem separatorItem]];
 
 	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
 	[tItem setTitle:NSLocalizedString(@"Previous",@"Previous menu item")];
@@ -537,57 +520,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 	
 	
 	return tArray;
-}
-
--(NSMenuItem*)playOrderMenu{
-	NSMenuItem* tHeading = [[[NSMenuItem alloc] init] autorelease];
-	[tHeading setTitle:NSLocalizedString(@"Play Order",@"Play Order Menu item")];
-
-	NSMenu* tMenu = [[[NSMenu alloc] init] autorelease];
-	
-	
-	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Randomized",@"Randomized menu item")];
-	[tItem setState:isRandom];
-	[tItem setTarget:self];
-	[tItem setAction:@selector(toggleRandomMode:)];
-	[tMenu addItem:tItem];
-	
-	[tMenu addItem:[NSMenuItem separatorItem]];
-
-	
-	tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"No Repeat Volume",@"No Repeat Volume menu item")];
-	[tItem setState:theRepeatMode == REPEAT_NONE];
-	[tItem setTarget:self];
-	[tItem setRepresentedObject:[NSNumber numberWithInt:REPEAT_NONE]];
-	[tItem setAction:@selector(switchRepeatMode:)];
-	[tMenu addItem:tItem];
-	
-	tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Repeat One",@"Repeat One Volume menu item")];
-		[tItem setState:theRepeatMode == REPEAT_ONE];
-
-	[tItem setTarget:self];
-		[tItem setRepresentedObject:[NSNumber numberWithInt:REPEAT_ONE]];
-
-	[tItem setAction:@selector(switchRepeatMode:)];
-	[tMenu addItem:tItem];
-	
-		tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Repeat All",@"Repeat All Volume menu item")];
-	[tItem setTarget:self];
-			[tItem setRepresentedObject:[NSNumber numberWithInt:REPEAT_LIST]];
-					[tItem setState:theRepeatMode == REPEAT_LIST];
-
-
-	[tItem setAction:@selector(switchRepeatMode:)];
-	[tMenu addItem:tItem];
-	
-
-	[tHeading setSubmenu:tMenu];
-
-	return tHeading;
 }
 
 -(IBAction)switchVolume:(NSMenuItem*)sender{
@@ -747,75 +679,7 @@ stuff won't work properly! */
 	return aSize;
 }
 
--(void)resetRandom{
-	if( [thePlaylist count] <= 1)
-		return;
-	[_randomList removeAllObjects];
-	id tArray = [NSMutableArray arrayWithNumbersForRange:NSMakeRange(0, [thePlaylist count])];	
-	NSUInteger tCurrent =[thePlaylist indexOfObject:theCurrentURL];
-	[tArray removeObjectAtIndex:tCurrent];
-	[_randomList addObject:[NSNumber numberWithInt:tCurrent]];
-	_randomIndex =0;
-	while([tArray count]>1){
-		int i = ((float)random()/RAND_MAX) * [tArray count]; 
-		id tItem = [tArray objectAtIndex:i];
-		[_randomList addObject:tItem];
-		[tArray removeObjectAtIndex:i];
-	}
-	 [_randomList addObject:[tArray lastObject]];
-
-}
-
 #pragma mark Interface
-
--(IBAction)toggleRandomMode:(id)sender
-{
-	
-    if(isRandom)
-        isRandom = NO;
-    else{
-        isRandom = YES;
-		[self resetRandom];
-	}
-		
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-
-}
-
-
--(IBAction)toggleRepeatMode:(id)sender
-{
-    theRepeatMode = (theRepeatMode + 1) % [Preferences defaultRepeatModeValuesNum];
-    
-    [self refreshRepeatModeGUI];
-}
-
-/**
-* Sets the image for the current repeat mode.
- */
--(void)refreshRepeatModeGUI
-{
-    switch(theRepeatMode){
-        case REPEAT_LIST:
-            [theRepeatButton setImage:[NSImage imageNamed:@"repeat_list"]];
-            [theMovieView setLoopMode: NSQTMovieNormalPlayback];
-            break;
-        case REPEAT_ONE:
-            [theRepeatButton setImage:[NSImage imageNamed:@"repeat_one"]];
-            [theMovieView setLoopMode: NSQTMovieLoopingPlayback];
-            break;
-        case REPEAT_NONE:
-            [theRepeatButton setImage:[NSImage imageNamed:@"repeat_none"]];
-            [theMovieView setLoopMode: NSQTMovieNormalPlayback];
-            break;
-    }
-	
-	[theRandomButton setState:isRandom ? NSOnState : NSOffState];
-
-	
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-
-}
 
 -(void)play:(id)sender
 {
@@ -841,25 +705,9 @@ stuff won't work properly! */
 -(unsigned)getNextIndex
 {
     unsigned int anIndex = [thePlaylist indexOfObject:theCurrentURL];
-    
     if([thePlaylist isEmpty])
         return -1;
-    
-    if(isRandom){
-		if(!(_randomIndex < [_randomList count] -1)){
-			if (REPEAT_LIST == theRepeatMode){
-				[self resetRandom];
-			}else {
-			    return -1;
-			}
-		}
-		_randomIndex++;
-
-		anIndex = [[_randomList objectAtIndex:_randomIndex] unsignedIntValue];
-    }else{
-        anIndex++;
-    }
-    
+    anIndex++;
     return anIndex;
 }
 
@@ -868,14 +716,9 @@ stuff won't work properly! */
 {	
     int anIndex = [self getNextIndex];
     
-    if(anIndex >= (int)[thePlaylist count]){
-        if(REPEAT_LIST == theRepeatMode){
-            anIndex = 0;
-        } else {
-            if([[Preferences mainPrefs] windowLeaveFullScreen] && [[self window] isFullScreen])
-                [[self window] unFullScreen];
-        }
-    }
+    if(anIndex >= (int)[thePlaylist count])
+        if([[Preferences mainPrefs] windowLeaveFullScreen] && [[self window] isFullScreen])
+            [[self window] unFullScreen];
     
     if( (anIndex >= 0) && (anIndex < (int)[thePlaylist count])){
         [self playAtIndex:anIndex obeyingPreviousState:YES];
@@ -890,28 +733,11 @@ stuff won't work properly! */
 -(unsigned)getPrevIndex
 {
     int anIndex = [thePlaylist indexOfObject:theCurrentURL];
-    
-	if(isRandom && [_randomList count] !=0){
-		if(_randomIndex == 0){
-			if (REPEAT_LIST == theRepeatMode){
-				_randomIndex = [_randomList count];
-			}else {
-			    return -1;
-			}
-		}
-		_randomIndex--;
-		anIndex = [[_randomList objectAtIndex:_randomIndex] unsignedIntValue];
-	
-		return anIndex;
-    }
-	
-	
-    if(anIndex ==0){
+    if(!anIndex) {
         if ([thePlaylist isEmpty])
             return -1;
         anIndex = [thePlaylist count];   
     }
-    
     return anIndex -1;
 }
 
@@ -1116,18 +942,11 @@ stuff won't work properly! */
                 [playlistFilename release];
                 playlistFilename = [aURL retain];
                 [self setFileURL:playlistFilename];
-                
 
-                
-                
                 [thePlaylist release];
                 thePlaylist = [[[[plist objectForKey:@"Contents"] objectForKey:@"Playlist"] collectUsingFunction:collectStringsToURLs context:nil]  mutableCopy];
-                theRepeatMode = [[[plist objectForKey:@"Contents"] objectForKey:@"Repeat"] intValue];
-                isRandom  = [[[plist objectForKey:@"Contents"] objectForKey:@"Random"] intValue];
                 [self loadURL:[thePlaylist firstObject] firstTime:YES];
-				[self resetRandom];
-                [self refreshRepeatModeGUI];
-					[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
                 [theMovieView setVolume: [[[plist objectForKey:@"Contents"] objectForKey:@"Volume"] floatValue]];
                 [[self window] updateVolume];
 

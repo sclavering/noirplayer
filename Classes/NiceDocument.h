@@ -58,16 +58,12 @@
     IBOutlet NPMovieView *theMovieView;
     IBOutlet id thePlaylistDrawer;
     IBOutlet id thePlaylistTable;
-    IBOutlet id theRepeatButton;
 	IBOutlet id theRandomButton;
     IBOutlet NiceWindow *theWindow;
     NSURL* theCurrentURL;
-	unsigned int _randomIndex;
-	NSMutableArray* _randomList;
     NSMutableArray* thePlaylist;
 	NSMutableArray* theDataSourceCache;
         NSMutableDictionary* theMainItemCache;
-    enum defaultRepeatModeValues theRepeatMode;
     id movieMenuItem;
     NSMutableArray *menuObjects;
     id asffrrTimer;
@@ -75,7 +71,6 @@
     NSString* theID;
     
     BOOL hasRealMovie;
-    BOOL isRandom;
     BOOL wasPlayingBeforeMini;	
 }
 
@@ -98,7 +93,6 @@
 -(void)rebuildMenu;
 -(id)window;
 -(NSSize)calculateAspectRatio;
--(NSMenuItem*)playOrderMenu;
 -(NSArray*)FullPlaylistMenuItems;
 -(NSArray*)BasicPlaylistMenuItems;
 -(NSArray*)playlistMenuItems;
@@ -106,15 +100,11 @@
 
 #pragma mark Interface
 
--(IBAction)toggleRandomMode:(id)sender;
--(IBAction)toggleRepeatMode:(id)sender;
--(IBAction)switchRepeatMode:(NSMenuItem*)sender;
 -(IBAction)switchVolume:(NSMenuItem*)sender;
 -(IBAction)mute:(id)sender;
 -(IBAction)increaseVolume:(id)sender;
 -(IBAction)decreaseVolume:(id)sender;
 -(IBAction)switchPlaylistItem:(NSMenuItem*)sender;
--(void)refreshRepeatModeGUI;
 -(void)play:(id)sender;
 -(void)playNext:(id)sender;
 -(void)playPrev:(id)sender;

@@ -63,7 +63,6 @@
 	IBOutlet id scrollWheelHorizontalMoviePref;
     IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
-    IBOutlet id defaultRepeatMode;
     
     IBOutlet id rrSpeedSlider;
     IBOutlet id ffSpeedSlider;
@@ -87,7 +86,6 @@
 -(IBAction)scrollWheelHorizontalMoviePref:(id)sender;
 -(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
--(IBAction)defaultRepeatMode:(id)sender;
 
 -(IBAction)rrSpeed:(id)sender;
 -(IBAction)ffSpeed:(id)sender;

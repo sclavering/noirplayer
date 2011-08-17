@@ -1546,11 +1546,6 @@
 						<reference key="parent" ref="262009943"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">143</int>
-						<reference key="object" ref="44177076"/>
-						<reference key="parent" ref="262009943"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">144</int>
 						<reference key="object" ref="396451882"/>
 						<reference key="parent" ref="262009943"/>
@@ -1578,16 +1573,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">298</int>
 						<reference key="object" ref="89171845"/>
-						<reference key="parent" ref="262009943"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">299</int>
-						<reference key="object" ref="955501959"/>
-						<reference key="parent" ref="262009943"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">300</int>
-						<reference key="object" ref="682954828"/>
 						<reference key="parent" ref="262009943"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1715,28 +1700,8 @@
 						<reference key="parent" ref="121912723"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">304</int>
-						<reference key="object" ref="326480233"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">313</int>
-						<reference key="object" ref="102928745"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">349</int>
-						<reference key="object" ref="808663798"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">355</int>
 						<reference key="object" ref="454682005"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">362</int>
-						<reference key="object" ref="295913487"/>
 						<reference key="parent" ref="121912723"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1779,11 +1744,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">158</int>
 						<reference key="object" ref="510563379"/>
-						<reference key="parent" ref="887747405"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">160</int>
-						<reference key="object" ref="1010580624"/>
 						<reference key="parent" ref="887747405"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -2024,6 +1984,46 @@
 						<int key="objectID">77</int>
 						<reference key="object" ref="1007500956"/>
 						<reference key="parent" ref="65842283"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">160</int>
+						<reference key="object" ref="1010580624"/>
+						<reference key="parent" ref="887747405"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">349</int>
+						<reference key="object" ref="808663798"/>
+						<reference key="parent" ref="121912723"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">362</int>
+						<reference key="object" ref="295913487"/>
+						<reference key="parent" ref="121912723"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">313</int>
+						<reference key="object" ref="102928745"/>
+						<reference key="parent" ref="121912723"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">304</int>
+						<reference key="object" ref="326480233"/>
+						<reference key="parent" ref="121912723"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">143</int>
+						<reference key="object" ref="44177076"/>
+						<reference key="parent" ref="262009943"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">300</int>
+						<reference key="object" ref="682954828"/>
+						<reference key="parent" ref="262009943"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">299</int>
+						<reference key="object" ref="955501959"/>
+						<reference key="parent" ref="262009943"/>
 					</object>
 				</object>
 			</object>
@@ -2441,73 +2441,6 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">NSDocument</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>printDocument:</string>
-							<string>revertDocumentToSaved:</string>
-							<string>runPageLayout:</string>
-							<string>saveDocument:</string>
-							<string>saveDocumentAs:</string>
-							<string>saveDocumentTo:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>printDocument:</string>
-							<string>revertDocumentToSaved:</string>
-							<string>runPageLayout:</string>
-							<string>saveDocument:</string>
-							<string>saveDocumentAs:</string>
-							<string>saveDocumentTo:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">printDocument:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">revertDocumentToSaved:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">runPageLayout:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">saveDocument:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">saveDocumentAs:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">saveDocumentTo:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/NSDocument.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">NiceController</string>
 					<string key="superclassName">NSDocumentController</string>
 					<object class="NSMutableDictionary" key="actions">
@@ -2665,11 +2598,8 @@
 							<string>openPlaylistDrawer:</string>
 							<string>openPlaylistDrawerConditional:</string>
 							<string>switchPlaylistItem:</string>
-							<string>switchRepeatMode:</string>
 							<string>switchVolume:</string>
 							<string>togglePlaylistDrawer:</string>
-							<string>toggleRandomMode:</string>
-							<string>toggleRepeatMode:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2683,9 +2613,6 @@
 							<string>id</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
-							<string>NSMenuItem</string>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 						</object>
 					</object>
@@ -2702,11 +2629,8 @@
 							<string>openPlaylistDrawer:</string>
 							<string>openPlaylistDrawerConditional:</string>
 							<string>switchPlaylistItem:</string>
-							<string>switchRepeatMode:</string>
 							<string>switchVolume:</string>
 							<string>togglePlaylistDrawer:</string>
-							<string>toggleRandomMode:</string>
-							<string>toggleRepeatMode:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2747,23 +2671,11 @@
 								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">switchRepeatMode:</string>
-								<string key="candidateClassName">NSMenuItem</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">switchVolume:</string>
 								<string key="candidateClassName">NSMenuItem</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">togglePlaylistDrawer:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">toggleRandomMode:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">toggleRepeatMode:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -2776,13 +2688,11 @@
 							<string>thePlaylistDrawer</string>
 							<string>thePlaylistTable</string>
 							<string>theRandomButton</string>
-							<string>theRepeatButton</string>
 							<string>theWindow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NPMovieView</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2797,7 +2707,6 @@
 							<string>thePlaylistDrawer</string>
 							<string>thePlaylistTable</string>
 							<string>theRandomButton</string>
-							<string>theRepeatButton</string>
 							<string>theWindow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -2816,10 +2725,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theRandomButton</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theRepeatButton</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

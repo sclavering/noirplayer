@@ -96,7 +96,6 @@
 	[scrollWheelHorizontalMoviePref selectItemWithTag:[[Preferences mainPrefs] scrollWheelHorizontalMoviePref]];
 	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
-	[defaultRepeatMode selectItemAtIndex:[[Preferences mainPrefs] defaultRepeatMode]];
 
         id aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
             ([[Preferences mainPrefs] rrSpeed]- [[NSTimeZone localTimeZone] secondsFromGMTForDate:
@@ -151,11 +150,6 @@
 -(IBAction)defaultTimeDisplay:(id)sender
 {
 	[[Preferences mainPrefs] setDefaultTimeDisplay:[sender indexOfSelectedItem]];
-}
-
--(IBAction)defaultRepeatMode:(id)sender
-{
-	[[Preferences mainPrefs] setDefaultRepeatMode:[sender indexOfSelectedItem]];
 }
 
 #pragma mark -

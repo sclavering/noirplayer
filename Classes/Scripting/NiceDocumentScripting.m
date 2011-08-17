@@ -114,14 +114,9 @@ id collectMovies(id each, void* context){
 -(NiceMovie*)nextMovie
 {
     unsigned anIndex =  [self getNextIndex];
-    if(anIndex >= [thePlaylist count] && REPEAT_LIST == theRepeatMode)
-        anIndex = 0;
-    
-    if((anIndex >= 0) && (anIndex < [thePlaylist count])){
+    if(anIndex >= 0 && anIndex < [thePlaylist count])
         return [NiceMovie movieWithURL:[thePlaylist objectAtIndex:anIndex] andPlaylist:self];
-    }else{
-        return nil;
-    }
+    return nil;
 }
 
 -(int)indexForMovie:(NiceMovie*)aMovie

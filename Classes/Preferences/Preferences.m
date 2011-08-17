@@ -73,11 +73,6 @@
 	return 2;
 }
 
-+(int)defaultRepeatModeValuesNum;
-{
-	return 3;
-}
-
 -(id)init
 {
 	if((self = [super init])){
@@ -91,7 +86,6 @@
 		else
 		    scrollResizePin = [[NSUserDefaults standardUserDefaults] integerForKey:@"scrollResizePin"];
 		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
-		defaultRepeatMode = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultRepeatMode"];
 
 		rrSpeed = ([[NSUserDefaults standardUserDefaults] integerForKey:@"rrSpeed"] == 0)
 			? 5 
@@ -187,17 +181,6 @@
 {
 	defaultTimeDisplay = anInt;
 	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultTimeDisplay"];
-}
-
--(enum defaultRepeatModeValues)defaultRepeatMode
-{
-	return defaultRepeatMode;
-}
-
--(void)setDefaultRepeatMode:(enum defaultRepeatModeValues)anInt
-{
-	defaultRepeatMode = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultRepeatMode"];
 }
 
 #pragma mark -
