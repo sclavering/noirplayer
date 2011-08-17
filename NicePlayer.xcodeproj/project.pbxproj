@@ -11,7 +11,6 @@
 		2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */; };
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
 		2513D00407BC659800BB6055 /* Plugins.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2513CDAE07BC658900BB6055 /* Plugins.rtf */; };
-		2513D2F507BDAC4200BB6055 /* FadeOut.h in Headers */ = {isa = PBXBuildFile; fileRef = 2513D2F307BDAC4200BB6055 /* FadeOut.h */; };
 		2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2513D30507BDACA700BB6055 /* NicePlayer.sdef */; };
 		251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 251FBBDF07BC201900D147E5 /* NiceDrawer.h */; };
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
@@ -337,8 +336,6 @@
 		2510A2390B04B53D00CA8110 /* DelegateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DelegateAnimation.h; path = Classes/DelegateAnimation.h; sourceTree = "<group>"; };
 		2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DelegateAnimation.m; path = Classes/DelegateAnimation.m; sourceTree = "<group>"; };
 		2513CDAE07BC658900BB6055 /* Plugins.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = Plugins.rtf; path = Documents/Plugins.rtf; sourceTree = "<group>"; };
-		2513D2F307BDAC4200BB6055 /* FadeOut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FadeOut.h; path = Classes/FadeOut.h; sourceTree = "<group>"; };
-		2513D2F407BDAC4200BB6055 /* FadeOut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FadeOut.m; path = Classes/FadeOut.m; sourceTree = "<group>"; };
 		2513D30507BDACA700BB6055 /* NicePlayer.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NicePlayer.sdef; path = Resources/NicePlayer.sdef; sourceTree = SOURCE_ROOT; };
 		251FBBDF07BC201900D147E5 /* NiceDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceDrawer.h; path = Classes/NiceWindow/NiceDrawer.h; sourceTree = "<group>"; };
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
@@ -838,8 +835,6 @@
 				257D61370753F45800702BD0 /* Viewer Interface */,
 				3E8C9A93074D78350048CB70 /* Subtitle.h */,
 				3E8C9A94074D78350048CB70 /* Subtitle.m */,
-				2513D2F307BDAC4200BB6055 /* FadeOut.h */,
-				2513D2F407BDAC4200BB6055 /* FadeOut.m */,
 				252BD45D07697C6A006CF96B /* Document/Window */,
 				257029C50734D15000967356 /* Preferences */,
 				25B912D707416725001B68D9 /* Overlay Widgets */,
@@ -1041,7 +1036,6 @@
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				25E10911076CF11100042500 /* PrefPluginConfig.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
-				2513D2F507BDAC4200BB6055 /* FadeOut.h in Headers */,
 				253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */,
 				253C064D07C0891300172C2F /* ResizeTriangle.h in Headers */,
 				3EF158CB07C7F9CA00AE56D7 /* NiceMovie.h in Headers */,
