@@ -69,6 +69,15 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
+								<object class="NSMenuItem" id="454682005">
+									<reference key="NSMenu" ref="262009943"/>
+									<string key="NSTitle">Acknowlegements</string>
+									<string key="NSKeyEquiv"/>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1056899151"/>
+									<reference key="NSMixedImage" ref="839886485"/>
+								</object>
 								<object class="NSMenuItem" id="881218688">
 									<reference key="NSMenu" ref="262009943"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -90,35 +99,6 @@
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
 								<object class="NSMenuItem" id="89171845">
-									<reference key="NSMenu" ref="262009943"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="955501959">
-									<reference key="NSMenu" ref="262009943"/>
-									<string key="NSTitle">NicePlayer Web Site</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="682954828">
-									<reference key="NSMenu" ref="262009943"/>
-									<string key="NSTitle">Donate to NicePlayer Project</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="44177076">
 									<reference key="NSMenu" ref="262009943"/>
 									<bool key="NSIsDisabled">YES</bool>
 									<bool key="NSIsSeparator">YES</bool>
@@ -824,82 +804,6 @@
 						<int key="NSMnemonicLoc">2147483647</int>
 						<reference key="NSOnImage" ref="1056899151"/>
 						<reference key="NSMixedImage" ref="839886485"/>
-						<string key="NSAction">submenuAction:</string>
-						<object class="NSMenu" key="NSSubmenu" id="121912723">
-							<object class="NSMutableString" key="NSTitle">
-								<characters key="NS.bytes">Help</characters>
-							</object>
-							<object class="NSMutableArray" key="NSMenuItems">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSMenuItem" id="291436679">
-									<reference key="NSMenu" ref="121912723"/>
-									<string key="NSTitle">NicePlayer Help</string>
-									<string key="NSKeyEquiv">?</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="728610963">
-									<reference key="NSMenu" ref="121912723"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="326480233">
-									<reference key="NSMenu" ref="121912723"/>
-									<string key="NSTitle">   Submit Bugs</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="102928745">
-									<reference key="NSMenu" ref="121912723"/>
-									<string key="NSTitle">   Submit Feature Request</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="295913487">
-									<reference key="NSMenu" ref="121912723"/>
-									<string key="NSTitle">   NicePlayer-Discuss Group</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="808663798">
-									<reference key="NSMenu" ref="121912723"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="454682005">
-									<reference key="NSMenu" ref="121912723"/>
-									<string key="NSTitle">Acknowlegements</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-							</object>
-						</object>
 					</object>
 				</object>
 				<string key="NSName">_NSMainMenu</string>
@@ -1227,38 +1131,6 @@
 					<int key="connectionID">287</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">visitNicePlayerWebSite:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="955501959"/>
-					</object>
-					<int key="connectionID">314</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">donateToNicePlayer:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="682954828"/>
-					</object>
-					<int key="connectionID">316</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">submitBug:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="326480233"/>
-					</object>
-					<int key="connectionID">318</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">featureRequest:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="102928745"/>
-					</object>
-					<int key="connectionID">319</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">toggleFixedAspectMenuItem</string>
 						<reference key="source" ref="836321935"/>
@@ -1297,14 +1169,6 @@
 						<reference key="destination" ref="454682005"/>
 					</object>
 					<int key="connectionID">356</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">disccusionGroup:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="295913487"/>
-					</object>
-					<int key="connectionID">363</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1361,14 +1225,6 @@
 						<reference key="destination" ref="283267937"/>
 					</object>
 					<int key="connectionID">454</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">customHelp:</string>
-						<reference key="source" ref="882128359"/>
-						<reference key="destination" ref="291436679"/>
-					</object>
-					<int key="connectionID">475</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1499,15 +1355,13 @@
 							<reference ref="643055573"/>
 							<reference ref="182713153"/>
 							<reference ref="700261071"/>
-							<reference ref="44177076"/>
 							<reference ref="396451882"/>
 							<reference ref="773835223"/>
 							<reference ref="161950244"/>
 							<reference ref="510562411"/>
 							<reference ref="881218688"/>
 							<reference ref="89171845"/>
-							<reference ref="955501959"/>
-							<reference ref="682954828"/>
+							<reference ref="454682005"/>
 						</object>
 						<reference key="parent" ref="769076949"/>
 					</object>
@@ -1670,39 +1524,8 @@
 						<reference key="object" ref="511920714"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="121912723"/>
 						</object>
 						<reference key="parent" ref="236746400"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">106</int>
-						<reference key="object" ref="121912723"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="291436679"/>
-							<reference ref="728610963"/>
-							<reference ref="326480233"/>
-							<reference ref="102928745"/>
-							<reference ref="808663798"/>
-							<reference ref="454682005"/>
-							<reference ref="295913487"/>
-						</object>
-						<reference key="parent" ref="511920714"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">111</int>
-						<reference key="object" ref="291436679"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">301</int>
-						<reference key="object" ref="728610963"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">355</int>
-						<reference key="object" ref="454682005"/>
-						<reference key="parent" ref="121912723"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">163</int>
@@ -1991,38 +1814,8 @@
 						<reference key="parent" ref="887747405"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">349</int>
-						<reference key="object" ref="808663798"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">362</int>
-						<reference key="object" ref="295913487"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">313</int>
-						<reference key="object" ref="102928745"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">304</int>
-						<reference key="object" ref="326480233"/>
-						<reference key="parent" ref="121912723"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">143</int>
-						<reference key="object" ref="44177076"/>
-						<reference key="parent" ref="262009943"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">300</int>
-						<reference key="object" ref="682954828"/>
-						<reference key="parent" ref="262009943"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">299</int>
-						<reference key="object" ref="955501959"/>
+						<int key="objectID">355</int>
+						<reference key="object" ref="454682005"/>
 						<reference key="parent" ref="262009943"/>
 					</object>
 				</object>
@@ -2035,8 +1828,6 @@
 					<string>-2.IBPluginDependency</string>
 					<string>-3.IBPluginDependency</string>
 					<string>103.IBPluginDependency</string>
-					<string>106.IBPluginDependency</string>
-					<string>111.IBPluginDependency</string>
 					<string>124.IBPluginDependency</string>
 					<string>125.IBPluginDependency</string>
 					<string>126.IBPluginDependency</string>
@@ -2045,7 +1836,6 @@
 					<string>131.IBPluginDependency</string>
 					<string>134.IBPluginDependency</string>
 					<string>136.IBPluginDependency</string>
-					<string>143.IBPluginDependency</string>
 					<string>144.IBPluginDependency</string>
 					<string>145.IBPluginDependency</string>
 					<string>149.IBPluginDependency</string>
@@ -2097,16 +1887,9 @@
 					<string>294.IBPluginDependency</string>
 					<string>296.IBPluginDependency</string>
 					<string>298.IBPluginDependency</string>
-					<string>299.IBPluginDependency</string>
-					<string>300.IBPluginDependency</string>
-					<string>301.IBPluginDependency</string>
-					<string>304.IBPluginDependency</string>
-					<string>313.IBPluginDependency</string>
 					<string>322.IBPluginDependency</string>
 					<string>348.IBPluginDependency</string>
-					<string>349.IBPluginDependency</string>
 					<string>355.IBPluginDependency</string>
-					<string>362.IBPluginDependency</string>
 					<string>366.IBPluginDependency</string>
 					<string>367.IBPluginDependency</string>
 					<string>369.IBPluginDependency</string>
@@ -2131,16 +1914,6 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2343,27 +2116,11 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>customHelp:</string>
-							<string>disccusionGroup:</string>
-							<string>donateToNicePlayer:</string>
 							<string>emailAuthor:</string>
-							<string>featureRequest:</string>
-							<string>onlineSupportWikiFAQ:</string>
-							<string>submitBug:</string>
 							<string>visitAcknowlegementsPage:</string>
-							<string>visitNicePlayerWebSite:</string>
-							<string>visitProjectRoadmap:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -2372,57 +2129,17 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>customHelp:</string>
-							<string>disccusionGroup:</string>
-							<string>donateToNicePlayer:</string>
 							<string>emailAuthor:</string>
-							<string>featureRequest:</string>
-							<string>onlineSupportWikiFAQ:</string>
-							<string>submitBug:</string>
 							<string>visitAcknowlegementsPage:</string>
-							<string>visitNicePlayerWebSite:</string>
-							<string>visitProjectRoadmap:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">customHelp:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">disccusionGroup:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">donateToNicePlayer:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">emailAuthor:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">featureRequest:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">onlineSupportWikiFAQ:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">submitBug:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">visitAcknowlegementsPage:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">visitNicePlayerWebSite:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">visitProjectRoadmap:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
