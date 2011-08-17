@@ -256,12 +256,6 @@
     return didOpen;
 }
 
--(void)switchToPlugin:(id)sender
-{
-    [self switchToPluginClass:[sender representedObject]];
-}
-
-
 -(void)switchToPluginClass:(Class)aClass
 {
     BOOL didOpen = NO;
@@ -860,57 +854,7 @@ while ((object = [enumerator nextObject])) {
 
 -(id)pluginMenu
 {
-    NSMutableArray *menuArray = [trueMovieView pluginMenu];
-    if(!menuArray)
-	menuArray = [NSMutableArray array];
-    else
-	[menuArray addObject:[NSMenuItem separatorItem]];
-    
-    NSMenu *choiceMenu = [[[NSMenu alloc] init] autorelease];
-    NSMenu *allChoiceMenu = [[[NSMenu alloc] init] autorelease];
-    id newItem;
-    
-    id pluginOrder = [[NPPluginReader pluginReader] cachedPluginOrder];
-    id pluginDict = [[NPPluginReader pluginReader] prefDictionary];
-    
-    unsigned i;
-    for(i = 0; i < [pluginOrder count]; i++){
-	NSDictionary *currentPlugin = [pluginOrder objectAtIndex:i];
-	if(![[currentPlugin objectForKey:@"Chosen"] boolValue])
-	    continue;
-	id pluginClass = [[pluginDict objectForKey:[currentPlugin objectForKey:@"Name"]] objectForKey:@"Class"];
-	NSArray *typeArray = [[pluginClass plugInfo] objectForKey:@"FileExtensions"];
-	newItem = [[[NSMenuItem alloc] initWithTitle:[currentPlugin objectForKey:@"Name"]
-					      action:@selector(switchToPlugin:)
-				       keyEquivalent:@""] autorelease];
-	[newItem setTarget:self];
-	[newItem setRepresentedObject:pluginClass];
-	if([pluginClass isEqualTo:[trueMovieView class]])
-	    [newItem setState:NSOnState];
-	
-	if((fileType && [typeArray containsObject:fileType])
-	   || (fileExtension && [typeArray containsObject:fileExtension])){
-	    [choiceMenu addItem:newItem];
-	}
-	[allChoiceMenu addItem:[[newItem copy]autorelease]];
-    }
-
-    /* Create head object. */
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Switch Plugin to..."
-					  action:nil
-				   keyEquivalent:@""] autorelease];
-    [newItem setSubmenu:choiceMenu];
-    [menuArray addObject:newItem];
-    
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Switch Plugin to (all)..."
-					  action:nil
-				   keyEquivalent:@""] autorelease];
-    [newItem setSubmenu:allChoiceMenu];
-    [newItem setAlternate:YES];
-    [newItem setKeyEquivalentModifierMask:NSAlternateKeyMask];
-    [menuArray addObject:newItem];
-    
-    return menuArray;
+    return [trueMovieView pluginMenu];
 }
 
 -(id)contextualMenu

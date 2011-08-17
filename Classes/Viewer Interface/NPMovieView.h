@@ -69,7 +69,6 @@
 +(id)blankImage;
 
 -(BOOL)openURL:(NSURL *)url;
--(void)switchToPlugin:(id)sender;
 -(void)switchToPluginClass:(Class)aClass;
 -(BOOL)loadMovie;
 -(void)closeReopen;
