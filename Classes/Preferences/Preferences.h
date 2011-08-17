@@ -71,7 +71,6 @@ enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 	BOOL windowAlwaysOnTop;
 	BOOL windowLeaveFullScreen;
 	
-	BOOL disableAppleRemote;
 	float opacityWhenWindowIsTransparent;
 	
 	NSMutableArray *viewerPluginPrefs;
@@ -96,8 +95,6 @@ enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 -(enum defaultRepeatModeValues)defaultRepeatMode;
 -(void)setDefaultRepeatMode:(enum defaultRepeatModeValues)anInt;
--(BOOL)disableAppleRemote;
--(void)setDisableAppleRemote:(BOOL)aBool;
 
 -(int)rrSpeed;
 -(void)setRrSpeed:(int)anInt;

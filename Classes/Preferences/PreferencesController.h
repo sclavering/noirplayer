@@ -64,7 +64,6 @@
     IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
     IBOutlet id defaultRepeatMode;
-    IBOutlet id enableAppleRemote;
     
     IBOutlet id rrSpeedSlider;
     IBOutlet id ffSpeedSlider;
@@ -89,7 +88,6 @@
 -(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
 -(IBAction)defaultRepeatMode:(id)sender;
--(IBAction)enableAppleRemote:(id)sender;
 
 -(IBAction)rrSpeed:(id)sender;
 -(IBAction)ffSpeed:(id)sender;

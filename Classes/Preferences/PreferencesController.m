@@ -97,7 +97,6 @@
 	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
 	[defaultRepeatMode selectItemAtIndex:[[Preferences mainPrefs] defaultRepeatMode]];
-	[enableAppleRemote setState:![[Preferences mainPrefs] disableAppleRemote]];
 
         id aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
             ([[Preferences mainPrefs] rrSpeed]- [[NSTimeZone localTimeZone] secondsFromGMTForDate:
@@ -157,11 +156,6 @@
 -(IBAction)defaultRepeatMode:(id)sender
 {
 	[[Preferences mainPrefs] setDefaultRepeatMode:[sender indexOfSelectedItem]];
-}
-
--(IBAction)enableAppleRemote:(id)sender
-{
-    [[Preferences mainPrefs] setDisableAppleRemote:([sender state] == NSOffState)];
 }
 
 #pragma mark -

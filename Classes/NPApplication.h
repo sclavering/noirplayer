@@ -47,17 +47,12 @@
 #import <Cocoa/Cocoa.h>
 
 #import "NiceController.h"
-@class RemoteControl;
 
 @interface NPApplication : NSApplication {
 	NSTimer *inactiveTimer;
 	NSPoint lastPoint;
-	RemoteControl* remote;
 }
 -(IBAction)emailAuthor:(id)sender;
-
--(RemoteControl*) remote;
--(void)setRemote:(RemoteControl*)aRemote;
 
 -(void)copyDefaultScriptsToApplicationSupport;
 -(void)moveOldDefaultScriptsAndCopy;

@@ -76,14 +76,6 @@ BOOL selectNiceWindow(id each, void* context){
     
 }
 
--(RemoteControl*) remote{
-	return remote;
-}
-
--(void)setRemote:(RemoteControl*)aRemote{
-	remote=[aRemote retain];
-}
-
 -(void)moveOldDefaultScriptsAndCopy{
     NSString* tPath =[[[TTCSearchPathForDirectoriesInDomains(TTCApplicationSupportDirectory,NSUserDomainMask,YES) firstObject] stringByAppendingPathComponent:@"NicePlayer"] stringByAppendingPathComponent:@"Scripts"];
     

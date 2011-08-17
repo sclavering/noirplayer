@@ -49,7 +49,6 @@
 #import "NPPluginReader.h"
 #import "NiceUtilities.h"
 #import "NPApplication.h"
-#import "AppleRemote.h"
 #import "Preferences.h"
 #import "NiceDocument.h"
 #import <Preferable/Preferable.h>
@@ -112,9 +111,6 @@ id swapForWindows(id each, void* context){
                                                     selector:@selector(preventSleep:)
                                                     userInfo:nil repeats:YES];
     [NSApp setDelegate:self];
-	[NSApp setRemote:[[[AppleRemote alloc]initWithDelegate:self] autorelease]];
-    if(![[Preferences mainPrefs] disableAppleRemote])
-		[[NSApp remote] startListening:self];
 }
 
 -(void)dealloc{
@@ -445,15 +441,6 @@ id swapForWindows(id each, void* context){
     }else{
         [super forwardInvocation:anInvocation];
     }    
-}
-
-#pragma mark -
-#pragma mark Apple Remote Delegate Method
-
--(void)sendRemoteButtonEvent:(RemoteControlEventIdentifier)buttonIdentifier pressedDown:(BOOL)pressedDown  remoteControl: (RemoteControl*) remoteControl
-{
-    if([[NSApp mainWindow] isKindOfClass:[NiceWindow class]])
-	[[[[NSApp mainWindow] windowController] document] appleRemoteButton:buttonIdentifier pressedDown:pressedDown];
 }
 
 @end

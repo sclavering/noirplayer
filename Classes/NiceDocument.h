@@ -49,7 +49,6 @@
 #import "Viewer Interface/NPMovieView.h"
 #import "NiceWindow/NiceWindow.h"
 #import "Preferences/Preferences.h"
-#import "AppleRemote.h"
 
 @class NiceWindow;
 @class NPMovieView;
@@ -74,14 +73,11 @@
     id asffrrTimer;
     id playlistFilename;
     NSString* theID;
-    NSTimer *remoteEventTimer;
     
     BOOL hasRealMovie;
     BOOL isRandom;
     BOOL wasPlayingBeforeMini;	
 }
-
--(void)appleRemoteButton:(RemoteControlEventIdentifier)buttonIdentifier pressedDown:(BOOL)pressedDown;
 
 -(NSString*)identifier;
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
