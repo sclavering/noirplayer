@@ -47,7 +47,6 @@
 #import "NiceUtilities.h"
 #import "NiceWindow/NiceWindowController.h"
 #import "ControlPlay.h"
-#import "JTTextFittingView.h"
 #import <STEnum/STEnum.h>
 
 #define PLAYLIST_ITEM -42
