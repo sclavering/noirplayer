@@ -51,7 +51,6 @@
 		259CC53907374066001ED5FA /* NPApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 259CC53707374066001ED5FA /* NPApplication.h */; };
 		259CC53A07374066001ED5FA /* NPApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CC53807374066001ED5FA /* NPApplication.m */; };
 		25B07BF208077776006724D8 /* NiceDocumentScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B07BF108077776006724D8 /* NiceDocumentScripting.h */; };
-		25B0815C08084354006724D8 /* OverlayNotifierWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B0815A08084354006724D8 /* OverlayNotifierWindow.h */; };
 		25B913250741736A001B68D9 /* OverlaysControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B913230741736A001B68D9 /* OverlaysControl.h */; };
 		25B913260741736A001B68D9 /* OverlaysControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B913240741736A001B68D9 /* OverlaysControl.m */; };
 		25CC00590A315A46002FB428 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 25CC00580A315A45002FB428 /* acknowledgements.html */; };
@@ -375,8 +374,6 @@
 		259CC53707374066001ED5FA /* NPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplication.h; path = Classes/NPApplication.h; sourceTree = "<group>"; };
 		259CC53807374066001ED5FA /* NPApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplication.m; path = Classes/NPApplication.m; sourceTree = "<group>"; };
 		25B07BF108077776006724D8 /* NiceDocumentScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceDocumentScripting.h; sourceTree = "<group>"; };
-		25B0815A08084354006724D8 /* OverlayNotifierWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayNotifierWindow.h; path = "Classes/Overlay Widgets/OverlayNotifierWindow.h"; sourceTree = "<group>"; };
-		25B0815B08084354006724D8 /* OverlayNotifierWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayNotifierWindow.m; path = "Classes/Overlay Widgets/OverlayNotifierWindow.m"; sourceTree = "<group>"; };
 		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = "Classes/Overlay Widgets/OverlaysControl.h"; sourceTree = "<group>"; };
 		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = "Classes/Overlay Widgets/OverlaysControl.m"; sourceTree = "<group>"; };
 		25C5C1E408D4B81400987A95 /* DVDPlayer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DVDPlayer.xcodeproj; path = "Plugin Sources/DVDPlayer/DVDPlayer.xcodeproj"; sourceTree = "<group>"; };
@@ -736,8 +733,6 @@
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */,
 				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
-				25B0815A08084354006724D8 /* OverlayNotifierWindow.h */,
-				25B0815B08084354006724D8 /* OverlayNotifierWindow.m */,
 				3EC8C229065DB22A00988449 /* RoundRect.h */,
 				3EC8C22A065DB22A00988449 /* RoundRect.m */,
 				2523738E074414690064B556 /* TimeDisplayField.h */,
@@ -1035,7 +1030,6 @@
 				3EF15F3907C8405700AE56D7 /* NPApplicationScripting.h in Headers */,
 				3EF15FD407C8553B00AE56D7 /* NPAddCommand.h in Headers */,
 				25B07BF208077776006724D8 /* NiceDocumentScripting.h in Headers */,
-				25B0815C08084354006724D8 /* OverlayNotifierWindow.h in Headers */,
 				3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */,
 				25CC86500831DA2A00027929 /* RCMovieView.h in Headers */,
 				3E64FA4508F2314C0010E3DA /* NicePlugin.h in Headers */,
