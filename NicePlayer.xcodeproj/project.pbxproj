@@ -12,7 +12,6 @@
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
 		2513D00407BC659800BB6055 /* Plugins.rtf in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2513CDAE07BC658900BB6055 /* Plugins.rtf */; };
 		2513D2F507BDAC4200BB6055 /* FadeOut.h in Headers */ = {isa = PBXBuildFile; fileRef = 2513D2F307BDAC4200BB6055 /* FadeOut.h */; };
-		2513D2F607BDAC4200BB6055 /* FadeOut.m in Sources */ = {isa = PBXBuildFile; fileRef = 2513D2F407BDAC4200BB6055 /* FadeOut.m */; };
 		2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2513D30507BDACA700BB6055 /* NicePlayer.sdef */; };
 		251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 251FBBDF07BC201900D147E5 /* NiceDrawer.h */; };
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
@@ -54,7 +53,6 @@
 		259CC53A07374066001ED5FA /* NPApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CC53807374066001ED5FA /* NPApplication.m */; };
 		25B07BF208077776006724D8 /* NiceDocumentScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B07BF108077776006724D8 /* NiceDocumentScripting.h */; };
 		25B0815C08084354006724D8 /* OverlayNotifierWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B0815A08084354006724D8 /* OverlayNotifierWindow.h */; };
-		25B0815D08084354006724D8 /* OverlayNotifierWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B0815B08084354006724D8 /* OverlayNotifierWindow.m */; };
 		25B913250741736A001B68D9 /* OverlaysControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B913230741736A001B68D9 /* OverlaysControl.h */; };
 		25B913260741736A001B68D9 /* OverlaysControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B913240741736A001B68D9 /* OverlaysControl.m */; };
 		25CC00590A315A46002FB428 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 25CC00580A315A45002FB428 /* acknowledgements.html */; };
@@ -1353,7 +1351,6 @@
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				25E10912076CF11100042500 /* PrefPluginConfig.m in Sources */,
 				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
-				2513D2F607BDAC4200BB6055 /* FadeOut.m in Sources */,
 				25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */,
 				25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */,
 				25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */,
@@ -1361,7 +1358,6 @@
 				3E49DCB207C96EFA009BA150 /* NPAddCommand.m in Sources */,
 				3E49DCB307C96EFD009BA150 /* NPApplicationScripting.m in Sources */,
 				3E49DCB407C96F01009BA150 /* NiceMovie.m in Sources */,
-				25B0815D08084354006724D8 /* OverlayNotifierWindow.m in Sources */,
 				3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */,
 				25CC86510831DA2A00027929 /* RCMovieView.m in Sources */,
 				3E64FA4608F2314C0010E3DA /* NicePlugin.m in Sources */,

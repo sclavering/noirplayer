@@ -2004,11 +2004,6 @@
 						<reference key="parent" ref="669305906"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">370</int>
-						<reference key="object" ref="339793296"/>
-						<reference key="parent" ref="669305906"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">373</int>
 						<reference key="object" ref="445147277"/>
 						<reference key="parent" ref="669305906"/>
@@ -2024,6 +2019,11 @@
 						<reference key="object" ref="387715626"/>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">MainWindowProxy</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">370</int>
+						<reference key="object" ref="339793296"/>
+						<reference key="parent" ref="669305906"/>
 					</object>
 				</object>
 			</object>
@@ -2516,7 +2516,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>openWebURL:</string>
 							<string>playAll:</string>
 							<string>presentMultiple:</string>
 							<string>setPartiallyTransparent:</string>
@@ -2528,7 +2527,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2547,7 +2545,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>openWebURL:</string>
 							<string>playAll:</string>
 							<string>presentMultiple:</string>
 							<string>setPartiallyTransparent:</string>
@@ -2565,10 +2562,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">openDocument:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">openWebURL:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -2610,16 +2603,12 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
-							<string>openURLField</string>
-							<string>openURLWindow</string>
 							<string>partiallyTransparent</string>
 							<string>toggleFixedAspectMenuItem</string>
 							<string>toggleOnTopMenuItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2631,8 +2620,6 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
-							<string>openURLField</string>
-							<string>openURLWindow</string>
 							<string>partiallyTransparent</string>
 							<string>toggleFixedAspectMenuItem</string>
 							<string>toggleOnTopMenuItem</string>
@@ -2641,14 +2628,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainWindowProxy</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">openURLField</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">openURLWindow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -2946,7 +2925,6 @@
 							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
-							<string>theOverlayNotifier</string>
 							<string>theOverlaySubTitle</string>
 							<string>theOverlaySubTitleWindow</string>
 							<string>theOverlayTitleBar</string>
@@ -2971,7 +2949,6 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
 							<string>NiceScrubber</string>
 							<string>id</string>
 							<string>id</string>
@@ -2985,7 +2962,6 @@
 							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
-							<string>theOverlayNotifier</string>
 							<string>theOverlaySubTitle</string>
 							<string>theOverlaySubTitleWindow</string>
 							<string>theOverlayTitleBar</string>
@@ -3010,10 +2986,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theOverlayControllerWindow</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theOverlayNotifier</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

@@ -54,7 +54,6 @@
     IBOutlet id theOverlayVolume;
 	IBOutlet id theOverlaySubTitleWindow;
     IBOutlet id theOverlaySubTitle;
-    IBOutlet id theOverlayNotifier;
     IBOutlet id theVolumeView;
     IBOutlet id theTitleField;
 	IBOutlet id theResizeWindow;
@@ -91,7 +90,6 @@
     NSSize aspectRatio;
 	NSPoint initialDrag;
     
-    id notifierTimer;
 	NSSize _lastSize;
 }
 -(float)resizeWidth;
@@ -168,9 +166,6 @@
 -(NSRect)calcResizeSize:(NSSize)aSize;
 -(void)resize:(float)amount animate:(BOOL)animate;
 - (void)setTitle:(NSString *)aString;
--(void)setNotificationText:(NSString *)aString;
--(void)setNotifierLocation;
--(void)hideNotifier;
 -(void)initialDefaultSize;
 -(IBAction)halfSize:(id)sender;
 -(IBAction)normalSize:(id)sender;

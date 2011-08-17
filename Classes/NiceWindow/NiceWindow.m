@@ -52,9 +52,7 @@
 #import "ControlButton.h"
 
 #import "NiceWindow.h"
-#import "FadeOut.h"
 #import "OverlayControllerWindow.h"
-#import "OverlayNotifierWindow.h"
 #import "NPApplication.h"
 #import "DelegateAnimation.h"
 #import "SEGlue.h"
@@ -190,11 +188,6 @@
 -(void)close
 {
 	NSAutoreleasePool* tPool = [NSAutoreleasePool new];
-	[self hideNotifier];
-    [[FadeOut fadeOut] removeWindow:theOverlayControllerWindow];
-    [[FadeOut fadeOut] removeWindow:theOverlayTitleBar];
-    [[FadeOut fadeOut] removeWindow:theOverlayVolume];
-    [[FadeOut fadeOut] removeWindow:self];
     [timeUpdaterTimer invalidate];
 
 	isClosing = YES;
@@ -433,8 +426,6 @@
                                 currentFrame.size.width,
                                 currentFrame.size.height - [theOverlayTitleBar frame].size.height - [theOverlayControllerWindow frame].size.height)
       withVisibility:NO];
-	
-	
 
     [self putOverlay:theOverlayTitleBar
 		   asChildOf:self
@@ -448,15 +439,6 @@
              inFrame:NSOffsetRect([theOverlayVolume frame],
                                   NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]),
                                   NSMidY(currentFrame) - NSMidY([theOverlayVolume frame]))
-      withVisibility:NO];
-	
-    [self putOverlay:theOverlayNotifier
-		   asChildOf:self
-             inFrame:NSMakeRect(currentFrame.origin.x,
-                                currentFrame.origin.y + currentFrame.size.height
-								- [theOverlayTitleBar frame].size.height - [theOverlayNotifier frame].size.height,
-                                currentFrame.size.width,
-                                [theOverlayNotifier frame].size.height)
       withVisibility:NO];
 }
 
@@ -486,9 +468,6 @@
 
 -(void)hideAllImmediately
 {
-    [[FadeOut fadeOut] removeWindow:theOverlayControllerWindow];
-    [[FadeOut fadeOut] removeWindow:theOverlayTitleBar];
-    [[FadeOut fadeOut] removeWindow:theOverlayVolume];
     [theOverlayControllerWindow setAlphaValue:0.0];
     [theOverlayTitleBar setAlphaValue:0.0];
     [theOverlayVolume setAlphaValue:0.0];
@@ -503,7 +482,6 @@
     if(windowOverlayControllerIsShowing) return;
     [self updateByTime:self];
     [self setOverlayControllerWindowLocation];
-    [[FadeOut fadeOut] removeWindow:theOverlayControllerWindow];
     [theOverlayControllerWindow setAlphaValue:1.0];
     windowOverlayControllerIsShowing = YES;
 }
@@ -555,7 +533,7 @@
 -(void)hideOverLayWindow
 {
     if(!windowOverlayControllerIsShowing) return;
-    [[FadeOut fadeOut] addWindow:theOverlayControllerWindow];
+    [theOverlayControllerWindow setAlphaValue:0.0];
  //   [self setShowsResizeIndicator:NO];
     windowOverlayControllerIsShowing = NO;
 }
@@ -563,10 +541,7 @@
 -(void)showOverLayTitle
 {
     [self setOverlayTitleLocation];
-	
     if(titleOverlayIsShowing) return;
-    
-    [[FadeOut fadeOut] removeWindow:theOverlayTitleBar];
     [theOverlayTitleBar setAlphaValue:1.0];
     titleOverlayIsShowing = YES;
 }
@@ -663,7 +638,7 @@
     if(titleOverlayIsShowing == NO)
         return;
     
-    [[FadeOut fadeOut] addWindow:theOverlayTitleBar];
+    [theOverlayTitleBar setAlphaValue:0.0];
     titleOverlayIsShowing = NO;
 }
 
@@ -675,7 +650,6 @@
 -(void)showOverLayVolume
 {
 	[self setOverLayVolumeLocation];
-    [[FadeOut fadeOut] removeWindow:theOverlayVolume];
     [theOverlayVolume setAlphaValue:1.0];
 }
 
@@ -701,7 +675,7 @@
 
 -(void)hideOverLayVolume
 {
-    [[FadeOut fadeOut] addWindow:theOverlayVolume];
+    [theOverlayVolume setAlphaValue:0.0];
 }
 
 #pragma mark -
@@ -824,8 +798,6 @@
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
 		[self fillScreenSizeOnScreen:aScreen];
-		
-		[self hideNotifier];
     }
     [theMovieView drawMovieFrame];
     if([[Preferences mainPrefs] autoplayOnFullScreen]){
@@ -845,7 +817,6 @@
         fullScreen = NO;
 		if([self fixedAspect])
 			[self resizeToAspectRatio];
-		[self hideNotifier];
     }
     [theMovieView drawMovieFrame];
     [theOverlayTitleBar orderFront:self];
@@ -1026,53 +997,6 @@
 {
     [theTitleField setStringValue:aString];
     [super setTitle:aString];
-}
-
--(void)setNotificationText:(NSString *)aString
-{
-    [theOverlayNotifier setText:aString];
-    [self setNotifierLocation];
-    [theOverlayNotifier setAlphaValue:1.0];
-    id notifierFade = [NSMutableSet setWithObjects:theOverlayNotifier, nil];
-    NSDictionary *fadeDict = [NSDictionary dictionaryWithObjects:
-        [NSArray arrayWithObjects:self,	notifierFade, @"clearNotifierTimer",	nil]
-                                                         forKeys:
-		[NSArray arrayWithObjects:@"Window", @"Fade", @"Selector",  nil]];
-    if(notifierTimer)
-		[notifierTimer invalidate];
-    notifierTimer = [[FadeOut fadeOut] notifierFadeForDict:fadeDict];
-}
-
--(void)setNotifierLocation
-{
-    NSRect currentFrame;
-    if(!fullScreen)
-		currentFrame = [self frame];
-    else {
-		currentFrame = [[NSScreen mainScreen] frame];
-		currentFrame.origin.y -= 48;
-    }
-    
-    [theOverlayNotifier setFrame:NSMakeRect(currentFrame.origin.x,
-											currentFrame.origin.y + currentFrame.size.height
-											- [theOverlayTitleBar frame].size.height - [theOverlayNotifier frame].size.height,
-											currentFrame.size.width,
-											[theOverlayNotifier frame].size.height)
-						 display:YES];
-}
-
--(void)hideNotifier
-{
-    [theOverlayNotifier setAlphaValue:0.0];
-    if(notifierTimer)
-		[notifierTimer invalidate];
-    notifierTimer = nil;
-    [[FadeOut fadeOut] removeWindow:theOverlayNotifier];
-}
-
--(void)clearNotifierTimer
-{
-    notifierTimer = nil;
 }
 
 -(IBAction)halfSize:(id)sender

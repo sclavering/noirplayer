@@ -470,19 +470,17 @@
 -(void)playPrevMovie
 {
     if([self currentMovieTime] > 2){
-	[trueMovieView setCurrentMovieTime:0];
-	[((NiceWindow *)[self window]) setNotificationText:title];
+        [trueMovieView setCurrentMovieTime:0];
     } else {
-	[[[self window] delegate] playPrev];
-	[((NiceWindow *)[self window]) setNotificationText:title];
+        [[[self window] delegate] playPrev];
     }
 }
 
 -(void)playNextMovie
 {
     [[[self window] delegate] playNext];
-    [((NiceWindow *)[self window]) setNotificationText:title];
 }
+
 #pragma mark -
 #pragma mark Keyboard Events
 
