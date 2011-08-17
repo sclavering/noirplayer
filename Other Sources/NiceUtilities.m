@@ -52,18 +52,10 @@ id NPConvertFileNamesToURLs(id obj, void* context){
     return [NSURL fileURLWithPath:obj];
 }
 
-BOOL NPIs10_4OrGreater(){
-    long vers;
-    Gestalt( gestaltSystemVersion, &vers);
-    return !(vers < 0x00001040);
-}
-
 int urlSort(id url1, id url2, void *context){
-    
     NSString* v1 = [[url1 path] lastPathComponent];
     NSString*  v2 = [[url2 path]lastPathComponent];
     return [v1 caseInsensitiveCompare:v2];
-    
 }
 
 NSArray* NPSortUrls(NSArray* anArrayOfUrls){

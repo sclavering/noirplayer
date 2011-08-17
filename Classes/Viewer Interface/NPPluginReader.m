@@ -178,11 +178,7 @@ id injectAllowedTypesOfEnabledPlugins(id each, id allowedExt,void* context){
 
 -(id)builtinPlayerClasses
 {
-    if(NPIs10_4OrGreater())
-        return [NSArray arrayWithObjects:[RCMovieView class], [JTMovieView class], nil];
-    else
-	return [NSArray arrayWithObjects:[JTMovieView class], nil];
-
+    return [NSArray arrayWithObjects:[RCMovieView class], [JTMovieView class], nil];
 }
 
 /* Finds all package pluggables and gets their information. */
