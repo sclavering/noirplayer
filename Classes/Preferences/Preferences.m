@@ -94,7 +94,6 @@
 		    scrollResizePin = [[NSUserDefaults standardUserDefaults] integerForKey:@"scrollResizePin"];
 		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
 		defaultRepeatMode = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultRepeatMode"];
-		defaultOpenMode = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultOpenMode"];
 
 		rrSpeed = ([[NSUserDefaults standardUserDefaults] integerForKey:@"rrSpeed"] == 0)
 			? 5 
@@ -201,17 +200,6 @@
 {
 	defaultRepeatMode = anInt;
 	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultRepeatMode"];
-}
-
--(enum defaultOpenModeValues)defaultOpenMode
-{
-	return defaultOpenMode;
-}
-
--(void)setDefaultOpenMode:(enum defaultOpenModeValues)anInt
-{
-	defaultOpenMode = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultOpenMode"];
 }
 
 -(BOOL)disableAppleRemote

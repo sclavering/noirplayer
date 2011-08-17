@@ -148,9 +148,7 @@ id swapForWindows(id each, void* context){
     for (i = 0; i < [files count]; i++){
 		NSError* tError = nil;
         id tempURL = [files objectAtIndex:i];
-        if(([[Preferences mainPrefs] defaultOpenMode] == OPEN_WINDOWS 
-			|| ([@"nicelist" isEqualTo:[[[tempURL path] pathExtension] lowercaseString]]))
-           && i !=0 ){
+        if(i) {
             [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
 			if (tError) {
 				[NSApp presentError:tError];

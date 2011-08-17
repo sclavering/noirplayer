@@ -50,7 +50,6 @@ enum scrollWheelMoviePrefValues { SCROLL_WHEEL_ADJUSTS_SIZE, SCROLL_WHEEL_ADJUST
 enum scrollResizePinValues { PIN_LEFT_TOP, PIN_CENTER, PIN_SMART };
 enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 enum defaultRepeatModeValues { REPEAT_NONE, REPEAT_LIST, REPEAT_ONE };
-enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 
 @interface Preferences : NSObject {
 	enum doubleClickMoviePrefValues doubleClickMoviePref;
@@ -60,7 +59,6 @@ enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 	enum scrollResizePinValues scrollResizePin;
 	enum defaultTimeDisplayValues defaultTimeDisplay;
 	enum defaultRepeatModeValues defaultRepeatMode;
-	enum defaultOpenModeValues defaultOpenMode;
 
 	int rrSpeed;
 	int ffSpeed;
@@ -98,8 +96,6 @@ enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 -(enum defaultRepeatModeValues)defaultRepeatMode;
 -(void)setDefaultRepeatMode:(enum defaultRepeatModeValues)anInt;
--(enum defaultOpenModeValues)defaultOpenMode;
--(void)setDefaultOpenMode:(enum defaultOpenModeValues)anInt;
 -(BOOL)disableAppleRemote;
 -(void)setDisableAppleRemote:(BOOL)aBool;
 

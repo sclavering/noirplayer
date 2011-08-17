@@ -64,7 +64,6 @@
     IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
     IBOutlet id defaultRepeatMode;
-    IBOutlet id defaultOpenMode;
     IBOutlet id enableAppleRemote;
     
     IBOutlet id rrSpeedSlider;
@@ -83,7 +82,6 @@
     BOOL _tableLocked;
 }
 
-
 -(IBAction)doubleClickMoviePref:(id)sender;
 -(IBAction)rightClickMoviePref:(id)sender;
 -(IBAction)scrollWheelMoviePref:(id)sender;
@@ -91,7 +89,6 @@
 -(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
 -(IBAction)defaultRepeatMode:(id)sender;
--(IBAction)defaultOpenMode:(id)sender;
 -(IBAction)enableAppleRemote:(id)sender;
 
 -(IBAction)rrSpeed:(id)sender;
