@@ -127,8 +127,6 @@
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
 		3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEB7DB7076B754F0090E740 /* NiceUtilities.h */; };
 		3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB7DB8076B754F0090E740 /* NiceUtilities.m */; };
-		3EEDF753065B3E8800E3545C /* JTMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEDF751065B3E8800E3545C /* JTMovieView.h */; };
-		3EEDF754065B3E8800E3545C /* JTMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF752065B3E8800E3545C /* JTMovieView.m */; };
 		3EEDF762065B4CFF00E3545C /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EEDF761065B4CFF00E3545C /* black.png */; };
 		3EEDF765065B507B00E3545C /* NiceWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEDF763065B507B00E3545C /* NiceWindow.h */; };
 		3EEDF766065B507B00E3545C /* NiceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF764065B507B00E3545C /* NiceWindow.m */; };
@@ -411,8 +409,6 @@
 		3EEB7DB7076B754F0090E740 /* NiceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceUtilities.h; path = "Other Sources/NiceUtilities.h"; sourceTree = "<group>"; };
 		3EEB7DB8076B754F0090E740 /* NiceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceUtilities.m; path = "Other Sources/NiceUtilities.m"; sourceTree = "<group>"; };
 		3EEB7F38076BB1F60090E740 /* ViewerPrefIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ViewerPrefIcon.png; path = Resources/ViewerPrefIcon.png; sourceTree = "<group>"; };
-		3EEDF751065B3E8800E3545C /* JTMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JTMovieView.h; path = "Classes/Viewer Interface/Pluggable Players/JTMovieView.h"; sourceTree = "<group>"; };
-		3EEDF752065B3E8800E3545C /* JTMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JTMovieView.m; path = "Classes/Viewer Interface/Pluggable Players/JTMovieView.m"; sourceTree = "<group>"; };
 		3EEDF761065B4CFF00E3545C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black.png; path = Resources/black.png; sourceTree = "<group>"; };
 		3EEDF763065B507B00E3545C /* NiceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceWindow.h; path = Classes/NiceWindow/NiceWindow.h; sourceTree = "<group>"; };
 		3EEDF764065B507B00E3545C /* NiceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceWindow.m; path = Classes/NiceWindow/NiceWindow.m; sourceTree = "<group>"; };
@@ -637,8 +633,6 @@
 				257D61540753F7AD00702BD0 /* NPMovieProtocol.h */,
 				252BD4FB076981DD006CF96B /* NPPluginView.h */,
 				252BD4FC076981DD006CF96B /* NPPluginView.m */,
-				3EEDF751065B3E8800E3545C /* JTMovieView.h */,
-				3EEDF752065B3E8800E3545C /* JTMovieView.m */,
 				25CC864E0831DA2A00027929 /* RCMovieView.h */,
 				25CC864F0831DA2A00027929 /* RCMovieView.m */,
 				692CF88D0CC2F78000DF2159 /* BlankView.h */,
@@ -901,7 +895,6 @@
 			files = (
 				8D15AC290486D014006FF6A4 /* NicePlayer_Prefix.pch in Headers */,
 				8D15AC2A0486D014006FF6A4 /* NiceDocument.h in Headers */,
-				3EEDF753065B3E8800E3545C /* JTMovieView.h in Headers */,
 				3EEDF765065B507B00E3545C /* NiceWindow.h in Headers */,
 				3EEDF76D065B5ACD00E3545C /* NiceController.h in Headers */,
 				3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */,
@@ -1178,7 +1171,6 @@
 			files = (
 				8D15AC310486D014006FF6A4 /* NiceDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
-				3EEDF754065B3E8800E3545C /* JTMovieView.m in Sources */,
 				3EEDF766065B507B00E3545C /* NiceWindow.m in Sources */,
 				3EEDF76E065B5ACD00E3545C /* NiceController.m in Sources */,
 				3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */,

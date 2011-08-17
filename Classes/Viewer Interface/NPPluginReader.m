@@ -50,7 +50,6 @@
 #import "NPPluginReader.h"
 #import "Pluggable Players/NPMovieProtocol.h"
 #import "NiceUtilities.h"
-#import "JTMovieView.h"
 #import "RCMovieView.h"
 #import <STEnum/STEnum.h>
 
@@ -178,7 +177,7 @@ id injectAllowedTypesOfEnabledPlugins(id each, id allowedExt,void* context){
 
 -(id)builtinPlayerClasses
 {
-    return [NSArray arrayWithObjects:[RCMovieView class], [JTMovieView class], nil];
+    return [NSArray arrayWithObjects:[RCMovieView class], nil];
 }
 
 /* Finds all package pluggables and gets their information. */

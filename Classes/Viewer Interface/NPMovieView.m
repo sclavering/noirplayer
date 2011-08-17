@@ -60,7 +60,6 @@
 #import "Preferences.h"
 #import "BlankView.h"
 #import "NiceDocument.h"
-#import "JTMovieView.h"
 @class NPPluginReader;
 
 @interface NPMovieView(private)
@@ -72,11 +71,6 @@
 @end
 
 @implementation NPMovieView
-
-+(id)blankImage
-{
-	return [JTMovieView blankImage];
-}
 
 -(id)initWithFrame:(NSRect)aRect
 {

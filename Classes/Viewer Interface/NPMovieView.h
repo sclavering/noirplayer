@@ -66,8 +66,6 @@
     BOOL mouseEntered;
 }
 
-+(id)blankImage;
-
 -(BOOL)openURL:(NSURL *)url;
 -(void)switchToPluginClass:(Class)aClass;
 -(BOOL)loadMovie;
