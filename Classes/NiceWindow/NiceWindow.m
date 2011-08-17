@@ -124,13 +124,8 @@
     return self;
 }
 
--(id)subtitleView{
-	return theOverlaySubTitle;
-}
-
 -(void)awakeFromNib
 {
-	
     [theScrubBar setTarget:theMovieView];
     [self setContentView:theMovieView];
     [theScrubBar setAction:@selector(scrub:)];
@@ -164,11 +159,6 @@
 	// [textShadow setShadowOffset:shadowSize];
 	[textShadow setShadowBlurRadius:5.0f]; 
 	[textShadow setShadowColor:[NSColor blackColor]]; 
-	
-	[theOverlaySubTitle setAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-		[NSColor whiteColor],NSForegroundColorAttributeName,
-		textShadow,NSShadowAttributeName,
-		tParagraph,NSParagraphStyleAttributeName, nil]];
 	
     if([[Preferences mainPrefs] windowAlwaysOnTop])
         [self floatWindow];
@@ -215,7 +205,6 @@
     [self setOverlayControllerWindowLocation];
     [self setOverlayTitleLocation];
     [self setOverLayVolumeLocation];
-	[self setOverLaySubtitleLocation];
 }
 
 -(void)setFrameOrigin:(NSPoint)orign{
@@ -320,12 +309,6 @@
  */
 -(IBAction)updateByTime:(id)sender
 {
-    Subtitle* tSubTitle =[[[self windowController] document] subTitle];
-    if(tSubTitle !=nil){
-        [theOverlaySubTitle setStringValue:[tSubTitle stringForTime:(float)[theMovieView currentMovieTime]]];
-    }
-    
-    
     if([theMovieView hasEnded:self]){
         [[[self windowController] document] movieHasEnded];
     }
@@ -415,16 +398,6 @@
 								[self frame].origin.y, 
 								[self resizeWidth],
 								[self resizeHeight])
-      withVisibility:NO];
-	
-	
-	
-	[self putOverlay:theOverlaySubTitleWindow
-		   asChildOf:self
-             inFrame:NSMakeRect(currentFrame.origin.x,
-                                currentFrame.origin.y+[theOverlayControllerWindow frame].size.height,
-                                currentFrame.size.width,
-                                currentFrame.size.height - [theOverlayTitleBar frame].size.height - [theOverlayControllerWindow frame].size.height)
       withVisibility:NO];
 
     [self putOverlay:theOverlayTitleBar
@@ -546,51 +519,6 @@
     titleOverlayIsShowing = YES;
 }
 
--(void)showOverLaySubtitle{
-    
-    [theOverlaySubTitleWindow setAlphaValue:1.0];
-	
-}
-
--(BOOL)isOverlaySubtitleShowing{
-    
-	return [theOverlaySubTitleWindow alphaValue] > 0.1;
-    
-}
-
--(void)hideOverLaySubtitle{
-    [theOverlaySubTitleWindow setAlphaValue:0.0];    
-}
-
-
--(void)setOverLaySubtitleLocation{
-	
-	NSRect frame = [self frame];
-    NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
-	NSRect intersect = NSIntersectionRect(frame,visibleFrame);
-	
-    if(!fullScreen){
-		if(NSEqualRects(intersect, frame))
-			[theOverlaySubTitleWindow setFrame:NSMakeRect(frame.origin.x,
-														  frame.origin.y+[theOverlayControllerWindow frame].size.height,
-														  frame.size.width,
-														  frame.size.height- [theOverlayTitleBar frame].size.height - [theOverlayControllerWindow frame].size.height) display:YES];
-		else
-			[theOverlaySubTitleWindow setFrame:NSMakeRect(intersect.origin.x,
-														  intersect.origin.y+[theOverlayControllerWindow frame].size.height,
-														  intersect.size.width,
-														  intersect.size.height- [theOverlayTitleBar frame].size.height  - [theOverlayControllerWindow frame].size.height) display:YES];
-    } else
-        [theOverlaySubTitleWindow setFrame:NSMakeRect(visibleFrame.origin.x,
-													  visibleFrame.origin.y+[theOverlayControllerWindow frame].size.height,
-													  visibleFrame.size.width,
-													  visibleFrame.size.height- [theOverlayTitleBar frame].size.height - [theOverlayControllerWindow frame].size.height) display:YES];
-	
-	
-	
-	
-}
-
 /**
 * All of this logic is to set the location of the title bar that appears upon mouseover -- its location is
  * dependant on the screen position of the window, the mode of the window, and the location of the window.
@@ -684,7 +612,6 @@
 -(BOOL)toggleWindowFullScreen
 {
     [[NiceController controller] toggleFullScreen:self];
-	[self setOverLaySubtitleLocation];
     return fullScreen;
 }
 
@@ -804,8 +731,6 @@
         [theMovieView start];
     };
     [self hideAllImmediately];
-	[self setOverLaySubtitleLocation];
-	
 }
 
 -(void)makeNormalScreen
@@ -822,8 +747,6 @@
     [theOverlayTitleBar orderFront:self];
     [theOverlayVolume orderFront:self];
     [theOverlayControllerWindow orderFront:self];
-	[self setOverLaySubtitleLocation];
-	[theOverlaySubTitleWindow orderFront:self];
     [self hideOverLayWindow];
     if([[Preferences mainPrefs] autostopOnNormalScreen]){
         [(NPMovieView *)theMovieView stop];
@@ -1174,14 +1097,12 @@
 - (void)centerOnScreen:(NSScreen*)aScreen{
 	if(fullScreen){
 	    [self removeChildWindow:theOverlayTitleBar];
-		[self removeChildWindow:theOverlaySubTitleWindow];
 	}
 	
     [self setFrame:[self centerRect:[self frame] onScreen:aScreen]
            display:YES];
 	if(fullScreen){
 	    [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
-		[self addChildWindow:theOverlaySubTitleWindow ordered:NSWindowAbove];
 	}
 	
     
@@ -1235,21 +1156,16 @@
             dropScreen = YES;
         }
 		[self showOverLayTitle];
-		[self setOverLaySubtitleLocation];
 		/* If we don't do a remove, the child window gets automatically placed when the parent window moves, even if we try
 			to set the location manually. */
 		if(fullScreen){
 			[self removeChildWindow:theOverlayTitleBar];
-			[self removeChildWindow:theOverlaySubTitleWindow];
 		}
 		
 		[self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
 		if(fullScreen){
 			[self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
-			[self addChildWindow:theOverlaySubTitleWindow ordered:NSWindowAbove];
 		}
-		
-
     }
 }
 

@@ -52,8 +52,6 @@
     IBOutlet id theOverlayControllerWindow;
     IBOutlet id theOverlayTitleBar;
     IBOutlet id theOverlayVolume;
-	IBOutlet id theOverlaySubTitleWindow;
-    IBOutlet id theOverlaySubTitle;
     IBOutlet id theVolumeView;
     IBOutlet id theTitleField;
 	IBOutlet id theResizeWindow;
@@ -132,11 +130,7 @@
 -(void)showOverLayVolume;
 -(void)setOverLayVolumeLocation;
 -(void)hideOverLayVolume;
--(id)subtitleView;
--(void)setOverLaySubtitleLocation;
--(void)showOverLaySubtitle;
--(BOOL)isOverlaySubtitleShowing;
--(void)hideOverLaySubtitle;
+
 #pragma mark -
 #pragma mark Window Toggles
 

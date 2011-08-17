@@ -66,13 +66,6 @@
 	theWidth =aWidth;
 }
 
--(void)setMaxText:(NSString*)aTextRepresentingWidth{
-    NSAttributedString* tWidth = [[NSAttributedString alloc] initWithString:aTextRepresentingWidth attributes:theAttributes];
-
-	theWidth =[tWidth size].width;
-	[tWidth release];
-}
-
 -(void)setAttributes:(NSDictionary*)anAttributes{
 [theAttributes release];
 	theAttributes =anAttributes;

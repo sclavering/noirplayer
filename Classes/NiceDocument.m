@@ -137,7 +137,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     if(self){
         hasRealMovie = NO;
         isRandom = NO;
-        theSubtitle = nil;
         asffrrTimer = nil;
         thePlaylist = [[NSMutableArray alloc] init];
 		theDataSourceCache  = [[NSMutableArray alloc] init];
@@ -171,8 +170,6 @@ void findSpace(id each, void* context, BOOL* endthis){
         [menuObjects release];
     }
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [theSubtitle release];
-	theSubtitle = nil;
     [theCurrentURL release];
     [thePlaylist release];
     [playlistFilename release];
@@ -291,28 +288,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     } else
         hasRealMovie = YES;
     
-    /* Try to load the subtitles */
- /*   NSString* srtPath = [[[theCurrentURL path] stringByDeletingPathExtension] stringByAppendingPathExtension:@"srt"];
-    NSString* subPath = [[[theCurrentURL path] stringByDeletingPathExtension] stringByAppendingPathExtension:@"sub"];
-	NSString* ssaPath = [[[theCurrentURL path] stringByDeletingPathExtension] stringByAppendingPathExtension:@"ssa"];*/
-
-    [theSubtitle release];
-   /* disabled until subtitles are rewriten
-	if([[NSFileManager defaultManager] fileExistsAtPath:srtPath]){
-        theSubtitle = [[Subtitle alloc] initWithFile:srtPath forMovieSeconds:(float)[theMovieView totalTime]];
-    }else if ([[NSFileManager defaultManager] fileExistsAtPath:subPath]){
-        theSubtitle = [[Subtitle alloc] initWithFile:subPath forMovieSeconds:(float)[theMovieView totalTime]];
-    }else if ([[NSFileManager defaultManager] fileExistsAtPath:ssaPath]){
-        theSubtitle = [[Subtitle alloc] initWithFile:ssaPath forMovieSeconds:(float)[theMovieView totalTime]];
-    }else{*/
-        theSubtitle = nil;
-    //}
-	
-	if(theSubtitle != nil){
-		[[theWindow subtitleView] setMaxText:[theSubtitle longestText]];
-	}
-	
-	
     if(![self hasPlaylist]){
         [self setFileName:[[[[theCurrentURL path] lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"nicelist"]];
         [self setFileType:@"nicelist"];
@@ -461,11 +436,6 @@ void findSpace(id each, void* context, BOOL* endthis){
         if([theMovieView wasPlaying] && ![(NiceWindow*)[self window] scrubberInUse])
             [self playNext];
     }
-}
-
--(id)subTitle
-{
-    return theSubtitle;
 }
 
 -(NSMenu *)movieMenu
@@ -1123,12 +1093,9 @@ stuff won't work properly! */
     if([thePlaylist isEmpty]){
         [(NPMovieView *)theMovieView stop];
         [theMovieView closeReopen];
-		[theSubtitle autorelease];
-		theSubtitle =nil;
 		theCurrentURL =nil;
     }
-					[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-	
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(BOOL)isPlaylistEmpty

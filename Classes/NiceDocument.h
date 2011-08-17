@@ -49,7 +49,6 @@
 #import "Viewer Interface/NPMovieView.h"
 #import "NiceWindow/NiceWindow.h"
 #import "Preferences/Preferences.h"
-#import "Subtitle.h"
 #import "AppleRemote.h"
 
 @class NiceWindow;
@@ -58,7 +57,6 @@
 @interface NiceDocument : NSDocument
 {
     IBOutlet NPMovieView *theMovieView;
-    id theSubtitle;
     IBOutlet id thePlaylistDrawer;
     IBOutlet id thePlaylistTable;
     IBOutlet id theRepeatButton;
@@ -100,7 +98,6 @@
 -(void)updateAfterLoad;
 - (void)repositionAfterLoad;
 -(void)movieHasEnded;
--(id)subTitle;
 -(NSMenu *)movieMenu;
 -(void)rebuildMenu;
 -(id)window;

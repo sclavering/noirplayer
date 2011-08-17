@@ -71,6 +71,7 @@
 							<string key="NSFrameSize">{320, 240}</string>
 							<reference key="NSSuperview" ref="918380141"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSClassName">NPMovieView</string>
 							<string key="NSExtension">NSView</string>
 						</object>
@@ -78,8 +79,9 @@
 					<string key="NSFrameSize">{320, 240}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
+					<reference key="NSNextKeyView" ref="489220107"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{131, 108}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -248,7 +250,7 @@
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{213, 54}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -706,7 +708,7 @@
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{131, 27}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -724,7 +726,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{115, 96}</string>
 				<object class="NSView" key="NSWindowView" id="902978893">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -745,6 +747,7 @@
 							</object>
 							<string key="NSFrame">{{6, -3}, {102, 102}}</string>
 							<reference key="NSSuperview" ref="902978893"/>
+							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="825665416">
 								<int key="NSCellFlags">130560</int>
@@ -761,43 +764,12 @@
 							<bool key="NSEditable">YES</bool>
 						</object>
 					</object>
-					<string key="NSFrame">{{1, 1}, {116, 96}}</string>
+					<string key="NSFrameSize">{116, 96}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{115, 118}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<bool key="NSWindowIsRestorable">YES</bool>
-			</object>
-			<object class="NSWindowTemplate" id="172806756">
-				<int key="NSWindowStyleMask">3</int>
-				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{258, 308}, {474, 219}}</string>
-				<int key="NSWTFlags">1618481152</int>
-				<string key="NSWindowTitle">Subtitle</string>
-				<string key="NSWindowClass">OverlayWindow</string>
-				<object class="NSMutableString" key="NSViewClass">
-					<characters key="NS.bytes">View</characters>
-				</object>
-				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMinSize">{213, 50}</string>
-				<object class="NSView" key="NSWindowView" id="116046598">
-					<nil key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<object class="NSMutableArray" key="NSSubviews">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSCustomView" id="665783832">
-							<reference key="NSNextResponder" ref="116046598"/>
-							<int key="NSvFlags">274</int>
-							<string key="NSFrameSize">{473, 218}</string>
-							<reference key="NSSuperview" ref="116046598"/>
-							<string key="NSClassName">JTTextFittingView</string>
-							<string key="NSExtension">NSView</string>
-						</object>
-					</object>
-					<string key="NSFrameSize">{474, 219}</string>
-				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
-				<string key="NSMinSize">{213, 72}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
@@ -815,7 +787,7 @@
 				<string key="NSWindowContentMaxSize">{14, 15}</string>
 				<string key="NSWindowContentMinSize">{14, 14}</string>
 				<object class="NSView" key="NSWindowView" id="106835475">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -836,6 +808,7 @@
 							</object>
 							<string key="NSFrameSize">{14, 14}</string>
 							<reference key="NSSuperview" ref="106835475"/>
+							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="322100608">
 								<int key="NSCellFlags">537001472</int>
@@ -853,8 +826,10 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{14, 14}</string>
+					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{14, 36}</string>
 				<string key="NSMaxSize">{14, 37}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
@@ -1086,22 +1061,6 @@
 						<reference key="destination" ref="1049554511"/>
 					</object>
 					<int key="connectionID">169</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">theOverlaySubTitle</string>
-						<reference key="source" ref="1049554511"/>
-						<reference key="destination" ref="665783832"/>
-					</object>
-					<int key="connectionID">171</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">theOverlaySubTitleWindow</string>
-						<reference key="source" ref="1049554511"/>
-						<reference key="destination" ref="172806756"/>
-					</object>
-					<int key="connectionID">172</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1479,30 +1438,6 @@
 						<reference key="parent" ref="902978893"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">127</int>
-						<reference key="object" ref="172806756"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="116046598"/>
-						</object>
-						<reference key="parent" ref="0"/>
-						<string key="objectName">Subtitle</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">128</int>
-						<reference key="object" ref="116046598"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="665783832"/>
-						</object>
-						<reference key="parent" ref="172806756"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">170</int>
-						<reference key="object" ref="665783832"/>
-						<reference key="parent" ref="116046598"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">152</int>
 						<reference key="object" ref="973897849"/>
 						<object class="NSMutableArray" key="children">
@@ -1640,8 +1575,6 @@
 					<string>108.IBPluginDependency</string>
 					<string>114.IBPluginDependency</string>
 					<string>120.IBPluginDependency</string>
-					<string>127.IBPluginDependency</string>
-					<string>128.IBPluginDependency</string>
 					<string>152.IBPluginDependency</string>
 					<string>153.IBPluginDependency</string>
 					<string>154.IBPluginDependency</string>
@@ -1649,7 +1582,6 @@
 					<string>163.IBPluginDependency</string>
 					<string>167.IBPluginDependency</string>
 					<string>168.IBPluginDependency</string>
-					<string>170.IBPluginDependency</string>
 					<string>176.IBPluginDependency</string>
 					<string>177.CustomClassName</string>
 					<string>177.IBPluginDependency</string>
@@ -1722,10 +1654,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>NPScalingButton</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1872,14 +1801,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBUserSource</string>
 						<string key="minorKey"/>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">JTTextFittingView</string>
-					<string key="superclassName">NSView</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/JTTextFittingView.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -2268,8 +2189,6 @@
 							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
-							<string>theOverlaySubTitle</string>
-							<string>theOverlaySubTitleWindow</string>
 							<string>theOverlayTitleBar</string>
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
@@ -2290,8 +2209,6 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>NiceScrubber</string>
 							<string>id</string>
 							<string>id</string>
@@ -2305,8 +2222,6 @@
 							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
-							<string>theOverlaySubTitle</string>
-							<string>theOverlaySubTitleWindow</string>
 							<string>theOverlayTitleBar</string>
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
@@ -2329,14 +2244,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theOverlayControllerWindow</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theOverlaySubTitle</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theOverlaySubTitleWindow</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
