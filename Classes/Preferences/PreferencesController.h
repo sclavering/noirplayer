@@ -86,7 +86,6 @@
     IBOutlet id movieOpenedFullScreen;
     IBOutlet id windowAlwaysOnTop;
     IBOutlet id windowLeaveFullScreen;
-	IBOutlet id audioVolumeSimilarToLastWindow;
 	IBOutlet id disableShowingOverlaysOnKeyPress;
 	IBOutlet id opacityWhenWindowIsTransparent;
     
@@ -124,7 +123,6 @@
 -(IBAction)movieOpenedFullScreen:(id)sender;
 -(IBAction)windowAlwaysOnTop:(id)sender;
 -(IBAction)windowLeaveFullScreen:(id)sender;
--(IBAction)audioVolumeSimilarToLastWindow:(id)sender;
 -(IBAction)disableShowingOverlaysOnKeyPress:(id)sender;
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender;
 

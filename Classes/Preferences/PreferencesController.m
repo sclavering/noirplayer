@@ -137,7 +137,6 @@
 	[movieOpenedFullScreen setState:[[Preferences mainPrefs] movieOpenedFullScreen]];
 	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
 	[windowLeaveFullScreen setState:[[Preferences mainPrefs] windowLeaveFullScreen]];
-	[audioVolumeSimilarToLastWindow setState:[[Preferences mainPrefs] audioVolumeSimilarToLastWindow]];
 	[disableShowingOverlaysOnKeyPress setState:[[Preferences mainPrefs] disableShowingOverlaysOnKeyPress]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
 		
@@ -291,11 +290,6 @@
 -(IBAction)windowLeaveFullScreen:(id)sender
 {
 	[[Preferences mainPrefs] setWindowLeaveFullScreen:[sender state]];
-}
-
--(IBAction)audioVolumeSimilarToLastWindow:(id)sender
-{
-	[[Preferences mainPrefs] setAudioVolumeSimilarToLastWindow:[sender state]];
 }
 
 -(IBAction)disableShowingOverlaysOnKeyPress:(id)sender

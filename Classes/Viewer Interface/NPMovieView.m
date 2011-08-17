@@ -1075,11 +1075,7 @@ while ((object = [enumerator nextObject])) {
 	else
 		[trueMovieView setMuted:NO];
 	
-	if([[Preferences mainPrefs] audioVolumeSimilarToLastWindow]){
-		[[Preferences mainPrefs] setDefaultAudioVolume:[trueMovieView volume]];
-	}
-			[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(double)totalTime

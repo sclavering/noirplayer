@@ -54,8 +54,6 @@
 {	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSNumber numberWithBool:NO], @"audioVolumeSimilarToLastWindow",
-		[NSNumber numberWithFloat:1.0], @"defaultAudioVolume",
 		[NSNumber numberWithInt:SCROLL_WHEEL_ADJUSTS_NONE], @"scrollWheelHorizontalMoviePref",
 		[NSNumber numberWithBool:NO], @"disableShowingOverlaysOnKeyPress",
 		[NSNumber numberWithFloat:0.5], @"opacityWhenWindowIsTransparent",
@@ -130,8 +128,6 @@
 		movieOpenedFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedFullScreen"];
 		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
 		windowLeaveFullScreen = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotLeaveFullScreen"];
-		audioVolumeSimilarToLastWindow = [[NSUserDefaults standardUserDefaults] boolForKey:@"audioVolumeSimilarToLastWindow"];
-		defaultAudioVolume = [[NSUserDefaults standardUserDefaults] floatForKey:@"defaultAudioVolume"];
 		disableShowingOverlaysOnKeyPress = [[NSUserDefaults standardUserDefaults] boolForKey:@"disableShowingOverlaysOnKeyPress"];
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 		[self integrateViewerPluginPrefs];
@@ -426,28 +422,6 @@
 {
 	windowLeaveFullScreen = aBool;
 	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"windowNotLeaveFullScreen"];
-}
-
--(BOOL)audioVolumeSimilarToLastWindow
-{
-	return audioVolumeSimilarToLastWindow;
-}
-
--(void)setAudioVolumeSimilarToLastWindow:(BOOL)aBool
-{
-	audioVolumeSimilarToLastWindow = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:aBool forKey:@"audioVolumeSimilarToLastWindow"];
-}
-
--(float)defaultAudioVolume
-{
-	return defaultAudioVolume;
-}
-
--(void)setDefaultAudioVolume:(float)aFloat
-{
-	defaultAudioVolume = aFloat;
-	[[NSUserDefaults standardUserDefaults] setFloat:aFloat forKey:@"defaultAudioVolume"];
 }
 
 -(BOOL)disableShowingOverlaysOnKeyPress

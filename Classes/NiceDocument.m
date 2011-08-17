@@ -388,16 +388,8 @@ void findSpace(id each, void* context, BOOL* endthis){
 	
     [self refreshRepeatModeGUI];
     [self calculateAspectRatio];
-					[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-	if([[Preferences mainPrefs] audioVolumeSimilarToLastWindow]){
-		NiceDocument *doc = [[NSDocumentController sharedDocumentController] currentDocument];
-		if(doc)
-			[theMovieView setVolume:[doc volume]];
-		else
-			[theMovieView setVolume:[[Preferences mainPrefs] defaultAudioVolume]];
-	}
-	
-	[[self window] updateVolume];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+    [[self window] updateVolume];
 }
 
 
