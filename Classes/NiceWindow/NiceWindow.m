@@ -117,8 +117,6 @@
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
 		fixedAspectRatio = YES;
-        initialFadeTimer = nil;
-        isInitialDisplay = [[Preferences mainPrefs] showInitialOverlays];
         timeDisplayStyle = [[Preferences mainPrefs] defaultTimeDisplay];
 		[[Preferences mainPrefs] addObserver:self
 								  forKeyPath:@"opacityWhenWindowIsTransparent" 
@@ -197,11 +195,8 @@
     [[FadeOut fadeOut] removeWindow:theOverlayTitleBar];
     [[FadeOut fadeOut] removeWindow:theOverlayVolume];
     [[FadeOut fadeOut] removeWindow:self];
-    if(initialFadeTimer)
-        [initialFadeTimer invalidate];
     [timeUpdaterTimer invalidate];
-	
-	
+
 	isClosing = YES;
     [theMovieView close];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -408,8 +403,6 @@
  */
 -(void)setupOverlays
 {
-	BOOL initialShow = [[Preferences mainPrefs] showInitialOverlays];
-	
     NSRect currentFrame = [self frame];
     [self putOverlay:theOverlayControllerWindow
 		   asChildOf:self
@@ -417,7 +410,7 @@
                                 currentFrame.origin.y,
                                 currentFrame.size.width,
                                 [theOverlayControllerWindow frame].size.height)
-      withVisibility:initialShow];
+      withVisibility:NO];
 	
 	
 	[theResizeWindow setLevel:100];
@@ -429,7 +422,7 @@
 								[self frame].origin.y, 
 								[self resizeWidth],
 								[self resizeHeight])
-      withVisibility:initialShow];
+      withVisibility:NO];
 	
 	
 	
@@ -449,7 +442,7 @@
                                 currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height,
                                 currentFrame.size.width,
                                 [theOverlayTitleBar frame].size.height)
-      withVisibility:initialShow];
+      withVisibility:NO];
     [self putOverlay:theOverlayVolume
 		   asChildOf:self
              inFrame:NSOffsetRect([theOverlayVolume frame],
@@ -465,16 +458,6 @@
                                 currentFrame.size.width,
                                 [theOverlayNotifier frame].size.height)
       withVisibility:NO];
-	
-	
-	if([[Preferences mainPrefs] showInitialOverlays]){
-		id initialFadeObjects = [NSMutableSet setWithObjects:theOverlayControllerWindow, theOverlayTitleBar, nil];
-		NSDictionary *fadeDict = [NSDictionary dictionaryWithObjects:
-			[NSArray arrayWithObjects:self,	initialFadeObjects, @"initialFadeComplete",	nil]
-															 forKeys:
-			[NSArray arrayWithObjects:@"Window", @"Fade", @"Selector", nil]];
-		initialFadeTimer = [[FadeOut fadeOut] initialFadeForDict:fadeDict];
-    }	
 }
 
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aWindow inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible
@@ -501,14 +484,6 @@
     [self hideOverLayTitle];
 }
 
--(void)hideInitialWindows
-{
-    [[FadeOut fadeOut] addWindow:theOverlayControllerWindow];
-    [[FadeOut fadeOut] addWindow:theOverlayTitleBar];
-    [[FadeOut fadeOut] addWindow:theOverlayVolume];
-    isInitialDisplay = NO;
-}
-
 -(void)hideAllImmediately
 {
     [[FadeOut fadeOut] removeWindow:theOverlayControllerWindow];
@@ -517,30 +492,15 @@
     [theOverlayControllerWindow setAlphaValue:0.0];
     [theOverlayTitleBar setAlphaValue:0.0];
     [theOverlayVolume setAlphaValue:0.0];
-    isInitialDisplay = NO;
-}
-
--(void)initialFadeComplete
-{
-    isInitialDisplay = NO;
-    initialFadeTimer = nil;
 }
 
 -(BOOL)scrubberInUse{
     return [theScrubBar inUse];
 }
 
--(void)automaticShowOverlayControllerWindow
-{
-    if(![[Preferences mainPrefs] disableShowingOverlaysOnKeyPress])
-		[self showOverlayControlBar];
-}
-
 -(void)showOverlayControlBar
 {
-    if((windowOverlayControllerIsShowing) && !(isInitialDisplay))
-        return;
-    
+    if(windowOverlayControllerIsShowing) return;
     [self updateByTime:self];
     [self setOverlayControllerWindowLocation];
     [[FadeOut fadeOut] removeWindow:theOverlayControllerWindow];
@@ -594,12 +554,8 @@
 
 -(void)hideOverLayWindow
 {
-	if(windowOverlayControllerIsShowing == NO)
-        return;
-    if(isInitialDisplay)
-        [self hideInitialWindows];
-    else
-        [[FadeOut fadeOut] addWindow:theOverlayControllerWindow];
+    if(!windowOverlayControllerIsShowing) return;
+    [[FadeOut fadeOut] addWindow:theOverlayControllerWindow];
  //   [self setShowsResizeIndicator:NO];
     windowOverlayControllerIsShowing = NO;
 }
@@ -608,8 +564,7 @@
 {
     [self setOverlayTitleLocation];
 	
-    if((titleOverlayIsShowing) && !(isInitialDisplay))
-        return;
+    if(titleOverlayIsShowing) return;
     
     [[FadeOut fadeOut] removeWindow:theOverlayTitleBar];
     [theOverlayTitleBar setAlphaValue:1.0];
@@ -708,17 +663,13 @@
     if(titleOverlayIsShowing == NO)
         return;
     
-    if(isInitialDisplay)
-        [self hideInitialWindows];
-    else
-        [[FadeOut fadeOut] addWindow:theOverlayTitleBar];
+    [[FadeOut fadeOut] addWindow:theOverlayTitleBar];
     titleOverlayIsShowing = NO;
 }
 
 -(void)automaticShowOverLayVolume
 {
-	if(![[Preferences mainPrefs] disableShowingOverlaysOnKeyPress])
-		[self showOverLayVolume];
+    [self showOverLayVolume];
 }
 
 -(void)showOverLayVolume
@@ -750,10 +701,7 @@
 
 -(void)hideOverLayVolume
 {
-    if(isInitialDisplay)
-        [self hideInitialWindows];
-    else
-        [[FadeOut fadeOut] addWindow:theOverlayVolume];
+    [[FadeOut fadeOut] addWindow:theOverlayVolume];
 }
 
 #pragma mark -

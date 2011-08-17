@@ -1425,7 +1425,6 @@ proposedItem:(id)tItem
 	case kRemoteButtonPlay:
 			if(!pressedDown){
 	    [[((NiceWindow *)[self window]) playButton] togglePlaying];
-	    [((NiceWindow *)[self window]) automaticShowOverlayControllerWindow];
 	    [theMovieView smartHideMouseOverOverlays];
 			}
 	    break;			

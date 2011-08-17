@@ -73,20 +73,10 @@
     IBOutlet id autoplayOnFullScreen;
     IBOutlet id autostopOnNormalScreen;
     
-    IBOutlet id showInitialOverlays;
-    IBOutlet id fadeOverlays;
-    IBOutlet id fadeOverlayTime;
-
-    IBOutlet id showNotificationOverlays;
-    IBOutlet id fadeNotificationOverlays;
-    IBOutlet id displayNotificationTime;
-    IBOutlet id notificationColor;
-    
     IBOutlet id movieOpenedPlay;
     IBOutlet id movieOpenedFullScreen;
     IBOutlet id windowAlwaysOnTop;
     IBOutlet id windowLeaveFullScreen;
-	IBOutlet id disableShowingOverlaysOnKeyPress;
 	IBOutlet id opacityWhenWindowIsTransparent;
     
     id _draggingObjects;
@@ -110,20 +100,10 @@
 -(IBAction)autoplayOnFullScreen:(id)sender;
 -(IBAction)autostopOnNormalScreen:(id)sender;
 
--(IBAction)showInitialOverlays:(id)sender;
--(IBAction)fadeOverlays:(id)sender;
--(IBAction)fadeOverlayTime:(id)sender;
-
--(IBAction)showNotificationOverlays:(id)sender;
--(IBAction)fadeNotificationOverlays:(id)sender;
--(IBAction)displayNotificationTime:(id)sender;
--(IBAction)notificationColor:(id)sender;
-
 -(IBAction)movieOpenedPlay:(id)sender;
 -(IBAction)movieOpenedFullScreen:(id)sender;
 -(IBAction)windowAlwaysOnTop:(id)sender;
 -(IBAction)windowLeaveFullScreen:(id)sender;
--(IBAction)disableShowingOverlaysOnKeyPress:(id)sender;
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender;
 
 @end

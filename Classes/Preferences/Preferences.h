@@ -68,22 +68,12 @@ enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 	BOOL autoplayOnFullScreen;
 	BOOL autostopOnNormalScreen;
 
-	BOOL showInitialOverlays;
-	BOOL fadeOverlays;
-	float fadeOverlayTime;
-	
-	BOOL showNotificationOverlays;
-	BOOL fadeNotificationOverlays;
-	float displayNotificationTime;
-	id notificationColor;
-	
 	BOOL movieOpenedPlay;
 	BOOL movieOpenedFullScreen;
 	BOOL windowAlwaysOnTop;
 	BOOL windowLeaveFullScreen;
 	
 	BOOL disableAppleRemote;
-	BOOL disableShowingOverlaysOnKeyPress;
 	float opacityWhenWindowIsTransparent;
 	
 	NSMutableArray *viewerPluginPrefs;
@@ -123,22 +113,6 @@ enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 -(BOOL)autostopOnNormalScreen;
 -(void)setAutostopOnNormalScreen:(BOOL)aBool;
 
--(BOOL)showInitialOverlays;
--(void)setShowInitialOverlays:(BOOL)aBool;
--(BOOL)fadeOverlays;
--(void)setFadeOverlays:(BOOL)aBool;
--(float)fadeOverlayTime;
--(void)setFadeOverlayTime:(float)anInt;
-
--(BOOL)showNotificationOverlays;
--(void)setShowNotificationOverlays:(BOOL)aBool;
--(BOOL)fadeNotificationOverlays;
--(void)setFadeNotificationOverlays:(BOOL)aBool;
--(float)displayNotificationTime;
--(void)setDisplayNotificationTime:(float)aFloat;
--(id)notificationColor;
--(void)setNotificationColor:(id)anObject;
-
 -(BOOL)movieOpenedPlay;
 -(void)setMovieOpenedPlay:(BOOL)aBool;
 -(BOOL)movieOpenedFullScreen;
@@ -147,8 +121,6 @@ enum defaultOpenModeValues { OPEN_PLAYLIST, OPEN_WINDOWS };
 -(void)setWindowAlwaysOnTop:(BOOL)aBool;
 -(BOOL)windowLeaveFullScreen;
 -(void)setWindowLeaveFullScreen:(BOOL)aBool;
--(BOOL)disableShowingOverlaysOnKeyPress;
--(void)setDisableShowingOverlaysOnKeyPress:(BOOL)aBool;
 -(float)opacityWhenWindowIsTransparent;
 -(void)setOpacityWhenWindowIsTransparent:(float)aFloat;
 -(NSString*)windowPosition;

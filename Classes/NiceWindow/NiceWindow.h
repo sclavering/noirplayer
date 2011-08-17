@@ -77,7 +77,6 @@
     BOOL isFilling;
 	BOOL isClosing;
     BOOL isWidthFilling;
-    BOOL isInitialDisplay;    
     BOOL fixedAspectRatio;
     BOOL partiallyTransparent;
 	
@@ -89,15 +88,11 @@
     float miniVolume;
     NSRect beforeFullScreen;
 
-    id initialFadeTimer;
-	
     NSSize aspectRatio;
 	NSPoint initialDrag;
     
     id notifierTimer;
 	NSSize _lastSize;
-
-	
 }
 -(float)resizeWidth;
 -(float)resizeHeight;
@@ -128,10 +123,7 @@
 -(void)setupOverlays;
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aChild inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible;
 -(void)hideOverlays;
--(void)hideInitialWindows;
 -(void)hideAllImmediately;
--(void)initialFadeComplete;
--(void)automaticShowOverlayControllerWindow;
 -(void)showOverlayControlBar;
 -(void)setOverlayControllerWindowLocation;
 -(void)hideOverLayWindow;

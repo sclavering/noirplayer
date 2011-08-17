@@ -55,7 +55,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
 		[NSNumber numberWithInt:SCROLL_WHEEL_ADJUSTS_NONE], @"scrollWheelHorizontalMoviePref",
-		[NSNumber numberWithBool:NO], @"disableShowingOverlaysOnKeyPress",
 		[NSNumber numberWithFloat:0.5], @"opacityWhenWindowIsTransparent",
 		nil];
 	
@@ -107,28 +106,10 @@
 		autoplayOnFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"autoplayOnFullScreen"];
 		autostopOnNormalScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"autostopOnNormalScreen"];
 
-		showInitialOverlays = ![[NSUserDefaults standardUserDefaults] boolForKey:@"noShowInitialOverlays"];
-		fadeOverlays = ![[NSUserDefaults standardUserDefaults] boolForKey:@"noFadeOverlays"];
-		fadeOverlayTime = ([[NSUserDefaults standardUserDefaults] floatForKey:@"fadeOverlayTime"] <= 0.0) 
-		    ? 5.0
-		    : [[NSUserDefaults standardUserDefaults] floatForKey:@"fadeOverlayTime"];
-		
-		showNotificationOverlays = ![[NSUserDefaults standardUserDefaults] boolForKey:@"noShowNotificationOverlays"];
-		fadeNotificationOverlays = ![[NSUserDefaults standardUserDefaults] boolForKey:@"noFadeNotificationOverlays"];
-		displayNotificationTime = ([[NSUserDefaults standardUserDefaults] floatForKey:@"displayNotificationTime"] <= 0.0) 
-		    ? 2.0
-		    : [[NSUserDefaults standardUserDefaults] floatForKey:@"displayNotificationTime"];
-		notificationColor = [[NSUserDefaults standardUserDefaults] objectForKey:@"notificationColor"];
-		if(notificationColor)
-		    notificationColor =	[[NSUnarchiver unarchiveObjectWithData:notificationColor] retain];
-		else
-		    notificationColor = [[NSColor whiteColor] retain];
-		
 		movieOpenedPlay = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedPlay"];
 		movieOpenedFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedFullScreen"];
 		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
 		windowLeaveFullScreen = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotLeaveFullScreen"];
-		disableShowingOverlaysOnKeyPress = [[NSUserDefaults standardUserDefaults] boolForKey:@"disableShowingOverlaysOnKeyPress"];
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 		[self integrateViewerPluginPrefs];
 	}
@@ -299,87 +280,6 @@
 
 #pragma mark -
 
--(BOOL)showInitialOverlays
-{
-	return showInitialOverlays;
-}
-
--(void)setShowInitialOverlays:(BOOL)aBool
-{
-	showInitialOverlays = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"noShowInitialOverlays"];
-}
-
--(BOOL)fadeOverlays
-{
-	return fadeOverlays;
-}
-
--(void)setFadeOverlays:(BOOL)aBool
-{
-	fadeOverlays = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"noFadeOverlays"];
-}
-
--(float)fadeOverlayTime
-{
-    return fadeOverlayTime;
-}
-
--(void)setFadeOverlayTime:(float)aFloat
-{
-    fadeOverlayTime = aFloat;
-    [[NSUserDefaults standardUserDefaults] setFloat:aFloat forKey:@"fadeOverlayTime"];
-}
-
-#pragma mark -
-
--(BOOL)showNotificationOverlays
-{
-    return showNotificationOverlays;
-}
-
--(void)setShowNotificationOverlays:(BOOL)aBool
-{
-    showNotificationOverlays = aBool;
-    [[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"noShowNotificationOverlays"];
-}
-
--(BOOL)fadeNotificationOverlays
-{
-    return fadeNotificationOverlays;
-}
-
--(void)setFadeNotificationOverlays:(BOOL)aBool
-{
-    fadeNotificationOverlays = aBool;
-    [[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"noFadeNotificationOverlays"];
-}
-
--(float)displayNotificationTime
-{
-    return displayNotificationTime;
-}
-
--(void)setDisplayNotificationTime:(float)aFloat
-{
-    displayNotificationTime = aFloat;
-    [[NSUserDefaults standardUserDefaults] setFloat:aFloat forKey:@"displayNotificationTime"];
-}
-
--(id)notificationColor
-{
-    return notificationColor;
-}
-
--(void)setNotificationColor:(id)anObject
-{
-    notificationColor = anObject;
-    [[NSUserDefaults standardUserDefaults] setObject:[NSArchiver archivedDataWithRootObject:anObject] forKey:@"notificationColor"];
-}
-
-#pragma mark -
-
 -(BOOL)movieOpenedPlay
 {
 	return movieOpenedPlay;
@@ -422,17 +322,6 @@
 {
 	windowLeaveFullScreen = aBool;
 	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"windowNotLeaveFullScreen"];
-}
-
--(BOOL)disableShowingOverlaysOnKeyPress
-{
-	return disableShowingOverlaysOnKeyPress;
-}
-
--(void)setDisableShowingOverlaysOnKeyPress:(BOOL)aBool
-{
-	disableShowingOverlaysOnKeyPress = aBool;
-	[[NSUserDefaults standardUserDefaults] setFloat:aBool forKey:@"disableShowingOverlaysOnKeyPress"];
 }
 
 -(float)opacityWhenWindowIsTransparent
