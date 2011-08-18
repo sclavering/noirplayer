@@ -52,7 +52,6 @@
 #import "ControlPlay.h"
 #import "NPMovieProtocol.h"
 #import "NiceWindow.h"
-#import "ControlButton.h"
 #import "BlankView.h"
 #import "NiceDocument.h"
 #import "RCMovieView.h"

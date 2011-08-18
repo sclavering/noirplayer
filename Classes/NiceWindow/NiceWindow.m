@@ -48,7 +48,6 @@
 #import "OverlaysControl.h"
 #import "NiceController.h"
 #import "NiceScrubber.h"
-#import "ControlButton.h"
 
 #import "NiceWindow.h"
 #import "OverlayControllerWindow.h"

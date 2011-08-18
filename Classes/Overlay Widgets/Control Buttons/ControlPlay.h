@@ -42,11 +42,21 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import <Cocoa/Cocoa.h>
-#import "ControlButton.h"
+#import "NPMovieView.h"
+#import "NPScalingButton.h"
 
-@interface ControlPlay : ControlButton {
+@interface ControlPlay : NPScalingButton {
+    id actionView;
+    BOOL start;
+    BOOL activated;
+    NSTrackingRectTag tRectTag;
 	BOOL iAmPlaying;
 }
+
+-(void)setActionView:(id)aView;
+-(BOOL)isInFinalState;
+-(void)mousePressed:(id)sender;
+-(void)makeTrackingRect;
 
 -(void)togglePlaying;
 -(void)changeToProperButton:(BOOL)isPlaying;

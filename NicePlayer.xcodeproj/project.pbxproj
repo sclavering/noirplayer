@@ -15,8 +15,6 @@
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
-		252BD9F607699E7C006CF96B /* ControlButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BD9F407699E7C006CF96B /* ControlButton.h */; };
-		252BD9F707699E7C006CF96B /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BD9F507699E7C006CF96B /* ControlButton.m */; };
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
 		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
@@ -200,8 +198,6 @@
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
-		252BD9F407699E7C006CF96B /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlButton.h; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.h"; sourceTree = "<group>"; };
-		252BD9F507699E7C006CF96B /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlButton.m; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.m"; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.h"; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.m"; sourceTree = "<group>"; };
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
@@ -445,8 +441,6 @@
 		252BDA1E076A3BE7006CF96B /* Control Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				252BD9F407699E7C006CF96B /* ControlButton.h */,
-				252BD9F507699E7C006CF96B /* ControlButton.m */,
 				252BDDD7076A4744006CF96B /* ControlPlay.h */,
 				252BDDD8076A4744006CF96B /* ControlPlay.m */,
 			);
@@ -691,7 +685,6 @@
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */,
 				257D61680753F92D00702BD0 /* NPMovieView.h in Headers */,
-				252BD9F607699E7C006CF96B /* ControlButton.h in Headers */,
 				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
@@ -903,7 +896,6 @@
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
-				252BD9F707699E7C006CF96B /* ControlButton.m in Sources */,
 				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
