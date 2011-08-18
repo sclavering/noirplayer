@@ -84,7 +84,6 @@
 		3E9E629D0661724600B788A8 /* scrubbar_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62980661724600B788A8 /* scrubbar_right.png */; };
 		3E9E64820661B95900B788A8 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64800661B95900B788A8 /* pause.png */; };
 		3E9E64830661B95900B788A8 /* pauseClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64810661B95900B788A8 /* pauseClick.png */; };
-		3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */ = {isa = PBXBuildFile; fileRef = 3EB4F72F08F62C4C004692D3 /* Default Scripts */; };
 		3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7EC5F065F39AA0002A470 /* Carbon.framework */; };
 		3EB7ECFA065F39BC0002A470 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7ECF9065F39BC0002A470 /* QuickTime.framework */; };
 		3EC8C22B065DB22A00988449 /* RoundRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC8C229065DB22A00988449 /* RoundRect.h */; };
@@ -278,7 +277,6 @@
 		3E9E62980661724600B788A8 /* scrubbar_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubbar_right.png; path = Resources/scrubbar_right.png; sourceTree = "<group>"; };
 		3E9E64800661B95900B788A8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
-		3EB4F72F08F62C4C004692D3 /* Default Scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Default Scripts"; path = "Resources/Default Scripts"; sourceTree = "<group>"; };
 		3EB7EC5F065F39AA0002A470 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3EB7ECF9065F39BC0002A470 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		3EC8C229065DB22A00988449 /* RoundRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundRect.h; path = "Classes/Overlay Widgets/RoundRect.h"; sourceTree = "<group>"; };
@@ -585,7 +583,6 @@
 			children = (
 				69257CFD111DD2A700C28210 /* NiceDocument.xib */,
 				25CC00580A315A45002FB428 /* acknowledgements.html */,
-				3EB4F72F08F62C4C004692D3 /* Default Scripts */,
 				2513D20407BDA31600BB6055 /* Images */,
 				3E8C96C1073EF4730048CB70 /* doc_icons */,
 				3E452FF00664719D00BC91B0 /* NiceIcon.icns */,
@@ -857,7 +854,6 @@
 				25294AAA076E937E00D4B325 /* play_over.png in Resources */,
 				2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
-				3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */,
 				697496200B55F7A90030D4D2 /* titlebg.png in Resources */,
 				690B61170B5981A4008D13CE /* flv.icns in Resources */,
 				690B627A0B5992B7008D13CE /* mkv.icns in Resources */,
