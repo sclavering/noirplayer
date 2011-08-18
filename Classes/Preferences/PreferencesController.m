@@ -85,8 +85,6 @@
 	
 	[doubleClickMoviePref selectItemWithTag:[[Preferences mainPrefs] doubleClickMoviePref]];
 	[rightClickMoviePref selectItemWithTag:[[Preferences mainPrefs] rightClickMoviePref]];
-	[scrollWheelMoviePref selectItemWithTag:[[Preferences mainPrefs] scrollWheelMoviePref]];
-	[scrollWheelHorizontalMoviePref selectItemWithTag:[[Preferences mainPrefs] scrollWheelHorizontalMoviePref]];
 	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
 
@@ -119,16 +117,6 @@
 -(IBAction)rightClickMoviePref:(id)sender
 {
 	[[Preferences mainPrefs] setRightClickMoviePref:[[sender selectedItem] tag]];
-}
-
--(IBAction)scrollWheelMoviePref:(id)sender
-{
-    [[Preferences mainPrefs] setScrollWheelMoviePref:[[sender selectedItem] tag]];
-}
-
--(IBAction)scrollWheelHorizontalMoviePref:(id)sender
-{
-    [[Preferences mainPrefs] setScrollWheelHorizontalMoviePref:[[sender selectedItem] tag]];
 }
 
 -(IBAction)scrollResizePin:(id)sender

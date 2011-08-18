@@ -52,7 +52,6 @@
 {	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSNumber numberWithInt:SCROLL_WHEEL_ADJUSTS_NONE], @"scrollWheelHorizontalMoviePref",
 		[NSNumber numberWithFloat:0.5], @"opacityWhenWindowIsTransparent",
 		nil];
 	
@@ -77,8 +76,6 @@
 	if((self = [super init])){
 		doubleClickMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"doubleClickMoviePref"];
 		rightClickMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"rightClickMoviePref"];
-		scrollWheelMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"scrollWheelMoviePref"];
-		scrollWheelHorizontalMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"scrollWheelHorizontalMoviePref"];
 
 		if([[NSUserDefaults standardUserDefaults] objectForKey:@"scrollResizePin"] == nil)
 		    scrollResizePin = PIN_SMART;
@@ -125,28 +122,6 @@
 {
 	rightClickMoviePref = anInt;
 	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"rightClickMoviePref"];
-}
-
--(enum scrollWheelMoviePrefValues)scrollWheelMoviePref
-{
-    return scrollWheelMoviePref;
-}
-
--(void)setScrollWheelMoviePref:(enum scrollWheelMoviePrefValues)anInt
-{
-    scrollWheelMoviePref = anInt;
-    [[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"scrollWheelMoviePref"];
-}
-
--(enum scrollWheelMoviePrefValues)scrollWheelHorizontalMoviePref
-{
-    return scrollWheelHorizontalMoviePref;
-}
-
--(void)setScrollWheelHorizontalMoviePref:(enum scrollWheelMoviePrefValues)anInt
-{
-    scrollWheelHorizontalMoviePref = anInt;
-    [[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"scrollWheelHorizontalMoviePref"];
 }
 
 -(enum scrollResizePinValues)scrollResizePin

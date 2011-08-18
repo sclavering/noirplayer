@@ -111,8 +111,6 @@
 
 -(BOOL)canAnimateResize;
 -(void)scrollWheelResize:(float)delta;
--(void)scrollWheelAdjustVolume:(float)delta;
--(void)performScrollerForPref:(enum scrollWheelMoviePrefValues)pref event:(NSEvent *)anEvent delta:(float)delta;
 
 #pragma mark -
 #pragma mark Calculations

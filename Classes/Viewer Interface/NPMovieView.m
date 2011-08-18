@@ -624,71 +624,26 @@
 
 -(void)scrollWheel:(NSEvent *)anEvent
 {
-	[self performScrollerForPref:[[Preferences mainPrefs] scrollWheelMoviePref]
-						   event:anEvent
-						   delta:[anEvent deltaY]];
-	[self performScrollerForPref:[[Preferences mainPrefs] scrollWheelHorizontalMoviePref]
-						   event:anEvent
-						   delta:-[anEvent deltaX]];
-}
+    float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
 
--(void)performScrollerForPref:(enum scrollWheelMoviePrefValues)pref event:(NSEvent *)anEvent delta:(float)delta
-{
-	if(delta == 0.0)
-		return;
-	
-	switch(pref){
-		case SCROLL_WHEEL_ADJUSTS_VOLUME:
-			if([anEvent modifierFlags] & NSAlternateKeyMask)
-				[self scrollWheelResize:delta];
-			else
-				[self scrollWheelAdjustVolume:delta];
-			break;
-		case SCROLL_WHEEL_ADJUSTS_SIZE:
-			if([anEvent modifierFlags] & NSAlternateKeyMask)
-				[self scrollWheelAdjustVolume:delta];	
-			else
-				[self scrollWheelResize:delta];
-			break;
-		case SCROLL_WHEEL_SCRUBS:
-		{
-			if(delta > 0){
-				[self ffStart];
-				[self ffDo:[[Preferences mainPrefs] ffSpeed] * fabsf(delta)];
-				[self ffEnd];
-			} else {
-				[self rrStart];
-				[self rrDo:[[Preferences mainPrefs] ffSpeed] * fabsf(delta)];
-				[self rrEnd];
-			}
-			break;
-		}
-		default:
-			// SCROLL_WHEEL_ADJUSTS_NONE
-			break;
+    if(deltaX) {
+        if(deltaX > 0){
+            [self ffStart];
+            [self ffDo:[[Preferences mainPrefs] ffSpeed] * fabsf(deltaX)];
+            [self ffEnd];
+        } else {
+            [self rrStart];
+            [self rrDo:[[Preferences mainPrefs] ffSpeed] * fabsf(deltaX)];
+            [self rrEnd];
+        }
     }
+
+    if(deltaY) [self scrollWheelResize:deltaY];
 }
 
 -(void)scrollWheelResize:(float)delta
 {
     [((NiceWindow *)[self window]) resize:delta*5 animate:NO];
-}
-
--(void)scrollWheelAdjustVolume:(float)delta
-{
-    SEL volAdj;
-    float i, max;
-    
-    [self showOverLayVolume];
-    
-    if(delta > 0.0)
-	volAdj = @selector(incrementVolume);
-    else
-	volAdj = @selector(decrementVolume);
-    
-    max = fabsf(delta);
-    for(i = 0.0; i < max; i += 3.0)
-	[self performSelector:volAdj];
 }
 
 #pragma mark -
