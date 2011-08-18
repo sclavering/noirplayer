@@ -936,41 +936,6 @@ stuff won't work properly! */
 - (BOOL)outlineView:(NSOutlineView *)outlineView 
 acceptDrop:(id <NSDraggingInfo>)info 
 item:(id)item childIndex:(int)anIndex{
-    
-    NSPasteboard *pboard = [info draggingPasteboard];	// get the paste board
-	id tableSource = nil;
-     tableSource = [info draggingSource] ;
-	 if(tableSource !=nil && ![tableSource isKindOfClass:[NiceDocument class]]){
-	    tableSource = [tableSource dataSource];
-	 }
-	 
-    if([pboard availableTypeFromArray:[NSArray arrayWithObject: NSFilenamesPboardType]]){
-        NSArray *urls = [pboard propertyListForType:NSFilenamesPboardType];
-		NSMutableArray* mutUrls= [NSMutableArray array];
-		BOOL tVerifyType = NO;
-		urls =[urls injectUsingFunction:NPInjectNestedDirectories into:mutUrls context:&tVerifyType];
-        urls = [urls collectUsingFunction:NPConvertFileNamesToURLs context:nil];
-        
-        NSEnumerator *enumerator = [urls reverseObjectEnumerator];
-        id object;
-        
-	//	int tCount =[thePlaylist count];
-        while ((object = [enumerator nextObject])) {
-            [tableSource removeURLFromPlaylist:object];
-			if(item == nil){
-				[self addURLToPlaylist:object atIndex:anIndex];
-			}else{
-				[self addURLToPlaylist:object atIndex:[[item objectForKey:@"index"] intValue] ];
-			}
-        }
-        
-        [tableSource removeURLPlaceHolders];
-        
-		
-		
-        return YES;
-    } 
-    
     return NO;
 }
 

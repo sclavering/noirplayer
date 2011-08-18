@@ -47,11 +47,6 @@
 
 #import "NiceUtilities.h"
 #import <STEnum/STEnum.h>
-#import "../Classes/Viewer Interface/RCMovieView.h"
-
-id NPConvertFileNamesToURLs(id obj, void* context){
-    return [NSURL fileURLWithPath:obj];
-}
 
 int urlSort(id url1, id url2, void *context){
     NSString* v1 = [[url1 path] lastPathComponent];
@@ -66,32 +61,6 @@ NSArray* NPSortUrls(NSArray* anArrayOfUrls){
 
 id appendToEach(id aLastPath,void* aPrefix){
     return [(NSString*)aPrefix stringByAppendingPathComponent:aLastPath];
-}
-
-id NPInjectNestedDirectories(id each, id injected, void* verifyBool){
-	BOOL tVerify = *(BOOL*)verifyBool;
-	if([[each lastPathComponent] hasPrefix:@"."])
-	   return injected;
-    if([[each pathExtension] isEqualToString:@""]){
-        BOOL tBool = NO;
-        if([[NSFileManager defaultManager] fileExistsAtPath:each isDirectory:&tBool] && tBool){
-            NSArray* tSubPaths =[[NSFileManager defaultManager] directoryContentsAtPath:each];
-            if([[each lastPathComponent] isEqualToString:@"VIDEO_TS"]){
-                [injected addObject:[each stringByDeletingLastPathComponent]];
-            } else if([tSubPaths containsObject:@"VIDEO_TS"]){
-                [injected addObject:each];
-            } else {
-				BOOL tNestedVerify = YES;
-                tSubPaths = [tSubPaths collectUsingFunction:appendToEach context:(void*)each];
-                injected =[tSubPaths injectUsingFunction:NPInjectNestedDirectories into:injected context:&tNestedVerify];
-            }
-        } else if(!tVerify || [[RCMovieView supportedFileExtensions] containsObject: NSHFSTypeOfFile(each)]) {
-            [injected addObject:each];
-        }
-    } else if(!tVerify || [[RCMovieView supportedFileExtensions] containsObject: [each pathExtension]]) {
-        [injected addObject:each];
-    }
-    return injected;
 }
 
 @implementation NSString (niceStringComparisonAdditions)
