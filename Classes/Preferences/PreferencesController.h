@@ -52,13 +52,11 @@
 	IBOutlet id paneWindowDefaults;
 
     IBOutlet id defaultTimeDisplay;
-	IBOutlet id opacityWhenWindowIsTransparent;
     
     id _draggingObjects;
     BOOL _tableLocked;
 }
 
 -(IBAction)defaultTimeDisplay:(id)sender;
--(IBAction)opacityWhenWindowIsTransparent:(id)sender;
 
 @end

@@ -71,20 +71,11 @@
 		 allowingResize:NO];
 	
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
-
-	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
 }
 
 -(IBAction)defaultTimeDisplay:(id)sender
 {
 	[[Preferences mainPrefs] setDefaultTimeDisplay:[sender indexOfSelectedItem]];
-}
-
-#pragma mark -
-
--(IBAction)opacityWhenWindowIsTransparent:(id)sender
-{
-	[[Preferences mainPrefs] setOpacityWhenWindowIsTransparent:[sender floatValue]];
 }
 
 @end

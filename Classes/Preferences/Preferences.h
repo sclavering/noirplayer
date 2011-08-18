@@ -48,7 +48,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 
 @interface Preferences : NSObject {
 	enum defaultTimeDisplayValues defaultTimeDisplay;
-	float opacityWhenWindowIsTransparent;
 }
 
 +(Preferences *)mainPrefs;
@@ -57,8 +56,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 -(enum defaultTimeDisplayValues)defaultTimeDisplay;
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 
--(float)opacityWhenWindowIsTransparent;
--(void)setOpacityWhenWindowIsTransparent:(float)aFloat;
 -(NSString*)windowPosition;
 -(void)setWindowPosition:(NSPoint) aPoint;
 

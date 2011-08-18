@@ -51,10 +51,7 @@
 + (void)initialize
 {	
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys:
-		[NSNumber numberWithFloat:0.5], @"opacityWhenWindowIsTransparent",
-		nil];
-	
+    NSDictionary *appDefaults = [NSDictionary dictionaryWithObjectsAndKeys: nil];
     [defaults registerDefaults:appDefaults];
 }
 
@@ -75,7 +72,6 @@
 {
 	if((self = [super init])){
 		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
-		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 	}
 	return self;
 }
@@ -99,21 +95,6 @@
 {
 	defaultTimeDisplay = anInt;
 	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultTimeDisplay"];
-}
-
-#pragma mark -
-
--(float)opacityWhenWindowIsTransparent
-{
-	return opacityWhenWindowIsTransparent;
-}
-
--(void)setOpacityWhenWindowIsTransparent:(float)aFloat
-{
-	[self willChangeValueForKey:@"opacityWhenWindowIsTransparent"];
-	opacityWhenWindowIsTransparent = aFloat;
-	[[NSUserDefaults standardUserDefaults] setFloat:aFloat forKey:@"opacityWhenWindowIsTransparent"];
-	[self didChangeValueForKey:@"opacityWhenWindowIsTransparent"];
 }
 
 @end

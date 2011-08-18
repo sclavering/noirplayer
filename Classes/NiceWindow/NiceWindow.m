@@ -99,10 +99,6 @@
         titleOverlayIsShowing = NO;
 		fixedAspectRatio = YES;
         timeDisplayStyle = [[Preferences mainPrefs] defaultTimeDisplay];
-		[[Preferences mainPrefs] addObserver:self
-								  forKeyPath:@"opacityWhenWindowIsTransparent" 
-									 options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld)
-									 context:NULL];
     }
     return self;
 }
@@ -165,7 +161,6 @@
 	isClosing = YES;
     [theMovieView close];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-	[[Preferences mainPrefs] removeObserver:self forKeyPath:@"opacityWhenWindowIsTransparent"];
     [super close];
 	
 	[tPool release];
@@ -598,7 +593,7 @@
 
 -(void)setCurrentAnimationValue:(float)value
 {
-	float opacity = [[Preferences mainPrefs] opacityWhenWindowIsTransparent];
+	float opacity = 0.5;
 	if(partiallyTransparent){
 		[self setAlphaValue:(1.0 - value) + opacity * value];
 	} else {
@@ -623,16 +618,6 @@
         [self unfloatWindow];
     else
         [self floatWindow];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath
-					  ofObject:(id)object 
-                        change:(NSDictionary *)change
-                       context:(void *)context
-{
-    if([keyPath isEqual:@"opacityWhenWindowIsTransparent"]){
-		[self setCurrentAnimationValue:1.0];
-    }
 }
 
 #pragma mark Window Attributes
