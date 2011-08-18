@@ -461,31 +461,11 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
-								<object class="NSMenuItem" id="430172521">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Half Size All</string>
-									<string key="NSKeyEquiv">0</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="854836878">
 									<reference key="NSMenu" ref="98428999"/>
 									<string key="NSTitle">Normal Size</string>
 									<string key="NSKeyEquiv">1</string>
 									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="1035375961">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Normal Size All</string>
-									<string key="NSKeyEquiv">1</string>
-									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
@@ -499,16 +479,6 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
-								<object class="NSMenuItem" id="300998781">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Double Size All</string>
-									<string key="NSKeyEquiv">2</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="255876879">
 									<reference key="NSMenu" ref="98428999"/>
 									<string key="NSTitle">Fill Screen</string>
@@ -518,31 +488,11 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
-								<object class="NSMenuItem" id="283267937">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Fill Screen All</string>
-									<string key="NSKeyEquiv">3</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="370601472">
 									<reference key="NSMenu" ref="98428999"/>
 									<string key="NSTitle">Fill Width</string>
 									<string key="NSKeyEquiv">4</string>
 									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="27392058">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsAlternate">YES</bool>
-									<string key="NSTitle">Fill Width All</string>
-									<string key="NSKeyEquiv">4</string>
-									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
@@ -562,44 +512,6 @@
 									<reference key="NSMenu" ref="98428999"/>
 									<string key="NSTitle">Full Screen</string>
 									<string key="NSKeyEquiv">f</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="178986008">
-									<reference key="NSMenu" ref="98428999"/>
-									<string key="NSTitle">Present All</string>
-									<string key="NSKeyEquiv">f</string>
-									<int key="NSKeyEquivModMask">1572864</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="45576972">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="772791804">
-									<reference key="NSMenu" ref="98428999"/>
-									<string key="NSTitle">Stop All Simultaneously </string>
-									<string key="NSKeyEquiv">T</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="172393417">
-									<reference key="NSMenu" ref="98428999"/>
-									<string key="NSTitle">Play All Simultaneously</string>
-									<string key="NSKeyEquiv">A</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1056899151"/>
@@ -1055,30 +967,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">presentMultiple:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="178986008"/>
-					</object>
-					<int key="connectionID">284</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">stopAll:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="772791804"/>
-					</object>
-					<int key="connectionID">285</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">playAll:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="172393417"/>
-					</object>
-					<int key="connectionID">286</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleFullScreen:</string>
 						<reference key="source" ref="836321935"/>
 						<reference key="destination" ref="952820232"/>
@@ -1140,46 +1028,6 @@
 						<reference key="destination" ref="264811947"/>
 					</object>
 					<int key="connectionID">372</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ALLhalfSize:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="430172521"/>
-					</object>
-					<int key="connectionID">449</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ALLfillWidthSize:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="27392058"/>
-					</object>
-					<int key="connectionID">450</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ALLdoubleSize:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="300998781"/>
-					</object>
-					<int key="connectionID">452</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ALLnormalSize:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="1035375961"/>
-					</object>
-					<int key="connectionID">453</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">ALLfillScreenSize:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="283267937"/>
-					</object>
-					<int key="connectionID">454</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1535,16 +1383,7 @@
 							<reference ref="713980456"/>
 							<reference ref="255876879"/>
 							<reference ref="370601472"/>
-							<reference ref="430172521"/>
-							<reference ref="1035375961"/>
-							<reference ref="300998781"/>
-							<reference ref="283267937"/>
-							<reference ref="27392058"/>
-							<reference ref="772791804"/>
-							<reference ref="172393417"/>
 							<reference ref="952820232"/>
-							<reference ref="178986008"/>
-							<reference ref="45576972"/>
 						</object>
 						<reference key="parent" ref="909680531"/>
 					</object>
@@ -1579,53 +1418,8 @@
 						<reference key="parent" ref="98428999"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">257</int>
-						<reference key="object" ref="430172521"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">259</int>
-						<reference key="object" ref="1035375961"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">261</int>
-						<reference key="object" ref="300998781"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">265</int>
-						<reference key="object" ref="283267937"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">267</int>
-						<reference key="object" ref="27392058"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">272</int>
-						<reference key="object" ref="772791804"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">273</int>
-						<reference key="object" ref="172393417"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">281</int>
 						<reference key="object" ref="952820232"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">282</int>
-						<reference key="object" ref="178986008"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">283</int>
-						<reference key="object" ref="45576972"/>
 						<reference key="parent" ref="98428999"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1810,16 +1604,7 @@
 					<string>238.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
 					<string>240.IBPluginDependency</string>
-					<string>257.IBPluginDependency</string>
-					<string>259.IBPluginDependency</string>
-					<string>261.IBPluginDependency</string>
-					<string>265.IBPluginDependency</string>
-					<string>267.IBPluginDependency</string>
-					<string>272.IBPluginDependency</string>
-					<string>273.IBPluginDependency</string>
 					<string>281.IBPluginDependency</string>
-					<string>282.IBPluginDependency</string>
-					<string>283.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
 					<string>294.IBPluginDependency</string>
 					<string>296.IBPluginDependency</string>
@@ -1848,15 +1633,6 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2097,20 +1873,14 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>playAll:</string>
-							<string>presentMultiple:</string>
 							<string>setPartiallyTransparent:</string>
 							<string>showPreferences:</string>
-							<string>stopAll:</string>
 							<string>toggleAlwaysOnTop:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2126,11 +1896,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>playAll:</string>
-							<string>presentMultiple:</string>
 							<string>setPartiallyTransparent:</string>
 							<string>showPreferences:</string>
-							<string>stopAll:</string>
 							<string>toggleAlwaysOnTop:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
@@ -2146,23 +1913,11 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
-								<string key="name">playAll:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">presentMultiple:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
 								<string key="name">setPartiallyTransparent:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">showPreferences:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">stopAll:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

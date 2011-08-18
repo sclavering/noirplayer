@@ -89,14 +89,6 @@
 	[self registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 	[trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(start)
-												 name:@"PlayAllMovies"
-											   object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(stop)
-												 name:@"StopAllMovies"
-											   object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(rebuildMenu)
 												 name:@"RebuildMenu"
 											   object:nil];	

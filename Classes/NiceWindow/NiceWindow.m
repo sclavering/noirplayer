@@ -81,15 +81,6 @@
 								styleMask:NSBorderlessWindowMask
 								  backing:NSBackingStoreBuffered
 									defer:YES])){
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(presentMultiple)
-                                                     name:@"PresentMultiple"
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(unPresentMultiple)
-                                                     name:@"unPresentMultiple"
-                                                   object:nil];
-        
         timeUpdaterTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                             target:self
                                                           selector:@selector(updateByTime:)
@@ -101,7 +92,6 @@
         [self setHasShadow:YES];
         theWindowIsFloating = NO;
         dropScreen = NO;
-        presentScreen = NO;
         isFilling = NO;
         isWidthFilling = NO;
         miniVolume = 1;
@@ -264,7 +254,7 @@
 
 - (void)performMiniaturize:(id)sender
 {
-    if(!fullScreen && !presentScreen){
+    if(!fullScreen){
         //   miniVolume =[theMovieView volume];
         //NSLog(@"%f",miniVolume);
         [self miniaturize:sender];
@@ -687,21 +677,6 @@
     [theOverlayControllerWindow orderFront:self];
     [self hideOverLayWindow];
     [self setInitialDrag:nil];
-}
-
--(void)presentMultiple
-{
-    presentScreen = YES;
-    oldWindowLevel = [self level];
-    [self setLevel:NSFloatingWindowLevel + 2];
-    [self setHasShadow:NO];
-}
-
--(void)unPresentMultiple
-{
-    presentScreen = NO;
-    [self setLevel:oldWindowLevel];
-    [self setHasShadow:YES];
 }
 
 /**

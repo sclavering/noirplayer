@@ -76,9 +76,6 @@
 
 -(IBAction)openDocument:(id)sender;
 -(IBAction)newDocument:(id)sender;
--(IBAction)presentMultiple:(id)sender;
--(IBAction)playAll:(id)sender;
--(IBAction)stopAll:(id)sender;
 -(IBAction)toggleFullScreen:(id)sender;
 -(IBAction)showPreferences:(id)sender;
 -(IBAction)toggleAlwaysOnTop:(id)sender;

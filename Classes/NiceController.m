@@ -235,27 +235,6 @@ id swapForWindows(id each, void* context){
     [NSApp changeWindowsItem:tempWindow title:[tempWindow title] filename:NO];
 }
 
--(IBAction)presentMultiple:(id)sender
-{
-    if(fullScreenMode){
-        [self exitFullScreen];
-    }else{
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentMultiple" object:nil];
-        [self presentAllScreeens];
-    }
-}
-
--(IBAction)playAll:(id)sender
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayAllMovies" object:nil];
-}
-
--(IBAction)stopAll:(id)sender
-{
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"StopAllMovies" object:nil];
-}
-
-
 -(IBAction)toggleFullScreen:(id)sender
 {
     if(fullScreenMode){
@@ -397,20 +376,6 @@ id swapForWindows(id each, void* context){
     
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
-    NSString* aString = NSStringFromSelector(aSelector);
-    
-    id tSig =[super methodSignatureForSelector:aSelector];
-    
-    if(tSig == nil && [aString hasPrefix:@"ALL"]){
-        
-        return [super methodSignatureForSelector:@selector(dummyMethod:)];
-    }else{
-        
-        return tSig;
-    }
-}
-
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
     
     NSString* aString = NSStringFromSelector([anInvocation selector]);
@@ -418,10 +383,7 @@ id swapForWindows(id each, void* context){
         NSObject* anArgumet = nil;
         
         [anInvocation getArgument:&anArgumet atIndex:2];
-        
-        
 
-        
         aString = [aString substringFromIndex:3];
         
         [[[self documents] collectUsingFunction:swapForWindows context:nil] makeObjectsPerformSelector:NSSelectorFromString(aString) withObject:nil];

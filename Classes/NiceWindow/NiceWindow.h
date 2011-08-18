@@ -66,7 +66,6 @@
 
     BOOL scrubbingDrag;
     BOOL fullScreen;
-    BOOL presentScreen;
     BOOL fillScreen;
     BOOL fillWidthScreen;
     BOOL isFilling;
@@ -138,8 +137,6 @@
 -(void)makeFullScreen;
 -(void)makeFullScreenOnScreen:(NSScreen*) aScreen;
 -(void)makeNormalScreen;
--(void)presentMultiple;
--(void)unPresentMultiple;
 -(void)floatWindow;
 -(void)unfloatWindow;
 -(BOOL)isFullScreen;
