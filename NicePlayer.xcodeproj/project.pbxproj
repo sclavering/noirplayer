@@ -22,8 +22,6 @@
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
 		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
-		257029AE0734CE4E00967356 /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 257029AC0734CE4E00967356 /* Preferences.h */; };
-		257029AF0734CE4E00967356 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 257029AD0734CE4E00967356 /* Preferences.m */; };
 		25702FF007569E3300D1EE8C /* DVDPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25702FEF07569E3300D1EE8C /* DVDPlayback.framework */; };
 		257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60000753DE7C00702BD0 /* AppKitScripting.framework */; };
 		257D60140753DED700702BD0 /* Scripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60130753DED700702BD0 /* Scripting.framework */; };
@@ -253,8 +251,6 @@
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.h"; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.m"; sourceTree = "<group>"; };
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
-		257029AC0734CE4E00967356 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preferences.h; path = Classes/Preferences/Preferences.h; sourceTree = "<group>"; };
-		257029AD0734CE4E00967356 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preferences.m; path = Classes/Preferences/Preferences.m; sourceTree = "<group>"; };
 		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
 		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
 		257D60130753DED700702BD0 /* Scripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scripting.framework; path = /System/Library/Frameworks/Scripting.framework; sourceTree = "<absolute>"; };
@@ -510,15 +506,6 @@
 			name = "Control Buttons";
 			sourceTree = "<group>";
 		};
-		257029C50734D15000967356 /* Preferences */ = {
-			isa = PBXGroup;
-			children = (
-				257029AC0734CE4E00967356 /* Preferences.h */,
-				257029AD0734CE4E00967356 /* Preferences.m */,
-			);
-			name = Preferences;
-			sourceTree = "<group>";
-		};
 		257D61370753F45800702BD0 /* Viewer Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -622,7 +609,6 @@
 				2513D22907BDA43900BB6055 /* App/Controller */,
 				257D61370753F45800702BD0 /* Viewer Interface */,
 				252BD45D07697C6A006CF96B /* Document/Window */,
-				257029C50734D15000967356 /* Preferences */,
 				25B912D707416725001B68D9 /* Overlay Widgets */,
 			);
 			name = Classes;
@@ -779,7 +765,6 @@
 				3E8CC449068A9D850034FCCC /* OverlayControllerWindow.h in Headers */,
 				3E110B63069BD80100C5800B /* ClickableTextField.h in Headers */,
 				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
-				257029AE0734CE4E00967356 /* Preferences.h in Headers */,
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */,
@@ -1027,7 +1012,6 @@
 				3E8CC44A068A9D850034FCCC /* OverlayControllerWindow.m in Sources */,
 				3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */,
 				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,
-				257029AF0734CE4E00967356 /* Preferences.m in Sources */,
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,

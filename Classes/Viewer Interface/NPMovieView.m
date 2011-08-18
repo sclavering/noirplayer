@@ -53,7 +53,6 @@
 #import "NPMovieProtocol.h"
 #import "NiceWindow.h"
 #import "ControlButton.h"
-#import "Preferences.h"
 #import "BlankView.h"
 #import "NiceDocument.h"
 #import "RCMovieView.h"

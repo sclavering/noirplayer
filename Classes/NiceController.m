@@ -48,7 +48,6 @@
 #import "NiceController.h"
 #import "NiceUtilities.h"
 #import "NPApplication.h"
-#import "Preferences.h"
 #import "NiceDocument.h"
 #import <Preferable/Preferable.h>
 #import <STEnum/STEnum.h>

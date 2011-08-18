@@ -45,7 +45,6 @@
 
 #import "NPMovieView.h"
 #import "NiceDocument.h"
-#import "Preferences.h"
 #import "OverlaysControl.h"
 #import "NiceController.h"
 #import "NiceScrubber.h"

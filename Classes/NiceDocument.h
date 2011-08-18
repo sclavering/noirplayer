@@ -48,7 +48,6 @@
 #import <Carbon/Carbon.h>
 #import "Viewer Interface/NPMovieView.h"
 #import "NiceWindow/NiceWindow.h"
-#import "Preferences/Preferences.h"
 
 @class NiceWindow;
 @class NPMovieView;
