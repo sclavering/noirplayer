@@ -141,7 +141,6 @@
 		69B2197B0BC72AA60054E10E /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219770BC72AA60054E10E /* AEDescUtils.m */; };
 		69B2197C0BC72AA60054E10E /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219780BC72AA60054E10E /* TCallScript.h */; };
 		69B2197D0BC72AA60054E10E /* TCallScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219790BC72AA60054E10E /* TCallScript.m */; };
-		69B8425A1103C3D7002E604D /* CocoaScriptMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B8424C1103C3B0002E604D /* CocoaScriptMenu.framework */; };
 		69BCF5510B62C4C20000ABEF /* ogg.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69BCF5500B62C4C20000ABEF /* ogg.icns */; };
 		69EFD1BC0B5C8E3400359BF4 /* divx.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69EFD1BB0B5C8E3400359BF4 /* divx.icns */; };
 		8D15AC290486D014006FF6A4 /* NicePlayer_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */; };
@@ -179,27 +178,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 3EBAD61C08006A950040D4A3;
 			remoteInfo = STEnum;
-		};
-		69B8424B1103C3B0002E604D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = CocoaScriptMenu;
-		};
-		69B8424D1103C3B0002E604D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3E87022C08DD32CF0015C10A;
-			remoteInfo = UnitTests;
-		};
-		69B8425B1103C3E8002E604D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = CocoaScriptMenu;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -358,7 +336,6 @@
 		69B219770BC72AA60054E10E /* AEDescUtils.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AEDescUtils.m; sourceTree = "<group>"; };
 		69B219780BC72AA60054E10E /* TCallScript.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TCallScript.h; sourceTree = "<group>"; };
 		69B219790BC72AA60054E10E /* TCallScript.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TCallScript.m; sourceTree = "<group>"; };
-		69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CocoaScriptMenu.xcodeproj; path = Libraries/cocoascriptmenu/CocoaScriptMenu.xcodeproj; sourceTree = "<group>"; };
 		69BCF5500B62C4C20000ABEF /* ogg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ogg.icns; sourceTree = "<group>"; };
 		69EFD1BB0B5C8E3400359BF4 /* divx.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = divx.icns; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -370,7 +347,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69B8425A1103C3D7002E604D /* CocoaScriptMenu.framework in Frameworks */,
 				69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */,
 				6990B4EB0CF0AA0300DA15C2 /* Appscript.framework in Frameworks */,
 				2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */,
@@ -540,7 +516,6 @@
 		25C5C1E208D4B7F300987A95 /* Other Projects */ = {
 			isa = PBXGroup;
 			children = (
-				69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */,
 				69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */,
 				6990B4E00CF0A9D300DA15C2 /* Appscript.xcodeproj */,
 			);
@@ -708,15 +683,6 @@
 			path = AttachedScriptCode;
 			sourceTree = "<group>";
 		};
-		69B842441103C3B0002E604D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				69B8424C1103C3B0002E604D /* CocoaScriptMenu.framework */,
-				69B8424E1103C3B0002E604D /* UnitTests.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -791,7 +757,6 @@
 			dependencies = (
 				691F9D610DFF6A3F000FB98B /* PBXTargetDependency */,
 				69B11C3C0E58161A005B3775 /* PBXTargetDependency */,
-				69B8425C1103C3E8002E604D /* PBXTargetDependency */,
 			);
 			name = NicePlayer;
 			productInstallPath = "$(HOME)/Applications";
@@ -827,10 +792,6 @@
 					ProjectRef = 6990B4E00CF0A9D300DA15C2 /* Appscript.xcodeproj */;
 				},
 				{
-					ProductGroup = 69B842441103C3B0002E604D /* Products */;
-					ProjectRef = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
-				},
-				{
 					ProductGroup = 69B11BEC0E581343005B3775 /* Products */;
 					ProjectRef = 69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */;
 				},
@@ -855,20 +816,6 @@
 			fileType = wrapper.framework;
 			path = STEnum.framework;
 			remoteRef = 69B11BF20E581343005B3775 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		69B8424C1103C3B0002E604D /* CocoaScriptMenu.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CocoaScriptMenu.framework;
-			remoteRef = 69B8424B1103C3B0002E604D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		69B8424E1103C3B0002E604D /* UnitTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = UnitTests.octest;
-			remoteRef = 69B8424D1103C3B0002E604D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -1017,11 +964,6 @@
 			isa = PBXTargetDependency;
 			name = STEnum;
 			targetProxy = 69B11C3B0E58161A005B3775 /* PBXContainerItemProxy */;
-		};
-		69B8425C1103C3E8002E604D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaScriptMenu;
-			targetProxy = 69B8425B1103C3E8002E604D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
