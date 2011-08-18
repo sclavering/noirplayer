@@ -75,15 +75,6 @@
 {
 	if((self = [super init])){
 		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
-
-		rrSpeed = ([[NSUserDefaults standardUserDefaults] integerForKey:@"rrSpeed"] == 0)
-			? 5 
-			: [[NSUserDefaults standardUserDefaults] integerForKey:@"rrSpeed"];
-		ffSpeed = ([[NSUserDefaults standardUserDefaults] integerForKey:@"ffSpeed"] == 0) 
-			? 5 
-			: [[NSUserDefaults standardUserDefaults] integerForKey:@"ffSpeed"];
-
-		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 	}
 	return self;
@@ -111,41 +102,6 @@
 }
 
 #pragma mark -
-
--(int)rrSpeed
-{
-	return rrSpeed;
-}
-
--(void)setRrSpeed:(int)anInt
-{
-	rrSpeed = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"rrSpeed"];
-}
-
--(int)ffSpeed
-{
-	return ffSpeed;
-}
-
--(void)setFfSpeed:(int)anInt
-{
-	ffSpeed = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"ffSpeed"];
-}
-
-#pragma mark -
-
--(BOOL)windowAlwaysOnTop
-{
-	return windowAlwaysOnTop;
-}
-
--(void)setWindowAlwaysOnTop:(BOOL)aBool
-{
-	windowAlwaysOnTop = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"windowNotAlwaysOnTop"];
-}
 
 -(float)opacityWhenWindowIsTransparent
 {

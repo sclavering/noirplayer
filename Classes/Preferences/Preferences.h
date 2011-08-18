@@ -48,9 +48,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 
 @interface Preferences : NSObject {
 	enum defaultTimeDisplayValues defaultTimeDisplay;
-	int rrSpeed;
-	int ffSpeed;
-	BOOL windowAlwaysOnTop;
 	float opacityWhenWindowIsTransparent;
 }
 
@@ -60,13 +57,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 -(enum defaultTimeDisplayValues)defaultTimeDisplay;
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 
--(int)rrSpeed;
--(void)setRrSpeed:(int)anInt;
--(int)ffSpeed;
--(void)setFfSpeed:(int)anInt;
-
--(BOOL)windowAlwaysOnTop;
--(void)setWindowAlwaysOnTop:(BOOL)aBool;
 -(float)opacityWhenWindowIsTransparent;
 -(void)setOpacityWhenWindowIsTransparent:(float)aFloat;
 -(NSString*)windowPosition;

@@ -58,6 +58,8 @@
 #import "NiceDocument.h"
 #import "RCMovieView.h"
 
+#define SCRUB_STEP_DURATION 5
+
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;
 -(void)clearTrueMovieView;
@@ -284,13 +286,13 @@
 -(void)ffStart
 {
     [[((NiceWindow *)[self window]) ffButton] highlight:YES];
-    [trueMovieView ffStart:[[Preferences mainPrefs] ffSpeed]];
+    [trueMovieView ffStart:SCRUB_STEP_DURATION];
     [((NiceWindow *)[self window]) updateByTime:nil];
 }
 
 -(void)ffDo
 {
-    [self ffDo:[[Preferences mainPrefs] ffSpeed]];
+    [self ffDo:SCRUB_STEP_DURATION];
 }
 
 -(void)ffDo:(int)aSeconds
@@ -310,13 +312,13 @@
 -(void)rrStart
 {
     [[((NiceWindow *)[self window]) rrButton] highlight:YES];
-    [trueMovieView rrStart:[[Preferences mainPrefs] rrSpeed]];
+    [trueMovieView rrStart:SCRUB_STEP_DURATION];
     [((NiceWindow *)[self window]) updateByTime:nil];
 }
 
 -(void)rrDo
 {
-    [self rrDo:[[Preferences mainPrefs] rrSpeed]];
+    [self rrDo:SCRUB_STEP_DURATION];
 }
 
 -(void)rrDo:(int)aSeconds{
@@ -608,11 +610,11 @@
     if(deltaX) {
         if(deltaX > 0){
             [self ffStart];
-            [self ffDo:[[Preferences mainPrefs] ffSpeed] * fabsf(deltaX)];
+            [self ffDo:SCRUB_STEP_DURATION * fabsf(deltaX)];
             [self ffEnd];
         } else {
             [self rrStart];
-            [self rrDo:[[Preferences mainPrefs] ffSpeed] * fabsf(deltaX)];
+            [self rrDo:SCRUB_STEP_DURATION * fabsf(deltaX)];
             [self rrEnd];
         }
     }

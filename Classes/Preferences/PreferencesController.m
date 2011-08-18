@@ -56,7 +56,6 @@
     id tempBundle =[NSBundle bundleForClass:[PFPreferenceModule self]];
     
     NSString* tGeneralPrefIcon = [tempBundle pathForResource:@"GeneralPreferenceIcon" ofType:@"png"];
-    NSString* tActionPrefIcon =[tempBundle pathForResource:@"ActionsPreferenceIcon" ofType:@"png"];
 
 	[prefWindowController addPane:paneMain
                    withIcon:[[[NSImage alloc]initWithContentsOfFile:tGeneralPrefIcon] autorelease]
@@ -73,18 +72,6 @@
 	
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
 
-        id aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
-            ([[Preferences mainPrefs] rrSpeed]- [[NSTimeZone localTimeZone] secondsFromGMTForDate:
-                [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
-        [rrSpeedSlider setObjectValue:aDate];
-
-               
-        id aDate2 = [NSDate dateWithTimeIntervalSinceReferenceDate:
-            ([[Preferences mainPrefs] ffSpeed]- [[NSTimeZone localTimeZone] secondsFromGMTForDate:
-                [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
-        [ffSpeedSlider setObjectValue:aDate2];
-
-	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
 }
 
@@ -94,35 +81,6 @@
 }
 
 #pragma mark -
-
--(IBAction)rrSpeed:(id)sender
-{
-    //[[Preferences mainPrefs] setRrSpeed:[sender intValue]];
-
-   // id date =[NSCalendarDate dateWithString:[sender stringValue] calendarFormat:@"%H:%M:%S"];
-    
-    int total = [[sender objectValue] secondOfMinute];
-    total += 60 * [[sender objectValue] minuteOfHour];
-     total += 60* 60* [[sender objectValue] hourOfDay];
-    [[Preferences mainPrefs] setRrSpeed:total];
-}
-
--(IBAction)ffSpeed:(id)sender
-{
-   // [[Preferences mainPrefs] setFfSpeed:[sender intValue]];
-    //id date =[NSCalendarDate dateWithString:[sender stringValue] calendarFormat:@"%H:%M:%S"];
-    int total = [[sender objectValue] secondOfMinute];
-    total += 60 * [[sender objectValue] minuteOfHour];
-    total += 60* 60* [[sender objectValue] hourOfDay];
-    [[Preferences mainPrefs] setFfSpeed:total];
-}
-
-#pragma mark -
-
--(IBAction)windowAlwaysOnTop:(id)sender
-{
-	[[Preferences mainPrefs] setWindowAlwaysOnTop:[sender state]];
-}
 
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender
 {

@@ -52,9 +52,6 @@
 	IBOutlet id paneWindowDefaults;
 
     IBOutlet id defaultTimeDisplay;
-    IBOutlet id rrSpeedSlider;
-    IBOutlet id ffSpeedSlider;
-    IBOutlet id windowAlwaysOnTop;
 	IBOutlet id opacityWhenWindowIsTransparent;
     
     id _draggingObjects;
@@ -62,9 +59,6 @@
 }
 
 -(IBAction)defaultTimeDisplay:(id)sender;
--(IBAction)rrSpeed:(id)sender;
--(IBAction)ffSpeed:(id)sender;
--(IBAction)windowAlwaysOnTop:(id)sender;
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender;
 
 @end

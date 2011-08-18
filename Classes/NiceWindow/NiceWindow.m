@@ -153,8 +153,7 @@
 	[textShadow setShadowBlurRadius:5.0f]; 
 	[textShadow setShadowColor:[NSColor blackColor]]; 
 	
-    if([[Preferences mainPrefs] windowAlwaysOnTop])
-        [self floatWindow];
+    [self floatWindow];
     [self makeFirstResponder:self]; 
     [self setAcceptsMouseMovedEvents:YES];
     oldWindowLevel =[self level];
