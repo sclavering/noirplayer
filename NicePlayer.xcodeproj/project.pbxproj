@@ -195,8 +195,8 @@
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
-		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.h"; sourceTree = "<group>"; };
-		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.m"; sourceTree = "<group>"; };
+		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/ControlPlay.h"; sourceTree = "<group>"; };
+		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/ControlPlay.m"; sourceTree = "<group>"; };
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
 		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
 		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
@@ -432,15 +432,6 @@
 			name = Document/Window;
 			sourceTree = "<group>";
 		};
-		252BDA1E076A3BE7006CF96B /* Control Buttons */ = {
-			isa = PBXGroup;
-			children = (
-				252BDDD7076A4744006CF96B /* ControlPlay.h */,
-				252BDDD8076A4744006CF96B /* ControlPlay.m */,
-			);
-			name = "Control Buttons";
-			sourceTree = "<group>";
-		};
 		257D61370753F45800702BD0 /* Viewer Interface */ = {
 			isa = PBXGroup;
 			children = (
@@ -460,13 +451,14 @@
 			children = (
 				25B913230741736A001B68D9 /* OverlaysControl.h */,
 				25B913240741736A001B68D9 /* OverlaysControl.m */,
-				252BDA1E076A3BE7006CF96B /* Control Buttons */,
 				3EDA2680065C8E570000CCEE /* OverlayWindow.h */,
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */,
 				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
 				3E95D4A006613F05008755D1 /* BlackWindow.m */,
+				252BDDD7076A4744006CF96B /* ControlPlay.h */,
+				252BDDD8076A4744006CF96B /* ControlPlay.m */,
 				3E9E628E0661708200B788A8 /* NiceScrubber.h */,
 				3E9E628F0661708200B788A8 /* NiceScrubber.m */,
 				3E110B61069BD80100C5800B /* ClickableTextField.h */,
