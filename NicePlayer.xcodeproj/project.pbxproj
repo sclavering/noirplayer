@@ -90,8 +90,6 @@
 		3E8CC454068AA1290034FCCC /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC450068AA1290034FCCC /* close.png */; };
 		3E8CC455068AA1290034FCCC /* minimize-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC451068AA1290034FCCC /* minimize-highlight.png */; };
 		3E8CC456068AA1290034FCCC /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC452068AA1290034FCCC /* minimize.png */; };
-		3E91842F086E288300F4ED34 /* playlist-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E91842D086E288300F4ED34 /* playlist-highlight.png */; };
-		3E918430086E288300F4ED34 /* playlist.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E91842E086E288300F4ED34 /* playlist.png */; };
 		3E918436086E28BA00F4ED34 /* OverPrefIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E918435086E28BA00F4ED34 /* OverPrefIcon.png */; };
 		3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E95D49F06613F05008755D1 /* BlackWindow.h */; };
 		3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E95D4A006613F05008755D1 /* BlackWindow.m */; };
@@ -355,8 +353,6 @@
 		3E8CC450068AA1290034FCCC /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Resources/close.png; sourceTree = "<group>"; };
 		3E8CC451068AA1290034FCCC /* minimize-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minimize-highlight.png"; path = "Resources/minimize-highlight.png"; sourceTree = "<group>"; };
 		3E8CC452068AA1290034FCCC /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = minimize.png; path = Resources/minimize.png; sourceTree = "<group>"; };
-		3E91842D086E288300F4ED34 /* playlist-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "playlist-highlight.png"; path = "Resources/playlist-highlight.png"; sourceTree = "<group>"; };
-		3E91842E086E288300F4ED34 /* playlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playlist.png; path = Resources/playlist.png; sourceTree = "<group>"; };
 		3E918435086E28BA00F4ED34 /* OverPrefIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OverPrefIcon.png; path = Resources/OverPrefIcon.png; sourceTree = "<group>"; };
 		3E95D49F06613F05008755D1 /* BlackWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlackWindow.h; path = "Classes/Overlay Widgets/BlackWindow.h"; sourceTree = "<group>"; };
 		3E95D4A006613F05008755D1 /* BlackWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlackWindow.m; path = "Classes/Overlay Widgets/BlackWindow.m"; sourceTree = "<group>"; };
@@ -508,8 +504,6 @@
 				69945E6D0CCA639600CE0AD3 /* windpref.png */,
 				6974961F0B55F7A90030D4D2 /* titlebg.png */,
 				3E918435086E28BA00F4ED34 /* OverPrefIcon.png */,
-				3E91842D086E288300F4ED34 /* playlist-highlight.png */,
-				3E91842E086E288300F4ED34 /* playlist.png */,
 				253C02E907C0632700172C2F /* resize.png */,
 				25294AD4076E944900D4B325 /* ff_over.png */,
 				25294AA6076E937E00D4B325 /* pause_over.png */,
@@ -1071,8 +1065,6 @@
 				25294AD5076E944900D4B325 /* ff_over.png in Resources */,
 				2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */,
 				253C02E507C061E100172C2F /* resize.png in Resources */,
-				3E91842F086E288300F4ED34 /* playlist-highlight.png in Resources */,
-				3E918430086E288300F4ED34 /* playlist.png in Resources */,
 				3E918436086E28BA00F4ED34 /* OverPrefIcon.png in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
 				3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */,
