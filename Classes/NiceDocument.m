@@ -205,12 +205,8 @@ void findSpace(id each, void* context, BOOL* endthis){
             nil];
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
-    
-    if(tData == nil)
-        NSLog(tErrror);
-    
+        
     return  tData;
-
 }
 
 - (BOOL)writeToFile:(NSString*)aPath ofType:(NSString *)docType{
