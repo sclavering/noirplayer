@@ -48,7 +48,7 @@
 #import "NiceUtilities.h"
 #import <STEnum/STEnum.h>
 
-int urlSort(id url1, id url2, void *context){
+NSInteger urlSort(id url1, id url2, void *context){
     NSString* v1 = [[url1 path] lastPathComponent];
     NSString*  v2 = [[url2 path]lastPathComponent];
     return [v1 caseInsensitiveCompare:v2];
