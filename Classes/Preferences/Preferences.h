@@ -49,7 +49,4 @@
 
 +(Preferences *)mainPrefs;
 
--(NSString*)windowPosition;
--(void)setWindowPosition:(NSPoint) aPoint;
-
 @end

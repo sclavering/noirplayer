@@ -69,14 +69,4 @@
 	return self;
 }
 
--(void)setWindowPosition:(NSPoint) aPoint
-{
-	[[NSUserDefaults standardUserDefaults] setObject:NSStringFromPoint(aPoint) forKey:@"windowOrigin"];
-}
-
--(NSString*)windowPosition
-{
-	return [[NSUserDefaults standardUserDefaults] valueForKey:@"windowOrigin"];
-}
-
 @end
