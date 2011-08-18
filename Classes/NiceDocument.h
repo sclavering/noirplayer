@@ -111,7 +111,6 @@
 -(unsigned)getNextIndex;
 -(void)playNext;
 -(void)playPrev;
--(void)playPrevWithChapter;
 -(unsigned)getPrevIndex;
 
 #pragma mark -

@@ -91,10 +91,6 @@
 -(float)volume;
 -(float)volumeWithMute;
 
--(NSArray*)chapters;
--(id)currentChapter;
--(void)gotoChapter:(int)anIndex;
-
 -(BOOL)isPlaying;
 -(BOOL)wasPlaying;
 -(void)playPrevMovie;

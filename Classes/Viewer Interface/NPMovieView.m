@@ -61,9 +61,6 @@
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;
 -(void)clearTrueMovieView;
--(NSString*)_currentChapter;
--(void)_gotoChapter:(NSNumber*)anIndex;
--(NSArray*)_chapters;
 @end
 
 @implementation NPMovieView
@@ -257,22 +254,6 @@
         return self;
     return nil;
 }
--(id)currentChapter{
-	if([trueMovieView respondsToSelector:@selector(_currentChapter)])
-		return [trueMovieView _currentChapter];
-	return @"Unknown Chapter";
-}
-
--(void)gotoChapter:(int)anIndex{
-	if([trueMovieView respondsToSelector:@selector(_gotoChapter:)])
-		[trueMovieView _gotoChapter:[NSNumber numberWithInt:anIndex]];
-}
-
--(NSArray*)chapters{
-	if([trueMovieView respondsToSelector:@selector(_chapters)])
-		return [trueMovieView _chapters];
-	return [NSArray array];
-}
 
 -(BOOL)acceptsFirstResponder
 {
@@ -427,11 +408,7 @@
 			break;
 		case NSRightArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-				if([[self chapters] count] == 0 
-					|| [[self chapters] count] == [[self chapters] indexOfObject:[self currentChapter]]+1)
-					[self playNextMovie];
-				else
-					[self gotoChapter:[[self chapters] indexOfObject:[self currentChapter]]+1];
+                [self playNextMovie];
 				break;
 			}
 			if([anEvent modifierFlags] & NSAlternateKeyMask){
@@ -445,19 +422,7 @@
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-				int tInt = -1;
-				if([[self chapters]count]>0){
-				unsigned int tIndex =[[self chapters] indexOfObject:[self currentChapter]];
-				if(tIndex != NSNotFound){
-					tInt = tInt + (int)tIndex;
-				}
-				}
-				
-			    if([[self chapters] count] == 0 
-					|| tInt  < 0)
-					[[[self window]delegate] playPrevWithChapter];
-				else
-					[self gotoChapter:tInt];
+                [self playPrevMovie];
 				break;
 			}
 			if([anEvent modifierFlags] & NSAlternateKeyMask){

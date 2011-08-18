@@ -735,20 +735,6 @@ stuff won't work properly! */
     }
 }
 
--(void)playPrevWithChapter
-{
-    int anIndex =  [self getPrevIndex];
-    
-    if((anIndex >= 0) && (anIndex < (int)[thePlaylist count])){
-        [self playAtIndex:anIndex obeyingPreviousState:YES];
-		if([[theMovieView chapters] count] > 0){
-				[theMovieView gotoChapter:((int)[[theMovieView chapters] count])-1];
-		}
-    }
-}
-
-
-
 -(void)reloadPlaylist{
 	[theDataSourceCache autorelease];
 	theDataSourceCache = [[NSMutableArray alloc]init];
@@ -809,18 +795,8 @@ stuff won't work properly! */
 {
     if([sender selectedRow] == -1)
 		return;
-		
 	id tItem =[sender itemAtRow:[sender selectedRow]];
-	
-	if([[tItem objectForKey:@"type"] isEqualTo:@"chapter"]){
-		if(![[[tItem objectForKey:@"parent"] objectForKey:@"url"] isEqualTo:theCurrentURL]){
-			[self playAtIndex:[[[tItem objectForKey:@"parent"] objectForKey:@"index"] intValue]-1 obeyingPreviousState:NO];
-		}
-		[theMovieView gotoChapter:[[tItem objectForKey:@"index"] intValue]-1];
-	}else{
-		[self playAtIndex:[[tItem objectForKey:@"index"] intValue]-1 obeyingPreviousState:NO];
-	}
-		
+    [self playAtIndex:[[tItem objectForKey:@"index"] intValue]-1 obeyingPreviousState:NO];
 }
 
 -(IBAction)addToPlaylist:(id)sender
@@ -926,34 +902,19 @@ stuff won't work properly! */
 
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)aTableColumn byItem:(id)item{
-	if([[aTableColumn identifier] isEqualTo:@"index"]){
-		if([[item objectForKey:@"type"] isEqualTo:@"chapter"]){
-			if( [[item objectForKey:@"url"] isEqualTo:[theMovieView currentChapter]])
-						            return [NSString stringWithFormat:@"%C", 0x2022];
-
-			return @"";
-			}
+    if([[aTableColumn identifier] isEqualTo:@"index"])
         return [item objectForKey:@"index"];
-    }else if ([[aTableColumn identifier] isEqualTo:@"name"]){
-					if([[item objectForKey:@"type"] isEqualTo:@"chapter"]){
-								return [NSString stringWithFormat:@"   %@",[item objectForKey:@"self"],nil] ;
-
-					}
-	
-			return [item objectForKey:@"self"] ;
-    }else if ([[aTableColumn identifier] isEqualTo:@"status"]){
-		if	([[item objectForKey:@"url"]  isEqual: theCurrentURL]) 
-		            return [NSString stringWithFormat:@"%C", 0x2022];
-		else
-			return @"";
-    }else if ([[aTableColumn identifier] isEqualTo:@"none"]){
-			return @"" ;
-    }else{
-		return @"Error...";
-	}
-
+    if([[aTableColumn identifier] isEqualTo:@"name"])
+        return [item objectForKey:@"self"];
+    if([[aTableColumn identifier] isEqualTo:@"status"]) {
+        if([[item objectForKey:@"url"] isEqual: theCurrentURL])
+            return [NSString stringWithFormat:@"%C", 0x2022];
+        return @"";
+    }
+    if([[aTableColumn identifier] isEqualTo:@"none"])
+        return @"";
+    return @"Error...";
 }
-
 
 
 - (id)outlineView:(NSOutlineView *)outlineView child:(int)anIndex ofItem:(id)item{
@@ -964,50 +925,21 @@ stuff won't work properly! */
 		[NSNumber numberWithInt:anIndex+1],@"index",
 		[thePlaylist objectAtIndex:anIndex],@"url",
 		nil];
-		
 		[theDataSourceCache addObject:tRet];
 		[theMainItemCache setObject:tRet forKey:[NSNumber numberWithInt:anIndex]];
 		return tRet;
-
-	}else if([[item objectForKey:@"url"] isEqualTo: theCurrentURL]){
-		NSDictionary* tRet = [NSDictionary dictionaryWithObjectsAndKeys:
-		@"chapter",@"type",
-		item,@"parent",
-		[[theMovieView chapters] objectAtIndex:anIndex],@"self",
-		[NSNumber numberWithInt:anIndex+1],@"index",
-		[[theMovieView chapters] objectAtIndex:anIndex],@"url",nil];
-		[theDataSourceCache addObject:tRet];
-		return tRet;
-
-	}else{
-		return nil;
 	}
-
+    return nil;
 }
 
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item{
 
-	if(item == nil){
-		return YES;
-	}else if([[item objectForKey:@"url"]  isEqual: theCurrentURL]){
-		return [[theMovieView chapters] count] > 0;
-	}else{
-		return NO;
-	}
-
+- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
+    return item ? NO : YES;
 }
 
 
 - (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item{
-
-	if(item == nil){
-		return [thePlaylist count];
-	}else if([[item objectForKey:@"url"]  isEqual: theCurrentURL]){
-		return [[theMovieView chapters] count];
-	}else{
-		return 0;
-	}
-
+    return item ? 0 : [thePlaylist count];
 }
 
 
@@ -1095,15 +1027,9 @@ proposedItem:(id)tItem
             tItemDrop = [tView itemAtRow:[tView numberOfRows] -1];
         [tView setDropItem:tItemDrop dropChildIndex: 0];
 	//	[tView setDropItem:[self outlineView:tView child:anIndex ofItem:tItem] dropChildIndex:0];
-	}else if([[tItem objectForKey:@"type"] isEqualTo:@"chapter"]){
-		tItem = [tItem objectForKey:@"parent"];
-		[tView setDropItem:tItem dropChildIndex:0];
-	}else{
-		[tView setDropItem:tItem dropChildIndex:0];
-
+    } else {
+        [tView setDropItem:tItem dropChildIndex:0];
     }
-
-	
     return NSDragOperationGeneric;
 }
 

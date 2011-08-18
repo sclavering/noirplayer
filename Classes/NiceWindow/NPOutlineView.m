@@ -16,10 +16,7 @@
     while (current_index != NSNotFound)
     {
 		id tItem = [self itemAtRow:current_index];
-		if(![[tItem objectForKey:@"type"] isEqualTo:@"chapter"]){
-			[tArray addObject: [[tItem objectForKey:@"url"] path]];
-		}
-        
+        [tArray addObject: [[tItem objectForKey:@"url"] path]];
 		current_index = [dragRows indexGreaterThanIndex: current_index];
     }
 	

@@ -44,16 +44,7 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-
-
 #import "RCMovieView.h"
-
-
-@interface QTMovie(ChapterAdditions)
--(BOOL)hasChapters;
--(NSArray*)chapterList;
--(int)currentChapterIndex;
-@end
 
 @interface QTMovie(IdlingAdditions)
 -(BOOL)idling;
@@ -89,34 +80,6 @@
 	[film release];
 	film = [[QTMovie movieWithURL:url error:nil] retain];
     return (film) ? YES : NO;
-}
-
--(NSArray*)_chapters{
-	NSArray* tArray =[film chapterList];
-	NSMutableArray* tMutArray = [NSMutableArray array];
-	for(uint i=1; i<=[tArray count];i++){
-		NSString* tName =[[tArray objectAtIndex:i-1] objectForKey:@"Name"];
-		if(tName == nil){
-			[tMutArray addObject:[NSString stringWithFormat:@"Chapter %d",i,nil]];
-		}else{
-			[tMutArray addObject:tName];
-		}
-	}
-
-	return tMutArray;
-}
-
-
--(void)_gotoChapter:(NSNumber*)anIndex{
-	
-	id tObj = [[film chapterList] objectAtIndex:[anIndex intValue]];
-	[self setCurrentMovieTimePrecise:[[tObj objectForKey:@"StartTime"] longValue
-	]];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
-}
-
--(NSString*)_currentChapter{
-	return [[self _chapters] objectAtIndex:[film currentChapterIndex] -1];
 }
 
 -(id)initWithFrame:(NSRect)frame
@@ -464,19 +427,7 @@
     id pluginMenu = [[NSMutableArray array] retain];
     id newItem;
 	
-	if([film hasChapters]){
-		newItem = [[[NSMenuItem alloc] initWithTitle:@"Chapter"
-											  action:NULL
-									   keyEquivalent:@""] autorelease];
-		[newItem setTarget:self];
-		
-		[newItem setSubmenu:[self chapterTrackMenu]];
-		
-		[pluginMenu addObject:newItem];
-	}
-	
-	
-		newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks"
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks"
                                           action:NULL
                                    keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
@@ -558,37 +509,6 @@ return tReturnMenu;
 -(IBAction)toggleTrack:(id)sender{
 	[[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
-}
-
--(IBAction)goToChapter:(id)sender{
-	[self setCurrentMovieTimePrecise:[[[sender representedObject] objectForKey:@"StartTime"] longValue
-	]];
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
-
-}
-
--(NSMenu*)chapterTrackMenu{
-	NSMenu* tReturnMenu =[[[NSMenu alloc]init] autorelease];
-		NSArray* tArray = [film chapterList];
-		for(unsigned int i=0;i<[tArray count];i++){
-			NSDictionary* tDict = [tArray objectAtIndex:i];
-			NSString* tString=[tDict objectForKey:@"Name"];
-			if(tString==nil)
-				tString= [NSString stringWithFormat:@"Chapter %d",i+1];
-			
-			NSMenuItem* tItem =[[[NSMenuItem alloc] initWithTitle:tString
-			action:@selector(goToChapter:)
-			keyEquivalent:@""] autorelease];
-			[tItem setRepresentedObject:tDict];
-			[tItem setTarget:self];
-			if(i+1 == (unsigned int)[film currentChapterIndex]){
-				[tItem setState:NSOnState]; 
-			}
-			
-			[tReturnMenu addItem:tItem];
-		}
-
-return tReturnMenu;
 }
 
 -(void)playMoviePreview

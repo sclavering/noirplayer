@@ -74,6 +74,4 @@
 
 -(NSMenu*)videoTrackMenu;
 
--(NSMenu*)chapterTrackMenu;
--(IBAction)goToChapter:(id)sender;
 @end
