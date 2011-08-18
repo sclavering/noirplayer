@@ -61,7 +61,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{131, 86}</string>
 				<object class="NSView" key="NSWindowView" id="918380141">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -70,13 +70,11 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrameSize">{320, 240}</string>
 							<reference key="NSSuperview" ref="918380141"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSClassName">NPMovieView</string>
 							<string key="NSExtension">NSView</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{320, 240}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="489220107"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -97,7 +95,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{213, 32}</string>
 				<object class="NSView" key="NSWindowView" id="642530596">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -221,7 +219,6 @@
 							<int key="NSvFlags">257</int>
 							<string key="NSFrame">{{344, 9}, {61, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="248469940">
 								<int key="NSCellFlags">67239424</int>
@@ -245,7 +242,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{416, 32}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="385862412"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -275,7 +271,6 @@
 						<string key="NSFrame">{{3, 256}, {71, 20}}</string>
 						<reference key="NSSuperview" ref="201810469"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="136256486">
 							<int key="NSCellFlags">67239424</int>
@@ -323,7 +318,7 @@
 										<string key="NSFrameSize">{150, 251}</string>
 										<reference key="NSSuperview" ref="772782302"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="348621540"/>
+										<reference key="NSNextKeyView" ref="427933669"/>
 										<bool key="NSEnabled">YES</bool>
 										<object class="_NSCornerView" key="NSCornerView">
 											<nil key="NSNextResponder"/>
@@ -510,7 +505,7 @@
 						<string key="NSFrameSize">{167, 253}</string>
 						<reference key="NSSuperview" ref="201810469"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="427933669"/>
+						<reference key="NSNextKeyView" ref="772782302"/>
 						<int key="NSsFlags">133138</int>
 						<reference key="NSVScroller" ref="348621540"/>
 						<reference key="NSHScroller" ref="427933669"/>
@@ -538,7 +533,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{131, 5}</string>
 				<object class="NSView" key="NSWindowView" id="184141507">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -640,7 +635,6 @@
 							<int key="NSvFlags">257</int>
 							<string key="NSFrame">{{345, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="906624324">
 								<int key="NSCellFlags">67239424</int>
@@ -666,7 +660,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="661584273"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -687,7 +680,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{115, 96}</string>
 				<object class="NSView" key="NSWindowView" id="902978893">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -708,7 +701,6 @@
 							</object>
 							<string key="NSFrame">{{6, -3}, {102, 102}}</string>
 							<reference key="NSSuperview" ref="902978893"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="825665416">
 								<int key="NSCellFlags">130560</int>
@@ -726,7 +718,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{116, 96}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="1035658001"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -748,7 +739,7 @@
 				<string key="NSWindowContentMaxSize">{14, 15}</string>
 				<string key="NSWindowContentMinSize">{14, 14}</string>
 				<object class="NSView" key="NSWindowView" id="106835475">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -769,7 +760,6 @@
 							</object>
 							<string key="NSFrameSize">{14, 14}</string>
 							<reference key="NSSuperview" ref="106835475"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="322100608">
 								<int key="NSCellFlags">537001472</int>
@@ -787,7 +777,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{14, 14}</string>
-					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="185701018"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -1228,15 +1217,6 @@
 						<reference key="parent" ref="901249276"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">180</int>
-						<reference key="object" ref="911770368"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="728331694"/>
-						</object>
-						<reference key="parent" ref="901249276"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">185</int>
 						<reference key="object" ref="850468364"/>
 						<object class="NSMutableArray" key="children">
@@ -1426,11 +1406,6 @@
 						<reference key="parent" ref="383836742"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">272</int>
-						<reference key="object" ref="728331694"/>
-						<reference key="parent" ref="911770368"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">273</int>
 						<reference key="object" ref="461202923"/>
 						<reference key="parent" ref="850468364"/>
@@ -1458,6 +1433,20 @@
 						<int key="objectID">257</int>
 						<reference key="object" ref="1013870560"/>
 						<reference key="parent" ref="731701441"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">180</int>
+						<reference key="object" ref="911770368"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="728331694"/>
+						</object>
+						<reference key="parent" ref="901249276"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">272</int>
+						<reference key="object" ref="728331694"/>
+						<reference key="parent" ref="911770368"/>
 					</object>
 				</object>
 			</object>
@@ -1736,7 +1725,6 @@
 							<string>switchPlaylistItem:</string>
 							<string>switchVolume:</string>
 							<string>togglePlaylistDrawer:</string>
-							<string>toggleRandomMode:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1750,7 +1738,6 @@
 							<string>id</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
-							<string>id</string>
 							<string>id</string>
 						</object>
 					</object>
@@ -1769,7 +1756,6 @@
 							<string>switchPlaylistItem:</string>
 							<string>switchVolume:</string>
 							<string>togglePlaylistDrawer:</string>
-							<string>toggleRandomMode:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1817,10 +1803,6 @@
 								<string key="name">togglePlaylistDrawer:</string>
 								<string key="candidateClassName">id</string>
 							</object>
-							<object class="IBActionInfo">
-								<string key="name">toggleRandomMode:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1830,13 +1812,11 @@
 							<string>theMovieView</string>
 							<string>thePlaylistDrawer</string>
 							<string>thePlaylistTable</string>
-							<string>theRandomButton</string>
 							<string>theWindow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NPMovieView</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>NiceWindow</string>
@@ -1849,7 +1829,6 @@
 							<string>theMovieView</string>
 							<string>thePlaylistDrawer</string>
 							<string>thePlaylistTable</string>
-							<string>theRandomButton</string>
 							<string>theWindow</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1864,10 +1843,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">thePlaylistTable</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theRandomButton</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

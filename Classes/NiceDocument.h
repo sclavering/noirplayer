@@ -58,7 +58,6 @@
     IBOutlet NPMovieView *theMovieView;
     IBOutlet id thePlaylistDrawer;
     IBOutlet id thePlaylistTable;
-	IBOutlet id theRandomButton;
     IBOutlet NiceWindow *theWindow;
     NSURL* theCurrentURL;
     NSMutableArray* thePlaylist;
