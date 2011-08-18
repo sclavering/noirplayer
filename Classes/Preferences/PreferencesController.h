@@ -51,12 +51,8 @@
     IBOutlet id paneMain;
 	IBOutlet id paneWindowDefaults;
 
-    IBOutlet id defaultTimeDisplay;
-    
     id _draggingObjects;
     BOOL _tableLocked;
 }
-
--(IBAction)defaultTimeDisplay:(id)sender;
 
 @end

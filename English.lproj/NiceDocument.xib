@@ -149,7 +149,7 @@
 						<object class="NSCustomView" id="291814920">
 							<reference key="NSNextResponder" ref="642530596"/>
 							<int key="NSvFlags">258</int>
-							<string key="NSFrame">{{33, 0}, {308, 32}}</string>
+							<string key="NSFrame">{{33, 0}, {298, 32}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="40929851"/>
@@ -159,7 +159,7 @@
 						<object class="NSTextField" id="40929851">
 							<reference key="NSNextResponder" ref="642530596"/>
 							<int key="NSvFlags">257</int>
-							<string key="NSFrame">{{344, 9}, {61, 14}}</string>
+							<string key="NSFrame">{{328, 9}, {83, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -1210,7 +1210,6 @@
 					<string>5.IBPluginDependency</string>
 					<string>54.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
-					<string>71.CustomClassName</string>
 					<string>71.IBPluginDependency</string>
 					<string>79.IBPluginDependency</string>
 					<string>89.IBPluginDependency</string>
@@ -1269,7 +1268,6 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>TimeDisplayField</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1794,14 +1792,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/OverlayWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">TimeDisplayField</string>
-					<string key="superclassName">NSTextField</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/TimeDisplayField.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

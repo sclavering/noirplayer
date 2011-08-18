@@ -78,7 +78,6 @@
     BOOL theWindowIsFloating;
     id timeUpdaterTimer;
     int oldWindowLevel;
-    int timeDisplayStyle;
     float miniVolume;
     NSRect beforeFullScreen;
 
@@ -97,7 +96,6 @@
 -(void)updateVolume;
 -(void)restoreVolume;
 -(void)performMiniaturize:(id)sender;
--(void)rotateTimeDisplayStyle;
 -(IBAction)updateByTime:(id)sender;
 
 #pragma mark -

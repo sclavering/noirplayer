@@ -63,16 +63,9 @@
 	return prefs;
 }
 
-+(int)defaultTimeDisplayValuesNum;
-{
-	return 2;
-}
-
 -(id)init
 {
-	if((self = [super init])){
-		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
-	}
+	self = [super init];
 	return self;
 }
 
@@ -84,17 +77,6 @@
 -(NSString*)windowPosition
 {
 	return [[NSUserDefaults standardUserDefaults] valueForKey:@"windowOrigin"];
-}
-
--(enum defaultTimeDisplayValues)defaultTimeDisplay
-{
-	return defaultTimeDisplay;
-}
-
--(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt
-{
-	defaultTimeDisplay = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"defaultTimeDisplay"];
 }
 
 @end

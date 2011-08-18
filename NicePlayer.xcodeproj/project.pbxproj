@@ -14,8 +14,6 @@
 		251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 251FBBDF07BC201900D147E5 /* NiceDrawer.h */; };
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
-		25237390074414690064B556 /* TimeDisplayField.h in Headers */ = {isa = PBXBuildFile; fileRef = 2523738E074414690064B556 /* TimeDisplayField.h */; };
-		25237391074414690064B556 /* TimeDisplayField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2523738F074414690064B556 /* TimeDisplayField.m */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
 		25294AD5076E944900D4B325 /* ff_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AD4076E944900D4B325 /* ff_over.png */; };
 		252BD4FD076981DD006CF96B /* NPPluginView.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BD4FB076981DD006CF96B /* NPPluginView.h */; };
@@ -252,8 +250,6 @@
 		251FBBDF07BC201900D147E5 /* NiceDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceDrawer.h; path = Classes/NiceWindow/NiceDrawer.h; sourceTree = "<group>"; };
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2523738E074414690064B556 /* TimeDisplayField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeDisplayField.h; path = "Classes/Overlay Widgets/TimeDisplayField.h"; sourceTree = "<group>"; };
-		2523738F074414690064B556 /* TimeDisplayField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeDisplayField.m; path = "Classes/Overlay Widgets/TimeDisplayField.m"; sourceTree = "<group>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		25294AD4076E944900D4B325 /* ff_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ff_over.png; path = Resources/ff_over.png; sourceTree = "<group>"; };
 		252BD4FB076981DD006CF96B /* NPPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPPluginView.h; path = "Classes/Viewer Interface/NPPluginView.h"; sourceTree = "<group>"; };
@@ -565,8 +561,6 @@
 				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
 				3EC8C229065DB22A00988449 /* RoundRect.h */,
 				3EC8C22A065DB22A00988449 /* RoundRect.m */,
-				2523738E074414690064B556 /* TimeDisplayField.h */,
-				2523738F074414690064B556 /* TimeDisplayField.m */,
 				3E44F89B065F06A300E48395 /* TimelineControl.h */,
 				3E44F89C065F06A300E48395 /* TimelineControl.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
@@ -804,7 +798,6 @@
 				257029C30734D14500967356 /* PreferencesController.h in Headers */,
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
-				25237390074414690064B556 /* TimeDisplayField.h in Headers */,
 				257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */,
 				257D61680753F92D00702BD0 /* NPMovieView.h in Headers */,
 				252BD4FD076981DD006CF96B /* NPPluginView.h in Headers */,
@@ -1057,7 +1050,6 @@
 				257029C40734D14500967356 /* PreferencesController.m in Sources */,
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
-				25237391074414690064B556 /* TimeDisplayField.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
 				252BD4FE076981DD006CF96B /* NPPluginView.m in Sources */,
 				252BD9F707699E7C006CF96B /* ControlButton.m in Sources */,

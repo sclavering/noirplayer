@@ -98,7 +98,6 @@
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
 		fixedAspectRatio = YES;
-        timeDisplayStyle = [[Preferences mainPrefs] defaultTimeDisplay];
     }
     return self;
 }
@@ -257,15 +256,6 @@
 }
 
 /**
-* Change the time style that is shown, either time elapsed or time remaining.
- */
--(void)rotateTimeDisplayStyle
-{
-    timeDisplayStyle = (timeDisplayStyle + 1) % [Preferences defaultTimeDisplayValuesNum];
-    [self updateByTime:self];
-}
-
-/**
 * Takes care of updating the time display window, as well as choosing the format for the time display.
  * Current the format can only be of two different choices: time elapsed or time remaining.
  */
@@ -277,41 +267,13 @@
     
     if((sender != self) && [theScrubBar isHidden])
         return;
-    id tAttString;
-	
-	double tLength =[theMovieView totalTime];
-	double tCurr =[theMovieView currentMovieTime];
-	
-	if(theMovieView==nil){
-		tLength=0;
-		tCurr =0;
-				}
-				
-    switch(timeDisplayStyle){
-        NSDate *aDate;
-        case ELAPSED_TIME:
-			
-            aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
-                (tCurr
-                 - [[NSTimeZone localTimeZone] secondsFromGMTForDate:
-                     [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
-			
-			tAttString = [[[NSAttributedString alloc] initWithString:[aDate descriptionWithCalendarFormat:@"%H:%M:%S" timeZone:nil locale:nil]
-														  attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]],NSFontAttributeName,nil]] autorelease];
-			[theTimeField setAttributedStringValue:tAttString];
-            break;
-        case TIME_REMAINING:
-            aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
-                (tLength
-                 - tCurr
-                 - [[NSTimeZone localTimeZone] secondsFromGMTForDate:
-                     [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
-			
-			tAttString = [[[NSAttributedString alloc] initWithString:[aDate descriptionWithCalendarFormat:@"-%H:%M:%S" timeZone:nil locale:nil]
-														  attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]],NSFontAttributeName,nil]]autorelease];
-			[theTimeField setAttributedStringValue:tAttString];
-            break;
-    }
+
+    int t = theMovieView ? [theMovieView totalTime] : 0;
+    int c = theMovieView ? [theMovieView currentMovieTime] : 0;
+    int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
+    id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
+    [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]], NSFontAttributeName, nil]] autorelease]];
+
     /* Update rest of UI */
 	if(theMovieView !=nil){
 		[theScrubBar setDoubleValue:[theMovieView scrubLocation:sender]];

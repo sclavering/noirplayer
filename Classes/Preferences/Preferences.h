@@ -44,17 +44,10 @@
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
 
-enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
-
 @interface Preferences : NSObject {
-	enum defaultTimeDisplayValues defaultTimeDisplay;
 }
 
 +(Preferences *)mainPrefs;
-+(int)defaultTimeDisplayValuesNum;
-
--(enum defaultTimeDisplayValues)defaultTimeDisplay;
--(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 
 -(NSString*)windowPosition;
 -(void)setWindowPosition:(NSPoint) aPoint;

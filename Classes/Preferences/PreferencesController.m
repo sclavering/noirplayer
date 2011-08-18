@@ -69,13 +69,6 @@
 			  withLabel:@"Window Defaults"
 			withToolTip:@"The Window Default Preference Settings"
 		 allowingResize:NO];
-	
-	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
-}
-
--(IBAction)defaultTimeDisplay:(id)sender
-{
-	[[Preferences mainPrefs] setDefaultTimeDisplay:[sender indexOfSelectedItem]];
 }
 
 @end
