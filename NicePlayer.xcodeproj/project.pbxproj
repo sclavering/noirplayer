@@ -10,14 +10,12 @@
 		2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2510A2390B04B53D00CA8110 /* DelegateAnimation.h */; };
 		2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */; };
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
-		2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 2513D30507BDACA700BB6055 /* NicePlayer.sdef */; };
 		251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 251FBBDF07BC201900D147E5 /* NiceDrawer.h */; };
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
-		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
 		257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60000753DE7C00702BD0 /* AppKitScripting.framework */; };
 		257D60140753DED700702BD0 /* Scripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60130753DED700702BD0 /* Scripting.framework */; };
 		257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D61540753F7AD00702BD0 /* NPMovieProtocol.h */; };
@@ -26,15 +24,11 @@
 		258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258C2B700A2D713E00AC22BB /* IOKit.framework */; };
 		259CC53907374066001ED5FA /* NPApplication.h in Headers */ = {isa = PBXBuildFile; fileRef = 259CC53707374066001ED5FA /* NPApplication.h */; };
 		259CC53A07374066001ED5FA /* NPApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CC53807374066001ED5FA /* NPApplication.m */; };
-		25B07BF208077776006724D8 /* NiceDocumentScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B07BF108077776006724D8 /* NiceDocumentScripting.h */; };
 		25B913250741736A001B68D9 /* OverlaysControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B913230741736A001B68D9 /* OverlaysControl.h */; };
 		25B913260741736A001B68D9 /* OverlaysControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B913240741736A001B68D9 /* OverlaysControl.m */; };
 		25CC00590A315A46002FB428 /* acknowledgements.html in Resources */ = {isa = PBXBuildFile; fileRef = 25CC00580A315A45002FB428 /* acknowledgements.html */; };
 		25CC86500831DA2A00027929 /* RCMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 25CC864E0831DA2A00027929 /* RCMovieView.h */; };
 		25CC86510831DA2A00027929 /* RCMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 25CC864F0831DA2A00027929 /* RCMovieView.m */; };
-		25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */; };
-		25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */; };
-		25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */; };
 		3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */; };
 		3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */; };
 		3E085CBC065C79EE005286A3 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E085CBB065C79EE005286A3 /* play.png */; };
@@ -43,9 +37,6 @@
 		3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E28CCA20808E0F000F59FF5 /* NiceWindowController.h */; };
 		3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CCA30808E0F000F59FF5 /* NiceWindowController.m */; };
 		3E452FF10664719D00BC91B0 /* NiceIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E452FF00664719D00BC91B0 /* NiceIcon.icns */; };
-		3E49DCB207C96EFA009BA150 /* NPAddCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15FD107C8553B00AE56D7 /* NPAddCommand.m */; };
-		3E49DCB307C96EFD009BA150 /* NPApplicationScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F3607C8405700AE56D7 /* NPApplicationScripting.m */; };
-		3E49DCB407C96F01009BA150 /* NiceMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF158C807C7F9CA00AE56D7 /* NiceMovie.m */; };
 		3E4DF83706630D50001B9AC5 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DF83506630D50001B9AC5 /* Credits.html */; };
 		3E8C96CB073EF4730048CB70 /* 3gpp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96C2073EF4730048CB70 /* 3gpp.icns */; };
 		3E8C96CC073EF4730048CB70 /* avi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96C3073EF4730048CB70 /* avi.icns */; };
@@ -89,9 +80,6 @@
 		3EEDF766065B507B00E3545C /* NiceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF764065B507B00E3545C /* NiceWindow.m */; };
 		3EEDF76D065B5ACD00E3545C /* NiceController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEDF76B065B5ACD00E3545C /* NiceController.h */; };
 		3EEDF76E065B5ACD00E3545C /* NiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF76C065B5ACD00E3545C /* NiceController.m */; };
-		3EF158CB07C7F9CA00AE56D7 /* NiceMovie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF158C707C7F9CA00AE56D7 /* NiceMovie.h */; };
-		3EF15F3907C8405700AE56D7 /* NPApplicationScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF15F3507C8405700AE56D7 /* NPApplicationScripting.h */; };
-		3EF15FD407C8553B00AE56D7 /* NPAddCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF15FD007C8553B00AE56D7 /* NPAddCommand.h */; };
 		3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEF996086E6E50003E05C3 /* wmv.icns */; };
 		690B61170B5981A4008D13CE /* flv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B61160B5981A4008D13CE /* flv.icns */; };
 		690B627A0B5992B7008D13CE /* mkv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B62790B5992B7008D13CE /* mkv.icns */; };
@@ -127,10 +115,6 @@
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
 		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
 		69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
-		69B2197A0BC72AA60054E10E /* AEDescUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219760BC72AA60054E10E /* AEDescUtils.h */; };
-		69B2197B0BC72AA60054E10E /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219770BC72AA60054E10E /* AEDescUtils.m */; };
-		69B2197C0BC72AA60054E10E /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219780BC72AA60054E10E /* TCallScript.h */; };
-		69B2197D0BC72AA60054E10E /* TCallScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219790BC72AA60054E10E /* TCallScript.m */; };
 		69BCF5510B62C4C20000ABEF /* ogg.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69BCF5500B62C4C20000ABEF /* ogg.icns */; };
 		69EFD1BC0B5C8E3400359BF4 /* divx.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69EFD1BB0B5C8E3400359BF4 /* divx.icns */; };
 		8D15AC290486D014006FF6A4 /* NicePlayer_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */; };
@@ -190,14 +174,12 @@
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2510A2390B04B53D00CA8110 /* DelegateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DelegateAnimation.h; path = Classes/DelegateAnimation.h; sourceTree = "<group>"; };
 		2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DelegateAnimation.m; path = Classes/DelegateAnimation.m; sourceTree = "<group>"; };
-		2513D30507BDACA700BB6055 /* NicePlayer.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = NicePlayer.sdef; path = Resources/NicePlayer.sdef; sourceTree = SOURCE_ROOT; };
 		251FBBDF07BC201900D147E5 /* NiceDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceDrawer.h; path = Classes/NiceWindow/NiceDrawer.h; sourceTree = "<group>"; };
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/ControlPlay.h"; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/ControlPlay.m"; sourceTree = "<group>"; };
-		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
 		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
 		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
 		257D60130753DED700702BD0 /* Scripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scripting.framework; path = /System/Library/Frameworks/Scripting.framework; sourceTree = "<absolute>"; };
@@ -207,16 +189,12 @@
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		259CC53707374066001ED5FA /* NPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplication.h; path = Classes/NPApplication.h; sourceTree = "<group>"; };
 		259CC53807374066001ED5FA /* NPApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplication.m; path = Classes/NPApplication.m; sourceTree = "<group>"; };
-		25B07BF108077776006724D8 /* NiceDocumentScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceDocumentScripting.h; sourceTree = "<group>"; };
 		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = "Classes/Overlay Widgets/OverlaysControl.h"; sourceTree = "<group>"; };
 		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = "Classes/Overlay Widgets/OverlaysControl.m"; sourceTree = "<group>"; };
 		25CC00580A315A45002FB428 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = acknowledgements.html; path = Documents/acknowledgements.html; sourceTree = "<group>"; };
 		25CC864E0831DA2A00027929 /* RCMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCMovieView.h; path = "Classes/Viewer Interface/RCMovieView.h"; sourceTree = "<group>"; };
 		25CC864F0831DA2A00027929 /* RCMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCMovieView.m; path = "Classes/Viewer Interface/RCMovieView.m"; sourceTree = "<group>"; };
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceDocumentScripting.m; sourceTree = "<group>"; };
-		25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceWindowScripting.m; sourceTree = "<group>"; };
-		25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceControllerScripting.m; sourceTree = "<group>"; };
 		2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NiceDocument.m; path = Classes/NiceDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* NiceDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NiceDocument.h; path = Classes/NiceDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Other Sources/main.m"; sourceTree = "<group>"; };
@@ -274,12 +252,6 @@
 		3EEDF764065B507B00E3545C /* NiceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceWindow.m; path = Classes/NiceWindow/NiceWindow.m; sourceTree = "<group>"; };
 		3EEDF76B065B5ACD00E3545C /* NiceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceController.h; path = Classes/NiceController.h; sourceTree = "<group>"; };
 		3EEDF76C065B5ACD00E3545C /* NiceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceController.m; path = Classes/NiceController.m; sourceTree = "<group>"; };
-		3EF158C707C7F9CA00AE56D7 /* NiceMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceMovie.h; path = Classes/Scripting/NiceMovie.h; sourceTree = SOURCE_ROOT; };
-		3EF158C807C7F9CA00AE56D7 /* NiceMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceMovie.m; path = Classes/Scripting/NiceMovie.m; sourceTree = SOURCE_ROOT; };
-		3EF15F3507C8405700AE56D7 /* NPApplicationScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplicationScripting.h; path = Classes/Scripting/NPApplicationScripting.h; sourceTree = SOURCE_ROOT; };
-		3EF15F3607C8405700AE56D7 /* NPApplicationScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplicationScripting.m; path = Classes/Scripting/NPApplicationScripting.m; sourceTree = SOURCE_ROOT; };
-		3EF15FD007C8553B00AE56D7 /* NPAddCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPAddCommand.h; path = Classes/Scripting/NPAddCommand.h; sourceTree = SOURCE_ROOT; };
-		3EF15FD107C8553B00AE56D7 /* NPAddCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPAddCommand.m; path = Classes/Scripting/NPAddCommand.m; sourceTree = SOURCE_ROOT; };
 		3EFEF996086E6E50003E05C3 /* wmv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = wmv.icns; sourceTree = "<group>"; };
 		690B61160B5981A4008D13CE /* flv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = flv.icns; sourceTree = "<group>"; };
 		690B62790B5992B7008D13CE /* mkv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mkv.icns; sourceTree = "<group>"; };
@@ -313,10 +285,6 @@
 		6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceRendererGlue.m; sourceTree = "<group>"; };
 		699464620CCC4D3800CE0AD3 /* gvi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gvi.icns; sourceTree = "<group>"; };
 		69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = STEnum10.4.xcodeproj; path = Libraries/stenum/STEnum10.4.xcodeproj; sourceTree = "<group>"; };
-		69B219760BC72AA60054E10E /* AEDescUtils.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AEDescUtils.h; sourceTree = "<group>"; };
-		69B219770BC72AA60054E10E /* AEDescUtils.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AEDescUtils.m; sourceTree = "<group>"; };
-		69B219780BC72AA60054E10E /* TCallScript.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TCallScript.h; sourceTree = "<group>"; };
-		69B219790BC72AA60054E10E /* TCallScript.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = TCallScript.m; sourceTree = "<group>"; };
 		69BCF5500B62C4C20000ABEF /* ogg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ogg.icns; sourceTree = "<group>"; };
 		69EFD1BB0B5C8E3400359BF4 /* divx.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = divx.icns; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -486,33 +454,11 @@
 			name = "Other Projects";
 			sourceTree = "<group>";
 		};
-		25D2E7B407BF36D5004BEF7D /* Scripting */ = {
-			isa = PBXGroup;
-			children = (
-				69B219750BC72AA60054E10E /* AttachedScriptCode */,
-				3EF15FD007C8553B00AE56D7 /* NPAddCommand.h */,
-				3EF15FD107C8553B00AE56D7 /* NPAddCommand.m */,
-				3EF15F3507C8405700AE56D7 /* NPApplicationScripting.h */,
-				3EF15F3607C8405700AE56D7 /* NPApplicationScripting.m */,
-				3EF158C707C7F9CA00AE56D7 /* NiceMovie.h */,
-				3EF158C807C7F9CA00AE56D7 /* NiceMovie.m */,
-				253C014E07C00DF200172C2F /* NiceControllerScripting.h */,
-				25D2ED0B07BF6066004BEF7D /* NiceControllerScripting.m */,
-				25B07BF108077776006724D8 /* NiceDocumentScripting.h */,
-				25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */,
-				25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */,
-				2513D30507BDACA700BB6055 /* NicePlayer.sdef */,
-			);
-			name = Scripting;
-			path = Classes/Scripting;
-			sourceTree = "<group>";
-		};
 		2A37F4AAFDCFA73011CA2CEA /* NicePlayer */ = {
 			isa = PBXGroup;
 			children = (
 				6990B4FF0CF0B2F300DA15C2 /* Glue */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
-				25D2E7B407BF36D5004BEF7D /* Scripting */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				25C5C1E208D4B7F300987A95 /* Other Projects */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -635,17 +581,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69B219750BC72AA60054E10E /* AttachedScriptCode */ = {
-			isa = PBXGroup;
-			children = (
-				69B219760BC72AA60054E10E /* AEDescUtils.h */,
-				69B219770BC72AA60054E10E /* AEDescUtils.m */,
-				69B219780BC72AA60054E10E /* TCallScript.h */,
-				69B219790BC72AA60054E10E /* TCallScript.m */,
-			);
-			path = AttachedScriptCode;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -671,18 +606,11 @@
 				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
-				253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */,
-				3EF158CB07C7F9CA00AE56D7 /* NiceMovie.h in Headers */,
-				3EF15F3907C8405700AE56D7 /* NPApplicationScripting.h in Headers */,
-				3EF15FD407C8553B00AE56D7 /* NPAddCommand.h in Headers */,
-				25B07BF208077776006724D8 /* NiceDocumentScripting.h in Headers */,
 				3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */,
 				25CC86500831DA2A00027929 /* RCMovieView.h in Headers */,
 				2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */,
 				697496120B55EA800030D4D2 /* OverlayTitleWindow.h in Headers */,
 				6974971F0B56033F0030D4D2 /* TitleBackgroundView.h in Headers */,
-				69B2197A0BC72AA60054E10E /* AEDescUtils.h in Headers */,
-				69B2197C0BC72AA60054E10E /* TCallScript.h in Headers */,
 				692CF88F0CC2F78000DF2159 /* BlankView.h in Headers */,
 				691ECCF80CDE75B70040AE45 /* NPOutlineView.h in Headers */,
 				6977CC670CE3DF8B00B4EBB6 /* NPScalingButton.h in Headers */,
@@ -707,7 +635,6 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				3E5302E90684096B00923E9B /* Copy Files */,
-				2513D30D07BDACBC00BB6055 /* ShellScript */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 			);
 			buildRules = (
@@ -813,7 +740,6 @@
 				3E8C96D2073EF4730048CB70 /* mpg.icns in Resources */,
 				3E8C96D3073EF4730048CB70 /* swf.icns in Resources */,
 				25294AAA076E937E00D4B325 /* play_over.png in Resources */,
-				2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
 				697496200B55F7A90030D4D2 /* titlebg.png in Resources */,
 				690B61170B5981A4008D13CE /* flv.icns in Resources */,
@@ -828,22 +754,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2513D30D07BDACBC00BB6055 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/bin/sdp -f st -o \"$TARGET_BUILD_DIR/NicePlayer.app/Contents/Resources\" \"$SOURCE_ROOT/Resources/NicePlayer.sdef\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D15AC300486D014006FF6A4 /* Sources */ = {
@@ -867,19 +777,11 @@
 				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
-				25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */,
-				25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */,
-				25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */,
-				3E49DCB207C96EFA009BA150 /* NPAddCommand.m in Sources */,
-				3E49DCB307C96EFD009BA150 /* NPApplicationScripting.m in Sources */,
-				3E49DCB407C96F01009BA150 /* NiceMovie.m in Sources */,
 				3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */,
 				25CC86510831DA2A00027929 /* RCMovieView.m in Sources */,
 				2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */,
 				697496130B55EA800030D4D2 /* OverlayTitleWindow.m in Sources */,
 				697497200B56033F0030D4D2 /* TitleBackgroundView.m in Sources */,
-				69B2197B0BC72AA60054E10E /* AEDescUtils.m in Sources */,
-				69B2197D0BC72AA60054E10E /* TCallScript.m in Sources */,
 				692CF8900CC2F78200DF2159 /* BlankView.m in Sources */,
 				691ECCF90CDE75B70040AE45 /* NPOutlineView.m in Sources */,
 				6977CD5A0CE3F63000B4EBB6 /* NPScalingButton.m in Sources */,
