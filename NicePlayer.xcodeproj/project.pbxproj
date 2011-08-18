@@ -15,7 +15,6 @@
 		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
-		25294AD5076E944900D4B325 /* ff_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AD4076E944900D4B325 /* ff_over.png */; };
 		252BD4FD076981DD006CF96B /* NPPluginView.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BD4FB076981DD006CF96B /* NPPluginView.h */; };
 		252BD4FE076981DD006CF96B /* NPPluginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BD4FC076981DD006CF96B /* NPPluginView.m */; };
 		252BD9F607699E7C006CF96B /* ControlButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BD9F407699E7C006CF96B /* ControlButton.h */; };
@@ -25,8 +24,6 @@
 		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
 		257029AE0734CE4E00967356 /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 257029AC0734CE4E00967356 /* Preferences.h */; };
 		257029AF0734CE4E00967356 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 257029AD0734CE4E00967356 /* Preferences.m */; };
-		257029C30734D14500967356 /* PreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = 257029C10734D14500967356 /* PreferencesController.h */; };
-		257029C40734D14500967356 /* PreferencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 257029C20734D14500967356 /* PreferencesController.m */; };
 		25702FF007569E3300D1EE8C /* DVDPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25702FEF07569E3300D1EE8C /* DVDPlayback.framework */; };
 		257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60000753DE7C00702BD0 /* AppKitScripting.framework */; };
 		257D60140753DED700702BD0 /* Scripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60130753DED700702BD0 /* Scripting.framework */; };
@@ -114,7 +111,6 @@
 		691ECCF90CDE75B70040AE45 /* NPOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 691ECCF70CDE75B70040AE45 /* NPOutlineView.m */; };
 		69257CFB111DD28300C28210 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69257CF9111DD28300C28210 /* MainMenu.xib */; };
 		69257CFF111DD2A700C28210 /* NiceDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69257CFD111DD2A700C28210 /* NiceDocument.xib */; };
-		69257D03111DD2BF00C28210 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69257D01111DD2BF00C28210 /* Preferences.xib */; };
 		6925B3CA0B61966E004D2A83 /* vdvd.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6925B3C90B61966E004D2A83 /* vdvd.icns */; };
 		692CF88F0CC2F78000DF2159 /* BlankView.h in Headers */ = {isa = PBXBuildFile; fileRef = 692CF88D0CC2F78000DF2159 /* BlankView.h */; };
 		692CF8900CC2F78200DF2159 /* BlankView.m in Sources */ = {isa = PBXBuildFile; fileRef = 692CF88E0CC2F78000DF2159 /* BlankView.m */; };
@@ -140,7 +136,6 @@
 		6990B5150CF0B2F300DA15C2 /* SEReferenceRendererGlue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6990B50A0CF0B2F300DA15C2 /* SEReferenceRendererGlue.h */; };
 		6990B5160CF0B2F300DA15C2 /* SEReferenceRendererGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */; };
 		6990B63F0CF0CF8300DA15C2 /* Appscript.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6990B4E80CF0A9D300DA15C2 /* Appscript.framework */; };
-		69945E6F0CCA639600CE0AD3 /* windpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 69945E6D0CCA639600CE0AD3 /* windpref.png */; };
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
 		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
 		69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
@@ -251,7 +246,6 @@
 		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
-		25294AD4076E944900D4B325 /* ff_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ff_over.png; path = Resources/ff_over.png; sourceTree = "<group>"; };
 		252BD4FB076981DD006CF96B /* NPPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPPluginView.h; path = "Classes/Viewer Interface/NPPluginView.h"; sourceTree = "<group>"; };
 		252BD4FC076981DD006CF96B /* NPPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPPluginView.m; path = "Classes/Viewer Interface/NPPluginView.m"; sourceTree = "<group>"; };
 		252BD9F407699E7C006CF96B /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlButton.h; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.h"; sourceTree = "<group>"; };
@@ -261,8 +255,6 @@
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
 		257029AC0734CE4E00967356 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preferences.h; path = Classes/Preferences/Preferences.h; sourceTree = "<group>"; };
 		257029AD0734CE4E00967356 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preferences.m; path = Classes/Preferences/Preferences.m; sourceTree = "<group>"; };
-		257029C10734D14500967356 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
-		257029C20734D14500967356 /* PreferencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferencesController.m; path = Classes/Preferences/PreferencesController.m; sourceTree = "<group>"; };
 		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
 		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
 		257D60130753DED700702BD0 /* Scripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scripting.framework; path = /System/Library/Frameworks/Scripting.framework; sourceTree = "<absolute>"; };
@@ -357,7 +349,6 @@
 		691ECCF70CDE75B70040AE45 /* NPOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPOutlineView.m; path = Classes/NiceWindow/NPOutlineView.m; sourceTree = "<group>"; };
 		69257CFA111DD28300C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69257CFE111DD2A700C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NiceDocument.xib; sourceTree = "<group>"; };
-		69257D02111DD2BF00C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
 		6925B3C90B61966E004D2A83 /* vdvd.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vdvd.icns; sourceTree = "<group>"; };
 		692CF88D0CC2F78000DF2159 /* BlankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlankView.h; path = "Classes/Viewer Interface/BlankView.h"; sourceTree = "<group>"; };
 		692CF88E0CC2F78000DF2159 /* BlankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlankView.m; path = "Classes/Viewer Interface/BlankView.m"; sourceTree = "<group>"; };
@@ -382,7 +373,6 @@
 		6990B5090CF0B2F300DA15C2 /* SEReferenceGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceGlue.m; sourceTree = "<group>"; };
 		6990B50A0CF0B2F300DA15C2 /* SEReferenceRendererGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEReferenceRendererGlue.h; sourceTree = "<group>"; };
 		6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceRendererGlue.m; sourceTree = "<group>"; };
-		69945E6D0CCA639600CE0AD3 /* windpref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = windpref.png; path = Resources/windpref.png; sourceTree = "<group>"; };
 		699464620CCC4D3800CE0AD3 /* gvi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gvi.icns; sourceTree = "<group>"; };
 		69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = STEnum10.4.xcodeproj; path = Libraries/stenum/STEnum10.4.xcodeproj; sourceTree = "<group>"; };
 		69B11C600E5818AF005B3775 /* Preferable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Preferable.xcodeproj; path = Libraries/preferable/Preferable.xcodeproj; sourceTree = "<group>"; };
@@ -455,9 +445,7 @@
 		2513D20407BDA31600BB6055 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				69945E6D0CCA639600CE0AD3 /* windpref.png */,
 				6974961F0B55F7A90030D4D2 /* titlebg.png */,
-				25294AD4076E944900D4B325 /* ff_over.png */,
 				25294AA7076E937E00D4B325 /* play_over.png */,
 				3E9996CA06A50F1800D1898D /* volume_muted.png */,
 				3E9996CB06A50F1800D1898D /* volume_with_sound.png */,
@@ -527,8 +515,6 @@
 			children = (
 				257029AC0734CE4E00967356 /* Preferences.h */,
 				257029AD0734CE4E00967356 /* Preferences.m */,
-				257029C10734D14500967356 /* PreferencesController.h */,
-				257029C20734D14500967356 /* PreferencesController.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -665,7 +651,6 @@
 				69257CF9111DD28300C28210 /* MainMenu.xib */,
 				3E4DF83506630D50001B9AC5 /* Credits.html */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
-				69257D01111DD2BF00C28210 /* Preferences.xib */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 			);
 			name = Resources;
@@ -795,7 +780,6 @@
 				3E110B63069BD80100C5800B /* ClickableTextField.h in Headers */,
 				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
 				257029AE0734CE4E00967356 /* Preferences.h in Headers */,
-				257029C30734D14500967356 /* PreferencesController.h in Headers */,
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */,
@@ -979,7 +963,6 @@
 				3E8C96D2073EF4730048CB70 /* mpg.icns in Resources */,
 				3E8C96D3073EF4730048CB70 /* swf.icns in Resources */,
 				25294AAA076E937E00D4B325 /* play_over.png in Resources */,
-				25294AD5076E944900D4B325 /* ff_over.png in Resources */,
 				2513D30607BDACA700BB6055 /* NicePlayer.sdef in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
 				3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */,
@@ -989,11 +972,9 @@
 				69EFD1BC0B5C8E3400359BF4 /* divx.icns in Resources */,
 				6925B3CA0B61966E004D2A83 /* vdvd.icns in Resources */,
 				69BCF5510B62C4C20000ABEF /* ogg.icns in Resources */,
-				69945E6F0CCA639600CE0AD3 /* windpref.png in Resources */,
 				699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */,
 				69257CFB111DD28300C28210 /* MainMenu.xib in Resources */,
 				69257CFF111DD2A700C28210 /* NiceDocument.xib in Resources */,
-				69257D03111DD2BF00C28210 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1047,7 +1028,6 @@
 				3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */,
 				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,
 				257029AF0734CE4E00967356 /* Preferences.m in Sources */,
-				257029C40734D14500967356 /* PreferencesController.m in Sources */,
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
@@ -1137,14 +1117,6 @@
 				69257CFE111DD2A700C28210 /* English */,
 			);
 			name = NiceDocument.xib;
-			sourceTree = "<group>";
-		};
-		69257D01111DD2BF00C28210 /* Preferences.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				69257D02111DD2BF00C28210 /* English */,
-			);
-			name = Preferences.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

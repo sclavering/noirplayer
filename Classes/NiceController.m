@@ -244,17 +244,6 @@ id swapForWindows(id each, void* context){
     }
 }
 
--(IBAction)showPreferences:(id)sender
-{
-    if(prefWindow ==nil)
-	prefWindow = [[[PFPreferenceWindowController alloc] initWithWindowNibName:@"Preferences"] retain];
-    [prefWindow showWindow:self];
-    if(fullScreenMode)
-	[self exitFullScreen];
-    [[prefWindow window] setLevel:NSFloatingWindowLevel];
-    [[prefWindow window] makeKeyAndOrderFront:self];
-}
-
 -(IBAction)toggleAlwaysOnTop:(id)sender
 {
     [((NiceWindow *)[NSApp mainWindow]) toggleWindowFloat];

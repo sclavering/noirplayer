@@ -42,7 +42,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import <Cocoa/Cocoa.h>
-#import "PreferencesController.h"
 
 @interface Preferences : NSObject {
 }
