@@ -54,8 +54,6 @@
 }
 -(IBAction)emailAuthor:(id)sender;
 
--(void)copyDefaultScriptsToApplicationSupport;
--(void)moveOldDefaultScriptsAndCopy;
 -(id)bestMovieWindow;
 -(NSArray *)movieWindows;
 -(void)testCursorMovement;
