@@ -50,7 +50,6 @@
 	IBOutlet PFPreferenceWindowController* prefWindowController;
     IBOutlet id paneMain;
     IBOutlet id paneActions;
-    IBOutlet id paneOverlays;
 	IBOutlet id paneWindowDefaults;
 
     IBOutlet id scrollResizePin;

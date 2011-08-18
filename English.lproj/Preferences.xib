@@ -1563,7 +1563,6 @@
 							<string>opacityWhenWindowIsTransparent</string>
 							<string>paneActions</string>
 							<string>paneMain</string>
-							<string>paneOverlays</string>
 							<string>paneWindowDefaults</string>
 							<string>prefWindow</string>
 							<string>prefWindowController</string>
@@ -1574,7 +1573,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1606,7 +1604,6 @@
 							<string>opacityWhenWindowIsTransparent</string>
 							<string>paneActions</string>
 							<string>paneMain</string>
-							<string>paneOverlays</string>
 							<string>paneWindowDefaults</string>
 							<string>prefWindow</string>
 							<string>prefWindowController</string>
@@ -1651,10 +1648,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">paneMain</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">paneOverlays</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
