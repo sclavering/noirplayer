@@ -87,10 +87,7 @@
 			? 5 
 			: [[NSUserDefaults standardUserDefaults] integerForKey:@"ffSpeed"];
 
-		movieOpenedPlay = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedPlay"];
-		movieOpenedFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedFullScreen"];
 		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
-		windowLeaveFullScreen = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotLeaveFullScreen"];
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 	}
 	return self;
@@ -154,28 +151,6 @@
 
 #pragma mark -
 
--(BOOL)movieOpenedPlay
-{
-	return movieOpenedPlay;
-}
-
--(void)setMovieOpenedPlay:(BOOL)aBool
-{
-	movieOpenedPlay = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:aBool forKey:@"movieOpenedPlay"];
-}
-
--(BOOL)movieOpenedFullScreen
-{
-	return movieOpenedFullScreen;
-}
-
--(void)setMovieOpenedFullScreen:(BOOL)aBool
-{
-	movieOpenedFullScreen = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:aBool forKey:@"movieOpenedFullScreen"];
-}
-
 -(BOOL)windowAlwaysOnTop
 {
 	return windowAlwaysOnTop;
@@ -185,17 +160,6 @@
 {
 	windowAlwaysOnTop = aBool;
 	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"windowNotAlwaysOnTop"];
-}
-
--(BOOL)windowLeaveFullScreen
-{
-	return windowLeaveFullScreen;
-}
-
--(void)setWindowLeaveFullScreen:(BOOL)aBool
-{
-	windowLeaveFullScreen = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:!aBool forKey:@"windowNotLeaveFullScreen"];
 }
 
 -(float)opacityWhenWindowIsTransparent

@@ -70,12 +70,6 @@
 			  withLabel:@"Window Defaults"
 			withToolTip:@"The Window Default Preference Settings"
 		 allowingResize:NO];
-	[prefWindowController addPane:paneActions
-			   withIcon:[[[NSImage alloc]initWithContentsOfFile:tActionPrefIcon] autorelease]
-		 withIdentifier:@"Actions"
-			  withLabel:@"Actions"
-			withToolTip:@"Actions on Movies"
-		 allowingResize:NO];
 	
 	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
@@ -91,10 +85,7 @@
                 [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
         [ffSpeedSlider setObjectValue:aDate2];
 
-	[movieOpenedPlay setState:[[Preferences mainPrefs] movieOpenedPlay]];
-	[movieOpenedFullScreen setState:[[Preferences mainPrefs] movieOpenedFullScreen]];
 	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
-	[windowLeaveFullScreen setState:[[Preferences mainPrefs] windowLeaveFullScreen]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
 }
 
@@ -134,24 +125,9 @@
 
 #pragma mark -
 
--(IBAction)movieOpenedPlay:(id)sender
-{
-	[[Preferences mainPrefs] setMovieOpenedPlay:[sender state]];
-}
-
--(IBAction)movieOpenedFullScreen:(id)sender
-{
-	[[Preferences mainPrefs] setMovieOpenedFullScreen:[sender state]];
-}
-
 -(IBAction)windowAlwaysOnTop:(id)sender
 {
 	[[Preferences mainPrefs] setWindowAlwaysOnTop:[sender state]];
-}
-
--(IBAction)windowLeaveFullScreen:(id)sender
-{
-	[[Preferences mainPrefs] setWindowLeaveFullScreen:[sender state]];
 }
 
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender

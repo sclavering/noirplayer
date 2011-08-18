@@ -164,12 +164,7 @@ id swapForWindows(id each, void* context){
             
             [tempDoc loadURL:tempURL firstTime:YES];
             
-            if([[self mainDocument] isActive]){
-                if([[Preferences mainPrefs] movieOpenedFullScreen])
-                    [self enterFullScreen];
-                if([[Preferences mainPrefs] movieOpenedPlay])
-                    [[self mainDocument] play:self];
-            }
+            if([[self mainDocument] isActive]) [[self mainDocument] play:self];
         } else
             [tempDoc addURLToPlaylist:tempURL];
 		

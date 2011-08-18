@@ -13,12 +13,12 @@
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>NSPopUpButton</string>
-			<string>NSButton</string>
+			<string>NSMenuItem</string>
 			<string>NSMenu</string>
 			<string>NSTextFieldCell</string>
-			<string>NSButtonCell</string>
+			<string>NSButton</string>
 			<string>NSDateFormatter</string>
-			<string>NSMenuItem</string>
+			<string>NSButtonCell</string>
 			<string>NSCustomView</string>
 			<string>NSCustomObject</string>
 			<string>NSView</string>
@@ -326,132 +326,6 @@
 				<string key="NSClassName">NSView</string>
 				<string key="NSExtension">NSResponder</string>
 			</object>
-			<object class="NSCustomView" id="955207668">
-				<reference key="NSNextResponder"/>
-				<int key="NSvFlags">256</int>
-				<object class="NSMutableArray" key="NSSubviews">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="NSButton" id="648890292">
-						<reference key="NSNextResponder" ref="955207668"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{23, 96}, {88, 18}}</string>
-						<reference key="NSSuperview" ref="955207668"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="643232112"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="127266782">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Play Movie</string>
-							<reference key="NSSupport" ref="487203488"/>
-							<reference key="NSControlView" ref="648890292"/>
-							<int key="NSButtonFlags">1211912703</int>
-							<int key="NSButtonFlags2">2</int>
-							<object class="NSCustomResource" key="NSNormalImage" id="1065563609">
-								<string key="NSClassName">NSImage</string>
-								<string key="NSResourceName">NSSwitch</string>
-							</object>
-							<object class="NSButtonImageSource" key="NSAlternateImage" id="956258713">
-								<string key="NSImageName">NSSwitch</string>
-							</object>
-							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
-							<int key="NSPeriodicDelay">200</int>
-							<int key="NSPeriodicInterval">25</int>
-						</object>
-					</object>
-					<object class="NSButton" id="643232112">
-						<reference key="NSNextResponder" ref="955207668"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{23, 74}, {157, 18}}</string>
-						<reference key="NSSuperview" ref="955207668"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="56693776"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="373352119">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Switch to Full Screen</string>
-							<reference key="NSSupport" ref="487203488"/>
-							<reference key="NSControlView" ref="643232112"/>
-							<int key="NSButtonFlags">1211912703</int>
-							<int key="NSButtonFlags2">2</int>
-							<reference key="NSNormalImage" ref="1065563609"/>
-							<reference key="NSAlternateImage" ref="956258713"/>
-							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
-							<int key="NSPeriodicDelay">200</int>
-							<int key="NSPeriodicInterval">25</int>
-						</object>
-					</object>
-					<object class="NSTextField" id="357459962">
-						<reference key="NSNextResponder" ref="955207668"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{10, 120}, {164, 17}}</string>
-						<reference key="NSSuperview" ref="955207668"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="648890292"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="502448915">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">4194304</int>
-							<string key="NSContents">When Movie is Opened:</string>
-							<reference key="NSSupport" ref="487203488"/>
-							<reference key="NSControlView" ref="357459962"/>
-							<reference key="NSBackgroundColor" ref="1028095567"/>
-							<reference key="NSTextColor" ref="662150787"/>
-						</object>
-					</object>
-					<object class="NSTextField" id="56693776">
-						<reference key="NSNextResponder" ref="955207668"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{10, 42}, {194, 17}}</string>
-						<reference key="NSSuperview" ref="955207668"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="927845184"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSTextFieldCell" key="NSCell" id="409936891">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">4194304</int>
-							<string key="NSContents">When Movie is Done Playing:</string>
-							<reference key="NSSupport" ref="487203488"/>
-							<reference key="NSControlView" ref="56693776"/>
-							<reference key="NSBackgroundColor" ref="1028095567"/>
-							<reference key="NSTextColor" ref="662150787"/>
-						</object>
-					</object>
-					<object class="NSButton" id="927845184">
-						<reference key="NSNextResponder" ref="955207668"/>
-						<int key="NSvFlags">256</int>
-						<string key="NSFrame">{{23, 18}, {299, 18}}</string>
-						<reference key="NSSuperview" ref="955207668"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
-						<bool key="NSEnabled">YES</bool>
-						<object class="NSButtonCell" key="NSCell" id="593073400">
-							<int key="NSCellFlags">67239424</int>
-							<int key="NSCellFlags2">0</int>
-							<string key="NSContents">Leave Full Screen Mode Automatically</string>
-							<reference key="NSSupport" ref="487203488"/>
-							<reference key="NSControlView" ref="927845184"/>
-							<int key="NSButtonFlags">1211912703</int>
-							<int key="NSButtonFlags2">2</int>
-							<reference key="NSNormalImage" ref="1065563609"/>
-							<reference key="NSAlternateImage" ref="956258713"/>
-							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
-							<int key="NSPeriodicDelay">200</int>
-							<int key="NSPeriodicInterval">25</int>
-						</object>
-					</object>
-				</object>
-				<string key="NSFrameSize">{320, 252}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="357459962"/>
-				<string key="NSClassName">NSView</string>
-				<string key="NSExtension">NSResponder</string>
-			</object>
 			<object class="NSCustomView" id="554049450">
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
@@ -552,8 +426,13 @@
 							<reference key="NSControlView" ref="69118085"/>
 							<int key="NSButtonFlags">1211912703</int>
 							<int key="NSButtonFlags2">2</int>
-							<reference key="NSNormalImage" ref="1065563609"/>
-							<reference key="NSAlternateImage" ref="956258713"/>
+							<object class="NSCustomResource" key="NSNormalImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">NSSwitch</string>
+							</object>
+							<object class="NSButtonImageSource" key="NSAlternateImage">
+								<string key="NSImageName">NSSwitch</string>
+							</object>
 							<string key="NSAlternateContents"/>
 							<string key="NSKeyEquivalent"/>
 							<int key="NSPeriodicDelay">200</int>
@@ -615,22 +494,6 @@
 					<int key="connectionID">290</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">movieOpenedPlay</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="648890292"/>
-					</object>
-					<int key="connectionID">299</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">movieOpenedFullScreen</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="643232112"/>
-					</object>
-					<int key="connectionID">300</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">scrollResizePin:</string>
 						<reference key="source" ref="389168304"/>
@@ -639,52 +502,12 @@
 					<int key="connectionID">303</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">movieOpenedPlay:</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="648890292"/>
-					</object>
-					<int key="connectionID">310</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">movieOpenedFullScreen:</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="643232112"/>
-					</object>
-					<int key="connectionID">311</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">paneActions</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="955207668"/>
-					</object>
-					<int key="connectionID">314</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">paneMain</string>
 						<reference key="source" ref="389168304"/>
 						<reference key="destination" ref="782237721"/>
 					</object>
 					<int key="connectionID">315</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">windowLeaveFullScreen:</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="927845184"/>
-					</object>
-					<int key="connectionID">320</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">windowLeaveFullScreen</string>
-						<reference key="source" ref="389168304"/>
-						<reference key="destination" ref="927845184"/>
-					</object>
-					<int key="connectionID">321</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -884,65 +707,6 @@
 						<reference key="parent" ref="782237721"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">268</int>
-						<reference key="object" ref="955207668"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="927845184"/>
-							<reference ref="56693776"/>
-							<reference ref="357459962"/>
-							<reference ref="643232112"/>
-							<reference ref="648890292"/>
-						</object>
-						<reference key="parent" ref="0"/>
-						<string key="objectName">Actions</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">274</int>
-						<reference key="object" ref="648890292"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="127266782"/>
-						</object>
-						<reference key="parent" ref="955207668"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">276</int>
-						<reference key="object" ref="643232112"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="373352119"/>
-						</object>
-						<reference key="parent" ref="955207668"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">278</int>
-						<reference key="object" ref="357459962"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="502448915"/>
-						</object>
-						<reference key="parent" ref="955207668"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">318</int>
-						<reference key="object" ref="56693776"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="409936891"/>
-						</object>
-						<reference key="parent" ref="955207668"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">319</int>
-						<reference key="object" ref="927845184"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="593073400"/>
-						</object>
-						<reference key="parent" ref="955207668"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">449</int>
 						<reference key="object" ref="554049450"/>
 						<object class="NSMutableArray" key="children">
@@ -1008,31 +772,6 @@
 							<reference ref="585671494"/>
 						</object>
 						<reference key="parent" ref="56585467"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">940</int>
-						<reference key="object" ref="127266782"/>
-						<reference key="parent" ref="648890292"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">941</int>
-						<reference key="object" ref="373352119"/>
-						<reference key="parent" ref="643232112"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">943</int>
-						<reference key="object" ref="502448915"/>
-						<reference key="parent" ref="357459962"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">944</int>
-						<reference key="object" ref="409936891"/>
-						<reference key="parent" ref="56693776"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">945</int>
-						<reference key="object" ref="593073400"/>
-						<reference key="parent" ref="927845184"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">960</int>
@@ -1160,12 +899,6 @@
 					<string>259.IBPluginDependency</string>
 					<string>262.IBPluginDependency</string>
 					<string>263.IBPluginDependency</string>
-					<string>268.IBPluginDependency</string>
-					<string>274.IBPluginDependency</string>
-					<string>276.IBPluginDependency</string>
-					<string>278.IBPluginDependency</string>
-					<string>318.IBPluginDependency</string>
-					<string>319.IBPluginDependency</string>
 					<string>347.IBPluginDependency</string>
 					<string>348.IBPluginDependency</string>
 					<string>349.IBPluginDependency</string>
@@ -1188,28 +921,12 @@
 					<string>933.IBPluginDependency</string>
 					<string>936.IBPluginDependency</string>
 					<string>937.IBPluginDependency</string>
-					<string>940.IBPluginDependency</string>
-					<string>941.IBPluginDependency</string>
-					<string>943.IBPluginDependency</string>
-					<string>944.IBPluginDependency</string>
-					<string>945.IBPluginDependency</string>
 					<string>960.IBPluginDependency</string>
 					<string>961.IBPluginDependency</string>
 					<string>964.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1294,19 +1011,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>defaultTimeDisplay:</string>
 							<string>ffSpeed:</string>
-							<string>movieOpenedFullScreen:</string>
-							<string>movieOpenedPlay:</string>
 							<string>opacityWhenWindowIsTransparent:</string>
 							<string>rrSpeed:</string>
 							<string>scrollResizePin:</string>
 							<string>windowAlwaysOnTop:</string>
-							<string>windowLeaveFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1321,13 +1032,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>defaultTimeDisplay:</string>
 							<string>ffSpeed:</string>
-							<string>movieOpenedFullScreen:</string>
-							<string>movieOpenedPlay:</string>
 							<string>opacityWhenWindowIsTransparent:</string>
 							<string>rrSpeed:</string>
 							<string>scrollResizePin:</string>
 							<string>windowAlwaysOnTop:</string>
-							<string>windowLeaveFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1337,14 +1045,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">ffSpeed:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">movieOpenedFullScreen:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">movieOpenedPlay:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1363,10 +1063,6 @@
 								<string key="name">windowAlwaysOnTop:</string>
 								<string key="candidateClassName">id</string>
 							</object>
-							<object class="IBActionInfo">
-								<string key="name">windowLeaveFullScreen:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1375,10 +1071,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>defaultTimeDisplay</string>
 							<string>ffSpeedSlider</string>
-							<string>movieOpenedFullScreen</string>
-							<string>movieOpenedPlay</string>
 							<string>opacityWhenWindowIsTransparent</string>
-							<string>paneActions</string>
 							<string>paneMain</string>
 							<string>paneWindowDefaults</string>
 							<string>prefWindow</string>
@@ -1386,7 +1079,6 @@
 							<string>rrSpeedSlider</string>
 							<string>scrollResizePin</string>
 							<string>windowAlwaysOnTop</string>
-							<string>windowLeaveFullScreen</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1396,11 +1088,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
-							<string>id</string>
-							<string>id</string>
 							<string>PFPreferenceWindowController</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1412,10 +1100,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>defaultTimeDisplay</string>
 							<string>ffSpeedSlider</string>
-							<string>movieOpenedFullScreen</string>
-							<string>movieOpenedPlay</string>
 							<string>opacityWhenWindowIsTransparent</string>
-							<string>paneActions</string>
 							<string>paneMain</string>
 							<string>paneWindowDefaults</string>
 							<string>prefWindow</string>
@@ -1423,7 +1108,6 @@
 							<string>rrSpeedSlider</string>
 							<string>scrollResizePin</string>
 							<string>windowAlwaysOnTop</string>
-							<string>windowLeaveFullScreen</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1436,19 +1120,7 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">movieOpenedFullScreen</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">movieOpenedPlay</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">opacityWhenWindowIsTransparent</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">paneActions</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
@@ -1477,10 +1149,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">windowAlwaysOnTop</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">windowLeaveFullScreen</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>

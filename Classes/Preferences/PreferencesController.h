@@ -49,19 +49,13 @@
     IBOutlet id prefWindow;
 	IBOutlet PFPreferenceWindowController* prefWindowController;
     IBOutlet id paneMain;
-    IBOutlet id paneActions;
 	IBOutlet id paneWindowDefaults;
 
     IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
-    
     IBOutlet id rrSpeedSlider;
     IBOutlet id ffSpeedSlider;
-    
-    IBOutlet id movieOpenedPlay;
-    IBOutlet id movieOpenedFullScreen;
     IBOutlet id windowAlwaysOnTop;
-    IBOutlet id windowLeaveFullScreen;
 	IBOutlet id opacityWhenWindowIsTransparent;
     
     id _draggingObjects;
@@ -70,14 +64,9 @@
 
 -(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
-
 -(IBAction)rrSpeed:(id)sender;
 -(IBAction)ffSpeed:(id)sender;
-
--(IBAction)movieOpenedPlay:(id)sender;
--(IBAction)movieOpenedFullScreen:(id)sender;
 -(IBAction)windowAlwaysOnTop:(id)sender;
--(IBAction)windowLeaveFullScreen:(id)sender;
 -(IBAction)opacityWhenWindowIsTransparent:(id)sender;
 
 @end

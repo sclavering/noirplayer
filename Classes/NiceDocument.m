@@ -702,7 +702,7 @@ stuff won't work properly! */
     int anIndex = [self getNextIndex];
     
     if(anIndex >= (int)[thePlaylist count])
-        if([[Preferences mainPrefs] windowLeaveFullScreen] && [[self window] isFullScreen])
+        if([[self window] isFullScreen])
             [[self window] unFullScreen];
     
     if( (anIndex >= 0) && (anIndex < (int)[thePlaylist count])){

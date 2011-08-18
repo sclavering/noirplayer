@@ -50,15 +50,9 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 @interface Preferences : NSObject {
 	enum scrollResizePinValues scrollResizePin;
 	enum defaultTimeDisplayValues defaultTimeDisplay;
-
 	int rrSpeed;
 	int ffSpeed;
-
-	BOOL movieOpenedPlay;
-	BOOL movieOpenedFullScreen;
 	BOOL windowAlwaysOnTop;
-	BOOL windowLeaveFullScreen;
-	
 	float opacityWhenWindowIsTransparent;
 }
 
@@ -75,14 +69,8 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 -(int)ffSpeed;
 -(void)setFfSpeed:(int)anInt;
 
--(BOOL)movieOpenedPlay;
--(void)setMovieOpenedPlay:(BOOL)aBool;
--(BOOL)movieOpenedFullScreen;
--(void)setMovieOpenedFullScreen:(BOOL)aBool;
 -(BOOL)windowAlwaysOnTop;
 -(void)setWindowAlwaysOnTop:(BOOL)aBool;
--(BOOL)windowLeaveFullScreen;
--(void)setWindowLeaveFullScreen:(BOOL)aBool;
 -(float)opacityWhenWindowIsTransparent;
 -(void)setOpacityWhenWindowIsTransparent:(float)aFloat;
 -(NSString*)windowPosition;
