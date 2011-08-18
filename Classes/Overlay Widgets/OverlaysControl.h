@@ -50,6 +50,7 @@
 
 +(id)control;
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint;
+
 -(BOOL)showOverlayForWindow:(NiceWindow *)aWindow atPoint:(NSPoint)aScreenPoint;
 
 @end

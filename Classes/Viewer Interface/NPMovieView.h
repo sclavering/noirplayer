@@ -126,7 +126,7 @@
 -(double)currentMovieFrameRate;
 -(void)setCurrentMovieTime:(double)aDouble;
 -(double)totalTime;
--(double)perecntLoaded;
+-(double)percentLoaded;
 -(void)drawMovieFrame;
 -(void)setLoopMode:(NSQTMovieLoopMode)flag;
 

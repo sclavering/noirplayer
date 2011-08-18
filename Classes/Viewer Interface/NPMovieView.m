@@ -800,7 +800,7 @@ while ((object = [enumerator nextObject])) {
     return [trueMovieView currentMovieFrameRate];
 }
 
--(double)perecntLoaded{
+-(double)percentLoaded{
 	if([trueMovieView respondsToSelector:@selector(_percentLoaded)]){
 		return [((NSNumber*)[trueMovieView _percentLoaded]) doubleValue];
 	}else{

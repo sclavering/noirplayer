@@ -331,7 +331,7 @@
     /* Update rest of UI */
 	if(theMovieView !=nil){
 		[theScrubBar setDoubleValue:[theMovieView scrubLocation:sender]];
-		[theScrubBar setLoadedValue:[theMovieView perecntLoaded]];
+		[theScrubBar setLoadedValue:[theMovieView percentLoaded]];
 	}
     [theScrubBar setNeedsDisplay:YES];
 }
