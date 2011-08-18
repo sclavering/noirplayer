@@ -51,11 +51,8 @@
     IBOutlet id paneMain;
     IBOutlet id paneActions;
     IBOutlet id paneOverlays;
-	IBOutlet id paneInput;
 	IBOutlet id paneWindowDefaults;
 
-    IBOutlet id doubleClickMoviePref;
-    IBOutlet id rightClickMoviePref;
     IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
     
@@ -75,8 +72,6 @@
     BOOL _tableLocked;
 }
 
--(IBAction)doubleClickMoviePref:(id)sender;
--(IBAction)rightClickMoviePref:(id)sender;
 -(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
 

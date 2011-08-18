@@ -44,14 +44,10 @@
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
 
-enum doubleClickMoviePrefValues { MAKE_WINDOW_FULL_SCREEN, PLAY_PAUSE_MOVIE };
-enum rightClickMoviePrefValues { RIGHT_CLICK_DISPLAY_CONTEXT_MENU, RIGHT_CLICK_PLAY_PAUSE_MOVIE, RIGHT_CLICK_MAKE_FULL_SCREEN };
 enum scrollResizePinValues { PIN_LEFT_TOP, PIN_CENTER, PIN_SMART };
 enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 
 @interface Preferences : NSObject {
-	enum doubleClickMoviePrefValues doubleClickMoviePref;
-	enum rightClickMoviePrefValues rightClickMoviePref;
 	enum scrollResizePinValues scrollResizePin;
 	enum defaultTimeDisplayValues defaultTimeDisplay;
 
@@ -71,11 +67,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 
 +(Preferences *)mainPrefs;
 +(int)defaultTimeDisplayValuesNum;
-
--(enum doubleClickMoviePrefValues)doubleClickMoviePref;
--(void)setDoubleClickMoviePref:(enum doubleClickMoviePrefValues)anInt;
--(enum rightClickMoviePrefValues)rightClickMoviePref;
--(void)setRightClickMoviePref:(enum rightClickMoviePrefValues)anInt;
 
 -(enum scrollResizePinValues)scrollResizePin;
 -(void)setScrollResizePin:(enum scrollResizePinValues)anInt;

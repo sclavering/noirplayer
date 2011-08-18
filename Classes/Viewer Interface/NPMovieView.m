@@ -563,16 +563,8 @@
 
 - (void)mouseDoubleClick:(NSEvent *)anEvent
 {
-[((NiceWindow *)[self window]) setInitialDrag:anEvent];
-
-	switch([[Preferences mainPrefs] doubleClickMoviePref]){
-		case MAKE_WINDOW_FULL_SCREEN:
-			[((NiceWindow *)[self window]) toggleWindowFullScreen];
-			break;
-		case PLAY_PAUSE_MOVIE:
-			[[((NiceWindow *)[self window]) playButton] togglePlaying];
-			break;
-	}
+    [((NiceWindow *)[self window]) setInitialDrag:anEvent];
+    [((NiceWindow *)[self window]) toggleWindowFullScreen];
 }
 
 - (void)mouseMoved:(NSEvent *)anEvent
@@ -589,24 +581,11 @@
 
 -(void)rightMouseDown:(NSEvent *)anEvent
 {
-	if([[Preferences mainPrefs] rightClickMoviePref] == RIGHT_CLICK_DISPLAY_CONTEXT_MENU)
-		[NSMenu popUpContextMenu:[self contextualMenu]
-					   withEvent:anEvent
-						 forView:self];
+    [NSMenu popUpContextMenu:[self contextualMenu] withEvent:anEvent forView:self];
 }
 
 -(void)rightMouseUp:(NSEvent *)anEvent
 {
-	switch([[Preferences mainPrefs] rightClickMoviePref]){
-		case RIGHT_CLICK_PLAY_PAUSE_MOVIE:
-			[[((NiceWindow *)[self window]) playButton] togglePlaying];
-			break;
-		case RIGHT_CLICK_MAKE_FULL_SCREEN:
-			[((NiceWindow *)[self window]) toggleWindowFullScreen];
-			break;
-		default:
-			break;
-	}
 }
 
 - (void)mouseDragged:(NSEvent *)anEvent

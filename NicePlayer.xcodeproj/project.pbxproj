@@ -142,7 +142,6 @@
 		6990B5150CF0B2F300DA15C2 /* SEReferenceRendererGlue.h in Headers */ = {isa = PBXBuildFile; fileRef = 6990B50A0CF0B2F300DA15C2 /* SEReferenceRendererGlue.h */; };
 		6990B5160CF0B2F300DA15C2 /* SEReferenceRendererGlue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */; };
 		6990B63F0CF0CF8300DA15C2 /* Appscript.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 6990B4E80CF0A9D300DA15C2 /* Appscript.framework */; };
-		69945E6E0CCA639600CE0AD3 /* inputpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 69945E6C0CCA639500CE0AD3 /* inputpref.png */; };
 		69945E6F0CCA639600CE0AD3 /* windpref.png in Resources */ = {isa = PBXBuildFile; fileRef = 69945E6D0CCA639600CE0AD3 /* windpref.png */; };
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
 		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
@@ -387,7 +386,6 @@
 		6990B5090CF0B2F300DA15C2 /* SEReferenceGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceGlue.m; sourceTree = "<group>"; };
 		6990B50A0CF0B2F300DA15C2 /* SEReferenceRendererGlue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SEReferenceRendererGlue.h; sourceTree = "<group>"; };
 		6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceRendererGlue.m; sourceTree = "<group>"; };
-		69945E6C0CCA639500CE0AD3 /* inputpref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = inputpref.png; path = Resources/inputpref.png; sourceTree = "<group>"; };
 		69945E6D0CCA639600CE0AD3 /* windpref.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = windpref.png; path = Resources/windpref.png; sourceTree = "<group>"; };
 		699464620CCC4D3800CE0AD3 /* gvi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gvi.icns; sourceTree = "<group>"; };
 		69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = STEnum10.4.xcodeproj; path = Libraries/stenum/STEnum10.4.xcodeproj; sourceTree = "<group>"; };
@@ -461,7 +459,6 @@
 		2513D20407BDA31600BB6055 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				69945E6C0CCA639500CE0AD3 /* inputpref.png */,
 				69945E6D0CCA639600CE0AD3 /* windpref.png */,
 				6974961F0B55F7A90030D4D2 /* titlebg.png */,
 				25294AD4076E944900D4B325 /* ff_over.png */,
@@ -999,7 +996,6 @@
 				69EFD1BC0B5C8E3400359BF4 /* divx.icns in Resources */,
 				6925B3CA0B61966E004D2A83 /* vdvd.icns in Resources */,
 				69BCF5510B62C4C20000ABEF /* ogg.icns in Resources */,
-				69945E6E0CCA639600CE0AD3 /* inputpref.png in Resources */,
 				69945E6F0CCA639600CE0AD3 /* windpref.png in Resources */,
 				699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */,
 				69257CFB111DD28300C28210 /* MainMenu.xib in Resources */,

@@ -64,12 +64,6 @@
 			  withLabel:@"General"
 			withToolTip:@"The General Preference Settings"
 		 allowingResize:NO];
-	[prefWindowController addPane:paneInput
-                   withIcon:[NSImage imageNamed:@"inputpref"] 
-		 withIdentifier:@"Input"
-			  withLabel:@"Input"
-			withToolTip:@"The Input Preference Settings"
-		 allowingResize:NO];
 	[prefWindowController addPane:paneWindowDefaults
                    withIcon:[NSImage imageNamed:@"windpref"] 
 		 withIdentifier:@"Window Defaults"
@@ -83,8 +77,6 @@
 			withToolTip:@"Actions on Movies"
 		 allowingResize:NO];
 	
-	[doubleClickMoviePref selectItemWithTag:[[Preferences mainPrefs] doubleClickMoviePref]];
-	[rightClickMoviePref selectItemWithTag:[[Preferences mainPrefs] rightClickMoviePref]];
 	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
 
@@ -107,16 +99,6 @@
 	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
 	[windowLeaveFullScreen setState:[[Preferences mainPrefs] windowLeaveFullScreen]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
-}
-
--(IBAction)doubleClickMoviePref:(id)sender
-{
-	[[Preferences mainPrefs] setDoubleClickMoviePref:[[sender selectedItem] tag]];
-}
-
--(IBAction)rightClickMoviePref:(id)sender
-{
-	[[Preferences mainPrefs] setRightClickMoviePref:[[sender selectedItem] tag]];
 }
 
 -(IBAction)scrollResizePin:(id)sender

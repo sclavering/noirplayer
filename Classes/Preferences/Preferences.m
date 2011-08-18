@@ -74,9 +74,6 @@
 -(id)init
 {
 	if((self = [super init])){
-		doubleClickMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"doubleClickMoviePref"];
-		rightClickMoviePref = [[NSUserDefaults standardUserDefaults] integerForKey:@"rightClickMoviePref"];
-
 		if([[NSUserDefaults standardUserDefaults] objectForKey:@"scrollResizePin"] == nil)
 		    scrollResizePin = PIN_SMART;
 		else
@@ -100,28 +97,6 @@
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 	}
 	return self;
-}
-
--(enum doubleClickMoviePrefValues)doubleClickMoviePref
-{
-	return doubleClickMoviePref;
-}
-
--(void)setDoubleClickMoviePref:(enum doubleClickMoviePrefValues)anInt
-{
-	doubleClickMoviePref = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"doubleClickMoviePref"];
-}
-
--(enum rightClickMoviePrefValues)rightClickMoviePref
-{
-	return rightClickMoviePref;
-}
-
--(void)setRightClickMoviePref:(enum rightClickMoviePrefValues)anInt
-{
-	rightClickMoviePref = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"rightClickMoviePref"];
 }
 
 -(enum scrollResizePinValues)scrollResizePin
