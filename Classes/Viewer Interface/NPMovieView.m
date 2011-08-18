@@ -56,7 +56,7 @@
 #import "Preferences.h"
 #import "BlankView.h"
 #import "NiceDocument.h"
-#import "Pluggable Players/RCMovieView.h"
+#import "RCMovieView.h"
 
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;

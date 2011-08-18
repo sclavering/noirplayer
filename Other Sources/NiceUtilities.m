@@ -47,7 +47,7 @@
 
 #import "NiceUtilities.h"
 #import <STEnum/STEnum.h>
-#import "../Classes/Viewer Interface/Pluggable Players/RCMovieView.h"
+#import "../Classes/Viewer Interface/RCMovieView.h"
 
 id NPConvertFileNamesToURLs(id obj, void* context){
     return [NSURL fileURLWithPath:obj];

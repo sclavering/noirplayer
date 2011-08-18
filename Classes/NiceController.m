@@ -52,7 +52,7 @@
 #import "NiceDocument.h"
 #import <Preferable/Preferable.h>
 #import <STEnum/STEnum.h>
-#import "Viewer Interface/Pluggable Players/RCMovieView.h"
+#import "Viewer Interface/RCMovieView.h"
 
 id controller;
 

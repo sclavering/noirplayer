@@ -280,8 +280,8 @@
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		25294AA8076E937E00D4B325 /* rr_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rr_over.png; path = Resources/rr_over.png; sourceTree = "<group>"; };
 		25294AD4076E944900D4B325 /* ff_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ff_over.png; path = Resources/ff_over.png; sourceTree = "<group>"; };
-		252BD4FB076981DD006CF96B /* NPPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPPluginView.h; path = "Classes/Viewer Interface/Pluggable Players/NPPluginView.h"; sourceTree = "<group>"; };
-		252BD4FC076981DD006CF96B /* NPPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPPluginView.m; path = "Classes/Viewer Interface/Pluggable Players/NPPluginView.m"; sourceTree = "<group>"; };
+		252BD4FB076981DD006CF96B /* NPPluginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPPluginView.h; path = "Classes/Viewer Interface/NPPluginView.h"; sourceTree = "<group>"; };
+		252BD4FC076981DD006CF96B /* NPPluginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPPluginView.m; path = "Classes/Viewer Interface/NPPluginView.m"; sourceTree = "<group>"; };
 		252BD9F407699E7C006CF96B /* ControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlButton.h; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.h"; sourceTree = "<group>"; };
 		252BD9F507699E7C006CF96B /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlButton.m; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.m"; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.h"; sourceTree = "<group>"; };
@@ -302,7 +302,7 @@
 		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
 		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
 		257D60130753DED700702BD0 /* Scripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scripting.framework; path = /System/Library/Frameworks/Scripting.framework; sourceTree = "<absolute>"; };
-		257D61540753F7AD00702BD0 /* NPMovieProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieProtocol.h; path = "Classes/Viewer Interface/Pluggable Players/NPMovieProtocol.h"; sourceTree = "<group>"; };
+		257D61540753F7AD00702BD0 /* NPMovieProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieProtocol.h; path = "Classes/Viewer Interface/NPMovieProtocol.h"; sourceTree = "<group>"; };
 		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = "Classes/Viewer Interface/NPMovieView.h"; sourceTree = "<group>"; };
 		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = "Classes/Viewer Interface/NPMovieView.m"; sourceTree = "<group>"; };
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -312,8 +312,8 @@
 		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = "Classes/Overlay Widgets/OverlaysControl.h"; sourceTree = "<group>"; };
 		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = "Classes/Overlay Widgets/OverlaysControl.m"; sourceTree = "<group>"; };
 		25CC00580A315A45002FB428 /* acknowledgements.html */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.html; name = acknowledgements.html; path = Documents/acknowledgements.html; sourceTree = "<group>"; };
-		25CC864E0831DA2A00027929 /* RCMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCMovieView.h; path = "Classes/Viewer Interface/Pluggable Players/RCMovieView.h"; sourceTree = "<group>"; };
-		25CC864F0831DA2A00027929 /* RCMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCMovieView.m; path = "Classes/Viewer Interface/Pluggable Players/RCMovieView.m"; sourceTree = "<group>"; };
+		25CC864E0831DA2A00027929 /* RCMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCMovieView.h; path = "Classes/Viewer Interface/RCMovieView.h"; sourceTree = "<group>"; };
+		25CC864F0831DA2A00027929 /* RCMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCMovieView.m; path = "Classes/Viewer Interface/RCMovieView.m"; sourceTree = "<group>"; };
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		25D2E7C207BF3758004BEF7D /* NiceDocumentScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceDocumentScripting.m; sourceTree = "<group>"; };
 		25D2E84007BF3B44004BEF7D /* NiceWindowScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceWindowScripting.m; sourceTree = "<group>"; };
@@ -407,8 +407,8 @@
 		69257CFE111DD2A700C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NiceDocument.xib; sourceTree = "<group>"; };
 		69257D02111DD2BF00C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/Preferences.xib; sourceTree = "<group>"; };
 		6925B3C90B61966E004D2A83 /* vdvd.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vdvd.icns; sourceTree = "<group>"; };
-		692CF88D0CC2F78000DF2159 /* BlankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlankView.h; path = "Classes/Viewer Interface/Pluggable Players/BlankView.h"; sourceTree = "<group>"; };
-		692CF88E0CC2F78000DF2159 /* BlankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlankView.m; path = "Classes/Viewer Interface/Pluggable Players/BlankView.m"; sourceTree = "<group>"; };
+		692CF88D0CC2F78000DF2159 /* BlankView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlankView.h; path = "Classes/Viewer Interface/BlankView.h"; sourceTree = "<group>"; };
+		692CF88E0CC2F78000DF2159 /* BlankView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlankView.m; path = "Classes/Viewer Interface/BlankView.m"; sourceTree = "<group>"; };
 		697496100B55EA800030D4D2 /* OverlayTitleWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayTitleWindow.h; path = "Classes/Overlay Widgets/OverlayTitleWindow.h"; sourceTree = "<group>"; };
 		697496110B55EA800030D4D2 /* OverlayTitleWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayTitleWindow.m; path = "Classes/Overlay Widgets/OverlayTitleWindow.m"; sourceTree = "<group>"; };
 		6974961F0B55F7A90030D4D2 /* titlebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = titlebg.png; path = Resources/titlebg.png; sourceTree = "<group>"; };
@@ -603,7 +603,7 @@
 			name = Preferences;
 			sourceTree = "<group>";
 		};
-		257D61220753F3C300702BD0 /* Pluggable Players */ = {
+		257D61370753F45800702BD0 /* Viewer Interface */ = {
 			isa = PBXGroup;
 			children = (
 				257D61540753F7AD00702BD0 /* NPMovieProtocol.h */,
@@ -613,16 +613,8 @@
 				25CC864F0831DA2A00027929 /* RCMovieView.m */,
 				692CF88D0CC2F78000DF2159 /* BlankView.h */,
 				692CF88E0CC2F78000DF2159 /* BlankView.m */,
-			);
-			name = "Pluggable Players";
-			sourceTree = "<group>";
-		};
-		257D61370753F45800702BD0 /* Viewer Interface */ = {
-			isa = PBXGroup;
-			children = (
 				257D61660753F92D00702BD0 /* NPMovieView.h */,
 				257D61670753F92D00702BD0 /* NPMovieView.m */,
-				257D61220753F3C300702BD0 /* Pluggable Players */,
 			);
 			name = "Viewer Interface";
 			sourceTree = "<group>";
