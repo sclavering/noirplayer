@@ -726,7 +726,6 @@
 				3E5302E90684096B00923E9B /* Copy Files */,
 				2513D30D07BDACBC00BB6055 /* ShellScript */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
-				691ECE150CE0362B0040AE45 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -860,19 +859,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/bin/sdp -f st -o \"$TARGET_BUILD_DIR/NicePlayer.app/Contents/Resources\" \"$SOURCE_ROOT/Resources/NicePlayer.sdef\"";
-		};
-		691ECE150CE0362B0040AE45 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if [ $CONFIGURATION == \"Release\" ]; then\n    true\n    # codesign -f -s NicePlayer \"$TARGET_BUILD_DIR/NicePlayer.app\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
