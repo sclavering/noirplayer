@@ -26,10 +26,6 @@
 		252BD9F707699E7C006CF96B /* ControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BD9F507699E7C006CF96B /* ControlButton.m */; };
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
-		252BDDFA076A4775006CF96B /* ControlRR.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDF8076A4775006CF96B /* ControlRR.h */; };
-		252BDDFB076A4775006CF96B /* ControlRR.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDF9076A4775006CF96B /* ControlRR.m */; };
-		252BDE00076A4780006CF96B /* ControlFF.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDFE076A4780006CF96B /* ControlFF.h */; };
-		252BDE01076A4780006CF96B /* ControlFF.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDFF076A4780006CF96B /* ControlFF.m */; };
 		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
 		253C02E507C061E100172C2F /* resize.png in Resources */ = {isa = PBXBuildFile; fileRef = 253C02E407C061E100172C2F /* resize.png */; };
 		253C064D07C0891300172C2F /* ResizeTriangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C064B07C0891300172C2F /* ResizeTriangle.h */; };
@@ -111,11 +107,7 @@
 		3EB7ECFA065F39BC0002A470 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7ECF9065F39BC0002A470 /* QuickTime.framework */; };
 		3EC8C22B065DB22A00988449 /* RoundRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC8C229065DB22A00988449 /* RoundRect.h */; };
 		3EC8C22C065DB22A00988449 /* RoundRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8C22A065DB22A00988449 /* RoundRect.m */; };
-		3EC8C600065DD31F00988449 /* ffClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FD065DD31F00988449 /* ffClick.png */; };
 		3EC8C601065DD31F00988449 /* playClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FE065DD31F00988449 /* playClick.png */; };
-		3EC8C602065DD31F00988449 /* rrClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FF065DD31F00988449 /* rrClick.png */; };
-		3EDA267E065C8D620000CCEE /* ff.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDA267C065C8D620000CCEE /* ff.png */; };
-		3EDA267F065C8D620000CCEE /* rr.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EDA267D065C8D620000CCEE /* rr.png */; };
 		3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDA2680065C8E570000CCEE /* OverlayWindow.h */; };
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
 		3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEB7DB7076B754F0090E740 /* NiceUtilities.h */; };
@@ -284,10 +276,6 @@
 		252BD9F507699E7C006CF96B /* ControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlButton.m; path = "Classes/Overlay Widgets/Control Buttons/ControlButton.m"; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.h"; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/Control Buttons/ControlPlay.m"; sourceTree = "<group>"; };
-		252BDDF8076A4775006CF96B /* ControlRR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlRR.h; path = "Classes/Overlay Widgets/Control Buttons/ControlRR.h"; sourceTree = "<group>"; };
-		252BDDF9076A4775006CF96B /* ControlRR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlRR.m; path = "Classes/Overlay Widgets/Control Buttons/ControlRR.m"; sourceTree = "<group>"; };
-		252BDDFE076A4780006CF96B /* ControlFF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlFF.h; path = "Classes/Overlay Widgets/Control Buttons/ControlFF.h"; sourceTree = "<group>"; };
-		252BDDFF076A4780006CF96B /* ControlFF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlFF.m; path = "Classes/Overlay Widgets/Control Buttons/ControlFF.m"; sourceTree = "<group>"; };
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
 		253C02E407C061E100172C2F /* resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resize.png; path = Resources/resize.png; sourceTree = "<group>"; };
 		253C02E907C0632700172C2F /* resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resize.png; path = Resources/resize.png; sourceTree = "<group>"; };
@@ -374,11 +362,7 @@
 		3EB7ECF9065F39BC0002A470 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		3EC8C229065DB22A00988449 /* RoundRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundRect.h; path = "Classes/Overlay Widgets/RoundRect.h"; sourceTree = "<group>"; };
 		3EC8C22A065DB22A00988449 /* RoundRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundRect.m; path = "Classes/Overlay Widgets/RoundRect.m"; sourceTree = "<group>"; };
-		3EC8C5FD065DD31F00988449 /* ffClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ffClick.png; path = Resources/ffClick.png; sourceTree = "<group>"; };
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
-		3EC8C5FF065DD31F00988449 /* rrClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rrClick.png; path = Resources/rrClick.png; sourceTree = "<group>"; };
-		3EDA267C065C8D620000CCEE /* ff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ff.png; path = Resources/ff.png; sourceTree = "<group>"; };
-		3EDA267D065C8D620000CCEE /* rr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = rr.png; path = Resources/rr.png; sourceTree = "<group>"; };
 		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = "Classes/Overlay Widgets/OverlayWindow.h"; sourceTree = "<group>"; };
 		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = "Classes/Overlay Widgets/OverlayWindow.m"; sourceTree = "<group>"; };
 		3EEB7DB7076B754F0090E740 /* NiceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceUtilities.h; path = "Other Sources/NiceUtilities.h"; sourceTree = "<group>"; };
@@ -525,10 +509,6 @@
 				3E9E62970661724600B788A8 /* scrubbar_left.png */,
 				3E9E62980661724600B788A8 /* scrubbar_right.png */,
 				3EC8C5FE065DD31F00988449 /* playClick.png */,
-				3EC8C5FD065DD31F00988449 /* ffClick.png */,
-				3EC8C5FF065DD31F00988449 /* rrClick.png */,
-				3EDA267C065C8D620000CCEE /* ff.png */,
-				3EDA267D065C8D620000CCEE /* rr.png */,
 				3E085CBB065C79EE005286A3 /* play.png */,
 				3EEDF761065B4CFF00E3545C /* black.png */,
 				3E6E26A4067FC53600854100 /* repeat_list.png */,
@@ -578,10 +558,6 @@
 				252BD9F507699E7C006CF96B /* ControlButton.m */,
 				252BDDD7076A4744006CF96B /* ControlPlay.h */,
 				252BDDD8076A4744006CF96B /* ControlPlay.m */,
-				252BDDFE076A4780006CF96B /* ControlFF.h */,
-				252BDDFF076A4780006CF96B /* ControlFF.m */,
-				252BDDF8076A4775006CF96B /* ControlRR.h */,
-				252BDDF9076A4775006CF96B /* ControlRR.m */,
 			);
 			name = "Control Buttons";
 			sourceTree = "<group>";
@@ -872,8 +848,6 @@
 				252BD4FD076981DD006CF96B /* NPPluginView.h in Headers */,
 				252BD9F607699E7C006CF96B /* ControlButton.h in Headers */,
 				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
-				252BDDFA076A4775006CF96B /* ControlRR.h in Headers */,
-				252BDE00076A4780006CF96B /* ControlFF.h in Headers */,
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
 				253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */,
@@ -1025,11 +999,7 @@
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				3EEDF762065B4CFF00E3545C /* black.png in Resources */,
 				3E085CBC065C79EE005286A3 /* play.png in Resources */,
-				3EDA267E065C8D620000CCEE /* ff.png in Resources */,
-				3EDA267F065C8D620000CCEE /* rr.png in Resources */,
-				3EC8C600065DD31F00988449 /* ffClick.png in Resources */,
 				3EC8C601065DD31F00988449 /* playClick.png in Resources */,
-				3EC8C602065DD31F00988449 /* rrClick.png in Resources */,
 				3E9E62990661724600B788A8 /* scrubber.png in Resources */,
 				3E9E629A0661724600B788A8 /* scrubberClick.png in Resources */,
 				3E9E629B0661724600B788A8 /* scrubbar_center.png in Resources */,
@@ -1141,8 +1111,6 @@
 				252BD4FE076981DD006CF96B /* NPPluginView.m in Sources */,
 				252BD9F707699E7C006CF96B /* ControlButton.m in Sources */,
 				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
-				252BDDFB076A4775006CF96B /* ControlRR.m in Sources */,
-				252BDE01076A4780006CF96B /* ControlFF.m in Sources */,
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
 				25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */,
