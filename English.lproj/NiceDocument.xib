@@ -116,7 +116,7 @@
 							<string key="NSFrameSize">{32, 32}</string>
 							<reference key="NSSuperview" ref="642530596"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
+							<reference key="NSNextKeyView" ref="291814920"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1021034649">
 								<int key="NSCellFlags">67239424</int>
@@ -162,6 +162,7 @@
 							<string key="NSFrame">{{344, 9}, {61, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="248469940">
 								<int key="NSCellFlags">67239424</int>
@@ -479,7 +480,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{373, 24}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1058342575"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -489,7 +489,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{49, 2}, {327, 20}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="944708147">
@@ -510,7 +509,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{4, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="547257827"/>
 							<int key="NSTag">666</int>
 							<bool key="NSEnabled">YES</bool>
@@ -542,7 +540,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{24, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="301179114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="574122407">
@@ -574,7 +571,6 @@
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="661584273"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -595,7 +591,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{115, 96}</string>
 				<object class="NSView" key="NSWindowView" id="902978893">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -633,70 +629,12 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{116, 96}</string>
+					<reference key="NSSuperview"/>
 					<reference key="NSNextKeyView" ref="1035658001"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{115, 118}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<bool key="NSWindowIsRestorable">YES</bool>
-			</object>
-			<object class="NSWindowTemplate" id="973897849">
-				<int key="NSWindowStyleMask">7</int>
-				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{218, 238}, {14, 14}}</string>
-				<int key="NSWTFlags">1618481152</int>
-				<string key="NSWindowTitle">Resize</string>
-				<string key="NSWindowClass">ResizeTriangle</string>
-				<object class="NSMutableString" key="NSViewClass">
-					<characters key="NS.bytes">View</characters>
-				</object>
-				<nil key="NSUserInterfaceItemIdentifier"/>
-				<string key="NSWindowContentMaxSize">{14, 15}</string>
-				<string key="NSWindowContentMinSize">{14, 14}</string>
-				<object class="NSView" key="NSWindowView" id="106835475">
-					<nil key="NSNextResponder"/>
-					<int key="NSvFlags">256</int>
-					<object class="NSMutableArray" key="NSSubviews">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSImageView" id="185701018">
-							<reference key="NSNextResponder" ref="106835475"/>
-							<int key="NSvFlags">274</int>
-							<object class="NSMutableSet" key="NSDragTypes">
-								<bool key="EncodedWithXMLCoder">YES</bool>
-								<object class="NSArray" key="set.sortedObjects">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<string>Apple PDF pasteboard type</string>
-									<string>Apple PICT pasteboard type</string>
-									<string>Apple PNG pasteboard type</string>
-									<string>NSFilenamesPboardType</string>
-									<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-									<string>NeXT TIFF v4.0 pasteboard type</string>
-								</object>
-							</object>
-							<string key="NSFrameSize">{14, 14}</string>
-							<reference key="NSSuperview" ref="106835475"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="NSImageCell" key="NSCell" id="322100608">
-								<int key="NSCellFlags">537001472</int>
-								<int key="NSCellFlags2">33554432</int>
-								<object class="NSCustomResource" key="NSContents">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">resize</string>
-								</object>
-								<int key="NSAlign">7</int>
-								<int key="NSScale">1</int>
-								<int key="NSStyle">0</int>
-								<bool key="NSAnimates">NO</bool>
-							</object>
-							<bool key="NSEditable">YES</bool>
-						</object>
-					</object>
-					<string key="NSFrameSize">{14, 14}</string>
-					<reference key="NSNextKeyView" ref="185701018"/>
-				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
-				<string key="NSMinSize">{14, 36}</string>
-				<string key="NSMaxSize">{14, 37}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 		</object>
@@ -841,27 +779,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">overlayResize</string>
-						<reference key="source" ref="685320436"/>
-						<reference key="destination" ref="973897849"/>
-					</object>
-					<int key="connectionID">155</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">theNiceWindow</string>
 						<reference key="source" ref="986281957"/>
 						<reference key="destination" ref="1049554511"/>
 					</object>
 					<int key="connectionID">166</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">theNiceWindow</string>
-						<reference key="source" ref="973897849"/>
-						<reference key="destination" ref="1049554511"/>
-					</object>
-					<int key="connectionID">169</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -894,14 +816,6 @@
 						<reference key="destination" ref="901249276"/>
 					</object>
 					<int key="connectionID">209</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">theResizeWindow</string>
-						<reference key="source" ref="1049554511"/>
-						<reference key="destination" ref="973897849"/>
-					</object>
-					<int key="connectionID">232</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -1163,34 +1077,6 @@
 						<reference key="parent" ref="902978893"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">152</int>
-						<reference key="object" ref="973897849"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="106835475"/>
-						</object>
-						<reference key="parent" ref="0"/>
-						<string key="objectName">Resize</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">153</int>
-						<reference key="object" ref="106835475"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="185701018"/>
-						</object>
-						<reference key="parent" ref="973897849"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">154</int>
-						<reference key="object" ref="185701018"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="322100608"/>
-						</object>
-						<reference key="parent" ref="106835475"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">256</int>
 						<reference key="object" ref="1021034649"/>
 						<reference key="parent" ref="573200896"/>
@@ -1219,11 +1105,6 @@
 						<int key="objectID">267</int>
 						<reference key="object" ref="825665416"/>
 						<reference key="parent" ref="1035658001"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">268</int>
-						<reference key="object" ref="322100608"/>
-						<reference key="parent" ref="185701018"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">270</int>
@@ -1292,9 +1173,6 @@
 					<string>108.CustomClassName</string>
 					<string>108.IBPluginDependency</string>
 					<string>120.IBPluginDependency</string>
-					<string>152.IBPluginDependency</string>
-					<string>153.IBPluginDependency</string>
-					<string>154.IBPluginDependency</string>
 					<string>167.IBPluginDependency</string>
 					<string>168.IBPluginDependency</string>
 					<string>176.IBPluginDependency</string>
@@ -1311,7 +1189,6 @@
 					<string>264.IBPluginDependency</string>
 					<string>265.IBPluginDependency</string>
 					<string>267.IBPluginDependency</string>
-					<string>268.IBPluginDependency</string>
 					<string>270.IBPluginDependency</string>
 					<string>270.IBShouldRemoveOnLegacySave</string>
 					<string>271.IBPluginDependency</string>
@@ -1358,11 +1235,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>NPOutlineView</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1767,7 +1640,6 @@
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
 							<string>theRRButton</string>
-							<string>theResizeWindow</string>
 							<string>theScrubBar</string>
 							<string>theTimeField</string>
 							<string>theTitleField</string>
@@ -1777,7 +1649,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>id</string>
 							<string>NPMovieView</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1800,7 +1671,6 @@
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
 							<string>theRRButton</string>
-							<string>theResizeWindow</string>
 							<string>theScrubBar</string>
 							<string>theTimeField</string>
 							<string>theTitleField</string>
@@ -1837,10 +1707,6 @@
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">theResizeWindow</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">theScrubBar</string>
 								<string key="candidateClassName">NiceScrubber</string>
 							</object>
@@ -1871,13 +1737,11 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ffButton</string>
-							<string>overlayResize</string>
 							<string>rrButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSButton</string>
-							<string>NSWindow</string>
 							<string>NSButton</string>
 						</object>
 					</object>
@@ -1886,7 +1750,6 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>ffButton</string>
-							<string>overlayResize</string>
 							<string>rrButton</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -1894,10 +1757,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">ffButton</string>
 								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">overlayResize</string>
-								<string key="candidateClassName">NSWindow</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">rrButton</string>
@@ -1935,14 +1794,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/OverlayWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">ResizeTriangle</string>
-					<string key="superclassName">OverlayWindow</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ResizeTriangle.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1997,7 +1848,6 @@
 				<string>minimize-highlight</string>
 				<string>play</string>
 				<string>playClick</string>
-				<string>resize</string>
 				<string>volume_with_sound</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
@@ -2008,7 +1858,6 @@
 				<string>{96, 96}</string>
 				<string>{128, 128}</string>
 				<string>{128, 128}</string>
-				<string>{56.692911196404232, 56.692911196404232}</string>
 				<string>{96, 96}</string>
 			</object>
 		</object>

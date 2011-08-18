@@ -64,13 +64,6 @@
 
 @implementation NiceWindow
 
--(float)resizeHeight{
-	return [theResizeWindow frame].size.height;
-}
--(float)resizeWidth{
-	return [theResizeWindow frame].size.width;
-}
-
 -(float)scrubberHeight{
 	return [theOverlayControllerWindow frame].size.height;
 }
@@ -280,21 +273,6 @@
 }
 
 /**
-* The mouse is in a location to adjust the resize.
- */
--(BOOL)inResizeLocation:(NSEvent *)anEvent
-{
-	
-	NSRect tRect =NSMakeRect([self frame].origin.x + ([self frame].size.width-[self resizeWidth]), [self frame].origin.y, [self resizeWidth],[self resizeHeight]);
-    return NSPointInRect([self convertBaseToScreen:[anEvent locationInWindow]], tRect);
-}
-
--(void)setResizeDrag:(bool)aDrag{
-	resizeDrag = aDrag;
-}
-
-
-/**
 * Change the time style that is shown, either time elapsed or time remaining.
  */
 -(void)rotateTimeDisplayStyle
@@ -377,18 +355,6 @@
                                 [theOverlayControllerWindow frame].size.height)
       withVisibility:NO];
 	
-	
-	[theResizeWindow setLevel:100];
-	[theResizeWindow orderFront:nil];
-	
-	[self putOverlay:theResizeWindow
-		   asChildOf:self
-             inFrame:NSMakeRect([self  frame].origin.x + [self frame].size.width - [self resizeWidth],
-								[self frame].origin.y, 
-								[self resizeWidth],
-								[self resizeHeight])
-      withVisibility:NO];
-
     [self putOverlay:theOverlayTitleBar
 		   asChildOf:self
              inFrame:NSMakeRect(currentFrame.origin.x,
@@ -465,30 +431,17 @@
                                                   frame.origin.y,
                                                   frame.size.width,
                                                   [theOverlayControllerWindow frame].size.height) display:YES];
-			[theResizeWindow setFrame:NSMakeRect(frame.origin.x +  frame.size.width -  [self resizeWidth], frame.origin.y , [self resizeWidth], [self resizeHeight]) display:YES];
-
         } else {
             [theOverlayControllerWindow setFrame:NSMakeRect(intersect.origin.x,
                                                   intersect.origin.y,
                                                   intersect.size.width,
                                                   [theOverlayControllerWindow frame].size.height) display:YES];
-			
-			[theResizeWindow setFrame:NSMakeRect(intersect.origin.x  +  intersect.size.width -  [self resizeWidth], intersect.origin.y , [self resizeWidth], [self resizeHeight]) display:YES];
-
         }
-		
-		
-
-	} else{
+	} else {
         [theOverlayControllerWindow setFrame:NSMakeRect(mainFrame.origin.x,
                                               mainFrame.origin.y,
                                               mainFrame.size.width,
                                               [theOverlayControllerWindow frame].size.height) display:YES];
-		
-		[theResizeWindow setFrame:NSMakeRect([self frame].origin.x +  [self frame].size.width -  [self resizeWidth] ,
-											 [self frame].origin.y,
-											 [self resizeWidth],
-											 [self resizeHeight]) display:YES];
 	}
 }
 
@@ -1118,25 +1071,11 @@
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-    if([self inResizeLocation:theEvent])
-        resizeDrag = YES;
-	
 	initialDrag =[self convertScreenToBase:[NSEvent mouseLocation]];
-	
 }
 
 -(void)mouseDragged:(NSEvent *)anEvent
 {
-    if(resizeDrag){
-        if(fixedAspectRatio)
-			[self resize:[anEvent deltaY] animate:NO];
-		else {
-			float newHeight = [self frame].size.height + [anEvent deltaY];
-			float newWidth = [self frame].size.width + [anEvent deltaX];
-			
-			[self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:NO];
-		}
-    } else {
         if(fullScreen && !NSEqualRects([[[NSDocumentController sharedDocumentController] backgroundWindow] frame],[[NSScreen mainScreen]frame])){
             [[[NSDocumentController sharedDocumentController] backgroundWindow] setFrame:[[NSScreen mainScreen]frame] 
                                                                                  display:YES];
@@ -1155,7 +1094,6 @@
 		if(fullScreen){
 			[self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 		}
-    }
 }
 
 
@@ -1167,7 +1105,6 @@
 
 -(void)mouseUp:(NSEvent *)anEvent
 {
-    resizeDrag = NO;
     if(dropScreen){			// If the screen has been dropped onto a different display
         [self center];
         [self _JTRefitFills];

@@ -124,17 +124,6 @@ static id overlayControl = nil;
 	return NSMouseInRect([aWindow convertScreenToBase:aScreenPoint], tempRect, NO);
 }
 
--(BOOL)inResizeRegion:(NSPoint)aScreenPoint forWindow:(NiceWindow*)aWindow
-{
-    NSRect movieRect = [aWindow frame];
-    NSRect resizeRect;
-    resizeRect.size.height = [aWindow resizeHeight];
-    resizeRect.size.width = [aWindow resizeWidth];
-    resizeRect.origin.x = movieRect.origin.x + movieRect.size.width - resizeRect.size.width;
-    resizeRect.origin.y = movieRect.origin.y;
-    return NSMouseInRect(aScreenPoint, resizeRect, NO);
-}
-
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint
 {
     id someWindows = [NSApp orderedWindows];
@@ -165,9 +154,6 @@ static id overlayControl = nil;
 		return YES;
     } else if([self inTitleRegion:aScreenPoint forWindow:aWindow]){
 		[aWindow showOverLayTitle];
-		return YES;
-    } else if([self inResizeRegion:aScreenPoint forWindow:aWindow]){
-		[aWindow showOverlayControlBar];
 		return YES;
     }
     return NO;

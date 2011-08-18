@@ -28,8 +28,6 @@
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
 		253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C014E07C00DF200172C2F /* NiceControllerScripting.h */; };
 		253C02E507C061E100172C2F /* resize.png in Resources */ = {isa = PBXBuildFile; fileRef = 253C02E407C061E100172C2F /* resize.png */; };
-		253C064D07C0891300172C2F /* ResizeTriangle.h in Headers */ = {isa = PBXBuildFile; fileRef = 253C064B07C0891300172C2F /* ResizeTriangle.h */; };
-		253C064E07C0891300172C2F /* ResizeTriangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 253C064C07C0891300172C2F /* ResizeTriangle.m */; };
 		257029AE0734CE4E00967356 /* Preferences.h in Headers */ = {isa = PBXBuildFile; fileRef = 257029AC0734CE4E00967356 /* Preferences.h */; };
 		257029AF0734CE4E00967356 /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 257029AD0734CE4E00967356 /* Preferences.m */; };
 		257029C30734D14500967356 /* PreferencesController.h in Headers */ = {isa = PBXBuildFile; fileRef = 257029C10734D14500967356 /* PreferencesController.h */; };
@@ -279,8 +277,6 @@
 		253C014E07C00DF200172C2F /* NiceControllerScripting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceControllerScripting.h; sourceTree = "<group>"; };
 		253C02E407C061E100172C2F /* resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resize.png; path = Resources/resize.png; sourceTree = "<group>"; };
 		253C02E907C0632700172C2F /* resize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = resize.png; path = Resources/resize.png; sourceTree = "<group>"; };
-		253C064B07C0891300172C2F /* ResizeTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ResizeTriangle.h; path = "Classes/Overlay Widgets/ResizeTriangle.h"; sourceTree = "<group>"; };
-		253C064C07C0891300172C2F /* ResizeTriangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ResizeTriangle.m; path = "Classes/Overlay Widgets/ResizeTriangle.m"; sourceTree = "<group>"; };
 		257029AC0734CE4E00967356 /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Preferences.h; path = Classes/Preferences/Preferences.h; sourceTree = "<group>"; };
 		257029AD0734CE4E00967356 /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Preferences.m; path = Classes/Preferences/Preferences.m; sourceTree = "<group>"; };
 		257029C10734D14500967356 /* PreferencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferencesController.h; path = Classes/Preferences/PreferencesController.h; sourceTree = "<group>"; };
@@ -592,8 +588,6 @@
 		25B912D707416725001B68D9 /* Overlay Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				253C064B07C0891300172C2F /* ResizeTriangle.h */,
-				253C064C07C0891300172C2F /* ResizeTriangle.m */,
 				25B913230741736A001B68D9 /* OverlaysControl.h */,
 				25B913240741736A001B68D9 /* OverlaysControl.m */,
 				252BDA1E076A3BE7006CF96B /* Control Buttons */,
@@ -851,7 +845,6 @@
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
 				253C014F07C00DF200172C2F /* NiceControllerScripting.h in Headers */,
-				253C064D07C0891300172C2F /* ResizeTriangle.h in Headers */,
 				3EF158CB07C7F9CA00AE56D7 /* NiceMovie.h in Headers */,
 				3EF15F3907C8405700AE56D7 /* NPApplicationScripting.h in Headers */,
 				3EF15FD407C8553B00AE56D7 /* NPAddCommand.h in Headers */,
@@ -1116,7 +1109,6 @@
 				25D2E7C407BF3758004BEF7D /* NiceDocumentScripting.m in Sources */,
 				25D2E84207BF3B44004BEF7D /* NiceWindowScripting.m in Sources */,
 				25D2ED0C07BF6066004BEF7D /* NiceControllerScripting.m in Sources */,
-				253C064E07C0891300172C2F /* ResizeTriangle.m in Sources */,
 				3E49DCB207C96EFA009BA150 /* NPAddCommand.m in Sources */,
 				3E49DCB307C96EFD009BA150 /* NPApplicationScripting.m in Sources */,
 				3E49DCB407C96F01009BA150 /* NiceMovie.m in Sources */,

@@ -48,8 +48,6 @@
 {
     IBOutlet NSButton* ffButton;
     IBOutlet NSButton* rrButton;
-	
-    IBOutlet NSWindow* overlayResize;
 }
 
 

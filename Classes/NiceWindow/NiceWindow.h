@@ -54,8 +54,7 @@
     IBOutlet id theOverlayVolume;
     IBOutlet id theVolumeView;
     IBOutlet id theTitleField;
-	IBOutlet id theResizeWindow;
-	
+
     IBOutlet NiceScrubber* theScrubBar;
     IBOutlet id theTimeField;
     IBOutlet id thePlayButton;
@@ -64,8 +63,7 @@
 	
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;
-	
-    BOOL resizeDrag;
+
     BOOL scrubbingDrag;
     BOOL fullScreen;
     BOOL presentScreen;
@@ -90,21 +88,16 @@
     
 	NSSize _lastSize;
 }
--(float)resizeWidth;
--(float)resizeHeight;
+
 -(float)scrubberHeight;
 
 -(float)titlebarHeight;
-
--(void)setResizeDrag:(bool)aDrag;
-
 
 -(BOOL)validateMenuItem:(NSMenuItem*)anItem;
 -(IBAction)performClose:(id)sender;
 -(void)updateVolume;
 -(void)restoreVolume;
 -(void)performMiniaturize:(id)sender;
--(BOOL)inResizeLocation:(NSEvent *)anEvent;
 -(void)rotateTimeDisplayStyle;
 -(IBAction)updateByTime:(id)sender;
 

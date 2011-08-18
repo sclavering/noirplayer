@@ -57,21 +57,18 @@
 
 -(void)close
 {
-	[self removeChildWindow:overlayResize];
 	[super close];
 }
 
 
 -(void)setAlphaValue:(float)windowAlpha
 {
-    [overlayResize setAlphaValue:windowAlpha];
     [super setAlphaValue:windowAlpha];
 }
 
 
 -(void)setLevel:(int)newLevel
 {
-    [overlayResize setLevel:newLevel];
     [super setLevel:newLevel];
 }
 
