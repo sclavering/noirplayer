@@ -47,7 +47,6 @@
  */
 
 #import "NPApplication.h"
-#import <CocoaScriptMenu/CocoaScriptMenu.h>
 #import "NiceUtilities.h"
 #import <STEnum/STEnum.h>
 
@@ -65,46 +64,6 @@ BOOL selectNiceWindow(id each, void* context){
     lastPoint = [NSEvent mouseLocation];
     inactiveTimer = nil;
     [self setDelegate:self];
-	
-        if([[CSMScriptMenu sharedMenuGenerator] countOfScripts] == 0){
-            [self copyDefaultScriptsToApplicationSupport];
-        }else{
-			[self moveOldDefaultScriptsAndCopy];
-
-		}
-        [[CSMScriptMenu sharedMenuGenerator] updateScriptMenu];
-    
-}
-
--(void)moveOldDefaultScriptsAndCopy{
-    NSString* tPath =[[[TTCSearchPathForDirectoriesInDomains(TTCApplicationSupportDirectory,NSUserDomainMask,YES) firstObject] stringByAppendingPathComponent:@"NicePlayer"] stringByAppendingPathComponent:@"Scripts"];
-    
-    NSDictionary* tDict = [NSDictionary dictionaryWithContentsOfFile:[tPath stringByAppendingPathComponent:@".info.plist"]];
-    
-    if ([[tDict objectForKey:@"BuildNumber"] compare:@"569"] == NSOrderedAscending){
-		NSCalendarDate* tDate =[NSCalendarDate date];
-		
-		NSString* tFormattedDate = [tDate descriptionWithCalendarFormat:@"_%Y_%m_%d"];
-		
-		[[NSFileManager defaultManager] movePath:tPath toPath:[tPath stringByAppendingString:tFormattedDate] handler:nil];
-		[self copyDefaultScriptsToApplicationSupport];
-	}
-}
-
-
--(void)copyDefaultScriptsToApplicationSupport{
-    
-    NSString* tPath =[[[TTCSearchPathForDirectoriesInDomains(TTCApplicationSupportDirectory,NSUserDomainMask,YES) firstObject] stringByAppendingPathComponent:@"NicePlayer"] stringByAppendingPathComponent:@"Scripts"];
-    
-    if([[NSFileManager defaultManager] fileExistsAtPath:tPath]){
-        [[NSFileManager defaultManager] removeFileAtPath:tPath handler:nil];
-    }
-    
-    [[NSFileManager defaultManager] copyPath:[[NSBundle mainBundle] pathForResource:@"Default Scripts" ofType:@""] toPath:tPath   handler:nil];
-    [[NSDictionary dictionaryWithObjectsAndKeys:[[[NSBundle mainBundle] infoDictionary] objectForKey:
-             @"CFBundleVersion"],@"BuildNumber",[[[NSBundle mainBundle] infoDictionary] objectForKey:
-                 @"CFBundleShortVersionString"],@"VersionNumber",nil] writeToFile:[tPath stringByAppendingPathComponent:@".info.plist"] atomically:NO];
- 
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
