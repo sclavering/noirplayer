@@ -56,16 +56,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
 
 @protocol NPMoviePlayer
 
-/**
- * Use something like this:
- * [NSDictionary dictionaryWithObjects:@"Quicktime", self,		nil
- *							   forKeys:@"Name",		 @"Class",	nil ];
- * The keys that should exist are: Name, Class.
- */
- 
-+(BOOL)hasConfigurableNib;
-+(id)configureNibView;
-
 -(id)initWithFrame:(NSRect)frame;
 -(void)close;
 -(BOOL)openURL:(NSURL *)url;

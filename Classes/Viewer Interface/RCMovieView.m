@@ -64,16 +64,6 @@
         nil];
 }
 
-+(BOOL)hasConfigurableNib
-{
-    return NO;
-}
-
-+(id)configureNibView
-{
-    return nil;
-}
-
 -(BOOL)openURL:(NSURL *)url
 {
     myURL = url;

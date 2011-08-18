@@ -53,9 +53,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 	enum play_states oldPlayState;
 }
 
-+(BOOL)hasConfigurableNib;
-+(id)configureNibView;
-
 -(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
 -(NSDragOperation)draggingUpdated:(id)sender;
 -(BOOL)prepareForDragOperation:(id)sender;

@@ -19,14 +19,6 @@
 	[self unlockFocus];
 }
 
-+(BOOL)hasConfigurableNib{
-	return false;
-}
-
-+(id)configureNibView{
-	return nil;
-}
-
 -(id)initWithFrame:(NSRect)frame{
     if((self = [super initWithFrame:frame])){
 		volume =1.0;

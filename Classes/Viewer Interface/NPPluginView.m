@@ -54,17 +54,6 @@
 
 @implementation NPPluginView
 
-+(BOOL)hasConfigurableNib
-{
-	return NO;
-}
-
-+(id)configureNibView
-{
-    NSLog(@"Error");
-    return nil;
-}
-
 /* Forward all drag events to the window itself. */
 -(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
