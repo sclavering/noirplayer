@@ -42,8 +42,6 @@
 		3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* ClickableTextField.m */; };
 		3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E28CCA20808E0F000F59FF5 /* NiceWindowController.h */; };
 		3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E28CCA30808E0F000F59FF5 /* NiceWindowController.m */; };
-		3E44F89D065F06A300E48395 /* TimelineControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E44F89B065F06A300E48395 /* TimelineControl.h */; };
-		3E44F89E065F06A300E48395 /* TimelineControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E44F89C065F06A300E48395 /* TimelineControl.m */; };
 		3E452FF10664719D00BC91B0 /* NiceIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E452FF00664719D00BC91B0 /* NiceIcon.icns */; };
 		3E49DCB207C96EFA009BA150 /* NPAddCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15FD107C8553B00AE56D7 /* NPAddCommand.m */; };
 		3E49DCB307C96EFD009BA150 /* NPApplicationScripting.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F3607C8405700AE56D7 /* NPApplicationScripting.m */; };
@@ -232,8 +230,6 @@
 		3E110B62069BD80100C5800B /* ClickableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClickableTextField.m; path = "Classes/Overlay Widgets/ClickableTextField.m"; sourceTree = "<group>"; };
 		3E28CCA20808E0F000F59FF5 /* NiceWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceWindowController.h; path = Classes/NiceWindow/NiceWindowController.h; sourceTree = "<group>"; };
 		3E28CCA30808E0F000F59FF5 /* NiceWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceWindowController.m; path = Classes/NiceWindow/NiceWindowController.m; sourceTree = "<group>"; };
-		3E44F89B065F06A300E48395 /* TimelineControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimelineControl.h; path = "Classes/Overlay Widgets/TimelineControl.h"; sourceTree = "<group>"; };
-		3E44F89C065F06A300E48395 /* TimelineControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimelineControl.m; path = "Classes/Overlay Widgets/TimelineControl.m"; sourceTree = "<group>"; };
 		3E452FF00664719D00BC91B0 /* NiceIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NiceIcon.icns; path = Resources/NiceIcon.icns; sourceTree = "<group>"; };
 		3E4DF83606630D50001B9AC5 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		3E8C96C2073EF4730048CB70 /* 3gpp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = 3gpp.icns; sourceTree = "<group>"; };
@@ -469,8 +465,6 @@
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */,
 				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
-				3E44F89B065F06A300E48395 /* TimelineControl.h */,
-				3E44F89C065F06A300E48395 /* TimelineControl.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
 				3E95D4A006613F05008755D1 /* BlackWindow.m */,
 				3E9E628E0661708200B788A8 /* NiceScrubber.h */,
@@ -673,7 +667,6 @@
 				3EEDF76D065B5ACD00E3545C /* NiceController.h in Headers */,
 				3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */,
 				3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */,
-				3E44F89D065F06A300E48395 /* TimelineControl.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
 				3E9E62900661708200B788A8 /* NiceScrubber.h in Headers */,
 				3E8CC449068A9D850034FCCC /* OverlayControllerWindow.h in Headers */,
@@ -871,7 +864,6 @@
 				3EEDF76E065B5ACD00E3545C /* NiceController.m in Sources */,
 				3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */,
 				3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */,
-				3E44F89E065F06A300E48395 /* TimelineControl.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
 				3E9E62910661708200B788A8 /* NiceScrubber.m in Sources */,
 				3E8CC44A068A9D850034FCCC /* OverlayControllerWindow.m in Sources */,
