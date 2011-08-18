@@ -137,8 +137,6 @@
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
 		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
 		69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
-		69B11D1D0E5818B8005B3775 /* Preferable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11C6A0E5818AF005B3775 /* Preferable.framework */; };
-		69B11D1E0E5818C5005B3775 /* Preferable.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11C6A0E5818AF005B3775 /* Preferable.framework */; };
 		69B2197A0BC72AA60054E10E /* AEDescUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219760BC72AA60054E10E /* AEDescUtils.h */; };
 		69B2197B0BC72AA60054E10E /* AEDescUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B219770BC72AA60054E10E /* AEDescUtils.m */; };
 		69B2197C0BC72AA60054E10E /* TCallScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 69B219780BC72AA60054E10E /* TCallScript.h */; };
@@ -182,20 +180,6 @@
 			remoteGlobalIDString = 3EBAD61C08006A950040D4A3;
 			remoteInfo = STEnum;
 		};
-		69B11C690E5818AF005B3775 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B11C600E5818AF005B3775 /* Preferable.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = Preferable;
-		};
-		69B11D1F0E5818DA005B3775 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B11C600E5818AF005B3775 /* Preferable.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = Preferable;
-		};
 		69B8424B1103C3B0002E604D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
@@ -226,7 +210,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69B11D1E0E5818C5005B3775 /* Preferable.framework in Copy Files */,
 				69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */,
 				6990B63F0CF0CF8300DA15C2 /* Appscript.framework in Copy Files */,
 			);
@@ -371,7 +354,6 @@
 		6990B50B0CF0B2F300DA15C2 /* SEReferenceRendererGlue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SEReferenceRendererGlue.m; sourceTree = "<group>"; };
 		699464620CCC4D3800CE0AD3 /* gvi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gvi.icns; sourceTree = "<group>"; };
 		69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = STEnum10.4.xcodeproj; path = Libraries/stenum/STEnum10.4.xcodeproj; sourceTree = "<group>"; };
-		69B11C600E5818AF005B3775 /* Preferable.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Preferable.xcodeproj; path = Libraries/preferable/Preferable.xcodeproj; sourceTree = "<group>"; };
 		69B219760BC72AA60054E10E /* AEDescUtils.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = AEDescUtils.h; sourceTree = "<group>"; };
 		69B219770BC72AA60054E10E /* AEDescUtils.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = AEDescUtils.m; sourceTree = "<group>"; };
 		69B219780BC72AA60054E10E /* TCallScript.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = TCallScript.h; sourceTree = "<group>"; };
@@ -389,7 +371,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B8425A1103C3D7002E604D /* CocoaScriptMenu.framework in Frameworks */,
-				69B11D1D0E5818B8005B3775 /* Preferable.framework in Frameworks */,
 				69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */,
 				6990B4EB0CF0AA0300DA15C2 /* Appscript.framework in Frameworks */,
 				2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */,
@@ -560,7 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */,
-				69B11C600E5818AF005B3775 /* Preferable.xcodeproj */,
 				69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */,
 				6990B4E00CF0A9D300DA15C2 /* Appscript.xcodeproj */,
 			);
@@ -717,14 +697,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		69B11C610E5818AF005B3775 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				69B11C6A0E5818AF005B3775 /* Preferable.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		69B219750BC72AA60054E10E /* AttachedScriptCode */ = {
 			isa = PBXGroup;
 			children = (
@@ -819,7 +791,6 @@
 			dependencies = (
 				691F9D610DFF6A3F000FB98B /* PBXTargetDependency */,
 				69B11C3C0E58161A005B3775 /* PBXTargetDependency */,
-				69B11D200E5818DA005B3775 /* PBXTargetDependency */,
 				69B8425C1103C3E8002E604D /* PBXTargetDependency */,
 			);
 			name = NicePlayer;
@@ -860,10 +831,6 @@
 					ProjectRef = 69B842431103C3B0002E604D /* CocoaScriptMenu.xcodeproj */;
 				},
 				{
-					ProductGroup = 69B11C610E5818AF005B3775 /* Products */;
-					ProjectRef = 69B11C600E5818AF005B3775 /* Preferable.xcodeproj */;
-				},
-				{
 					ProductGroup = 69B11BEC0E581343005B3775 /* Products */;
 					ProjectRef = 69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */;
 				},
@@ -888,13 +855,6 @@
 			fileType = wrapper.framework;
 			path = STEnum.framework;
 			remoteRef = 69B11BF20E581343005B3775 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		69B11C6A0E5818AF005B3775 /* Preferable.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Preferable.framework;
-			remoteRef = 69B11C690E5818AF005B3775 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		69B8424C1103C3B0002E604D /* CocoaScriptMenu.framework */ = {
@@ -1057,11 +1017,6 @@
 			isa = PBXTargetDependency;
 			name = STEnum;
 			targetProxy = 69B11C3B0E58161A005B3775 /* PBXContainerItemProxy */;
-		};
-		69B11D200E5818DA005B3775 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Preferable;
-			targetProxy = 69B11D1F0E5818DA005B3775 /* PBXContainerItemProxy */;
 		};
 		69B8425C1103C3E8002E604D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

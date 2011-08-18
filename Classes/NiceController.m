@@ -49,7 +49,6 @@
 #import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "NiceDocument.h"
-#import <Preferable/Preferable.h>
 #import <STEnum/STEnum.h>
 #import "Viewer Interface/RCMovieView.h"
 
