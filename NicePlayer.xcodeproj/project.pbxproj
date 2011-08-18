@@ -84,8 +84,6 @@
 		3E9E64830661B95900B788A8 /* pauseClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64810661B95900B788A8 /* pauseClick.png */; };
 		3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7EC5F065F39AA0002A470 /* Carbon.framework */; };
 		3EB7ECFA065F39BC0002A470 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7ECF9065F39BC0002A470 /* QuickTime.framework */; };
-		3EC8C22B065DB22A00988449 /* RoundRect.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EC8C229065DB22A00988449 /* RoundRect.h */; };
-		3EC8C22C065DB22A00988449 /* RoundRect.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC8C22A065DB22A00988449 /* RoundRect.m */; };
 		3EC8C601065DD31F00988449 /* playClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FE065DD31F00988449 /* playClick.png */; };
 		3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDA2680065C8E570000CCEE /* OverlayWindow.h */; };
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
@@ -275,8 +273,6 @@
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
 		3EB7EC5F065F39AA0002A470 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3EB7ECF9065F39BC0002A470 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
-		3EC8C229065DB22A00988449 /* RoundRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoundRect.h; path = "Classes/Overlay Widgets/RoundRect.h"; sourceTree = "<group>"; };
-		3EC8C22A065DB22A00988449 /* RoundRect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoundRect.m; path = "Classes/Overlay Widgets/RoundRect.m"; sourceTree = "<group>"; };
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
 		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = "Classes/Overlay Widgets/OverlayWindow.h"; sourceTree = "<group>"; };
 		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = "Classes/Overlay Widgets/OverlayWindow.m"; sourceTree = "<group>"; };
@@ -481,8 +477,6 @@
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */,
 				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
-				3EC8C229065DB22A00988449 /* RoundRect.h */,
-				3EC8C22A065DB22A00988449 /* RoundRect.m */,
 				3E44F89B065F06A300E48395 /* TimelineControl.h */,
 				3E44F89C065F06A300E48395 /* TimelineControl.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
@@ -686,7 +680,6 @@
 				3EEDF765065B507B00E3545C /* NiceWindow.h in Headers */,
 				3EEDF76D065B5ACD00E3545C /* NiceController.h in Headers */,
 				3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */,
-				3EC8C22B065DB22A00988449 /* RoundRect.h in Headers */,
 				3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */,
 				3E44F89D065F06A300E48395 /* TimelineControl.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
@@ -900,7 +893,6 @@
 				3EEDF766065B507B00E3545C /* NiceWindow.m in Sources */,
 				3EEDF76E065B5ACD00E3545C /* NiceController.m in Sources */,
 				3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */,
-				3EC8C22C065DB22A00988449 /* RoundRect.m in Sources */,
 				3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */,
 				3E44F89E065F06A300E48395 /* TimelineControl.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
