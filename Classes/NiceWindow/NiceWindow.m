@@ -53,7 +53,6 @@
 #import "OverlayControllerWindow.h"
 #import "NPApplication.h"
 #import "DelegateAnimation.h"
-#import "SEGlue.h"
 
 @interface NSWindow(Spaces)
 -(void)setCanBeVisibleOnAllSpaces:(BOOL)aBool;
@@ -106,24 +105,6 @@
     [self setContentView:theMovieView];
     [theScrubBar setAction:@selector(scrub:)];
     [self setReleasedWhenClosed:YES];
-	
-	if([self respondsToSelector:@selector(setCanBeVisibleOnAllSpaces:)]){
-		id tApp =[[[SEApplication alloc] initWithBundleID:@"com.apple.systemevents"] autorelease];
-		id tBindings =[[[[[tApp expose_preferences] spaces_preferences] application_bindings] get]send];
-		if([tBindings objectForKey:@"indy.jt.niceplayer"] !=nil 
-		   && [[tBindings objectForKey:@"indy.jt.niceplayer"] intValue] == 65544){
-		   
-		   [self setCanBeVisibleOnAllSpaces:YES];
-
-		   }else{
-		   
-		   [self setCanBeVisibleOnAllSpaces:NO];
-		   
-		   }
-		
-	}
-    
-	
 	
 	[self registerForDraggedTypes:[self acceptableDragTypes]];
     
