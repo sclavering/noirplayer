@@ -50,10 +50,12 @@
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
 #import "NPMovieProtocol.h"
-#import "NPPluginView.h"
 
-@interface RCMovieView : NPPluginView <NPMoviePlayer>
+enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
+
+@interface RCMovieView : NSView <NPMoviePlayer>
 {
+    enum play_states oldPlayState;
     NSURL *myURL;
     QTMovie *film;
     QTMovieView *qtView;
@@ -62,6 +64,17 @@
 }
 
 +(NSArray *)supportedFileExtensions;
+
+-(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
+-(NSDragOperation)draggingUpdated:(id)sender;
+-(BOOL)prepareForDragOperation:(id)sender;
+-(BOOL)performDragOperation:(id <NSDraggingInfo>)sender;
+-(void)concludeDragOperation:(id <NSDraggingInfo>)sender;
+
+-(void)ffStart:(int)seconds;
+-(void)ffEnd;
+-(void)rrStart:(int)seconds;
+-(void)rrEnd;
 
 -(double)totalTimePrecise;
 -(long)currentMovieTimePrecise;

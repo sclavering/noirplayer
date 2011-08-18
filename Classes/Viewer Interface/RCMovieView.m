@@ -64,6 +64,32 @@
         nil];
 }
 
+/* Forward all drag events to the window itself. */
+-(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
+{
+	return [[self window] draggingEntered:sender];
+}
+
+-(NSDragOperation)draggingUpdated:(id)sender
+{
+	return [[self window] draggingUpdated:sender];
+}
+
+-(BOOL)prepareForDragOperation:(id)sender
+{
+	return [[self window] prepareForDragOperation:sender];
+}
+
+-(BOOL)performDragOperation:(id <NSDraggingInfo>)sender
+{
+	return [[self window] performDragOperation:sender];
+}
+
+-(void)concludeDragOperation:(id <NSDraggingInfo>)sender
+{
+	[[self window] concludeDragOperation:sender];
+}
+
 -(BOOL)openURL:(NSURL *)url
 {
     myURL = url;
@@ -74,9 +100,6 @@
 
 -(id)initWithFrame:(NSRect)frame
 {
-    if (floor(NSAppKitVersionNumber) <= NSAppKitVersionNumber10_3) /* QTKit won't load on anything less than 10.4 Tiger. */
-	return nil;
-
     if((self = [super initWithFrame:frame])){
 		
 	qtView = [[QTMovieView alloc] initWithFrame:frame];
