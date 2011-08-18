@@ -51,7 +51,6 @@
     IBOutlet id paneMain;
 	IBOutlet id paneWindowDefaults;
 
-    IBOutlet id scrollResizePin;
     IBOutlet id defaultTimeDisplay;
     IBOutlet id rrSpeedSlider;
     IBOutlet id ffSpeedSlider;
@@ -62,7 +61,6 @@
     BOOL _tableLocked;
 }
 
--(IBAction)scrollResizePin:(id)sender;
 -(IBAction)defaultTimeDisplay:(id)sender;
 -(IBAction)rrSpeed:(id)sender;
 -(IBAction)ffSpeed:(id)sender;

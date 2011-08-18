@@ -71,7 +71,6 @@
 			withToolTip:@"The Window Default Preference Settings"
 		 allowingResize:NO];
 	
-	[scrollResizePin selectItemAtIndex:[[Preferences mainPrefs] scrollResizePin]];
 	[defaultTimeDisplay selectItemAtIndex:[[Preferences mainPrefs] defaultTimeDisplay]];
 
         id aDate = [NSDate dateWithTimeIntervalSinceReferenceDate:
@@ -87,11 +86,6 @@
 
 	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
 	[opacityWhenWindowIsTransparent setFloatValue:[[Preferences mainPrefs] opacityWhenWindowIsTransparent]];
-}
-
--(IBAction)scrollResizePin:(id)sender
-{
-	[[Preferences mainPrefs] setScrollResizePin:[sender indexOfSelectedItem]];
 }
 
 -(IBAction)defaultTimeDisplay:(id)sender

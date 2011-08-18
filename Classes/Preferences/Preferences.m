@@ -74,10 +74,6 @@
 -(id)init
 {
 	if((self = [super init])){
-		if([[NSUserDefaults standardUserDefaults] objectForKey:@"scrollResizePin"] == nil)
-		    scrollResizePin = PIN_SMART;
-		else
-		    scrollResizePin = [[NSUserDefaults standardUserDefaults] integerForKey:@"scrollResizePin"];
 		defaultTimeDisplay = [[NSUserDefaults standardUserDefaults] integerForKey:@"defaultTimeDisplay"];
 
 		rrSpeed = ([[NSUserDefaults standardUserDefaults] integerForKey:@"rrSpeed"] == 0)
@@ -91,17 +87,6 @@
 		opacityWhenWindowIsTransparent = [[NSUserDefaults standardUserDefaults] floatForKey:@"opacityWhenWindowIsTransparent"];
 	}
 	return self;
-}
-
--(enum scrollResizePinValues)scrollResizePin
-{
-	return scrollResizePin;
-}
-
--(void)setScrollResizePin:(enum scrollResizePinValues)anInt
-{
-	scrollResizePin = anInt;
-	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"scrollResizePin"];
 }
 
 -(void)setWindowPosition:(NSPoint) aPoint

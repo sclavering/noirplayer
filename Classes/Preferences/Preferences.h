@@ -44,11 +44,9 @@
 #import <Cocoa/Cocoa.h>
 #import "PreferencesController.h"
 
-enum scrollResizePinValues { PIN_LEFT_TOP, PIN_CENTER, PIN_SMART };
 enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 
 @interface Preferences : NSObject {
-	enum scrollResizePinValues scrollResizePin;
 	enum defaultTimeDisplayValues defaultTimeDisplay;
 	int rrSpeed;
 	int ffSpeed;
@@ -59,8 +57,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 +(Preferences *)mainPrefs;
 +(int)defaultTimeDisplayValuesNum;
 
--(enum scrollResizePinValues)scrollResizePin;
--(void)setScrollResizePin:(enum scrollResizePinValues)anInt;
 -(enum defaultTimeDisplayValues)defaultTimeDisplay;
 -(void)setDefaultTimeDisplay:(enum defaultTimeDisplayValues)anInt;
 

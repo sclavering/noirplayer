@@ -768,22 +768,8 @@
     if(newHeight <= [self minSize].height || newWidth <= [self minSize].width) {
         newHeight = [self frame].size.height;
         newWidth = [self frame].size.width;
-		
     }
     
-    switch([[Preferences mainPrefs] scrollResizePin]){
-        case PIN_LEFT_TOP:
-            return NSMakeRect([self frame].origin.x,
-							  [self frame].origin.y + ([self frame].size.height - newHeight),
-							  newWidth, newHeight);
-            break;
-        case PIN_CENTER:
-            return NSMakeRect([self frame].origin.x+(([self frame].size.width-newWidth)/2),
-							  [self frame].origin.y+(([self frame].size.height-newHeight)/2),
-							  newWidth, newHeight);
-            break;
-		case PIN_SMART:
-		{
 			NSRect screenFrame = [[self screen] visibleFrame];
 			NSRect centerRect = NSMakeRect([self frame].origin.x+(([self frame].size.width-newWidth)/2),
 										   [self frame].origin.y+(([self frame].size.height-newHeight)/2),
@@ -815,10 +801,6 @@
 			if(newRect.origin.y < screenFrame.origin.y)
 				newRect.origin.y = centerRect.origin.y;
 			return newRect;
-		}
-    }
-    
-    return NSMakeRect(0, 0, 100, 100);
 }
 
 
