@@ -80,10 +80,6 @@ BOOL findWindowScreen(id each, void* context){
     return [[each screen] isEqual:(NSScreen*)context];
 }
 
-id collectStringsToURLs(id each, void* context){
-    return [NSURL URLWithString:each];
-}
-
 BOOL findOpenPoint(id eachwin, void* context){
     
     NSMutableDictionary* tContext =(NSMutableDictionary*) context;
@@ -240,18 +236,12 @@ void findSpace(id each, void* context, BOOL* endthis){
 - (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType
 {
     // Insert code here to read your document from the given data.  You can also choose to override -loadFileWrapperRepresentation:ofType: or -readFromFile:ofType: instead.
-    
-    if([[docType lowercaseString] isEqualTo:@"nicelist"] || [[docType lowercaseString] isEqualTo:[@"Nice Playlist" lowercaseString]]){
-        return [self loadPlaylistFromURL:url];
-    }
-    
     if(theCurrentURL)
         [theCurrentURL release];
     theCurrentURL = [url retain];
     if(![thePlaylist containsObject:theCurrentURL]){
         [self addURLToPlaylist:theCurrentURL];
     }
-    
     return YES;
 }
 
@@ -278,13 +268,8 @@ void findSpace(id each, void* context, BOOL* endthis){
     if(![theMovieView openURL:theCurrentURL]){
         hasRealMovie = NO;
         return NO;
-    } else
-        hasRealMovie = YES;
-    
-    if(![self hasPlaylist]){
-        [self setFileName:[[[[theCurrentURL path] lastPathComponent] stringByDeletingPathExtension] stringByAppendingPathExtension:@"nicelist"]];
-        [self setFileType:@"nicelist"];
     }
+    hasRealMovie = YES;
     
     /* Initialize the window stuff for movie playback. */
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
@@ -923,42 +908,6 @@ stuff won't work properly! */
 -(BOOL)isPlaylistEmpty
 {
     return [thePlaylist isEmpty];
-}
-
--(BOOL)loadPlaylistFromURL:(NSURL *)aURL
-{
-	NSData *plistData;
-	NSString *error;
-	NSPropertyListFormat format;
-	id plist;
-	plistData = [NSData dataWithContentsOfURL:aURL];
-	plist = [NSPropertyListSerialization propertyListFromData:plistData
-											 mutabilityOption:NSPropertyListImmutable
-													   format:&format
-											 errorDescription:&error];
-	if (plist !=nil){
-            id tMajorVersion = [plist objectForKey:@"MajorVersion"];
-            if(tMajorVersion != nil && [tMajorVersion intValue] == 0 ){
-                [playlistFilename release];
-                playlistFilename = [aURL retain];
-                [self setFileURL:playlistFilename];
-
-                [thePlaylist release];
-                thePlaylist = [[[[plist objectForKey:@"Contents"] objectForKey:@"Playlist"] collectUsingFunction:collectStringsToURLs context:nil]  mutableCopy];
-                [self loadURL:[thePlaylist firstObject] firstTime:YES];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-                [theMovieView setVolume: [[[plist objectForKey:@"Contents"] objectForKey:@"Volume"] floatValue]];
-                [[self window] updateVolume];
-
-                return YES;
-            }else{
-                [[self window] displayAlertString:@"error opening playlist" withInformation:@"This file format needs a newer version of NicePlayer"];
-                return NO;
-            }
-	} else {
-		NSLog(@"Error Loading %@ %@", aURL,error);
-            return NO;
-	}
 }
 
 -(BOOL)hasPlaylist

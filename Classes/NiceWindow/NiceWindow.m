@@ -359,17 +359,6 @@
 }
 
 
-
--(void)displayAlertString:(NSString *)aString withInformation:(NSString *)anotherString
-{
-	NSAlert *anAlert = [NSAlert alertWithMessageText:aString
-									   defaultButton:@"Okay"
-									 alternateButton:nil
-										 otherButton:nil
-						   informativeTextWithFormat:anotherString];
-	[anAlert beginSheetModalForWindow:self modalDelegate:nil didEndSelector:nil contextInfo:nil];
-}
-
 #pragma mark -
 #pragma mark Overlays
 

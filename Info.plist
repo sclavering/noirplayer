@@ -396,24 +396,6 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>nicelist</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>nicelist.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>Nice Playlist</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NiceDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>XML</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
 				<string>PIC</string>
 				<string>pct</string>
 				<string>pict</string>
@@ -629,26 +611,6 @@
 	<string>NPApplication</string>
 	<key>SUFeedURL</key>
 	<string>http://niceplayer.googlecode.com/svn/appcast/index.xml</string>
-	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>public.xml</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>Niceplayers xml playlist format</string>
-			<key>UTTypeIdentifier</key>
-			<string>indy.jt.nicelist</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>public.filename-extension</key>
-				<array>
-					<string>nicelist</string>
-				</array>
-			</dict>
-		</dict>
-	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>

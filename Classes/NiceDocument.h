@@ -114,7 +114,6 @@
 -(void)playPrev;
 -(void)playPrevWithChapter;
 -(unsigned)getPrevIndex;
--(BOOL)loadPlaylistFromURL:(NSURL *)aURL;
 
 #pragma mark -
 #pragma mark Playlist

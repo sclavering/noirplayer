@@ -109,11 +109,6 @@
 -(IBAction)updateByTime:(id)sender;
 
 #pragma mark -
-#pragma mark Interface Items
-
--(void)displayAlertString:(NSString *)aString withInformation:(NSString *)anotherString;
-
-#pragma mark -
 #pragma mark Overlays
 -(BOOL)scrubberInUse;
 -(void)setupOverlays;

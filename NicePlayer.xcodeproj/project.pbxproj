@@ -130,7 +130,6 @@
 		3EF158CB07C7F9CA00AE56D7 /* NiceMovie.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF158C707C7F9CA00AE56D7 /* NiceMovie.h */; };
 		3EF15F3907C8405700AE56D7 /* NPApplicationScripting.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF15F3507C8405700AE56D7 /* NPApplicationScripting.h */; };
 		3EF15FD407C8553B00AE56D7 /* NPAddCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EF15FD007C8553B00AE56D7 /* NPAddCommand.h */; };
-		3EFEF998086E6E50003E05C3 /* nicelist.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEF995086E6E50003E05C3 /* nicelist.icns */; };
 		3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEF996086E6E50003E05C3 /* wmv.icns */; };
 		690B61170B5981A4008D13CE /* flv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B61160B5981A4008D13CE /* flv.icns */; };
 		690B627A0B5992B7008D13CE /* mkv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B62790B5992B7008D13CE /* mkv.icns */; };
@@ -388,7 +387,6 @@
 		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = "Classes/Overlay Widgets/OverlayWindow.m"; sourceTree = "<group>"; };
 		3EEB7DB7076B754F0090E740 /* NiceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceUtilities.h; path = "Other Sources/NiceUtilities.h"; sourceTree = "<group>"; };
 		3EEB7DB8076B754F0090E740 /* NiceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceUtilities.m; path = "Other Sources/NiceUtilities.m"; sourceTree = "<group>"; };
-		3EEB7F38076BB1F60090E740 /* ViewerPrefIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ViewerPrefIcon.png; path = Resources/ViewerPrefIcon.png; sourceTree = "<group>"; };
 		3EEDF761065B4CFF00E3545C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black.png; path = Resources/black.png; sourceTree = "<group>"; };
 		3EEDF763065B507B00E3545C /* NiceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceWindow.h; path = Classes/NiceWindow/NiceWindow.h; sourceTree = "<group>"; };
 		3EEDF764065B507B00E3545C /* NiceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceWindow.m; path = Classes/NiceWindow/NiceWindow.m; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 		3EF15F3607C8405700AE56D7 /* NPApplicationScripting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplicationScripting.m; path = Classes/Scripting/NPApplicationScripting.m; sourceTree = SOURCE_ROOT; };
 		3EF15FD007C8553B00AE56D7 /* NPAddCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPAddCommand.h; path = Classes/Scripting/NPAddCommand.h; sourceTree = SOURCE_ROOT; };
 		3EF15FD107C8553B00AE56D7 /* NPAddCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPAddCommand.m; path = Classes/Scripting/NPAddCommand.m; sourceTree = SOURCE_ROOT; };
-		3EFEF995086E6E50003E05C3 /* nicelist.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = nicelist.icns; sourceTree = "<group>"; };
 		3EFEF996086E6E50003E05C3 /* wmv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = wmv.icns; sourceTree = "<group>"; };
 		690B61160B5981A4008D13CE /* flv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = flv.icns; sourceTree = "<group>"; };
 		690B62790B5992B7008D13CE /* mkv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mkv.icns; sourceTree = "<group>"; };
@@ -522,7 +519,6 @@
 				3E0457B7073C7CE4009D4E33 /* shuffle_random.png */,
 				3E9996CA06A50F1800D1898D /* volume_muted.png */,
 				3E9996CB06A50F1800D1898D /* volume_with_sound.png */,
-				3EEB7F38076BB1F60090E740 /* ViewerPrefIcon.png */,
 				3E8CC44F068AA1290034FCCC /* close-highlight.png */,
 				3E8CC450068AA1290034FCCC /* close.png */,
 				3E8CC451068AA1290034FCCC /* minimize-highlight.png */,
@@ -775,7 +771,6 @@
 				69EFD1BB0B5C8E3400359BF4 /* divx.icns */,
 				690B62790B5992B7008D13CE /* mkv.icns */,
 				690B61160B5981A4008D13CE /* flv.icns */,
-				3EFEF995086E6E50003E05C3 /* nicelist.icns */,
 				3EFEF996086E6E50003E05C3 /* wmv.icns */,
 				3E8C96C2073EF4730048CB70 /* 3gpp.icns */,
 				3E8C96C3073EF4730048CB70 /* avi.icns */,
@@ -1087,7 +1082,6 @@
 				3E91842F086E288300F4ED34 /* playlist-highlight.png in Resources */,
 				3E918430086E288300F4ED34 /* playlist.png in Resources */,
 				3E918436086E28BA00F4ED34 /* OverPrefIcon.png in Resources */,
-				3EFEF998086E6E50003E05C3 /* nicelist.icns in Resources */,
 				3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */,
 				3EB4F74208F62C4C004692D3 /* Default Scripts in Resources */,
 				697496200B55F7A90030D4D2 /* titlebg.png in Resources */,

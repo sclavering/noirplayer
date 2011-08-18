@@ -162,10 +162,7 @@ id swapForWindows(id each, void* context){
             } else
                 tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
             
-            if(![@"nicelist" isEqualTo:[[[tempURL path] pathExtension] lowercaseString]])
-                [tempDoc loadURL:tempURL firstTime:YES];
-            else if(![tempDoc isActive])
-                [tempDoc loadPlaylistFromURL:tempURL];
+            [tempDoc loadURL:tempURL firstTime:YES];
             
             if([[self mainDocument] isActive]){
                 if([[Preferences mainPrefs] movieOpenedFullScreen])
