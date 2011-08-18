@@ -87,9 +87,6 @@
 			? 5 
 			: [[NSUserDefaults standardUserDefaults] integerForKey:@"ffSpeed"];
 
-		autoplayOnFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"autoplayOnFullScreen"];
-		autostopOnNormalScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"autostopOnNormalScreen"];
-
 		movieOpenedPlay = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedPlay"];
 		movieOpenedFullScreen = [[NSUserDefaults standardUserDefaults] boolForKey:@"movieOpenedFullScreen"];
 		windowAlwaysOnTop = ![[NSUserDefaults standardUserDefaults] boolForKey:@"windowNotAlwaysOnTop"];
@@ -153,30 +150,6 @@
 {
 	ffSpeed = anInt;
 	[[NSUserDefaults standardUserDefaults] setInteger:anInt forKey:@"ffSpeed"];
-}
-
-#pragma mark -
-
--(BOOL)autoplayOnFullScreen
-{
-	return autoplayOnFullScreen;
-}
-
--(void)setAutoplayOnFullScreen:(BOOL)aBool
-{
-	autoplayOnFullScreen = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:aBool forKey:@"autoplayOnFullScreen"];
-}
-
--(BOOL)autostopOnNormalScreen
-{
-	return autostopOnNormalScreen;
-}
-
--(void)setAutostopOnNormalScreen:(BOOL)aBool
-{
-	autostopOnNormalScreen = aBool;
-	[[NSUserDefaults standardUserDefaults] setBool:aBool forKey:@"autostopOnNormalScreen"];
 }
 
 #pragma mark -

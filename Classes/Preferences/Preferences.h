@@ -54,9 +54,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 	int rrSpeed;
 	int ffSpeed;
 
-	BOOL autoplayOnFullScreen;
-	BOOL autostopOnNormalScreen;
-
 	BOOL movieOpenedPlay;
 	BOOL movieOpenedFullScreen;
 	BOOL windowAlwaysOnTop;
@@ -77,11 +74,6 @@ enum defaultTimeDisplayValues { ELAPSED_TIME, TIME_REMAINING };
 -(void)setRrSpeed:(int)anInt;
 -(int)ffSpeed;
 -(void)setFfSpeed:(int)anInt;
-
--(BOOL)autoplayOnFullScreen;
--(void)setAutoplayOnFullScreen:(BOOL)aBool;
--(BOOL)autostopOnNormalScreen;
--(void)setAutostopOnNormalScreen:(BOOL)aBool;
 
 -(BOOL)movieOpenedPlay;
 -(void)setMovieOpenedPlay:(BOOL)aBool;

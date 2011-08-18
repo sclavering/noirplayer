@@ -91,9 +91,6 @@
                 [NSDate dateWithTimeIntervalSinceReferenceDate:0]])];
         [ffSpeedSlider setObjectValue:aDate2];
 
-	[autoplayOnFullScreen setState:[[Preferences mainPrefs] autoplayOnFullScreen]];
-	[autostopOnNormalScreen setState:[[Preferences mainPrefs] autostopOnNormalScreen]];
-
 	[movieOpenedPlay setState:[[Preferences mainPrefs] movieOpenedPlay]];
 	[movieOpenedFullScreen setState:[[Preferences mainPrefs] movieOpenedFullScreen]];
 	[windowAlwaysOnTop setState:[[Preferences mainPrefs] windowAlwaysOnTop]];
@@ -133,19 +130,6 @@
     total += 60 * [[sender objectValue] minuteOfHour];
     total += 60* 60* [[sender objectValue] hourOfDay];
     [[Preferences mainPrefs] setFfSpeed:total];
-}
-
-
-#pragma mark -
-
--(IBAction)autoplayOnFullScreen:(id)sender
-{
-	[[Preferences mainPrefs] setAutoplayOnFullScreen:[sender state]];
-}
-
--(IBAction)autostopOnNormalScreen:(id)sender
-{
-	[[Preferences mainPrefs] setAutostopOnNormalScreen:[sender state]];
 }
 
 #pragma mark -

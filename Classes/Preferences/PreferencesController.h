@@ -58,9 +58,6 @@
     IBOutlet id rrSpeedSlider;
     IBOutlet id ffSpeedSlider;
     
-    IBOutlet id autoplayOnFullScreen;
-    IBOutlet id autostopOnNormalScreen;
-    
     IBOutlet id movieOpenedPlay;
     IBOutlet id movieOpenedFullScreen;
     IBOutlet id windowAlwaysOnTop;
@@ -76,9 +73,6 @@
 
 -(IBAction)rrSpeed:(id)sender;
 -(IBAction)ffSpeed:(id)sender;
-
--(IBAction)autoplayOnFullScreen:(id)sender;
--(IBAction)autostopOnNormalScreen:(id)sender;
 
 -(IBAction)movieOpenedPlay:(id)sender;
 -(IBAction)movieOpenedFullScreen:(id)sender;

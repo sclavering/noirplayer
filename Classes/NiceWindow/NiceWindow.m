@@ -669,9 +669,6 @@
 		[self fillScreenSizeOnScreen:aScreen];
     }
     [theMovieView drawMovieFrame];
-    if([[Preferences mainPrefs] autoplayOnFullScreen]){
-        [theMovieView start];
-    };
     [self hideAllImmediately];
 }
 
@@ -690,12 +687,7 @@
     [theOverlayVolume orderFront:self];
     [theOverlayControllerWindow orderFront:self];
     [self hideOverLayWindow];
-    if([[Preferences mainPrefs] autostopOnNormalScreen]){
-        [(NPMovieView *)theMovieView stop];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"StopAllMovies" object:nil];
-    }
-			[self setInitialDrag:nil];
-
+    [self setInitialDrag:nil];
 }
 
 -(void)presentMultiple

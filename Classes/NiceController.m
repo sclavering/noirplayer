@@ -242,15 +242,11 @@ id swapForWindows(id each, void* context){
 
 -(IBAction)presentMultiple:(id)sender
 {
-    
     if(fullScreenMode){
         [self exitFullScreen];
     }else{
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PresentMultiple" object:nil];
         [self presentAllScreeens];
-        if([[Preferences mainPrefs] autoplayOnFullScreen]){
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"PlayAllMovies" object:nil];
-        }
     }
 }
 
