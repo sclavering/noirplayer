@@ -269,7 +269,6 @@ id swapForWindows(id each, void* context){
     [backgroundWindow setPresentingWindow:tempWindow];
 }
 
-
 -(void)exitFullScreen
 {
     id tempWindow = [NSApp bestMovieWindow];
@@ -286,35 +285,7 @@ id swapForWindows(id each, void* context){
     return backgroundWindow;
 }
 
-- (BOOL)respondsToSelector:(SEL)aSelector{
-    
-    NSString* aString = NSStringFromSelector(aSelector);
-    if([aString hasPrefix:@"ALL"]){
-        return YES;
-    }else{
-        return [super respondsToSelector:aSelector];
-    }
-    
-}
-
 -(IBAction)dummyMethod:(id)temp{
-    
-}
-
-- (void)forwardInvocation:(NSInvocation *)anInvocation{
-    
-    NSString* aString = NSStringFromSelector([anInvocation selector]);
-    if([aString hasPrefix:@"ALL"] ){//&& [[anInvocation methodSignature]numberOfArguments]==3 && *[[anInvocation methodSignature]getArgumentTypeAtIndex:2]==NSObjCObjectType
-        NSObject* anArgumet = nil;
-        
-        [anInvocation getArgument:&anArgumet atIndex:2];
-
-        aString = [aString substringFromIndex:3];
-        
-        [[[self documents] collectUsingFunction:swapForWindows context:nil] makeObjectsPerformSelector:NSSelectorFromString(aString) withObject:nil];
-    }else{
-        [super forwardInvocation:anInvocation];
-    }    
 }
 
 @end
