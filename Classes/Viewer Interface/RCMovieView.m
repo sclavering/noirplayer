@@ -60,7 +60,7 @@
         @"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4",@"mkv", @"flv", @"divx", @"m4v",
         @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
         /* Finder types */
-        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_", 
+        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_",
         nil];
 }
 
@@ -112,7 +112,7 @@
         [qtView setEditable:NO];
 	[qtView setPreservesAspectRatio:NO];
     }
-    
+
     return self;
 }
 
@@ -164,29 +164,22 @@
 {
     Rect aRect;
     GetMovieNaturalBoundsRect([film quickTimeMovie], &aRect);
-    NSSize tSize = NSMakeSize((float)(aRect.right - aRect.left),
-                              (float)(aRect.bottom - aRect.top));
+    NSSize tSize = NSMakeSize((float)(aRect.right - aRect.left), (float)(aRect.bottom - aRect.top));
     SampleDescriptionHandle anImageDesc = NULL;
-    
-    @try{
+    @try {
         NSArray* tArray = [film tracksOfMediaType:QTMediaTypeVideo];
-	QTTrack* tTrack = nil;
-	if([tArray count] > 0)
-	    tTrack = [tArray objectAtIndex:0];
-        
-        if(tTrack != nil ){
+        QTTrack* tTrack = nil;
+        if([tArray count] > 0) tTrack = [tArray objectAtIndex:0];
+
+        if(tTrack) {
             anImageDesc = (SampleDescriptionHandle)NewHandle(sizeof(SampleDescription));
-            GetMediaSampleDescription([[tTrack media] quickTimeMedia], 1, anImageDesc);    
-            
-            
-            NSString* tName = (NSString *)CFStringCreateWithPascalString(NULL,
-		(*(ImageDescriptionHandle)anImageDesc)->name, kCFStringEncodingMacRoman);
+            GetMediaSampleDescription([[tTrack media] quickTimeMedia], 1, anImageDesc);
+
+            NSString* tName = (NSString *)CFStringCreateWithPascalString(NULL, (*(ImageDescriptionHandle)anImageDesc)->name, kCFStringEncodingMacRoman);
 
             if([tName hasPrefix:@"DV/DVCPRO"]){
                 PixelAspectRatioImageDescriptionExtension pixelAspectRatio;
-                OSStatus status;
-                
-                status = ICMImageDescriptionGetProperty((ImageDescriptionHandle)anImageDesc, // image description
+                OSStatus status = ICMImageDescriptionGetProperty((ImageDescriptionHandle) anImageDesc, // image description
                                                         kQTPropertyClass_ImageDescription, // class
                                                                                            // 'pasp' image description extention property
                                                         kICMImageDescriptionPropertyID_PixelAspectRatio,
@@ -194,17 +187,17 @@
                                                         &pixelAspectRatio,        // returned value
                                                         NULL);                    // byte count
                 float tRatio = ((float)(pixelAspectRatio.hSpacing)) / pixelAspectRatio.vSpacing;
-                    tSize = NSMakeSize(tRatio* tSize.width,tSize.height);
+                tSize = NSMakeSize(tRatio * tSize.width, tSize.height);
             }
-			[tName release];
+            [tName release];
         }
-    }@catch(NSException *exception) {}
-    @finally{
-	if(anImageDesc)
-	    DisposeHandle((Handle)anImageDesc);
-        return tSize;
     }
-    
+    @catch(NSException *exception) {
+    }
+    @finally{
+        if(anImageDesc) DisposeHandle((Handle)anImageDesc);
+    }
+    return tSize;
 }
 
 //-(void)setLoopMode:
@@ -212,15 +205,14 @@
 -(void)setLoopMode:(NSQTMovieLoopMode)flag
 {
     BOOL shouldLoop = !(flag == NSQTMovieNormalPlayback);
-    [film setMovieAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
-	[NSNumber numberWithBool:shouldLoop],
-	QTMovieLoopsAttribute,
-	nil]];
+    [film setMovieAttributes:[NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithBool:shouldLoop], QTMovieLoopsAttribute, nil]];
 }
 
-- (void)drawRect:(NSRect)aRect{
+- (void)drawRect:(NSRect)aRect
+{
     [qtView drawRect:aRect];
 }
+
 #pragma mark Volume
 
 -(BOOL)muted
@@ -330,7 +322,6 @@
 -(BOOL)hasEnded:(id)sender
 {
     Movie tempMovie = [film quickTimeMovie];
-    
     return IsMovieDone(tempMovie);
 }
 
@@ -344,7 +335,6 @@
 
 -(double)currentMovieTime
 {
-    
     return (double)[self currentMovieTimePrecise] / [self currentMovieTimeScale];
 }
 
@@ -359,42 +349,31 @@
     return GetMovieDuration(tempMovie);
 }
 
-
-//until re do the plugin interface
-//this is a quick hack to allow percent loading
-//for plugins
--(NSNumber*)_percentLoaded{
-				
-			NSTimeInterval tMaxLoaded;
-			NSTimeInterval tDuration;
-			
-			QTGetTimeInterval([film duration], &tDuration);
-			QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
-			
-
-
-	return [NSNumber numberWithDouble: (double) tMaxLoaded/tDuration];
+-(NSNumber*)_percentLoaded
+{
+    NSTimeInterval tMaxLoaded;
+    NSTimeInterval tDuration;
+    QTGetTimeInterval([film duration], &tDuration);
+    QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
+    return [NSNumber numberWithDouble: (double) tMaxLoaded / tDuration];
 }
 
--(double)currentMovieFrameRate{
-    int sampleSize =5;
+-(double)currentMovieFrameRate
+{
+    int sampleSize = 5;
     OSType myTypes[1];
     Movie tempMovie = [film quickTimeMovie];
-    TimeValue newTime=1;
+    TimeValue newTime = 1;
     TimeValue tempTime = 0;
-    myTypes[0] =VisualMediaCharacteristic;      // we want video samples
-    int myCount =0;
-    while(tempTime<=(sampleSize *[self currentMovieTimeScale]) && myCount <= (sampleSize*[self currentMovieTimeScale]) ){
-        
+    myTypes[0] = VisualMediaCharacteristic;      // we want video samples
+    int myCount = 0;
+    while(tempTime <= (sampleSize * [self currentMovieTimeScale]) && myCount <= (sampleSize * [self currentMovieTimeScale])) {
         GetMovieNextInterestingTime(tempMovie, nextTimeStep, 1, myTypes, tempTime, fixed1, &newTime, NULL);
-        if(tempTime== newTime)
-            break;
-        tempTime =newTime;
+        if(tempTime == newTime) break;
+        tempTime = newTime;
         myCount++;
     }
-    
-    
-    return (double)myCount /((double)newTime/[self currentMovieTimeScale]);
+    return (double)myCount / ((double)newTime / [self currentMovieTimeScale]);
 }
 
 -(long)currentMovieTimeScale
@@ -439,32 +418,23 @@
 {
     id pluginMenu = [[NSMutableArray array] retain];
     id newItem;
-	
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks"
-                                          action:NULL
-                                   keyEquivalent:@""] autorelease];
+
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-	
 	[newItem setSubmenu:[self videoTrackMenu]];
-	
     [pluginMenu addObject:newItem];
-	
-		newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks"
-                                          action:NULL
-                                   keyEquivalent:@""] autorelease];
+
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-	
 	[newItem setSubmenu:[self audioTrackMenu]];
-	
     [pluginMenu addObject:newItem];
 	
-    
    /* newItem = [[[NSMenuItem alloc] initWithTitle:@"Play Movie Preview"
                                           action:@selector(playMoviePreview)
                                    keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
     [pluginMenu addObject:newItem];
-    
+
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Go to Movie Poster Frame"
                                           action:@selector(gotoMoviePosterFrame)
                                    keyEquivalent:@""] autorelease];
@@ -472,54 +442,44 @@
     [pluginMenu addObject:newItem];
 	
 	*/
-    
+
     return [pluginMenu autorelease];
 }
 
--(NSMenu*)audioTrackMenu{
-		NSMenu* tReturnMenu =[[[NSMenu alloc]init] autorelease];
-		NSArray* tArray = [film tracksOfMediaType:@"soun"];
-		for(unsigned int i=0;i<[tArray count];i++){
-			QTTrack* tTrack =[tArray objectAtIndex:i];
-			NSDictionary* tDict = [tTrack trackAttributes];
-			NSMenuItem* tItem =[[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"]
-			action:@selector(toggleTrack:)
-			keyEquivalent:@""] autorelease];
-			[tItem setRepresentedObject:tTrack];
-			[tItem setTarget:self];
-			if([tTrack isEnabled]){
-				[tItem setState:NSOnState]; 
-			}
-			
-			[tReturnMenu addItem:tItem];
-		}
-
-return tReturnMenu;
+-(NSMenu*)audioTrackMenu
+{
+    NSMenu* tReturnMenu =[[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [film tracksOfMediaType:@"soun"];
+    for(unsigned int i = 0; i < [tArray count]; i++){
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
 }
 
--(NSMenu*)videoTrackMenu{
-		NSMenu* tReturnMenu =[[[NSMenu alloc]init] autorelease];
-		NSArray* tArray = [film tracksOfMediaType:@"vide"];
-		for(unsigned int i=0;i<[tArray count];i++){
-			QTTrack* tTrack =[tArray objectAtIndex:i];
-			NSDictionary* tDict = [tTrack trackAttributes];
-			NSMenuItem* tItem =[[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"]
-			action:@selector(toggleTrack:)
-			keyEquivalent:@""] autorelease];
-			[tItem setRepresentedObject:tTrack];
-			[tItem setTarget:self];
-			if([tTrack isEnabled]){
-				[tItem setState:NSOnState]; 
-			}
-			
-			
-			[tReturnMenu addItem:tItem];
-		}
-
-return tReturnMenu;
+-(NSMenu*)videoTrackMenu
+{
+    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [film tracksOfMediaType:@"vide"];
+    for(unsigned int i = 0; i < [tArray count]; i++){
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
 }
 
--(IBAction)toggleTrack:(id)sender{
+-(IBAction)toggleTrack:(id)sender
+{
 	[[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
 }
