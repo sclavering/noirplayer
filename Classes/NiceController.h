@@ -75,7 +75,6 @@
 -(IBAction)openDocument:(id)sender;
 -(IBAction)newDocument:(id)sender;
 -(IBAction)toggleFullScreen:(id)sender;
--(IBAction)toggleAlwaysOnTop:(id)sender;
 -(IBAction)toggleFixedAspectRatio:(id)sender;
 
 #pragma mark -
