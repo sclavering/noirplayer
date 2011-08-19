@@ -53,11 +53,6 @@
 #import "OverlayControllerWindow.h"
 #import "NPApplication.h"
 
-@interface NSWindow(Spaces)
--(void)setCanBeVisibleOnAllSpaces:(BOOL)aBool;
--(bool)canBeVisibleOnAllSpaces;
-@end
-
 @implementation NiceWindow
 
 -(float)scrubberHeight{
@@ -288,13 +283,7 @@
 
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aWindow inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible
 {
-	//hack: Leopard spaces hack
-	if([anOverlay respondsToSelector:@selector(setCanBeVisibleOnAllSpaces:)])
-		[anOverlay setCanBeVisibleOnAllSpaces:[aWindow canBeVisibleOnAllSpaces]];
-
-	
     [anOverlay setFrame:aFrame display:NO];
-    
     [anOverlay setAlphaValue:(isVisible ? 1.0 : 0.0)];
     [anOverlay setLevel:[self level]];
 	/* For some reason on Tiger, we have to add the child window after we set the alpha and level, otherwise

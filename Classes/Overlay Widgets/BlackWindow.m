@@ -45,11 +45,6 @@
 
 #import "BlackWindow.h"
 
-@interface NSWindow(Spaces)
--(void)setCanBeVisibleOnAllSpaces:(BOOL)aBool;
--(bool)canBeVisibleOnAllSpaces;
-@end
-
 @implementation BlackWindow
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
@@ -77,9 +72,6 @@
 -(void)setPresentingWindow:(id)window
 {
     presentingWindow = window;
-	if([self respondsToSelector:@selector(setCanBeVisibleOnAllSpaces:)])
-		[self setCanBeVisibleOnAllSpaces:[window canBeVisibleOnAllSpaces]];
-
 }
 
 - (BOOL)isExcludedFromWindowsMenu
