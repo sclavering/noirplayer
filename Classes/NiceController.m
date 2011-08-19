@@ -135,45 +135,17 @@ id swapForWindows(id each, void* context){
 
 -(void)openURLs:(NSArray *)files
 {
-
-    id tempDoc = nil;
-    unsigned i;
-    for (i = 0; i < [files count]; i++){
+    for(unsigned i = 0; i < [files count]; i++) {
 		NSError* tError = nil;
         id tempURL = [files objectAtIndex:i];
-        if(i) {
-            [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-			if (tError) {
-				[NSApp presentError:tError];
-				return;
-			}
-            continue;
-        }
-        if(i==0){
-            id docArray = [NSApp orderedDocuments];
-            if([docArray count] > 0){
-                id document = [docArray objectAtIndex:0];
-                if(([document isKindOfClass:[NiceDocument class]]) && ![document isActive])
-                    tempDoc = document;
-                else
-                    tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-            } else
-                tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-            
-            [tempDoc loadURL:tempURL firstTime:YES];
-            
-            if([[self mainDocument] isActive]) [[self mainDocument] play:self];
-        } else
-            [tempDoc addURLToPlaylist:tempURL];
-		
+        id tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
+        [tempDoc loadURL:tempURL firstTime:YES];
+        if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
 		if (tError) {
 			[NSApp presentError:tError];
 			return;
 		}
     }
-    
-
-	[tempDoc openPlaylistDrawerConditional:self];
 }
 
 -(void)checkMouseLocation:(id)sender
