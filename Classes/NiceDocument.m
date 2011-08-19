@@ -55,7 +55,7 @@ BOOL rejectSelf(id each,void* context){
     return [each isEqual:[(NiceDocument*)context window]];
 }
 
-int sortByMain(id v1, id v2, void* context){
+NSInteger sortByMain(id v1, id v2, void* context){
     if([v1 isEqualTo:v2])
         return NSOrderedSame;
     if([[NSScreen mainScreen] isEqualTo: v1]){
