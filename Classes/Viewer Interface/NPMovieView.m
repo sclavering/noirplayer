@@ -227,8 +227,6 @@
 {
 	return YES;
 }
-#pragma mark -
-#pragma mark Controls
 
 #pragma mark -
 #pragma mark Controls
@@ -320,6 +318,7 @@
 	[((NiceWindow *)[self window]) updateVolume];
 }
 
+#pragma mark -
 #pragma mark Widgets
 
 -(IBAction)scrub:(id)sender
@@ -472,6 +471,7 @@
 	[[self window] performSelector:sel_registerName([aStringSelector cString])];
 }
 
+#pragma mark -
 #pragma mark Mouse Events
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
