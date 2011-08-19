@@ -111,12 +111,6 @@
 	id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
 	[tParagraph setAlignment:NSCenterTextAlignment];
 	
-	id textShadow =[[[NSShadow alloc]init] autorelease];
-	NSSize      shadowSize = NSMakeSize(0.0f, -2.0f); 
-	// [textShadow setShadowOffset:shadowSize];
-	[textShadow setShadowBlurRadius:5.0f]; 
-	[textShadow setShadowColor:[NSColor blackColor]]; 
-	
     [self floatWindow];
     [self makeFirstResponder:self]; 
     [self setAcceptsMouseMovedEvents:YES];
