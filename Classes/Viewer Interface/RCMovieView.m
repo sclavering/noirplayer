@@ -168,28 +168,10 @@
     SampleDescriptionHandle anImageDesc = NULL;
     @try {
         NSArray* tArray = [film tracksOfMediaType:QTMediaTypeVideo];
-        QTTrack* tTrack = nil;
-        if([tArray count] > 0) tTrack = [tArray objectAtIndex:0];
-
+        QTTrack* tTrack = [tArray count] > 0 ? [tArray objectAtIndex:0] : nil;
         if(tTrack) {
             anImageDesc = (SampleDescriptionHandle)NewHandle(sizeof(SampleDescription));
             GetMediaSampleDescription([[tTrack media] quickTimeMedia], 1, anImageDesc);
-
-            NSString* tName = (NSString *)CFStringCreateWithPascalString(NULL, (*(ImageDescriptionHandle)anImageDesc)->name, kCFStringEncodingMacRoman);
-
-            if([tName hasPrefix:@"DV/DVCPRO"]){
-                PixelAspectRatioImageDescriptionExtension pixelAspectRatio;
-                OSStatus status = ICMImageDescriptionGetProperty((ImageDescriptionHandle) anImageDesc, // image description
-                                                        kQTPropertyClass_ImageDescription, // class
-                                                                                           // 'pasp' image description extention property
-                                                        kICMImageDescriptionPropertyID_PixelAspectRatio,
-                                                        sizeof(pixelAspectRatio), // size
-                                                        &pixelAspectRatio,        // returned value
-                                                        NULL);                    // byte count
-                float tRatio = ((float)(pixelAspectRatio.hSpacing)) / pixelAspectRatio.vSpacing;
-                tSize = NSMakeSize(tRatio * tSize.width, tSize.height);
-            }
-            [tName release];
         }
     }
     @catch(NSException *exception) {
