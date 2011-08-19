@@ -198,13 +198,4 @@ BOOL selectNiceWindow(id each, void* context){
     }
 }
 
-#pragma mark -
-#pragma mark Application Web Links
-
--(IBAction)visitAcknowlegementsPage:(id)sender
-{
-    [[NSWorkspace sharedWorkspace] openURL:
-        [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"acknowledgements" ofType:@"html"]]];
-}
-
 @end

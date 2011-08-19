@@ -58,5 +58,4 @@
 -(NSArray *)movieWindows;
 -(void)testCursorMovement;
 
--(IBAction)visitAcknowlegementsPage:(id)sender;
 @end
