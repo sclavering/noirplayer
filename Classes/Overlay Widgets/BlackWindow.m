@@ -52,9 +52,8 @@
 
 @implementation BlackWindow
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(unsigned int)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
-    
     NSWindow *result = [super initWithContentRect:contentRect
                                         styleMask:NSBorderlessWindowMask
                                           backing:NSBackingStoreBuffered
@@ -62,9 +61,7 @@
     [result setBackgroundColor: [NSColor blackColor]];
     presentingWindow =nil;
     [result setLevel:NSFloatingWindowLevel+1];
-    
     return result;
-    
 }
 
 - (BOOL)canBecomeMainWindow
