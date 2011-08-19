@@ -133,78 +133,70 @@
 
 -(BOOL)openURL:(NSURL *)url
 {
-	[self clearTrueMovieView];
-    if(title)
-		[title release];
+    [self clearTrueMovieView];
+    if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
 
-    if(fileType)
-	[fileType release];
+    if(fileType) [fileType release];
     fileType = nil;
-    if(fileExtension)
-	[fileExtension release];
+    if(fileExtension) [fileExtension release];
     fileExtension = nil;
-    
+
     fileExtension = [[[url path] lastPathComponent] pathExtension];
     fileType = NSHFSTypeOfFile([url path]);
     BOOL isDir;
     [[NSFileManager defaultManager] fileExistsAtPath:[url path] isDirectory:&isDir];
-    if(isDir){
-	fileExtension = [NSString stringWithString:@"public.folder"];
-	fileType = nil;
+    if(isDir) {
+        fileExtension = [NSString stringWithString:@"public.folder"];
+        fileType = nil;
     }
-    if((fileType) && ([fileType length] == 0))
-	fileType = nil;
-    else
-	[fileType retain];
 
-    if((fileExtension) && ([fileExtension length] == 0))
-	fileExtension = nil;
-    else
-	[fileExtension retain];
-    
+    if(fileType && [fileType length] == 0) {
+        fileType = nil;
+    } else {
+        [fileType retain];
+    }
+    if(fileExtension && [fileExtension length] == 0) {
+        fileExtension = nil;
+    } else {
+        [fileExtension retain];
+    }
+
     BOOL didOpen = NO;
     NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
-	NSException *noLoadException = [NSException exceptionWithName:@"NoLoadPlugin"
-							       reason:@"CouldntLoad"
-							     userInfo:nil];	
+    NSException *noLoadException = [NSException exceptionWithName:@"NoLoadPlugin" reason:@"CouldntLoad" userInfo:nil];
 
-	@try {
+    @try {
         trueMovieView = [RCMovieView alloc];
-        if(!trueMovieView)
-            @throw noLoadException;
-        if([trueMovieView initWithFrame:subview] == nil){   /* This is used by RCMovieView gestalt check for Tiger, fail-safe no-load. */
+        if(!trueMovieView) @throw noLoadException;
+        if([trueMovieView initWithFrame:subview]) {
+            didOpen = [trueMovieView openURL:url];
+        } else {
             [trueMovieView release];
             trueMovieView = nil;
-        } else {
-			didOpen = [trueMovieView openURL:url];
         }
-		if(didOpen){
-			[self addSubview:trueMovieView];
-			if(![self loadMovie])
-				@throw noLoadException;
-		} else {
-		    if(trueMovieView){
-			[trueMovieView release];
-			trueMovieView = nil;
-		    }
-		    @throw noLoadException;
-		}
-	}
-	@catch(NSException *exception) {
-		didOpen = NO;
-			[self clearTrueMovieView];
-		trueMovieView = [[BlankView alloc] initWithFrame:subview];
-		[self addSubview:trueMovieView];
-	}
-	@finally {
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-		[self finalProxyViewLoad];
-	}
-    if(didOpen)
-	openedURL = url;
-    else
-    openedURL = nil;
+        if(didOpen) {
+            [self addSubview:trueMovieView];
+            if(![self loadMovie]) @throw noLoadException;
+        } else {
+            if(trueMovieView) {
+                [trueMovieView release];
+                trueMovieView = nil;
+            }
+            @throw noLoadException;
+        }
+    }
+    @catch(NSException *exception) {
+        didOpen = NO;
+        [self clearTrueMovieView];
+        trueMovieView = [[BlankView alloc] initWithFrame:subview];
+        [self addSubview:trueMovieView];
+    }
+    @finally {
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+        [self finalProxyViewLoad];
+    }
+    openedURL = didOpen ? url : nil;
     return didOpen;
 }
 
