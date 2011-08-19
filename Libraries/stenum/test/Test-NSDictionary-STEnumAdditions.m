@@ -60,13 +60,6 @@
     
 }
 
--(void)testNotEmpty{
-    id tempDict = [NSDictionary dictionary];
-    STAssertTrue([testDict notEmpty], [NSString stringWithFormat:@"test Array %@",testDict,nil]);
-    STAssertFalse([tempDict notEmpty], [NSString stringWithFormat:@"test Array %@",tempDict,nil]);
-    
-}
-
 -(void)testCollect{
     id tempDict = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:-5],@"k1", [NSNumber numberWithInt:1],@"k2",[NSNumber numberWithInt:2],@"k3",[NSNumber numberWithInt:-3],@"k4",nil];
     id tempDict2 = [testDict collectUsingFunction:Test_ST_convertToNumbers context:NULL];

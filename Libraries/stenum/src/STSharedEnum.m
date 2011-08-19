@@ -46,12 +46,7 @@
 //This file is included in all the STEnumAdditions.m,
 
 -(BOOL)isEmpty{
-    
     return([self count] ==0);
-    
-}
--(BOOL)notEmpty{
-    return ![self isEmpty];
 }
 
 -(void)doUsingFunction:(STDoFunction)actionFunction context:(void *)context{

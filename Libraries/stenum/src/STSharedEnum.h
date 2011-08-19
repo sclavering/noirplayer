@@ -61,14 +61,6 @@
 -(BOOL)isEmpty;
 
     /*!
-    @method  notEmpty   
-     @abstract   Determines if the the collection is not empty.
-     @discussion This is much more readable that checking if count is not equal to zero.
-     */
-
--(BOOL)notEmpty;
-
-    /*!
     @method     doUsingFunction:context:
      @abstract   Runs the doFunction on very element in the collection in enumeration order.
      @param      doFunction read more at @link //apple_ref/c/tdef/STDoFunction STDoFunction @/link

@@ -62,13 +62,6 @@ BOOL selectNegative(id each, void* context){
     
 }
 
--(void)testNotEmpty{
-    id tempSet = [NSSet set];
-    STAssertTrue([testSet notEmpty], [NSString stringWithFormat:@"test Set %@",testSet,nil]);
-    STAssertFalse([tempSet notEmpty], [NSString stringWithFormat:@"test Set %@",tempSet,nil]);
-    
-}
-
 -(void)testCollect{
     id tempSet = [NSSet setWithObjects:[NSNumber numberWithInt:-5],[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:-3],nil];
     id tempSet2 = [testSet collectUsingFunction:Test_ST_convertToNumbers context:NULL];
