@@ -95,9 +95,4 @@ id Nested_Test_ST_convertToNumbers(id obj, void * context){
     STAssertEqualObjects(tempArray,tempArray2,[NSString stringWithFormat:@"test Array %@",tempArray2,nil]);
 }
 
--(void)testInject{
-    id tempObj = @"-512-3";
-    id tempObj2 = [testArray injectUsingFunction:Test_ST_concatElements into:@"" context:nil];
-    STAssertEqualObjects(tempObj,tempObj2,[NSString stringWithFormat:@"test %@",tempObj2,nil]);
-}
 @end

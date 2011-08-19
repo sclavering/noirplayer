@@ -118,20 +118,3 @@ typedef id (*STCollectFunction)(id, void *);
  @result returns true if selected criteria is met
  */
 typedef BOOL (*STSelectFunction)(id, void *);
-/*!
-@typedef STInjectFunction
- @abstract   Function pointer for injectUsingFunction:into:context: or injectObject:intoFunction:context:
- @discussion Example Declaration:
- <pre>
- @textblock
- void anInjectFunction(id each,id anObject, void* aContext){
-     
- }
- @/textblock
- </pre>
- @param each id (any object) that you are enumerating through
- @param anObject id (any object) that you are injecting
- @param context void* pointer that you can use to pass in extra variables
- @result returns object to be used in next interation's anObject
- */
-typedef id (*STInjectFunction)(id, id, void *);

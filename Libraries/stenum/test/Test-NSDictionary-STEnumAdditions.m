@@ -85,10 +85,4 @@
     STAssertEqualObjects(tempDict,tempDict2,[NSString stringWithFormat:@"test dict %@",tempDict2,nil]);
 }
 
--(void)testInject{
-    id tempObj = [NSNumber numberWithInt:-5];
-    id tempObj2 = [testDict injectUsingFunction:Test_ST_sumElements into:@"" context:NULL];
-    STAssertEqualObjects(tempObj,tempObj2,[NSString stringWithFormat:@"test %@",tempObj2,nil]);
-}
-
 @end

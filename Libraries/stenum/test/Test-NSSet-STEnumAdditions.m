@@ -84,7 +84,6 @@ BOOL selectNegative(id each, void* context){
     STAssertEqualObjects(tempSet,tempSet2,[NSString stringWithFormat:@"test Set %@",tempSet2,nil]);
 }
 
-
 -(void)testDetect{
     id tempObj = @"-5";
     id tempObj2 = [testSet detectUsingFunction:Test_ST_selectNegativeNumbers context:NULL];
@@ -95,12 +94,6 @@ BOOL selectNegative(id each, void* context){
     id tempSet = [NSSet setWithObjects:@"1",@"2",nil];
     id tempSet2 = [testSet rejectUsingFunction:Test_ST_selectNegativeNumbers context:NULL];
     STAssertEqualObjects(tempSet,tempSet2,[NSString stringWithFormat:@"test Set %@",tempSet2,nil]);
-}
-
--(void)testInject{
-    id tempObj = [NSNumber numberWithInt:-5];
-    id tempObj2 = [testSet injectUsingFunction:Test_ST_sumElements into:@"" context:NULL];
-    STAssertEqualObjects(tempObj,tempObj2,[NSString stringWithFormat:@"test %@",tempObj2,nil]);
 }
 
 @end

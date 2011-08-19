@@ -108,17 +108,3 @@
     }
     return [[returnObject retain] autorelease];
 }
-
-- (id)injectUsingFunction:(STInjectFunction)injectingFunction into:(id)anObject context:(void *)context{
-    NSEnumerator *enumerator = [self _STEnumerator];
-    id each;
-    while (each = [enumerator nextObject]) {
-        anObject=injectingFunction([self _STObjectForObject:each],anObject,context);
-    }
-    return anObject;
-}
-
--(id)injectObject:(id)anObject intoFunction:(STInjectFunction)injectingFunction context:(void *)context{
-    return [self injectUsingFunction:injectingFunction into:anObject context:context];
-}
-

@@ -111,27 +111,3 @@
      */
 -(id)detectUsingFunction:(STSelectFunction)detectingFunction
                  context:(void *)context;
-
-    /*!
-    @method     injectUsingFunction:into:context:
-     @abstract   Runs the passed injectingFunction on every element in the collection in enumeration order and a separate passed in object which is the result of each previous interation.
-     @discussion This method name reads alittle different than the typical "inject" this fits the naming pattern in objective-c better and also the way I typically use inject is injecting the contents of a collection into a non collection object (so it reads well for that use).
-     @param      injectingFunction read more at @link //apple_ref/c/tdef/STInjectFunction STInjectFunction @/link
-     @param     anObject object you are injecting
-     @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
-     */
--(id)injectUsingFunction:(STInjectFunction)injectingFunction
-                    into:(id)object
-                 context:(void *)context;
-
-    /*!
-@method     injectObject:intoFunction:context:
-     @abstract  Same as injectUsingFunction:into:context: but with different parameter order
-     @discussion This is less consistant with these rest of the methods naming, but more like small talk naming, added just for those who prefer it, or think of "inject" as injecting an object into the function rather than injecting the contents of the collection into the object.
-     @param     anObject object you are injecting
-     @param      injectingFunction read more at @link //apple_ref/c/tdef/STInjectFunction STInjectFunction @/link
-     @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
-     */
--(id)injectObject:(id)anObject
-     intoFunction:(STInjectFunction)injectingFunction
-          context:(void *)context;
