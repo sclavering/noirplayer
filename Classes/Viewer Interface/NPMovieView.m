@@ -611,16 +611,7 @@
 
 -(id)menuTitle
 {
-	if(trueMovieView == nil)
-		return @"";
-	NSMutableString *string = [NSMutableString stringWithString:[trueMovieView menuPrefix]];
-	NSString *item = [trueMovieView menuTitle];
-	if([item length] > 0){
-		[string appendString:@"	("];
-		[string appendString:item];
-		[string appendString:@")"];
-	}
-	return string;
+    return trueMovieView ? [trueMovieView menuTitle] : @"";
 }
 
 -(id)pluginMenu

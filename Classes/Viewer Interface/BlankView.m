@@ -106,8 +106,6 @@
 -(void)setCurrentMovieTime:(double)newMovieTime{}
 -(double)currentMovieFrameRate{ return 0.0;}
 
--(id)menuPrefix{    return @"Empty";
-}
 -(id)menuTitle{return @"Empty Movie";}
 
 -(id)pluginMenu{return [NSMutableArray array];}

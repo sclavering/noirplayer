@@ -384,11 +384,6 @@
 #pragma mark -
 #pragma mark Menus
 
--(id)menuPrefix
-{
-    return @"CoreVideo";
-}
-
 -(id)menuTitle
 {
     NSString *file = [[[myURL absoluteString] lastPathComponent] stringByDeletingPathExtension];

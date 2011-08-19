@@ -101,7 +101,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
 -(void)setCurrentMovieTime:(double)newMovieTime;
 -(double)currentMovieFrameRate;
 
--(id)menuPrefix;
 -(id)menuTitle;
 -(id)pluginMenu;
 
