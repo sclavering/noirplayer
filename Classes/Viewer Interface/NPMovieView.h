@@ -68,7 +68,6 @@
 
 -(BOOL)openURL:(NSURL *)url;
 -(BOOL)loadMovie;
--(void)closeReopen;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
@@ -93,8 +92,6 @@
 
 -(BOOL)isPlaying;
 -(BOOL)wasPlaying;
--(void)playPrevMovie;
--(void)playNextMovie;
 -(void)finalProxyViewLoad;
 
 -(void)showOverLayVolume;

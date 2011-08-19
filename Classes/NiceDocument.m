@@ -49,18 +49,7 @@
 #import "ControlPlay.h"
 #import <STEnum/STEnum.h>
 
-#define PLAYLIST_ITEM -42
 #define VOLUME_ITEM -43
-
-id rowsToFileNames(id obj, void* playList){
-    return [[(id)playList objectAtIndex:[obj intValue]] path];
-}
-
-
-id collectURLToStrings(id each, void*context){
-    return [each absoluteString];
-}
-
 
 BOOL rejectSelf(id each,void* context){
     return [each isEqual:[(NiceDocument*)context window]];
@@ -129,20 +118,13 @@ void findSpace(id each, void* context, BOOL* endthis){
     if(self){
         hasRealMovie = NO;
         asffrrTimer = nil;
-        thePlaylist = [[NSMutableArray alloc] init];
-		theDataSourceCache  = [[NSMutableArray alloc] init];
-                theMainItemCache = [[NSMutableDictionary alloc] init];
         movieMenuItem = nil;
         menuObjects = nil;
-        playlistFilename = nil;
-        theID = [[[NSProcessInfo processInfo] globallyUniqueString] retain];
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(rebuildMenu)
                                                      name:@"RebuildAllMenus"
                                                    object:nil];		
-												   
     }
-    
     return self;
 }
 
@@ -160,17 +142,7 @@ void findSpace(id each, void* context, BOOL* endthis){
     }
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
     [theCurrentURL release];
-    [thePlaylist release];
-    [playlistFilename release];
-	
-    [theID release];
-	[theDataSourceCache release];
-        [theMainItemCache release];
     [super dealloc];
-}
-
--(NSString*)identifier{
-    return theID;
 }
 
 - (id)initWithContentsOfFile:(NSString *)fileName ofType:(NSString *)docType
@@ -198,22 +170,13 @@ void findSpace(id each, void* context, BOOL* endthis){
         [NSNumber numberWithInt:0],@"MajorVersion",
         [NSNumber numberWithInt:1],@"MinorVersion",
         [NSDictionary dictionaryWithObjectsAndKeys:
-                [thePlaylist collectUsingFunction:collectURLToStrings context:nil], @"Playlist",
                 [NSNumber numberWithFloat:[theMovieView volume]], @"Volume",
                 nil
             ], @"Contents",
             nil];
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
-        
-    return  tData;
-}
-
-- (BOOL)writeToFile:(NSString*)aPath ofType:(NSString *)docType{
-        [playlistFilename release];
-    playlistFilename = [[NSURL fileURLWithPath:aPath] retain];
-      return  [super writeToFile:aPath ofType:docType];
-    
+    return tData;
 }
 
 /**
@@ -223,7 +186,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 {
     return [self readFromURL:[NSURL fileURLWithPath:fileName] ofType:docType];
 }
-
 
 /**
 * Things to do for a new file passed in. This gets called by the document controller automatically when
@@ -235,9 +197,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     if(theCurrentURL)
         [theCurrentURL release];
     theCurrentURL = [url retain];
-    if(![thePlaylist containsObject:theCurrentURL]){
-        [self addURLToPlaylist:theCurrentURL];
-    }
     return YES;
 }
 
@@ -329,12 +288,6 @@ void findSpace(id each, void* context, BOOL* endthis){
 -(void)updateAfterLoad
 {
     [NSApp updateWindowsItem:theWindow];
-    
-    [thePlaylistTable setDoubleAction:@selector(choosePlaylistItem:)];
-    [thePlaylistTable registerForDraggedTypes: [NSArray arrayWithObjects: NSFilenamesPboardType, nil]];
-	[thePlaylistTable setDraggingSourceOperationMask:NSDragOperationEvery forLocal:YES];
-    [thePlaylistTable setDraggingSourceOperationMask:NSDragOperationEvery forLocal:NO];
-	
     [self calculateAspectRatio];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [[self window] updateVolume];
@@ -400,101 +353,13 @@ void findSpace(id each, void* context, BOOL* endthis){
     [[theWindow playButton] setImage:[NSImage imageNamed:@"play"]];
     [[theWindow playButton] setAlternateImage:[NSImage imageNamed:@"playClick"]];
     if([theMovieView wasPlaying] && ![(NiceWindow*)[self window] scrubberInUse])
-        [self playNext];
+        if([[self window] isFullScreen])
+            [[self window] unFullScreen];
 }
 
 -(NSMenu *)movieMenu
 {
     return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Movie",@"Movie")] submenu];
-}
-
--(NSMenu *)playlistMenu
-{
-    return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Playlist",@"Playlist Menu Title")] submenu];
-}
-
-
--(IBAction)switchPlaylistItem:(NSMenuItem*)sender{
-	[self playAtIndex:[[sender representedObject] unsignedIntValue] obeyingPreviousState:YES];
-}
-
--(NSArray*)playlistMenuItems{
-	NSMutableArray* tArray = [NSMutableArray array];
-	for(unsigned int i =0; i <  [thePlaylist count];i++){
-			id tObj = [thePlaylist objectAtIndex:i];
-			NSMenuItem* tItem = [[[NSMenuItem alloc ]init] autorelease];
-			NSString* tNumber =[NSString stringWithFormat:@"%d",i+1];
-			
-			while([tNumber length] < 4){
-				tNumber = [@" " stringByAppendingString:tNumber];
-			}
-			
-			[tItem setTitle: [NSString stringWithFormat:@"%@.  %@",tNumber,[[tObj path] lastPathComponent]]];
-			[tItem setRepresentedObject:[NSNumber numberWithInt:i]];
-			[tItem setState:(int)[tObj isEqualTo:theCurrentURL]];
-			[tItem setTarget:self];
-			[tItem setTag:PLAYLIST_ITEM];
-			[tItem setAction:@selector(switchPlaylistItem:)];
-			[tArray addObject: tItem];
-		}
-	return tArray;
-}
-
--(NSArray*)BasicPlaylistMenuItems{
-		NSMutableArray* tArray = [NSMutableArray array];
-
-	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Previous",@"Previous menu item")];
-	[tItem setKeyEquivalent:@"["];
-	[tItem setKeyEquivalentModifierMask:0];
-	[tItem setTarget:self];
-	[tItem setAction:@selector(playPrev:)];
-	[tArray addObject:tItem];
-	
-	tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Next",@"Next menu item")];
-	[tItem setKeyEquivalent:@"]"];
-		[tItem setKeyEquivalentModifierMask:0];
-
-	[tItem setTarget:self];
-	[tItem setAction:@selector(playNext:)];
-	[tArray addObject:tItem];
-	
-	[tArray addObjectsFromArray:[self playlistMenuItems]];
-	
-	return tArray;
-}
-
--(NSArray*)FullPlaylistMenuItems{
-		NSMutableArray* tArray = [NSMutableArray array];
-
-	[tArray addObject:[self volumeMenu]];
-	
-    [tArray addObject:[NSMenuItem separatorItem]];
-
-	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Previous",@"Previous menu item")];
-	[tItem setKeyEquivalent:@"["];
-		[tItem setKeyEquivalentModifierMask:0];
-
-	[tItem setTarget:self];
-	[tItem setAction:@selector(playPrev:)];
-	[tArray addObject:tItem];
-	
-	 tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Next",@"Next menu item")];
-	[tItem setKeyEquivalent:@"]"];
-		[tItem setKeyEquivalentModifierMask:0];
-
-	[tItem setTarget:self];
-	[tItem setAction:@selector(playNext:)];
-	[tArray addObject:tItem];
-	
-	[tArray addObjectsFromArray:[self playlistMenuItems]];
-	
-	
-	
-	return tArray;
 }
 
 -(IBAction)switchVolume:(NSMenuItem*)sender{
@@ -572,27 +437,11 @@ void findSpace(id each, void* context, BOOL* endthis){
 	return tHeading;
 }
 
--(void)rebuildPlaylistMenu{
-    if([[self window] isKeyWindow]){
-
-    NSMenu* playlistMenu = [self playlistMenu];
-	NSArray* tArray =[playlistMenu itemArray];
-	for(int i = [tArray count]-1; i > 2; i--){
-		[playlistMenu removeItem:[tArray objectAtIndex:i]];
-	}
-	tArray= [self FullPlaylistMenuItems];
-	for(unsigned int i=0; i < [tArray count]; i++){
-		[playlistMenu addItem:[tArray objectAtIndex:i]];
-	}
-	}
-	
-} 
-
-
 /* Always call this method by raising the notification "RebuildAllMenus" otherwise
 stuff won't work properly! */
 -(void)rebuildMenu
 {
+    // xxx this ought to show a Volume menu on the Movie menu
 
     int i;
     id pluginMenu = [theMovieView pluginMenu];
@@ -614,31 +463,17 @@ stuff won't work properly! */
 	id tMenuTitle =[theMovieView menuTitle];
 	if(tMenuTitle == nil)
 		tMenuTitle = @"Untitled Movie";
-    movieMenuItem = [[NSMenuItem alloc] initWithTitle:tMenuTitle
-                                               action:nil
-                                        keyEquivalent:@""];
-    
-    if([[self window] isKeyWindow]){
+    movieMenuItem = [[NSMenuItem alloc] initWithTitle:tMenuTitle action:nil keyEquivalent:@""];
+
+    if([[self window] isKeyWindow]) {
         menuObjects = [[NSMutableArray array] retain];
         [movieMenuItem setEnabled:NO];
         [[self movieMenu] insertItem:movieMenuItem atIndex:0];
-        for(i = ((int)[pluginMenu count] - 1); i >= 0; i--){	// Reverse iteration for easier addition
+        for(i = (int)[pluginMenu count] - 1; i >= 0; i--){	// Reverse iteration for easier addition
             [[self movieMenu] insertItem:[pluginMenu objectAtIndex:i] atIndex:1];
             [menuObjects addObject:[pluginMenu objectAtIndex:i]];
         }
-    } else {
-        /*[movieMenuItem setEnabled:YES];
-        id mSubMenu = [[NSMenu alloc] initWithTitle:[theMovieView menuTitle]];
-        [movieMenuItem setSubmenu:mSubMenu];
-        [[self movieMenu] insertItem:movieMenuItem atIndex:[[self movieMenu] numberOfItems]];
-        while([mSubMenu numberOfItems] > 0)
-            [mSubMenu removeItemAtIndex:0];
-        
-        for(i = 0; i < (int)[pluginMenu count]; i++)
-            [mSubMenu addItem:[pluginMenu objectAtIndex:i]];*/
     }
-    [self rebuildPlaylistMenu];
-    [self reloadPlaylist];
 }
 
 -(id)window
@@ -666,326 +501,9 @@ stuff won't work properly! */
     [theMovieView stop];
 }
 
--(void)playNext:(id)sender
-{
-    [self playNext];
-}
-
--(void)playPrev:(id)sender
-{
-    [self playPrev];
-}
-
-
--(unsigned)getNextIndex
-{
-    unsigned int anIndex = [thePlaylist indexOfObject:theCurrentURL];
-    if([thePlaylist isEmpty])
-        return -1;
-    anIndex++;
-    return anIndex;
-}
-
-
--(void)playNext
-{	
-    int anIndex = [self getNextIndex];
-    
-    if(anIndex >= (int)[thePlaylist count])
-        if([[self window] isFullScreen])
-            [[self window] unFullScreen];
-    
-    if( (anIndex >= 0) && (anIndex < (int)[thePlaylist count])){
-        [self playAtIndex:anIndex obeyingPreviousState:YES];
-    }
-}
-
-
-/**
-* Chooses the proper playlist item and calls playAtIndex:
- */
-
--(unsigned)getPrevIndex
-{
-    int anIndex = [thePlaylist indexOfObject:theCurrentURL];
-    if(!anIndex) {
-        if ([thePlaylist isEmpty])
-            return -1;
-        anIndex = [thePlaylist count];   
-    }
-    return anIndex -1;
-}
-
--(void)playPrev
-{
-    int anIndex =  [self getPrevIndex];
-    
-    if((anIndex >= 0) && (anIndex < (int)[thePlaylist count])){
-        [self playAtIndex:anIndex obeyingPreviousState:YES];
-    }
-}
-
--(void)reloadPlaylist{
-	[theDataSourceCache autorelease];
-	theDataSourceCache = [[NSMutableArray alloc]init];
-	[theMainItemCache autorelease];
-       theMainItemCache = [[NSMutableDictionary  alloc] init];
-    [thePlaylistTable reloadData];
-	
-	for(int i=0;i<[thePlaylistTable numberOfRows];i++){
-		[thePlaylistTable expandItem:[thePlaylistTable itemAtRow:i]];
-	}
-
-}
-
-/**
-* Responsible for controlling what to do when a playlist item is changed.
- */
--(void)playAtIndex:(unsigned int)anIndex obeyingPreviousState:(BOOL)aBool
-{
-    id tempURL = [thePlaylist objectAtIndex:anIndex];
-    [theMovieView closeReopen];
-    [self loadURL:tempURL firstTime:NO];
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-
-	if(aBool){
-		if([theMovieView wasPlaying])
-			[theMovieView start];
-		else
-			[theMovieView stop];
-	} else
-		[theMovieView start];
-}
-
-#pragma mark -
-#pragma  mark Playlist
-
--(IBAction)openPlaylistDrawerConditional:(id)sender
-{
-    if([thePlaylist count] > 1)
-        [thePlaylistDrawer open];
-}
-
--(IBAction)togglePlaylistDrawer:(id)sender
-{
-    [thePlaylistDrawer toggle:sender];
-}
-
--(IBAction)openPlaylistDrawer:(id)sender
-{
-    [thePlaylistDrawer open];
-}
-
--(IBAction)closePlaylistDrawer:(id)sender
-{
-    [thePlaylistDrawer close:sender];
-}
-
--(IBAction)choosePlaylistItem:(id)sender
-{
-    if([sender selectedRow] == -1)
-		return;
-	id tItem =[sender itemAtRow:[sender selectedRow]];
-    [self playAtIndex:[[tItem objectForKey:@"index"] intValue]-1 obeyingPreviousState:NO];
-}
-
--(IBAction)addToPlaylist:(id)sender
-{
-    id tempOpen = [[NSDocumentController sharedDocumentController] URLsFromRunningOpenPanel];
-    if(tempOpen != nil){
-        
-        tempOpen= NPSortUrls(tempOpen);
-        
-        NSEnumerator* enumerator =[tempOpen objectEnumerator];
-        NSURL* tempURL;
-        
-        
-        while((tempURL = [enumerator nextObject])){
-            [self addURLToPlaylist:tempURL];
-        }
-    }
-}
-
--(void)addURLToPlaylist:(NSURL*)aURL
-{
-    [self addURLToPlaylist:(NSURL*)aURL atIndex:[thePlaylist count]];
-}
-
--(void)addURLToPlaylist:(NSURL*)aURL atIndex:(int)anIndex
-{
-    if(anIndex == -1)
-        anIndex = 0;
-    
-    if ([thePlaylist count]==0){
-        if(theCurrentURL == nil)
-            [self loadURL:aURL firstTime:NO];
-        
-        theCurrentURL = [aURL retain];
-    }
-    
-    if(![thePlaylist containsObject:aURL]){
-        [thePlaylist insertObject:aURL atIndex:anIndex];
-        
-					[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-
-    }
-}
-
--(void)removeURLFromPlaylist:(NSURL*)aURL
-{
-    int tempIndex = [thePlaylist indexOfObject:aURL];
-	if(tempIndex != NSNotFound)
-		[self removeURLFromPlaylistHelperAtIndex:[NSIndexSet  indexSetWithIndex:tempIndex]];
-}
-
--(void)removeURLFromPlaylistAtIndex:(int)anIndex
-{
-	[self removeURLFromPlaylistHelperAtIndex:[NSIndexSet  indexSetWithIndex:anIndex]];
-	[self removeURLPlaceHolders];
-}
-
-
--(void)removeURLFromPlaylistAtIndexSet:(NSIndexSet*)anIndex
-{
-	[self removeURLFromPlaylistHelperAtIndex:anIndex];
-	[self removeURLPlaceHolders];
-}
-
--(void)removeURLFromPlaylistHelperAtIndex:(NSIndexSet*)anIndex
-{
-	for(unsigned int i=0;i<[thePlaylist count];i++){
-		if([anIndex containsIndex:i])
-			[thePlaylist replaceObjectAtIndex:i withObject:[NSURL URLWithString:@"placeholder://URL_Placeholder"]];
-	}
-}
-
--(void)removeURLPlaceHolders
-{
-    [thePlaylist removeObject:[NSURL URLWithString:@"placeholder://URL_Placeholder"]];
-    
-    if([thePlaylist isEmpty]){
-        [(NPMovieView *)theMovieView stop];
-        [theMovieView closeReopen];
-		theCurrentURL =nil;
-    }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-}
-
--(BOOL)isPlaylistEmpty
-{
-    return [thePlaylist isEmpty];
-}
-
--(BOOL)hasPlaylist
-{
-	return (playlistFilename != nil);
-}
-
 -(float)volume
 {
 	return [theMovieView volume];
-}
-
-
-#pragma mark -
-#pragma mark New DataSource Methods
-
-
-- (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)aTableColumn byItem:(id)item{
-    if([[aTableColumn identifier] isEqualTo:@"index"])
-        return [item objectForKey:@"index"];
-    if([[aTableColumn identifier] isEqualTo:@"name"])
-        return [item objectForKey:@"self"];
-    if([[aTableColumn identifier] isEqualTo:@"status"]) {
-        if([[item objectForKey:@"url"] isEqual: theCurrentURL])
-            return [NSString stringWithFormat:@"%C", 0x2022];
-        return @"";
-    }
-    if([[aTableColumn identifier] isEqualTo:@"none"])
-        return @"";
-    return @"Error...";
-}
-
-
-- (id)outlineView:(NSOutlineView *)outlineView child:(int)anIndex ofItem:(id)item{
-	if(item == nil){
-		NSDictionary* tRet =[NSDictionary dictionaryWithObjectsAndKeys:
-		@"playlist",@"type",
-		[[[thePlaylist objectAtIndex:anIndex] path] lastPathComponent],@"self",
-		[NSNumber numberWithInt:anIndex+1],@"index",
-		[thePlaylist objectAtIndex:anIndex],@"url",
-		nil];
-		[theDataSourceCache addObject:tRet];
-		[theMainItemCache setObject:tRet forKey:[NSNumber numberWithInt:anIndex]];
-		return tRet;
-	}
-    return nil;
-}
-
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-    return item ? NO : YES;
-}
-
-
-- (int)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item{
-    return item ? 0 : [thePlaylist count];
-}
-
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView 
-acceptDrop:(id <NSDraggingInfo>)info 
-item:(id)item childIndex:(int)anIndex{
-    return NO;
-}
-
-
-- (BOOL)outlineView:(NSOutlineView *)outlineView 
-writeItems:(NSArray *)items
- toPasteboard:(NSPasteboard *)pboard{
- 
-	NSMutableArray* fileArray = [NSMutableArray array];
-	
-	for(unsigned int i=0;i<[items count];i++){
-		if([[[items objectAtIndex:i] objectForKey:@"type"] isEqualTo:@"playlist"]){
-			[fileArray addObject:[[[items objectAtIndex:i] objectForKey:@"url"]path]];
-		}
-	}
-	
-    [pboard declareTypes: [NSArray arrayWithObjects: NSFilenamesPboardType, nil] owner: self];
-    [pboard setPropertyList:fileArray forType:NSFilenamesPboardType];
-	
-
-	
-    return [fileArray count] > 0;    
- 
- }
-
-
-- (NSArray *)outlineView:(NSOutlineView *)outlineView 
-namesOfPromisedFilesDroppedAtDestination:(NSURL *)dropDestination
-		 forDraggedItems:(NSArray *)items{
-	NSMutableArray* tArray = [NSMutableArray array];
-	for(unsigned int i=0; i< [items count]; i++){
-		[tArray addObject:[[items objectAtIndex:i] lastPathComponent]];
-	}
-	return tArray;
-}
-- (NSDragOperation)outlineView:(NSOutlineView *)tView 
-validateDrop:(id <NSDraggingInfo>)info 
-proposedItem:(id)tItem
- proposedChildIndex:(int)anIndex{
-
-    if(tItem ==nil){
-        id tItemDrop =[theMainItemCache objectForKey:[NSNumber numberWithInt:anIndex]] ;
-        if(tItemDrop == nil)
-            tItemDrop = [tView itemAtRow:[tView numberOfRows] -1];
-        [tView setDropItem:tItemDrop dropChildIndex: 0];
-	//	[tView setDropItem:[self outlineView:tView child:anIndex ofItem:tItem] dropChildIndex:0];
-    } else {
-        [tView setDropItem:tItem dropChildIndex:0];
-    }
-    return NSDragOperationGeneric;
 }
 
 @end

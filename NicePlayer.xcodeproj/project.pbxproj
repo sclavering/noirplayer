@@ -10,8 +10,6 @@
 		2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2510A2390B04B53D00CA8110 /* DelegateAnimation.h */; };
 		2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */; };
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
-		251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 251FBBDF07BC201900D147E5 /* NiceDrawer.h */; };
-		251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */ = {isa = PBXBuildFile; fileRef = 251FBBE007BC201900D147E5 /* NiceDrawer.m */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
@@ -83,8 +81,6 @@
 		3EFEF999086E6E50003E05C3 /* wmv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3EFEF996086E6E50003E05C3 /* wmv.icns */; };
 		690B61170B5981A4008D13CE /* flv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B61160B5981A4008D13CE /* flv.icns */; };
 		690B627A0B5992B7008D13CE /* mkv.icns in Resources */ = {isa = PBXBuildFile; fileRef = 690B62790B5992B7008D13CE /* mkv.icns */; };
-		691ECCF80CDE75B70040AE45 /* NPOutlineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 691ECCF60CDE75B70040AE45 /* NPOutlineView.h */; };
-		691ECCF90CDE75B70040AE45 /* NPOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 691ECCF70CDE75B70040AE45 /* NPOutlineView.m */; };
 		69257CFB111DD28300C28210 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69257CF9111DD28300C28210 /* MainMenu.xib */; };
 		69257CFF111DD2A700C28210 /* NiceDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69257CFD111DD2A700C28210 /* NiceDocument.xib */; };
 		6925B3CA0B61966E004D2A83 /* vdvd.icns in Resources */ = {isa = PBXBuildFile; fileRef = 6925B3C90B61966E004D2A83 /* vdvd.icns */; };
@@ -146,8 +142,6 @@
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2510A2390B04B53D00CA8110 /* DelegateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DelegateAnimation.h; path = Classes/DelegateAnimation.h; sourceTree = "<group>"; };
 		2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DelegateAnimation.m; path = Classes/DelegateAnimation.m; sourceTree = "<group>"; };
-		251FBBDF07BC201900D147E5 /* NiceDrawer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceDrawer.h; path = Classes/NiceWindow/NiceDrawer.h; sourceTree = "<group>"; };
-		251FBBE007BC201900D147E5 /* NiceDrawer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceDrawer.m; path = Classes/NiceWindow/NiceDrawer.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/ControlPlay.h"; sourceTree = "<group>"; };
@@ -227,8 +221,6 @@
 		3EFEF996086E6E50003E05C3 /* wmv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = wmv.icns; sourceTree = "<group>"; };
 		690B61160B5981A4008D13CE /* flv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = flv.icns; sourceTree = "<group>"; };
 		690B62790B5992B7008D13CE /* mkv.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mkv.icns; sourceTree = "<group>"; };
-		691ECCF60CDE75B70040AE45 /* NPOutlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPOutlineView.h; path = Classes/NiceWindow/NPOutlineView.h; sourceTree = "<group>"; };
-		691ECCF70CDE75B70040AE45 /* NPOutlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPOutlineView.m; path = Classes/NiceWindow/NPOutlineView.m; sourceTree = "<group>"; };
 		69257CFA111DD28300C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69257CFE111DD2A700C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NiceDocument.xib; sourceTree = "<group>"; };
 		6925B3C90B61966E004D2A83 /* vdvd.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = vdvd.icns; sourceTree = "<group>"; };
@@ -345,16 +337,12 @@
 				3E28CCA30808E0F000F59FF5 /* NiceWindowController.m */,
 				2A37F4AEFDCFA73011CA2CEA /* NiceDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */,
-				251FBBDF07BC201900D147E5 /* NiceDrawer.h */,
-				251FBBE007BC201900D147E5 /* NiceDrawer.m */,
 				3EEDF763065B507B00E3545C /* NiceWindow.h */,
 				3EEDF764065B507B00E3545C /* NiceWindow.m */,
 				3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */,
 				3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */,
 				2510A2390B04B53D00CA8110 /* DelegateAnimation.h */,
 				2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */,
-				691ECCF60CDE75B70040AE45 /* NPOutlineView.h */,
-				691ECCF70CDE75B70040AE45 /* NPOutlineView.m */,
 			);
 			name = Document/Window;
 			sourceTree = "<group>";
@@ -528,14 +516,12 @@
 				257D61680753F92D00702BD0 /* NPMovieView.h in Headers */,
 				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
-				251FBBE107BC201900D147E5 /* NiceDrawer.h in Headers */,
 				3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */,
 				25CC86500831DA2A00027929 /* RCMovieView.h in Headers */,
 				2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */,
 				697496120B55EA800030D4D2 /* OverlayTitleWindow.h in Headers */,
 				6974971F0B56033F0030D4D2 /* TitleBackgroundView.h in Headers */,
 				692CF88F0CC2F78000DF2159 /* BlankView.h in Headers */,
-				691ECCF80CDE75B70040AE45 /* NPOutlineView.h in Headers */,
 				6977CC670CE3DF8B00B4EBB6 /* NPScalingButton.h in Headers */,
 				6977CD6D0CE3F65A00B4EBB6 /* NPScalingButtonCell.h in Headers */,
 			);
@@ -681,14 +667,12 @@
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
 				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
-				251FBBE207BC201900D147E5 /* NiceDrawer.m in Sources */,
 				3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */,
 				25CC86510831DA2A00027929 /* RCMovieView.m in Sources */,
 				2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */,
 				697496130B55EA800030D4D2 /* OverlayTitleWindow.m in Sources */,
 				697497200B56033F0030D4D2 /* TitleBackgroundView.m in Sources */,
 				692CF8900CC2F78200DF2159 /* BlankView.m in Sources */,
-				691ECCF90CDE75B70040AE45 /* NPOutlineView.m in Sources */,
 				6977CD5A0CE3F63000B4EBB6 /* NPScalingButton.m in Sources */,
 				6977CD6E0CE3F65A00B4EBB6 /* NPScalingButtonCell.m in Sources */,
 			);

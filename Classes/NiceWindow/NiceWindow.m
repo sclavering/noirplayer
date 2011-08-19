@@ -574,9 +574,7 @@
     if(!fullScreen){
 		fullScreen = YES;
 		oldWindowLevel = [self level];
-        
 		[self setLevel:NSFloatingWindowLevel +2];
-		[[[self windowController] document] closePlaylistDrawer:self];
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
 		[self fillScreenSizeOnScreen:aScreen];
@@ -1048,21 +1046,6 @@
 
 -(BOOL)performDragOperation:(id <NSDraggingInfo>)sender
 {
-    NSPasteboard *pboard = [sender draggingPasteboard];
-    NSString *type = [pboard availableTypeFromArray:[self acceptableDragTypes]];
-    if (type) {
-        if ([type isEqualToString:NSFilenamesPboardType]) {
-            unsigned i;
-            NSString *filename;
-            NSArray *files = [pboard propertyListForType:NSFilenamesPboardType];
-			NSArray *sortedArray = [files sortedArrayUsingSelector:@selector(caseInsensitiveNumericCompareSublist:)];
-            for(i = 0; i < [sortedArray count]; i++){
-                filename = [sortedArray objectAtIndex:i];
-                [[[self windowController] document] addURLToPlaylist:[NSURL fileURLWithPath:filename]];
-            }
-            [[[self windowController] document] openPlaylistDrawerConditional:self];
-        }	
-    }
     return YES;
 }
 

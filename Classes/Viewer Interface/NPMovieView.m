@@ -110,25 +110,9 @@
 		trackingRect = [self addTrackingRect:[self bounds] owner:window userData:nil assumeInside:NO];
 }
 
--(void)closeReopen
+-(void)clearTrueMovieView
 {
-	NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
-	internalVolume = [self volume];
-	id oldMovieView = trueMovieView;
-	trueMovieView = [[BlankView alloc] initWithFrame:subview];
-	[self replaceSubview:oldMovieView with:trueMovieView];
-
-	[oldMovieView unregisterDraggedTypes];
-	[oldMovieView close];
-	[oldMovieView release];
-	oldMovieView =nil;
-	[self finalProxyViewLoad];
 }
-
--(void)clearTrueMovieView{
-	
-}
-
 
 -(void)close
 {
@@ -367,20 +351,6 @@
     return wasPlaying;
 }
 
--(void)playPrevMovie
-{
-    if([self currentMovieTime] > 2){
-        [trueMovieView setCurrentMovieTime:0];
-    } else {
-        [[[self window] delegate] playPrev];
-    }
-}
-
--(void)playNextMovie
-{
-    [[[self window] delegate] playNext];
-}
-
 #pragma mark -
 #pragma mark Keyboard Events
 
@@ -399,10 +369,6 @@
 			}
 			break;
 		case NSRightArrowFunctionKey:
-			if([anEvent modifierFlags] & NSCommandKeyMask){
-                [self playNextMovie];
-				break;
-			}
 			if([anEvent modifierFlags] & NSAlternateKeyMask){
 				[trueMovieView stepForward];
 				break;
@@ -414,7 +380,7 @@
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-                [self playPrevMovie];
+                [trueMovieView setCurrentMovieTime:0];
 				break;
 			}
 			if([anEvent modifierFlags] & NSAlternateKeyMask){
@@ -640,21 +606,6 @@
 
 	[myMenu addObject:[[[[self window]windowController]document] volumeMenu]];
 
-	NSMenu* tMenu = [[[NSMenu alloc]init]autorelease];
-	
-	NSEnumerator *enumerator = [[[[[self window]windowController] document] BasicPlaylistMenuItems] objectEnumerator];
-id object;
- 
-while ((object = [enumerator nextObject])) {
-    [tMenu addItem:object];
-}
-	
- 	newItem = [[[NSMenuItem alloc] init] autorelease];
-	[newItem setTitle:NSLocalizedString(@"Playlist", @"Playlist contextual menu")];
-	[newItem setSubmenu:tMenu];
-	[myMenu addObject:newItem];
-	
-	
 	return [myMenu autorelease];
 }
 

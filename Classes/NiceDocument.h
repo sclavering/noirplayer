@@ -55,24 +55,15 @@
 @interface NiceDocument : NSDocument
 {
     IBOutlet NPMovieView *theMovieView;
-    IBOutlet id thePlaylistDrawer;
-    IBOutlet id thePlaylistTable;
     IBOutlet NiceWindow *theWindow;
     NSURL* theCurrentURL;
-    NSMutableArray* thePlaylist;
-	NSMutableArray* theDataSourceCache;
-        NSMutableDictionary* theMainItemCache;
     id movieMenuItem;
     NSMutableArray *menuObjects;
     id asffrrTimer;
-    id playlistFilename;
-    NSString* theID;
-    
     BOOL hasRealMovie;
     BOOL wasPlayingBeforeMini;	
 }
 
--(NSString*)identifier;
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 -(BOOL)readFromFile:(NSString *)fileName ofType:(NSString *)docType;
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType;
@@ -91,9 +82,6 @@
 -(void)rebuildMenu;
 -(id)window;
 -(NSSize)calculateAspectRatio;
--(NSArray*)FullPlaylistMenuItems;
--(NSArray*)BasicPlaylistMenuItems;
--(NSArray*)playlistMenuItems;
 -(NSMenuItem*)volumeMenu;
 
 #pragma mark Interface
@@ -102,35 +90,8 @@
 -(IBAction)mute:(id)sender;
 -(IBAction)increaseVolume:(id)sender;
 -(IBAction)decreaseVolume:(id)sender;
--(IBAction)switchPlaylistItem:(NSMenuItem*)sender;
 -(void)play:(id)sender;
--(void)playNext:(id)sender;
--(void)playPrev:(id)sender;
 -(void)pause:(id)sender;
--(unsigned)getNextIndex;
--(void)playNext;
--(void)playPrev;
--(unsigned)getPrevIndex;
-
-#pragma mark -
-#pragma mark Playlist
--(void)reloadPlaylist;
--(IBAction)openPlaylistDrawerConditional:(id)sender;
--(IBAction)togglePlaylistDrawer:(id)sender;
--(IBAction)openPlaylistDrawer:(id)sender;
--(IBAction)closePlaylistDrawer:(id)sender;
--(IBAction)choosePlaylistItem:(id)sender;
--(void)playAtIndex:(unsigned int)anIndex obeyingPreviousState:(BOOL)aBool;
--(IBAction)addToPlaylist:(id)sender;
--(void)addURLToPlaylist:(NSURL*)aURL;
--(void)addURLToPlaylist:(NSURL*)aURL atIndex:(int)index;
--(void)removeURLFromPlaylistHelperAtIndex:(NSIndexSet*)anIndex;
--(void)removeURLFromPlaylistAtIndex:(int)anIndex;
--(void)removeURLFromPlaylistAtIndexSet:(NSIndexSet*)anIndex;
--(void)removeURLFromPlaylist:(NSURL*)aURL;
--(void)removeURLPlaceHolders;
--(BOOL)isPlaylistEmpty;
--(BOOL)hasPlaylist;
 
 -(float)volume;
 
