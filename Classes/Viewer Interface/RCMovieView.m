@@ -411,20 +411,6 @@
 	[newItem setSubmenu:[self audioTrackMenu]];
     [pluginMenu addObject:newItem];
 	
-   /* newItem = [[[NSMenuItem alloc] initWithTitle:@"Play Movie Preview"
-                                          action:@selector(playMoviePreview)
-                                   keyEquivalent:@""] autorelease];
-    [newItem setTarget:self];
-    [pluginMenu addObject:newItem];
-
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Go to Movie Poster Frame"
-                                          action:@selector(gotoMoviePosterFrame)
-                                   keyEquivalent:@""] autorelease];
-    [newItem setTarget:self];
-    [pluginMenu addObject:newItem];
-	
-	*/
-
     return [pluginMenu autorelease];
 }
 
@@ -464,14 +450,6 @@
 {
 	[[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
-}
-
--(void)playMoviePreview
-{
-}
-
--(void)gotoMoviePosterFrame
-{
 }
 
 @end
