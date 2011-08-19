@@ -52,7 +52,6 @@
 	NSTimer *inactiveTimer;
 	NSPoint lastPoint;
 }
--(IBAction)emailAuthor:(id)sender;
 
 -(id)bestMovieWindow;
 -(NSArray *)movieWindows;

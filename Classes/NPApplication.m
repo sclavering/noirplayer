@@ -187,15 +187,4 @@ BOOL selectNiceWindow(id each, void* context){
     
 }
 
--(IBAction)emailAuthor:(id)sender{
-    id tempInfo =[[NSBundle mainBundle] infoDictionary];
-    id tempEmail =[tempInfo objectForKey:@"JTAuthorEmail"];
-    if(tempEmail == nil){
-        NSRunAlertPanel(@"Email", @"Contact email address not provided by author.", @"Okay",nil,nil);
-    }else{
-        NSLog([NSString stringWithFormat:@"mailto:%@?subject=%@/%@(v%@)",tempEmail,[tempInfo objectForKey:@"CFBundleName"],[tempInfo objectForKey:@"CFBundleShortVersionString"],[tempInfo objectForKey:@"CFBundleVersion"],nil]);
-        [[NSWorkspace sharedWorkspace ]openURL: [NSURL URLWithString:[NSString stringWithFormat:@"mailto:%@?subject=%@/%@(v%@)",tempEmail,[tempInfo objectForKey:@"CFBundleName"],[tempInfo objectForKey:@"CFBundleShortVersionString"],[tempInfo objectForKey:@"CFBundleVersion"],nil]]];
-    }
-}
-
 @end
