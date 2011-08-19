@@ -237,30 +237,6 @@ id swapForWindows(id each, void* context){
     [backgroundWindow orderBack:nil];
 }
 
-
-
--(void)presentAllScreeens
-{
-
-    backgroundWindows = [[[NSScreen screens] collectUsingFunction:makeBackgrounds context:nil] retain];
-    
-    fullScreenMode = YES;
-    
-    SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
-}
-
-
--(void)unpresentAllScreeens
-{
-    [backgroundWindows makeObjectsPerformSelector:@selector(close)];
-    
-    [backgroundWindows release];
-    backgroundWindows = nil;
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"unPresentMultiple" object:nil];
-    
-}
-
 -(BOOL)isFullScreen{
 	return fullScreenMode;
 }
@@ -271,7 +247,10 @@ id swapForWindows(id each, void* context){
     showingMenubar = NO;
     SetSystemUIMode(kUIModeNormal, kUIModeNormal);
     [backgroundWindow orderOut:nil];
-    [self unpresentAllScreeens];
+
+    [backgroundWindows makeObjectsPerformSelector:@selector(close)];
+    [backgroundWindows release];
+    backgroundWindows = nil;
 }
 
 -(void)enterFullScreen

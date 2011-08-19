@@ -83,8 +83,6 @@
 
 -(void)presentScreen;
 -(void)presentScreenOnScreen:(NSScreen*)aScreen;
--(void)presentAllScreeens;
--(void)unpresentAllScreeens;
 -(void)unpresentScreen;
 -(void)enterFullScreen;
 -(void)enterFullScreenOnScreen:(NSScreen*)aScreen;
