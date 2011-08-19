@@ -72,8 +72,7 @@
 	BOOL isClosing;
     BOOL isWidthFilling;
     BOOL fixedAspectRatio;
-    BOOL partiallyTransparent;
-	
+
     BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
     BOOL theWindowIsFloating;
     id timeUpdaterTimer;
@@ -126,8 +125,6 @@
 -(void)setFixedAspect:(BOOL)aBool;
 -(void)setWindowIsFloating:(BOOL)aBool;
 -(void)toggleFixedAspectRatio;
--(void)togglePartiallyTransparent;
--(BOOL)partiallyTransparent;
 -(void)toggleWindowFloat;
 
 #pragma mark Window Attributes

@@ -226,12 +226,6 @@ id swapForWindows(id each, void* context){
     [toggleFixedAspectMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) fixedAspect]];
 }
 
--(IBAction)setPartiallyTransparent:(id)sender
-{
-    [((NiceWindow *)[NSApp mainWindow]) togglePartiallyTransparent];
-    [partiallyTransparent setState:[((NiceWindow *)[NSApp mainWindow]) partiallyTransparent]];
-}
-
 #pragma mark -
 #pragma mark Presentation
 

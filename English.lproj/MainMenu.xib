@@ -1596,14 +1596,12 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>setPartiallyTransparent:</string>
 							<string>toggleAlwaysOnTop:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1617,7 +1615,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>newDocument:</string>
 							<string>openDocument:</string>
-							<string>setPartiallyTransparent:</string>
 							<string>toggleAlwaysOnTop:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
@@ -1630,10 +1627,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">openDocument:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">setPartiallyTransparent:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">
@@ -1655,13 +1648,11 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
-							<string>partiallyTransparent</string>
 							<string>toggleFixedAspectMenuItem</string>
 							<string>toggleOnTopMenuItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1672,7 +1663,6 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
-							<string>partiallyTransparent</string>
 							<string>toggleFixedAspectMenuItem</string>
 							<string>toggleOnTopMenuItem</string>
 						</object>
@@ -1680,10 +1670,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mainWindowProxy</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">partiallyTransparent</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

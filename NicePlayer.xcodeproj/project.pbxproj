@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2510A2390B04B53D00CA8110 /* DelegateAnimation.h */; };
-		2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */; };
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
@@ -139,8 +137,6 @@
 
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		2510A2390B04B53D00CA8110 /* DelegateAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DelegateAnimation.h; path = Classes/DelegateAnimation.h; sourceTree = "<group>"; };
-		2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DelegateAnimation.m; path = Classes/DelegateAnimation.m; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/ControlPlay.h"; sourceTree = "<group>"; };
@@ -339,8 +335,6 @@
 				3EEDF764065B507B00E3545C /* NiceWindow.m */,
 				3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */,
 				3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */,
-				2510A2390B04B53D00CA8110 /* DelegateAnimation.h */,
-				2510A23A0B04B53D00CA8110 /* DelegateAnimation.m */,
 			);
 			name = Document/Window;
 			sourceTree = "<group>";
@@ -515,7 +509,6 @@
 				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				3E28CCA40808E0F000F59FF5 /* NiceWindowController.h in Headers */,
 				25CC86500831DA2A00027929 /* RCMovieView.h in Headers */,
-				2510A23B0B04B53D00CA8110 /* DelegateAnimation.h in Headers */,
 				697496120B55EA800030D4D2 /* OverlayTitleWindow.h in Headers */,
 				6974971F0B56033F0030D4D2 /* TitleBackgroundView.h in Headers */,
 				692CF88F0CC2F78000DF2159 /* BlankView.h in Headers */,
@@ -665,7 +658,6 @@
 				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				3E28CCA50808E0F000F59FF5 /* NiceWindowController.m in Sources */,
 				25CC86510831DA2A00027929 /* RCMovieView.m in Sources */,
-				2510A23C0B04B53D00CA8110 /* DelegateAnimation.m in Sources */,
 				697496130B55EA800030D4D2 /* OverlayTitleWindow.m in Sources */,
 				697497200B56033F0030D4D2 /* TitleBackgroundView.m in Sources */,
 				692CF8900CC2F78200DF2159 /* BlankView.m in Sources */,

@@ -60,7 +60,6 @@
     IBOutlet id toggleOnTopMenuItem;
     id antiSleepTimer;
     IBOutlet id toggleFixedAspectMenuItem;
-	IBOutlet id partiallyTransparent;
 }
 
 +(id)controller;
@@ -78,7 +77,6 @@
 -(IBAction)newDocument:(id)sender;
 -(IBAction)toggleFullScreen:(id)sender;
 -(IBAction)toggleAlwaysOnTop:(id)sender;
--(IBAction)setPartiallyTransparent:(id)sender;
 -(IBAction)toggleFixedAspectRatio:(id)sender;
 
 #pragma mark -

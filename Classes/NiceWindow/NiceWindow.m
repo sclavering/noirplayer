@@ -52,7 +52,6 @@
 #import "NiceWindow.h"
 #import "OverlayControllerWindow.h"
 #import "NPApplication.h"
-#import "DelegateAnimation.h"
 
 @interface NSWindow(Spaces)
 -(void)setCanBeVisibleOnAllSpaces:(BOOL)aBool;
@@ -512,37 +511,6 @@
 -(BOOL)fixedAspect
 {
     return fixedAspectRatio;
-}
-
--(void)togglePartiallyTransparent
-{
-	partiallyTransparent = !partiallyTransparent;
-	
-	NSAnimation *animation = [[DelegateAnimation alloc] initWithDuration:0.1 animationCurve:NSAnimationEaseInOut];
-	[animation setAnimationBlockingMode:NSAnimationNonblocking];
-	[animation setDelegate:self];
-	[animation startAnimation];
-}
-
--(void)setCurrentAnimationValue:(float)value
-{
-	float opacity = 0.5;
-	if(partiallyTransparent){
-		[self setAlphaValue:(1.0 - value) + opacity * value];
-	} else {
-		[self setAlphaValue:value + opacity * (1.0 - value)];
-	}	
-}
-
-- (void)animationDidEnd:(NSAnimation*)animation
-{
-	[self setCurrentAnimationValue:[animation currentValue]];
-	[animation release];
-}
-
--(BOOL)partiallyTransparent
-{
-	return partiallyTransparent;
 }
 
 -(void)toggleWindowFloat
