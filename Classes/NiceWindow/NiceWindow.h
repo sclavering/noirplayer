@@ -74,9 +74,7 @@
     BOOL fixedAspectRatio;
 
     BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
-    BOOL theWindowIsFloating;
     id timeUpdaterTimer;
-    int oldWindowLevel;
     float miniVolume;
     NSRect beforeFullScreen;
 
@@ -120,20 +118,15 @@
 
 -(BOOL)toggleWindowFullScreen;
 -(void)unFullScreen;
--(BOOL)windowIsFloating;
 -(BOOL)fixedAspect;
 -(void)setFixedAspect:(BOOL)aBool;
--(void)setWindowIsFloating:(BOOL)aBool;
 -(void)toggleFixedAspectRatio;
--(void)toggleWindowFloat;
 
 #pragma mark Window Attributes
 
 -(void)makeFullScreen;
 -(void)makeFullScreenOnScreen:(NSScreen*) aScreen;
 -(void)makeNormalScreen;
--(void)floatWindow;
--(void)unfloatWindow;
 -(BOOL)isFullScreen;
 -(void)setLevel:(int)windowLevel;
 -(void)resizeWithSize:(NSSize)aSize animate:(BOOL)animate;

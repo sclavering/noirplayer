@@ -81,7 +81,6 @@
         [self setOpaque:YES];
         [self useOptimizedDrawing:YES];
         [self setHasShadow:YES];
-        theWindowIsFloating = NO;
         dropScreen = NO;
         isFilling = NO;
         isWidthFilling = NO;
@@ -104,11 +103,10 @@
     
 	id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
 	[tParagraph setAlignment:NSCenterTextAlignment];
-	
-    [self floatWindow];
+
+    if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self]; 
     [self setAcceptsMouseMovedEvents:YES];
-    oldWindowLevel =[self level];
     
     [thePlayButton setKeyEquivalent:@" "];
     [theRRButton setKeyEquivalent:[NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey,nil]];
@@ -467,21 +465,6 @@
     [[NiceController controller] exitFullScreen];
 }
 
--(BOOL)windowIsFloating
-{
-    return theWindowIsFloating;
-}
-
-
-
--(void)setWindowIsFloating:(BOOL)aBool
-{
-    if(aBool)
-		[self floatWindow];
-    else
-		[self unfloatWindow];
-}
-
 -(void)toggleFixedAspectRatio
 {
     [self setFixedAspect: ![self fixedAspect]];
@@ -502,14 +485,6 @@
     return fixedAspectRatio;
 }
 
--(void)toggleWindowFloat
-{
-    if(theWindowIsFloating)
-        [self unfloatWindow];
-    else
-        [self floatWindow];
-}
-
 #pragma mark Window Attributes
 
 /**
@@ -524,7 +499,6 @@
 {
     if(!fullScreen){
 		fullScreen = YES;
-		oldWindowLevel = [self level];
 		[self setLevel:NSFloatingWindowLevel +2];
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
@@ -536,8 +510,8 @@
 
 -(void)makeNormalScreen
 {
-    if(fullScreen){
-		[self setLevel:oldWindowLevel];
+    if(fullScreen) {
+		[self setLevel:NSFloatingWindowLevel];
         [self resetFillingFlags];
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
@@ -550,32 +524,6 @@
     [theOverlayControllerWindow orderFront:self];
     [self hideOverLayWindow];
     [self setInitialDrag:nil];
-}
-
-/**
-* The next two methods set whether the window floats above the others. Behavior changes depending on
- * whether floating is occuring.
- */
-
--(void)floatWindow
-{
-    if(![self isFullScreen]){
-        [self setLevel:NSFloatingWindowLevel];
-    }else{
-        oldWindowLevel = NSFloatingWindowLevel;
-    }
-    theWindowIsFloating = YES;
-}
-
--(void)unfloatWindow
-{
-    
-    if(![self isFullScreen]){
-        [self setLevel:NSNormalWindowLevel];
-    }else{
-        oldWindowLevel = NSNormalWindowLevel;
-    }
-    theWindowIsFloating = NO;
 }
 
 -(BOOL)isFullScreen

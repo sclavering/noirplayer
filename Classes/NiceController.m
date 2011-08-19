@@ -186,7 +186,6 @@ id swapForWindows(id each, void* context){
 -(void)changedWindow:(NSNotification *)notification
 {
     if([[NSApp mainWindow] isKindOfClass:[NiceWindow class]]){
-        [toggleOnTopMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) windowIsFloating]];
         [toggleFixedAspectMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) fixedAspect]];
     }
 }
@@ -212,12 +211,6 @@ id swapForWindows(id each, void* context){
     }else if([[NSApp mainWindow] isKindOfClass:[NiceWindow self]]){
         [self enterFullScreen];
     }
-}
-
--(IBAction)toggleAlwaysOnTop:(id)sender
-{
-    [((NiceWindow *)[NSApp mainWindow]) toggleWindowFloat];
-    [toggleOnTopMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) windowIsFloating]];
 }
 
 -(IBAction)toggleFixedAspectRatio:(id)sender

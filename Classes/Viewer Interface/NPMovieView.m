@@ -489,10 +489,6 @@
 
 - (void)mouseDown:(NSEvent *)anEvent
 {
-	if(([anEvent type] == NSOtherMouseDown)
-	   && (([anEvent modifierFlags] & 0x100108) == 0x100108)) /* This is a middle click. */
-	   [((NiceWindow *)[self window]) toggleWindowFloat];
-	   
 	   if([anEvent type] == NSLeftMouseDown){
 			  if(([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask){ /* This is a control click. */
 				  [self rightMouseDown:anEvent];
@@ -595,13 +591,6 @@
 					      action:@selector(togglePlaying)
 				       keyEquivalent:@""] autorelease];
 	[newItem setTarget:[((NiceWindow *)[self window]) playButton]];
-	[myMenu addObject:newItem];
-	
-	newItem = [[[NSMenuItem alloc] initWithTitle:@"Floats on Top"
-					      action:@selector(toggleWindowFloat)
-				       keyEquivalent:@""] autorelease];
-	[newItem setTarget:[self window]];
-	[newItem setState:[((NiceWindow *)[self window]) windowIsFloating]];
 	[myMenu addObject:newItem];
 
 	[myMenu addObject:[[[[self window]windowController]document] volumeMenu]];

@@ -57,7 +57,6 @@
     id prefWindow;
     id presentWindow;
     NSArray* backgroundWindows;
-    IBOutlet id toggleOnTopMenuItem;
     id antiSleepTimer;
     IBOutlet id toggleFixedAspectMenuItem;
 }

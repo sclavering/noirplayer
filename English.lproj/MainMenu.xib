@@ -532,16 +532,6 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
-								<object class="NSMenuItem" id="72531732">
-									<reference key="NSMenu" ref="14147308"/>
-									<string key="NSTitle">Always On Top</string>
-									<string key="NSKeyEquiv">e</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<int key="NSState">1</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="592638494">
 									<reference key="NSMenu" ref="14147308"/>
 									<string key="NSTitle">Has Fixed Aspect Ratio</string>
@@ -837,22 +827,6 @@
 						<reference key="destination" ref="370601472"/>
 					</object>
 					<int key="connectionID">239</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">toggleAlwaysOnTop:</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="72531732"/>
-					</object>
-					<int key="connectionID">241</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">toggleOnTopMenuItem</string>
-						<reference key="source" ref="836321935"/>
-						<reference key="destination" ref="72531732"/>
-					</object>
-					<int key="connectionID">242</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1275,7 +1249,6 @@
 							<reference ref="791440666"/>
 							<reference ref="90382222"/>
 							<reference ref="239576340"/>
-							<reference ref="72531732"/>
 							<reference ref="592638494"/>
 							<reference ref="293524137"/>
 						</object>
@@ -1289,11 +1262,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">322</int>
 						<reference key="object" ref="592638494"/>
-						<reference key="parent" ref="14147308"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">240</int>
-						<reference key="object" ref="72531732"/>
 						<reference key="parent" ref="14147308"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1379,7 +1347,6 @@
 					<string>236.IBPluginDependency</string>
 					<string>238.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
-					<string>240.IBPluginDependency</string>
 					<string>281.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
 					<string>294.IBPluginDependency</string>
@@ -1399,7 +1366,6 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1649,11 +1615,9 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
 							<string>toggleFixedAspectMenuItem</string>
-							<string>toggleOnTopMenuItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -1664,7 +1628,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>mainWindowProxy</string>
 							<string>toggleFixedAspectMenuItem</string>
-							<string>toggleOnTopMenuItem</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1674,10 +1637,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">toggleFixedAspectMenuItem</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">toggleOnTopMenuItem</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
