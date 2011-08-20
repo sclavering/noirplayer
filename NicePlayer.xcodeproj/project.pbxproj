@@ -12,8 +12,6 @@
 		25294AAA076E937E00D4B325 /* play_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 25294AA7076E937E00D4B325 /* play_over.png */; };
 		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
 		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
-		257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60000753DE7C00702BD0 /* AppKitScripting.framework */; };
-		257D60140753DED700702BD0 /* Scripting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 257D60130753DED700702BD0 /* Scripting.framework */; };
 		257D61560753F7AD00702BD0 /* NPMovieProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D61540753F7AD00702BD0 /* NPMovieProtocol.h */; };
 		257D61680753F92D00702BD0 /* NPMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D61660753F92D00702BD0 /* NPMovieView.h */; };
 		257D61690753F92D00702BD0 /* NPMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257D61670753F92D00702BD0 /* NPMovieView.m */; };
@@ -103,28 +101,12 @@
 		AA39530013FFEE2B008890EB /* ArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3952FE13FFEE2B008890EB /* ArrayExtras.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		3E5302E90684096B00923E9B /* Copy Files */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Copy Files";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = "Classes/Overlay Widgets/ControlPlay.h"; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = "Classes/Overlay Widgets/ControlPlay.m"; sourceTree = "<group>"; };
-		25702FEF07569E3300D1EE8C /* DVDPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DVDPlayback.framework; path = /System/Library/Frameworks/DVDPlayback.framework; sourceTree = "<absolute>"; };
-		257D60000753DE7C00702BD0 /* AppKitScripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKitScripting.framework; path = /System/Library/Frameworks/AppKitScripting.framework; sourceTree = "<absolute>"; };
-		257D60130753DED700702BD0 /* Scripting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Scripting.framework; path = /System/Library/Frameworks/Scripting.framework; sourceTree = "<absolute>"; };
 		257D61540753F7AD00702BD0 /* NPMovieProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieProtocol.h; path = "Classes/Viewer Interface/NPMovieProtocol.h"; sourceTree = "<group>"; };
 		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = "Classes/Viewer Interface/NPMovieView.h"; sourceTree = "<group>"; };
 		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = "Classes/Viewer Interface/NPMovieView.m"; sourceTree = "<group>"; };
@@ -225,8 +207,6 @@
 			files = (
 				2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */,
 				3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */,
-				257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */,
-				257D60140753DED700702BD0 /* Scripting.framework in Frameworks */,
 				251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */,
 				258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */,
 			);
@@ -241,9 +221,6 @@
 				258C2B700A2D713E00AC22BB /* IOKit.framework */,
 				251FEFB6085670D800D38B8E /* Cocoa.framework */,
 				25CC866D0831DDA800027929 /* QTKit.framework */,
-				25702FEF07569E3300D1EE8C /* DVDPlayback.framework */,
-				257D60130753DED700702BD0 /* Scripting.framework */,
-				257D60000753DE7C00702BD0 /* AppKitScripting.framework */,
 				3EB7EC5F065F39AA0002A470 /* Carbon.framework */,
 			);
 			name = "Linked Frameworks";
@@ -491,7 +468,6 @@
 				8D15AC280486D014006FF6A4 /* Headers */,
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
-				3E5302E90684096B00923E9B /* Copy Files */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
 			);
 			buildRules = (
