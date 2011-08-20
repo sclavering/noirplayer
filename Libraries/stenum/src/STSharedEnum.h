@@ -63,17 +63,6 @@
                context:(void *)context;
 
     /*!
-    @method     collectUsingFunction:context:
-     @abstract   Returns a collection with whose respective contents are the results of the collectingFunction applied to the orignal contents
-     @discussion (comprehensive description)
-     @param      collectingFunction read more at @link //apple_ref/c/tdef/STCollectFunction STCollectFunction @/link
-     @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
-     */
-
--(id)collectUsingFunction:(STCollectFunction)collectingFunction 
-                  context:(void *)context;
-
-    /*!
     @method     selectUsingFunction:context:
      @abstract   Selects all objects in which the selectingFunction returns true.
      @discussion (comprehensive description)

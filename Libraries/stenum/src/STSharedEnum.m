@@ -52,17 +52,6 @@
     }
 }
 
--(id)collectUsingFunction:(STCollectFunction)collectionFunction context:(void *)context{
-    id tempCollection = [self _STEmptyMutableCollection];
-    
-    NSEnumerator *enumerator = [self _STEnumerator];
-    id each;
-    while (each = [enumerator nextObject]) {
-        [self _STAdd:collectionFunction([self _STObjectForObject:each], context) toCollection:tempCollection originalObject:each];
-    }
-    return [self _STReturnMeFromCollection:tempCollection];
-}
-
 -(id)selectUsingFunction:(STSelectFunction)selectingFunction context:(void *)context{
     id tempCollection = [self _STEmptyMutableCollection];
     

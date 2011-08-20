@@ -87,22 +87,6 @@
 typedef void (*STDoFunction)(id, void *,BOOL *);
 
 /*!
-@typedef STCollectFunction
- @abstract   Function pointer for collectUsingFunction:context:
- @discussion Example Declaration:
- <pre>
- @textblock
- id aCollectFunction(id each, void* aContext){
-     
- }
- @/textblock
- </pre>
- @param each id (any object) that you are enumerating through
- @param context void* pointer that you can use to pass in extra variables
- @result returns the object that you are replacing each with
- */
-typedef id (*STCollectFunction)(id, void *); 
-/*!
 @typedef STSelectFunction
  @abstract   Function pointer for selectUsingFunction:context:,detectUsingFunction:context:,rejectUsingFunction:context:
  @discussion Example Declaration:
