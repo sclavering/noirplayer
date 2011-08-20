@@ -103,60 +103,44 @@ BOOL selectNiceWindow(id each, void* context){
 
 - (void)sendEvent:(NSEvent *)anEvent
 {
-    // catch first right mouse click, activate app
-    // and hand the event on to the window for further processing
+    // Catch first right mouse click, activate app and hand the event on to the window for further processing
     BOOL done = NO;
     NSPoint locationInWindow;
     NSWindow *theWindow;
     NSView *theView = nil;
-    if (![self isActive]) {
-        //NSLog(@"a: event type: %i", [anEvent type]);
+    if(![self isActive]) {
         // we do NOT get an NSRightMouseDown event
-        if(([anEvent type] == NSRightMouseUp) || ([anEvent type] == NSMouseMoved)){
+        if([anEvent type] == NSRightMouseUp || [anEvent type] == NSMouseMoved) {
             // there seems to be no window assigned with this event at the moment;
             // but just in case ...
-            if ((theWindow = [anEvent window])) {
+            if((theWindow = [anEvent window])) {
                 locationInWindow = [anEvent locationInWindow];
                 theView = [[theWindow contentView] hitTest:locationInWindow];
             } else {
                 // find window
-		NSPoint locationOnScreen = [NSEvent mouseLocation];
-		NSEnumerator *enumerator = [[self orderedWindows] objectEnumerator];
-		while ((theWindow = [enumerator nextObject])) {
-		    if(NSPointInRect(locationOnScreen, [theWindow frame])){
-			locationInWindow = [theWindow convertScreenToBase:locationOnScreen];
-			NSView *contentView = [theWindow contentView];
-			if(contentView){
-			    theView = [contentView hitTest:locationInWindow];
-			    if (theView) {
-				// we found our view
-				//NSLog(@"hit view of class: %@", NSStringFromClass([theView class]));
-				break;
-			    }
-			}
-		    }
-		}
+                NSPoint locationOnScreen = [NSEvent mouseLocation];
+                NSEnumerator *enumerator = [[self orderedWindows] objectEnumerator];
+                while((theWindow = [enumerator nextObject])) {
+                    if(!NSPointInRect(locationOnScreen, [theWindow frame])) continue;
+                    locationInWindow = [theWindow convertScreenToBase:locationOnScreen];
+                    NSView *contentView = [theWindow contentView];
+                    if(!contentView) continue;
+                    theView = [contentView hitTest:locationInWindow];
+                    if(theView) break;
+                }
             }
-            if (theView) {
+            if(theView) {
                 // create new event with useful window, location and event values
                 unsigned int flags = [anEvent modifierFlags];
                 NSTimeInterval timestamp = [anEvent timestamp];
                 int windowNumber = [theWindow windowNumber];
                 NSGraphicsContext *context = [anEvent context];
-                // original event is not a mouse down event so the following values	are missing
+                // original event is not a mouse down event so the following values are missing
                 int eventNumber = 0; // [anEvent eventNumber]
                 int clickCount = 0; // [anEvent clickCount]
                 float pressure = 1.0; // [anEvent pressure]
-                NSEvent *newEvent = [NSEvent mouseEventWithType:[anEvent type]
-                                                       location:locationInWindow
-                                                  modifierFlags:flags
-                                                      timestamp:timestamp
-                                                   windowNumber:windowNumber
-                                                        context:context
-                                                    eventNumber:eventNumber
-                                                     clickCount:clickCount
-                                                       pressure:pressure];
-                if ([theView acceptsFirstMouse:newEvent]) {
+                NSEvent *newEvent = [NSEvent mouseEventWithType:[anEvent type] location:locationInWindow modifierFlags:flags timestamp:timestamp windowNumber:windowNumber context:context eventNumber:eventNumber clickCount:clickCount pressure:pressure];
+                if([theView acceptsFirstMouse:newEvent]) {
                     // activate app and send event to the window
                     //[self activateIgnoringOtherApps:YES];
                     [theWindow sendEvent:newEvent];
