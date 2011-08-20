@@ -360,10 +360,6 @@
 			}
 			break;
 		case NSRightArrowFunctionKey:
-			if([anEvent modifierFlags] & NSAlternateKeyMask){
-				[trueMovieView stepForward];
-				break;
-			}
 			if(![anEvent isARepeat])
 				[self ffStart];
 			else
@@ -372,10 +368,6 @@
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
                 [trueMovieView setCurrentMovieTime:0];
-				break;
-			}
-			if([anEvent modifierFlags] & NSAlternateKeyMask){
-				[trueMovieView stepBackward];
 				break;
 			}
 			if(![anEvent isARepeat])

@@ -90,9 +90,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
 -(void)rrDo:(int)seconds;
 -(void)rrEnd;
 
--(void)stepBackward;
--(void)stepForward;
-
 -(BOOL)hasEnded:(id)sender;
 
 -(double)totalTime;

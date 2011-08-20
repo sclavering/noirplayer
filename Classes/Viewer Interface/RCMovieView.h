@@ -81,7 +81,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)setCurrentMovieTimePrecise:(long)newMovieTime;
 -(long)currentMovieTimeScale;
 -(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;
--(void)stepFrameInDirection:(int)aDirection;
 
 -(NSMenu*)audioTrackMenu;
 

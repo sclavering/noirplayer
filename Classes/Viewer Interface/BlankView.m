@@ -95,9 +95,6 @@
 -(void)rrDo:(int)seconds{}
 -(void)rrEnd{}
 
--(void)stepBackward{}
--(void)stepForward{}
-
 -(BOOL)hasEnded:(id)sender{return NO;}
 
 -(double)totalTime{ return 0.0;}

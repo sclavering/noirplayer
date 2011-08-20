@@ -270,29 +270,6 @@
     oldPlayState = STATE_INACTIVE;
 }
 
-/* For QuickTime, a positive value is forward, a negative value is backward. */
--(void)stepBackward
-{
-    [self stepFrameInDirection:-1];
-}
-
--(void)stepForward
-{
-    [self stepFrameInDirection:1];
-}
-
--(void)stepFrameInDirection:(int)aDirection
-{
-    OSType myTypes[1];
-    Movie tempMovie = [film quickTimeMovie];
-    TimeRecord tempRecord;
-    TimeValue newTime;
-    TimeValue tempTime = GetMovieTime(tempMovie, &tempRecord);
-    myTypes[0] =VisualMediaCharacteristic;      // we want video samples
-    GetMovieNextInterestingTime(tempMovie, nextTimeStep, 1, myTypes, tempTime, aDirection, &newTime, nil);
-    SetMovieTimeValue(tempMovie, newTime);
-}
-
 -(BOOL)hasEnded:(id)sender
 {
     Movie tempMovie = [film quickTimeMovie];
