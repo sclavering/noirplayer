@@ -48,7 +48,6 @@
 
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;
--(void)clearTrueMovieView;
 @end
 
 @implementation NPMovieView
@@ -98,14 +97,8 @@
 		trackingRect = [self addTrackingRect:[self bounds] owner:window userData:nil assumeInside:NO];
 }
 
--(void)clearTrueMovieView
-{
-}
-
 -(void)close
 {
-	//NSLog(@"Close MovieView");
-	[self clearTrueMovieView];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self unregisterDraggedTypes];
 }
@@ -121,7 +114,6 @@
 
 -(BOOL)openURL:(NSURL *)url
 {
-    [self clearTrueMovieView];
     if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
 
@@ -176,7 +168,6 @@
     }
     @catch(NSException *exception) {
         didOpen = NO;
-        [self clearTrueMovieView];
         trueMovieView = [[BlankView alloc] initWithFrame:subview];
         [self addSubview:trueMovieView];
     }
