@@ -35,17 +35,10 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-//
-//  NSArray-STEnumAdditions.m
-//  STEnum
-//
-//  Created by James Tuley on Tue Jun 15 2004.
-//  Copyright (c) 2004-2005 James Tuley. All rights reserved.
-//
+#import "ArrayExtras.h"
 
-#import "STEnum.h"
 
-@implementation  NSArray (STNonSharedCollectionAdditions)
+@implementation  NSArray (ArrayExtras)
 
 -(id)firstObject{
     return [self count] > 0 ? [self objectAtIndex:0] : nil;
@@ -64,7 +57,7 @@
     id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
     NSEnumerator *enumerator = [self objectEnumerator];
     id each;
-    while(each = [enumerator nextObject]) {
+    while((each = [enumerator nextObject])) {
         if(!selectingFunction(each, context)) continue;
         [tempCollection addObject: each];
     }
@@ -75,7 +68,7 @@
     id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
     NSEnumerator *enumerator = [self objectEnumerator];
     id each;
-    while(each = [enumerator nextObject]) {
+    while((each = [enumerator nextObject])) {
         if(rejectingFunction(each, context)) continue;
         [tempCollection addObject:each];
     }
@@ -86,7 +79,7 @@
     id returnObject = nil;
     NSEnumerator *enumerator = [self objectEnumerator];
     id each;
-    while (each = [enumerator nextObject]) {
+    while((each = [enumerator nextObject])) {
         if(!detectingFunction(each, context)) continue;
         returnObject = each;
         break;

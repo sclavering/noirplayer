@@ -49,7 +49,7 @@
 #import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "NiceDocument.h"
-#import <STEnum/STEnum.h>
+#import "ArrayExtras.h"
 #import "Viewer Interface/RCMovieView.h"
 
 id controller;

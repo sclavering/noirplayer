@@ -47,7 +47,7 @@
 #import "NiceUtilities.h"
 #import "NiceWindow/NiceWindowController.h"
 #import "ControlPlay.h"
-#import <STEnum/STEnum.h>
+#import "ArrayExtras.h"
 
 #define VOLUME_ITEM -43
 

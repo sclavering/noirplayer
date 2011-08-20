@@ -92,8 +92,6 @@
 		6977CD6D0CE3F65A00B4EBB6 /* NPScalingButtonCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 6977CD6B0CE3F65A00B4EBB6 /* NPScalingButtonCell.h */; };
 		6977CD6E0CE3F65A00B4EBB6 /* NPScalingButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977CD6C0CE3F65A00B4EBB6 /* NPScalingButtonCell.m */; };
 		699464630CCC4D3800CE0AD3 /* gvi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 699464620CCC4D3800CE0AD3 /* gvi.icns */; };
-		69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
-		69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 69B11BF30E581343005B3775 /* STEnum.framework */; };
 		69BCF5510B62C4C20000ABEF /* ogg.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69BCF5500B62C4C20000ABEF /* ogg.icns */; };
 		69EFD1BC0B5C8E3400359BF4 /* divx.icns in Resources */ = {isa = PBXBuildFile; fileRef = 69EFD1BB0B5C8E3400359BF4 /* divx.icns */; };
 		8D15AC290486D014006FF6A4 /* NicePlayer_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */; };
@@ -101,24 +99,9 @@
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* NiceDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		AA3952FF13FFEE2B008890EB /* ArrayExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = AA3952FD13FFEE2B008890EB /* ArrayExtras.h */; };
+		AA39530013FFEE2B008890EB /* ArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3952FE13FFEE2B008890EB /* ArrayExtras.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		69B11BF20E581343005B3775 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3EEF53BC0ABA35D4008E80DA;
-			remoteInfo = STEnum;
-		};
-		69B11C3B0E58161A005B3775 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3EBAD61C08006A950040D4A3;
-			remoteInfo = STEnum;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		3E5302E90684096B00923E9B /* Copy Files */ = {
@@ -127,7 +110,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				69B11BF50E581372005B3775 /* STEnum.framework in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,11 +210,12 @@
 		6977CD6B0CE3F65A00B4EBB6 /* NPScalingButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPScalingButtonCell.h; path = "Classes/Overlay Widgets/NPScalingButtonCell.h"; sourceTree = "<group>"; };
 		6977CD6C0CE3F65A00B4EBB6 /* NPScalingButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPScalingButtonCell.m; path = "Classes/Overlay Widgets/NPScalingButtonCell.m"; sourceTree = "<group>"; };
 		699464620CCC4D3800CE0AD3 /* gvi.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = gvi.icns; sourceTree = "<group>"; };
-		69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = STEnum10.4.xcodeproj; path = Libraries/stenum/STEnum10.4.xcodeproj; sourceTree = "<group>"; };
 		69BCF5500B62C4C20000ABEF /* ogg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = ogg.icns; sourceTree = "<group>"; };
 		69EFD1BB0B5C8E3400359BF4 /* divx.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = divx.icns; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* NicePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NicePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA3952FD13FFEE2B008890EB /* ArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ArrayExtras.h; path = "Other Sources/ArrayExtras.h"; sourceTree = "<group>"; };
+		AA3952FE13FFEE2B008890EB /* ArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ArrayExtras.m; path = "Other Sources/ArrayExtras.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +223,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69B11BF40E58135A005B3775 /* STEnum.framework in Frameworks */,
 				2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */,
 				3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */,
 				257D60020753DE7C00702BD0 /* AppKitScripting.framework in Frameworks */,
@@ -380,20 +362,11 @@
 			name = "Overlay Widgets";
 			sourceTree = "<group>";
 		};
-		25C5C1E208D4B7F300987A95 /* Other Projects */ = {
-			isa = PBXGroup;
-			children = (
-				69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */,
-			);
-			name = "Other Projects";
-			sourceTree = "<group>";
-		};
 		2A37F4AAFDCFA73011CA2CEA /* NicePlayer */ = {
 			isa = PBXGroup;
 			children = (
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
-				25C5C1E208D4B7F300987A95 /* Other Projects */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
@@ -415,8 +388,10 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				3EEB7DB7076B754F0090E740 /* NiceUtilities.h */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				AA3952FD13FFEE2B008890EB /* ArrayExtras.h */,
+				AA3952FE13FFEE2B008890EB /* ArrayExtras.m */,
+				3EEB7DB7076B754F0090E740 /* NiceUtilities.h */,
 				3EEB7DB8076B754F0090E740 /* NiceUtilities.m */,
 				32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */,
 			);
@@ -471,14 +446,6 @@
 			path = Resources/doc_icons;
 			sourceTree = "<group>";
 		};
-		69B11BEC0E581343005B3775 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				69B11BF30E581343005B3775 /* STEnum.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -510,6 +477,7 @@
 				692CF88F0CC2F78000DF2159 /* BlankView.h in Headers */,
 				6977CC670CE3DF8B00B4EBB6 /* NPScalingButton.h in Headers */,
 				6977CD6D0CE3F65A00B4EBB6 /* NPScalingButtonCell.h in Headers */,
+				AA3952FF13FFEE2B008890EB /* ArrayExtras.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,7 +497,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				69B11C3C0E58161A005B3775 /* PBXTargetDependency */,
 			);
 			name = NicePlayer;
 			productInstallPath = "$(HOME)/Applications";
@@ -559,28 +526,12 @@
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* NicePlayer */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 69B11BEC0E581343005B3775 /* Products */;
-					ProjectRef = 69B11BEB0E581343005B3775 /* STEnum10.4.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* NicePlayer */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		69B11BF30E581343005B3775 /* STEnum.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = STEnum.framework;
-			remoteRef = 69B11BF20E581343005B3775 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
@@ -659,18 +610,11 @@
 				692CF8900CC2F78200DF2159 /* BlankView.m in Sources */,
 				6977CD5A0CE3F63000B4EBB6 /* NPScalingButton.m in Sources */,
 				6977CD6E0CE3F65A00B4EBB6 /* NPScalingButtonCell.m in Sources */,
+				AA39530013FFEE2B008890EB /* ArrayExtras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		69B11C3C0E58161A005B3775 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = STEnum;
-			targetProxy = 69B11C3B0E58161A005B3775 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {

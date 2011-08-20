@@ -46,7 +46,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NiceUtilities.h"
-#import <STEnum/STEnum.h>
+#import "ArrayExtras.h"
 
 NSInteger urlSort(id url1, id url2, void *context){
     NSString* v1 = [[url1 path] lastPathComponent];

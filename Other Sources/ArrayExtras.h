@@ -89,7 +89,7 @@ typedef BOOL (*STSelectFunction)(id, void *);
 
 
 
-@interface NSArray (STNonSharedCollectionAdditions)
+@interface NSArray (ArrayExtras)
 
 /*!
  @method     firstObject

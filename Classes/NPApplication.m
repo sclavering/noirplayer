@@ -48,7 +48,7 @@
 
 #import "NPApplication.h"
 #import "NiceUtilities.h"
-#import <STEnum/STEnum.h>
+#import "ArrayExtras.h"
 
 
 BOOL selectNiceWindow(id each, void* context){
