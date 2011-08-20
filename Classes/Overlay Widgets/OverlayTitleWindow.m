@@ -42,19 +42,13 @@
 @implementation OverlayTitleWindow:OverlayWindow
 
 
--(id)initWithContentRect:(NSRect)contentRect styleMask:(unsigned int)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+-(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
-    
-    if((self = [super initWithContentRect:contentRect
-							   styleMask:NSBorderlessWindowMask
-								 backing:NSBackingStoreBuffered
-								   defer:YES])){
+    if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])) {
 		[self setBackgroundColor: [NSColor clearColor]];
 		[self setOpaque:NO];
 	}
     return self;
 }
-
-
 
 @end
