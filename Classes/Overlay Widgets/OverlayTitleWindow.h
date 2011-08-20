@@ -40,8 +40,6 @@
 #import "OverlayWindow.h"
 
 @interface OverlayTitleWindow : OverlayWindow {
-    IBOutlet id theNiceWindow;
-
 }
 
 @end
