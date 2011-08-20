@@ -1,12 +1,3 @@
-//
-//  NiceWindowController.h
-//  NicePlayer
-//
-//  Created by James Tuley on 4/9/05.
-//  Copyright 2005 __MyCompanyName__. All rights reserved.
-//
-
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *

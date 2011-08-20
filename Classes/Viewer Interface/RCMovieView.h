@@ -1,12 +1,3 @@
-//
-//  RCMovieView.h
-//  NicePlayer
-//
-//  Created by Robert Chin on 5/10/05.
-//  Copyright 2005 __MyCompanyName__. All rights reserved.
-//
-
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *

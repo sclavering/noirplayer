@@ -1,11 +1,3 @@
-//
-//  TitleBackgroundView.m
-//  NicePlayer
-//
-//  Created by James Tuley on 1/10/07.
-//  Copyright 2007 __MyCompanyName__. All rights reserved.
-//
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *
@@ -23,7 +15,7 @@
 *
 * The Initial Developer of the Original Code is
 * James Tuley & Robert Chin.
-* Portions created by the Initial Developer are Copyright (C) 2004-2005
+* Portions created by the Initial Developer are Copyright (C) 2007
 * the Initial Developer. All Rights Reserved.
 *
 * Contributor(s):

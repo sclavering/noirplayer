@@ -1,11 +1,3 @@
-//
-//  main.m
-//  NicePlayer
-//
-//  Created by James Tuley on Wed May 19 2004.
-//  Copyright (c) 2004 __MyCompanyName__. All rights reserved.
-//
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *
