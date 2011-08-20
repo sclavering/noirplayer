@@ -46,5 +46,3 @@
 
 #import <STEnum/Defines.h>
 #import <STEnum/NSArray-STEnumAdditions.h>
-#import <STEnum/NSDictionary-STEnumAdditions.h>
-#import <STEnum/NSSet-STEnumAdditions.h>

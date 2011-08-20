@@ -9,15 +9,11 @@
 /* Begin PBXBuildFile section */
 		3EBAD61E08006A950040D4A3 /* STEnum_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32DBCF5E0370ADEE00C91783 /* STEnum_Prefix.pch */; };
 		3EBAD61F08006A950040D4A3 /* NSArray-STEnumAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECA9DFB07FF284D008C70BA /* NSArray-STEnumAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3EBAD62008006A950040D4A3 /* NSDictionary-STEnumAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECA9DFD07FF284D008C70BA /* NSDictionary-STEnumAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3EBAD62108006A950040D4A3 /* NSSet-STEnumAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECA9DFF07FF284D008C70BA /* NSSet-STEnumAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EBAD62208006A950040D4A3 /* STEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECAA48407FF61D5008C70BA /* STEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EBAD62308006A950040D4A3 /* Defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 3ECAA48807FF61ED008C70BA /* Defines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EBAD62408006A950040D4A3 /* STSharedEnum.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E5A6D5207FF878600B21217 /* STSharedEnum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3EBAD62A08006A950040D4A3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		3EBAD62C08006A950040D4A3 /* NSArray-STEnumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECA9DFC07FF284D008C70BA /* NSArray-STEnumAdditions.m */; };
-		3EBAD62D08006A950040D4A3 /* NSDictionary-STEnumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECA9DFE07FF284D008C70BA /* NSDictionary-STEnumAdditions.m */; };
-		3EBAD62E08006A950040D4A3 /* NSSet-STEnumAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECA9E0007FF284D008C70BA /* NSSet-STEnumAdditions.m */; };
 		3EBAD63408006A950040D4A3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,10 +28,6 @@
 		3E5A6D5307FF878600B21217 /* STSharedEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSharedEnum.m; sourceTree = "<group>"; };
 		3ECA9DFB07FF284D008C70BA /* NSArray-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-STEnumAdditions.h"; sourceTree = "<group>"; };
 		3ECA9DFC07FF284D008C70BA /* NSArray-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9DFD07FF284D008C70BA /* NSDictionary-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-STEnumAdditions.h"; sourceTree = "<group>"; };
-		3ECA9DFE07FF284D008C70BA /* NSDictionary-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9DFF07FF284D008C70BA /* NSSet-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet-STEnumAdditions.h"; sourceTree = "<group>"; };
-		3ECA9E0007FF284D008C70BA /* NSSet-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet-STEnumAdditions.m"; sourceTree = "<group>"; };
 		3ECAA48407FF61D5008C70BA /* STEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEnum.h; sourceTree = "<group>"; };
 		3ECAA48807FF61ED008C70BA /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		3EEF53BC0ABA35D4008E80DA /* STEnum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STEnum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +91,6 @@
 				3ECAA48407FF61D5008C70BA /* STEnum.h */,
 				3ECA9DFB07FF284D008C70BA /* NSArray-STEnumAdditions.h */,
 				3ECA9DFC07FF284D008C70BA /* NSArray-STEnumAdditions.m */,
-				3ECA9DFD07FF284D008C70BA /* NSDictionary-STEnumAdditions.h */,
-				3ECA9DFE07FF284D008C70BA /* NSDictionary-STEnumAdditions.m */,
-				3ECA9DFF07FF284D008C70BA /* NSSet-STEnumAdditions.h */,
-				3ECA9E0007FF284D008C70BA /* NSSet-STEnumAdditions.m */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -142,8 +130,6 @@
 			files = (
 				3EBAD61E08006A950040D4A3 /* STEnum_Prefix.pch in Headers */,
 				3EBAD61F08006A950040D4A3 /* NSArray-STEnumAdditions.h in Headers */,
-				3EBAD62008006A950040D4A3 /* NSDictionary-STEnumAdditions.h in Headers */,
-				3EBAD62108006A950040D4A3 /* NSSet-STEnumAdditions.h in Headers */,
 				3EBAD62208006A950040D4A3 /* STEnum.h in Headers */,
 				3EBAD62308006A950040D4A3 /* Defines.h in Headers */,
 				3EBAD62408006A950040D4A3 /* STSharedEnum.h in Headers */,
@@ -214,8 +200,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EBAD62C08006A950040D4A3 /* NSArray-STEnumAdditions.m in Sources */,
-				3EBAD62D08006A950040D4A3 /* NSDictionary-STEnumAdditions.m in Sources */,
-				3EBAD62E08006A950040D4A3 /* NSSet-STEnumAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
