@@ -40,56 +40,58 @@
 //  STEnum
 //
 //  Created by James Tuley on Tue Jun 15 2004.
-//  Copyright (c) 2004 James Tuley. All rights reserved.
+//  Copyright (c) 2004-2005 James Tuley. All rights reserved.
 //
 
-#import "NSArray-STEnumAdditions.h"
+#import "STEnum.h"
 
 @implementation  NSArray (STNonSharedCollectionAdditions)
 
 -(id)firstObject{
-    if([self count] > 0)
-        return [self objectAtIndex:0];
-    else
-        return nil;
+    return [self count] > 0 ? [self objectAtIndex:0] : nil;
 }
 
-@end
-
-@interface  NSArray(STPrivateAdditions)
--(id)_STEmptyMutableCollection;
--(id)_STObjectForObject:(id)anObject;
--(void)_STAdd:(id)anObject toCollection:(id)aCollection originalObject:anOriginalObject;
--(id)_STReturnMeFromCollection:(id)aCollection;
--(NSEnumerator*)_STEnumerator;
-@end
-
-@implementation  NSArray(STPrivateAdditions)
-
--(NSEnumerator*)_STEnumerator{
-    return [self objectEnumerator];
+-(void)doUsingFunction:(STDoFunction)actionFunction context:(void *)context{
+    NSEnumerator *enumerator = [self objectEnumerator];
+    id each;
+    BOOL tBreak = NO;
+    while((each = [enumerator nextObject]) && !tBreak) {
+        actionFunction(each, context, &tBreak);
+    }
 }
 
--(id)_STEmptyMutableCollection{
-    return [NSMutableArray arrayWithCapacity:[self count]];
+-(id)selectUsingFunction:(STSelectFunction)selectingFunction context:(void *)context{
+    id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
+    NSEnumerator *enumerator = [self objectEnumerator];
+    id each;
+    while(each = [enumerator nextObject]) {
+        if(!selectingFunction(each, context)) continue;
+        [tempCollection addObject: each];
+    }
+    return [[self classForCoder] arrayWithArray:tempCollection];
 }
 
--(id)_STObjectForObject:(id)anObject{
-    return anObject;
+-(id)rejectUsingFunction:(STSelectFunction)rejectingFunction context:(void *)context{
+    id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
+    NSEnumerator *enumerator = [self objectEnumerator];
+    id each;
+    while(each = [enumerator nextObject]) {
+        if(rejectingFunction(each, context)) continue;
+        [tempCollection addObject:each];
+    }
+    return [[self classForCoder] arrayWithArray:tempCollection];
 }
 
--(void)_STAdd:(id)anObject toCollection:(id)aCollection originalObject:anOriginalObject{
-    [aCollection addObject:anObject];
+-(id)detectUsingFunction:(STSelectFunction)detectingFunction context:(void *)context{
+    id returnObject = nil;
+    NSEnumerator *enumerator = [self objectEnumerator];
+    id each;
+    while (each = [enumerator nextObject]) {
+        if(!detectingFunction(each, context)) continue;
+        returnObject = each;
+        break;
+    }
+    return [[returnObject retain] autorelease];
 }
-
--(id)_STReturnMeFromCollection:(id)aCollection{
-    return [[self classForCoder] arrayWithArray: aCollection];
-}
-
-@end
-
-@implementation  NSArray(STSharedCollectionAdditions)
-
-#include "STSharedEnum.m"
 
 @end
