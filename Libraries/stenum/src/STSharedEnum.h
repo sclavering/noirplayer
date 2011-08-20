@@ -52,14 +52,6 @@
 
  */
 
-/*!
-@method  isEmpty   
- @abstract   Determines if the the collection is empty.
- @discussion This is much more readable that checking if count is equal to zero.
- */
-
--(BOOL)isEmpty;
-
     /*!
     @method     doUsingFunction:context:
      @abstract   Runs the doFunction on very element in the collection in enumeration order.

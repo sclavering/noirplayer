@@ -43,12 +43,6 @@
 //  Copyright 2005 James Tuley. All rights reserved.
 //
 
-//This file is included in all the STEnumAdditions.m,
-
--(BOOL)isEmpty{
-    return([self count] ==0);
-}
-
 -(void)doUsingFunction:(STDoFunction)actionFunction context:(void *)context{
     NSEnumerator *enumerator = [self _STEnumerator];
     id each;
