@@ -171,11 +171,7 @@ void findSpace(id each, void* context, BOOL* endthis)
     return YES;
 }
 
-/**
-* Try to load a URL.
- * TODO: Actually check for errors.
- */
--(void)loadURL:(NSURL *)url firstTime:(BOOL)isFirst
+-(void)loadURL:(NSURL *)url
 {
     [self readFromURL:url ofType:nil];
 
@@ -184,11 +180,7 @@ void findSpace(id each, void* context, BOOL* endthis)
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
         [theWindow restoreVolume];
         [self calculateAspectRatio];
-        if(isFirst) {
-            [theWindow initialDefaultSize];
-        } else {
-            [theWindow resizeToAspectRatio];
-        }
+        [theWindow initialDefaultSize];
         [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
         [theWindow setTitle:[theWindow title]];
         [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];

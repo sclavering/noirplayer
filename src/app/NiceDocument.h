@@ -60,7 +60,7 @@
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 -(BOOL)readFromFile:(NSString *)fileName ofType:(NSString *)docType;
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType;
--(void)loadURL:(NSURL *)url firstTime:(BOOL)isFirst;
+-(void)loadURL:(NSURL *)url;
 
 #pragma mark Window Information
 

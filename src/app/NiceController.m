@@ -153,7 +153,7 @@ BOOL detectIsPlaying(id each, void* context){
         NSError* tError = nil;
         id tempURL = [files objectAtIndex:i];
         id tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-        [tempDoc loadURL:tempURL firstTime:YES];
+        [tempDoc loadURL:tempURL];
         if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
 		if(!tError) continue;
         [NSApp presentError:tError];
