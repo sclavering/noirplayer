@@ -178,39 +178,29 @@ void findSpace(id each, void* context, BOOL* endthis)
 -(void)loadURL:(NSURL *)url firstTime:(BOOL)isFirst
 {
     [self readFromURL:url ofType:nil];
-    [self finalOpenURLFirstTime:isFirst];
+
+    if([theMovieView openURL:theCurrentURL]) {
+        hasRealMovie = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+        [theWindow restoreVolume];
+        [self calculateAspectRatio];
+        if(isFirst) {
+            [theWindow initialDefaultSize];
+        } else {
+            [theWindow resizeToAspectRatio];
+        }
+        [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
+        [theWindow setTitle:[theWindow title]];
+        [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
+        [NSApp updateWindowsItem:theWindow];
+    } else {
+        hasRealMovie = NO;
+    }
+
     [self updateAfterLoad];
 }
 
-/**
-* Try to open a URL. If it fails, load a blank window image. If it succeeds, set up the proper aspect ratio,
- * and title information.
- */
--(BOOL)finalOpenURLFirstTime:(BOOL)isFirst
-{   
-    /* Try to load the movie */
-    if(![theMovieView openURL:theCurrentURL]){
-        hasRealMovie = NO;
-        return NO;
-    }
-    hasRealMovie = YES;
-    
-    /* Initialize the window stuff for movie playback. */
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [theWindow restoreVolume];
-    [self calculateAspectRatio];
-    if(isFirst)
-        [theWindow initialDefaultSize];
-    else
-        [theWindow resizeToAspectRatio];
-    [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
-    [theWindow setTitle:[theWindow title]];
-    [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
-    [NSApp updateWindowsItem:theWindow];
-    
-    return YES;
-}
-
+#pragma mark -
 #pragma mark Window Information
 
 -(BOOL)isActive
