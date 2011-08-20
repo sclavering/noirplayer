@@ -76,19 +76,19 @@ BOOL findOpenPoint(id eachwin, void* context){
     return NSIntersectsRect(tWinRect,tNewRect) || !NSContainsRect(tSubScreenRect,tNewRect);
 }
 
-void findSpace(id each, void* context, BOOL* endthis){
+void findSpace(id each, void* context, BOOL* endthis)
+{
     NSMutableDictionary* tContext =(NSMutableDictionary*) context;
     NSRect tSubScreenRect = [each visibleFrame];
     [tContext setObject:[NSValue valueWithRect:tSubScreenRect] forKey:@"tSubScreenRect"];
     NiceDocument* tSelf = [tContext objectForKey:@"self"];
-
-    
     for(float j = tSubScreenRect.origin.y + tSubScreenRect.size.height - [[tSelf window] frame].size.height; j >= tSubScreenRect.origin.y; j -= [[tSelf window] frame].size.height){
         for(float i = tSubScreenRect.origin.x; i < tSubScreenRect.origin.x + tSubScreenRect.size.width; i+= [[tSelf window] frame].size.width){
             NSValue* tPoint= [NSValue valueWithPoint:NSMakePoint(i,j)];
             [tContext setObject:tPoint forKey:@"tPoint"];
             if(nil == [[tContext objectForKey:@"tMovieWindows"] detectUsingFunction:findOpenPoint context:(void*)tContext]){
-                STDoBreak(endthis);
+                *endthis = YES;
+                return;
             }
             tPoint = nil;
         }

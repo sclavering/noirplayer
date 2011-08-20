@@ -38,21 +38,6 @@
 #import <Foundation/Foundation.h>
 
 /*!
- @defined STDoBreak
- @abstract   Used to immediately end doUsingFunction:context: loop
- @param      aBreakBOOLPtr the DoFunctions bool ptr argument
- @discussion Example Declaration:
- <pre>
- @textblock
- void aDoFunction(id each, void* aContext,BOOL* aBreak){
- STDoBreak(aBreak);
- }
- @/textblock
- </pre>
- */
-#define STDoBreak(aBreakBOOLPtr) (*aBreakBOOLPtr = YES); return
-
-/*!
  @typedef STDoFunction
  @abstract   Function pointer for doUsingFunction:context:
  @discussion Example Declaration:
