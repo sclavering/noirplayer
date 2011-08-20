@@ -37,7 +37,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import <Cocoa/Cocoa.h>
-#import "../NiceWindow/NiceWindow.h"
 
 @interface OverlayWindow : NSWindow
 {
