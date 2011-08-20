@@ -43,7 +43,6 @@
     NSImage* left;
     NSImage* right;
     NSImage* center;
-    NSImage* scrubClick;
     NSImage* scrub;
     double value;
 	double loaded;
@@ -57,5 +56,7 @@
 -(void)setLoadedValue:(double)aValue;
 -(double)doubleValue;
 -(void)setDoubleValue:(double)aValue;
+
+-(void)_doUpdate:(NSEvent*)ev;
 
 @end

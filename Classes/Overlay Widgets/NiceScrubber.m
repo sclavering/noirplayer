@@ -46,17 +46,10 @@
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code here.
-		
-      //  left = [[NSImage imageNamed:@"scrubbar_left"]retain];
-//		right = [[NSImage imageNamed:@"scrubbar_right"]retain];
-//		center = [[NSImage imageNamed:@"scrubbar_center"]retain];
-		
-		scrubClick = [[NSImage imageNamed:@"scrubberClick"]retain];
+    if(self) {
 		scrub = [[NSImage imageNamed:@"scrubber"] retain];
-		value=0.0;
-		loaded=1.0;
+		value = 0.0;
+		loaded = 1.0;
 		target = nil;
 		action = NULL;
 		dragging = NO;
@@ -69,7 +62,6 @@
     [left release];
     [right release];
     [center release];
-    [scrubClick release];
     [scrub release];
     [target release];
     [super dealloc];
@@ -77,77 +69,34 @@
 
 - (void)drawRect:(NSRect)rect
 {
-    /* I think it looks better without the pressed state -- the entire area is draggable anyway, and you can
-	click at any point and continue dragging and the entire thing will drag at that point anyway. */
-    id tempImage = scrub;
-//#if 0
-//    if (dragging)
-//        tempImage = scrubClick;
-//    else 
-//        tempImage = scrub;
-//#endif
-    
-	if([self loadedValue] >= 0){
-		    [self lockFocus];
+    if([self loadedValue] >= 0) {
+        [self lockFocus];
 
-		//[left drawAtPoint:NSMakePoint(0,0) 
-//				 fromRect:NSMakeRect(0, 0,
-//									 [left size].width,
-//									 [left size].height) 
-//				operation:NSCompositeSourceOver
-//				 fraction:1.0];
-//    	
-//		[center drawInRect:NSMakeRect(5,0,
-//									  [self frame].size.width-10,
-//									  [self frame].size.height)
-//				  fromRect:NSMakeRect(0,0,
-//									  [center size].width,
-//									  [center size].height) 
-//				 operation:NSCompositeSourceOver
-//				  fraction:1.0];
-		
-		CGPoint points[2];
-		points[0] = CGPointMake(OFFSET , floor([self frame].size.height / 2.0));
-		points[1] = CGPointMake([self frame].size.width - OFFSET, floor([self frame].size.height / 2.0));
-		
-		points[1].x =(points[1].x - 	points[0].x) * [self loadedValue] + points[0].x;
-		
-		CGContextRef cgRef = [[NSGraphicsContext currentContext] graphicsPort];
-		CGContextSetAllowsAntialiasing(cgRef, NO);
-		CGContextSetGrayStrokeColor(cgRef, 1.0, 1.0);
-		CGContextSetLineWidth(cgRef, 1);
-		CGContextSetLineCap(cgRef, kCGLineCapRound);
-		CGContextStrokeLineSegments(cgRef, points, 2);
-		CGContextSetAllowsAntialiasing(cgRef, YES);
-//		
-//		[right drawAtPoint:NSMakePoint([self frame].size.width-5,0)
-//				  fromRect:NSMakeRect(0,0,
-//									  [right size].width,
-//									  [right size].height) 
-//				 operation:NSCompositeSourceOver
-//				  fraction:1.0];
-    	
-		float scrubWidth = [self frame].size.height;//width and height are equal with scrubber
-		float scrubHeight = [self frame].size.height;
+        CGPoint points[2];
+        points[0] = CGPointMake(OFFSET, floor([self frame].size.height / 2.0));
+        points[1] = CGPointMake([self frame].size.width - OFFSET, floor([self frame].size.height / 2.0));
+        points[1].x = (points[1].x - points[0].x) * [self loadedValue] + points[0].x;
 
-		
-		[[NSGraphicsContext currentContext] saveGraphicsState];
-		[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
-		NSPoint tPoint =NSMakePoint(OFFSET+([self doubleValue]*([self frame].size.width-(OFFSET * 2))),[self frame].size.height/2 );
-		NSRect tScrubRect =NSMakeRect(tPoint.x, tPoint.y, scrubWidth, scrubHeight);
-		[tempImage drawInRect:NSIntegralRect(NSOffsetRect(tScrubRect,- tScrubRect.size.width/2.0,-tScrubRect.size.height/2.0))
-										
-					 
-					 fromRect:NSMakeRect(0,0,
-										  [tempImage size].width,
-										  [tempImage size].height) 
-					 operation:NSCompositeSourceOver
-					  fraction:1.0];
-		[[NSGraphicsContext currentContext] restoreGraphicsState];
+        CGContextRef cgRef = [[NSGraphicsContext currentContext] graphicsPort];
+        CGContextSetAllowsAntialiasing(cgRef, NO);
+        CGContextSetGrayStrokeColor(cgRef, 1.0, 1.0);
+        CGContextSetLineWidth(cgRef, 1);
+        CGContextSetLineCap(cgRef, kCGLineCapRound);
+        CGContextStrokeLineSegments(cgRef, points, 2);
+        CGContextSetAllowsAntialiasing(cgRef, YES);
 
-		[self unlockFocus];
-	}
-    
+        float scrubWidth = [self frame].size.height;
+        float scrubHeight = [self frame].size.height;
+
+        [[NSGraphicsContext currentContext] saveGraphicsState];
+        [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+        NSPoint tPoint = NSMakePoint(OFFSET + ([self doubleValue] * ([self frame].size.width - (OFFSET * 2))), [self frame].size.height / 2);
+        NSRect tScrubRect = NSMakeRect(tPoint.x, tPoint.y, scrubWidth, scrubHeight);
+        [scrub drawInRect:NSIntegralRect(NSOffsetRect(tScrubRect, -tScrubRect.size.width / 2.0, -tScrubRect.size.height / 2.0)) fromRect:NSMakeRect(0, 0, [scrub size].width, [scrub size].height) operation:NSCompositeSourceOver fraction:1.0];
+        [[NSGraphicsContext currentContext] restoreGraphicsState];
+
+        [self unlockFocus];
+    }
 }
 
 -(void)setLoadedValue:(double)aValue
@@ -180,6 +129,7 @@
 {
     return target;
 }
+
 -(void)setAction:(SEL)anAction
 {
     action = anAction;
@@ -190,19 +140,10 @@
     return action;
 }
 
-
 - (void)mouseDragged:(NSEvent *)anEvent
 {
-    float loc =[self convertPoint:[anEvent locationInWindow]fromView:nil].x;
-    
-    if(loc <= OFFSET)
-        [self setDoubleValue:0.0];
-    else if(loc >=OFFSET && loc <= ([self frame].size.width-OFFSET)){
-        [self setDoubleValue: (loc-OFFSET)/([self frame].size.width-(OFFSET * 2))];
-        
-    } else 
-        [self setDoubleValue:1.0];
-    [[self target] performSelector:[self action]withObject:self];
+    [self _doUpdate:anEvent];
+    [[self target] performSelector:[self action] withObject:self];
 }
 
 -(BOOL)inUse
@@ -218,17 +159,21 @@
 
 -(void)mouseDown:(NSEvent *)anEvent
 {
-    dragging =YES;
-    float loc =[self convertPoint:[anEvent locationInWindow]fromView:nil].x;
-	
-    if(loc <= OFFSET)
+    dragging = YES;
+    [self _doUpdate:anEvent];
+    [[self target] performSelector:[self action] withObject:self];
+}
+
+-(void)_doUpdate:(NSEvent*)ev
+{
+    float loc = [self convertPoint:[ev locationInWindow] fromView:nil].x;
+    if(loc <= OFFSET) {
         [self setDoubleValue:0.0];
-    else if(loc >=OFFSET && loc <= ([self frame].size.width-OFFSET)){
-        [self setDoubleValue: (loc-OFFSET)/([self frame].size.width-(OFFSET * 2))];
-		
-    } else 
+    } else if(loc >= OFFSET && loc <= [self frame].size.width - OFFSET) {
+        [self setDoubleValue: (loc - OFFSET) / ([self frame].size.width - OFFSET * 2)];
+    } else {
         [self setDoubleValue:1.0];
-    [[self target] performSelector:[self action]withObject:self];
+    }
 }
 
 @end

@@ -53,7 +53,6 @@
 		3E9E62900661708200B788A8 /* NiceScrubber.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9E628E0661708200B788A8 /* NiceScrubber.h */; };
 		3E9E62910661708200B788A8 /* NiceScrubber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E628F0661708200B788A8 /* NiceScrubber.m */; };
 		3E9E62990661724600B788A8 /* scrubber.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62940661724600B788A8 /* scrubber.png */; };
-		3E9E629A0661724600B788A8 /* scrubberClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62950661724600B788A8 /* scrubberClick.png */; };
 		3E9E629B0661724600B788A8 /* scrubbar_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62960661724600B788A8 /* scrubbar_center.png */; };
 		3E9E629C0661724600B788A8 /* scrubbar_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62970661724600B788A8 /* scrubbar_left.png */; };
 		3E9E629D0661724600B788A8 /* scrubbar_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62980661724600B788A8 /* scrubbar_right.png */; };
@@ -153,7 +152,6 @@
 		3E9E628E0661708200B788A8 /* NiceScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceScrubber.h; path = "Classes/Overlay Widgets/NiceScrubber.h"; sourceTree = "<group>"; };
 		3E9E628F0661708200B788A8 /* NiceScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceScrubber.m; path = "Classes/Overlay Widgets/NiceScrubber.m"; sourceTree = "<group>"; };
 		3E9E62940661724600B788A8 /* scrubber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubber.png; path = Resources/scrubber.png; sourceTree = "<group>"; };
-		3E9E62950661724600B788A8 /* scrubberClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubberClick.png; path = Resources/scrubberClick.png; sourceTree = "<group>"; };
 		3E9E62960661724600B788A8 /* scrubbar_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubbar_center.png; path = Resources/scrubbar_center.png; sourceTree = "<group>"; };
 		3E9E62970661724600B788A8 /* scrubbar_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubbar_left.png; path = Resources/scrubbar_left.png; sourceTree = "<group>"; };
 		3E9E62980661724600B788A8 /* scrubbar_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubbar_right.png; path = Resources/scrubbar_right.png; sourceTree = "<group>"; };
@@ -253,7 +251,6 @@
 				3E9E64800661B95900B788A8 /* pause.png */,
 				3E9E64810661B95900B788A8 /* pauseClick.png */,
 				3E9E62940661724600B788A8 /* scrubber.png */,
-				3E9E62950661724600B788A8 /* scrubberClick.png */,
 				3E9E62960661724600B788A8 /* scrubbar_center.png */,
 				3E9E62970661724600B788A8 /* scrubbar_left.png */,
 				3E9E62980661724600B788A8 /* scrubbar_right.png */,
@@ -512,7 +509,6 @@
 				3E085CBC065C79EE005286A3 /* play.png in Resources */,
 				3EC8C601065DD31F00988449 /* playClick.png in Resources */,
 				3E9E62990661724600B788A8 /* scrubber.png in Resources */,
-				3E9E629A0661724600B788A8 /* scrubberClick.png in Resources */,
 				3E9E629B0661724600B788A8 /* scrubbar_center.png in Resources */,
 				3E9E629C0661724600B788A8 /* scrubbar_left.png in Resources */,
 				3E9E629D0661724600B788A8 /* scrubbar_right.png in Resources */,
