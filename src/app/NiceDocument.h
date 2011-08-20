@@ -36,14 +36,55 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import <AppKit/AppKit.h>
-#import "../NiceController.h"
-#import "../NiceWindow/NiceWindow.h"
 
-@interface BlackWindow : NSWindow {
-    id presentingWindow;
+
+#import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
+#import "NPMovieView.h"
+#import "NiceWindow.h"
+
+@class NiceWindow;
+@class NPMovieView;
+
+@interface NiceDocument : NSDocument
+{
+    IBOutlet NPMovieView *theMovieView;
+    IBOutlet NiceWindow *theWindow;
+    NSURL* theCurrentURL;
+    id movieMenuItem;
+    NSMutableArray *menuObjects;
+    BOOL hasRealMovie;
+    BOOL wasPlayingBeforeMini;	
 }
 
--(void)setPresentingWindow:(id)window;
+-(NSData *)dataRepresentationOfType:(NSString *)aType;
+-(BOOL)readFromFile:(NSString *)fileName ofType:(NSString *)docType;
+-(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType;
+-(void)loadURL:(NSURL *)url firstTime:(BOOL)isFirst;
+
+#pragma mark Window Information
+
+-(BOOL)isActive;
+-(void)windowDidDeminiaturize:(NSNotification *)aNotification;
+-(void)windowControllerDidLoadNib:(NSWindowController *) aController;
+-(void)updateAfterLoad;
+- (void)repositionAfterLoad;
+-(void)movieHasEnded;
+-(NSMenu *)movieMenu;
+-(void)rebuildMenu;
+-(id)window;
+-(NSSize)calculateAspectRatio;
+-(NSMenuItem*)volumeMenu;
+
+#pragma mark Interface
+
+-(IBAction)switchVolume:(NSMenuItem*)sender;
+-(IBAction)mute:(id)sender;
+-(IBAction)increaseVolume:(id)sender;
+-(IBAction)decreaseVolume:(id)sender;
+-(void)play:(id)sender;
+-(void)pause:(id)sender;
+
+-(float)volume;
 
 @end

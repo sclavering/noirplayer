@@ -38,7 +38,7 @@
 
 #import "NiceDocument.h"
 #import "NiceUtilities.h"
-#import "NiceWindow/NiceWindowController.h"
+#import "NiceWindowController.h"
 #import "ControlPlay.h"
 #import "ArrayExtras.h"
 #import "NPApplication.h"

@@ -36,14 +36,12 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-
-
 #import "NiceController.h"
 #import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "NiceDocument.h"
 #import "ArrayExtras.h"
-#import "Viewer Interface/RCMovieView.h"
+#import "RCMovieView.h"
 
 id controller;
 

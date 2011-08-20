@@ -39,8 +39,8 @@
 
 #import <AppKit/AppKit.h>
 #import <Carbon/Carbon.h>
-#import "Overlay Widgets/BlackWindow.h"
-#import "NiceWindow/NiceWindow.h"
+#import "BlackWindow.h"
+#import "NiceWindow.h"
 
 @interface NiceController : NSDocumentController {
     IBOutlet id mainWindowProxy;
