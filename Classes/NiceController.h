@@ -49,13 +49,10 @@
 @interface NiceController : NSDocumentController {
     IBOutlet id mainWindowProxy;
     bool fullScreenMode;
-    bool showingMenubar;
     NSDate* lastCursorMoveDate;
     NSPoint lastMouseLocation;
     NSTimer* mouseMoveTimer;
     id backgroundWindow;
-    id prefWindow;
-    id presentWindow;
     id antiSleepTimer;
     IBOutlet id toggleFixedAspectMenuItem;
 }
@@ -69,6 +66,7 @@
 -(id)mainDocument;
 -(void)changedWindow:(NSNotification *)notification;
 
+#pragma mark -
 #pragma mark Interface
 
 -(IBAction)openDocument:(id)sender;

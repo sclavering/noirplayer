@@ -77,14 +77,12 @@ BOOL detectIsPlaying(id each, void* context){
 {
     lastMouseLocation = NSMakePoint(0,0);
     fullScreenMode =  NO;
-    showingMenubar = NO;
     mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:.2
                                                       target:self
                                                     selector:@selector(checkMouseLocation:)
                                                     userInfo:nil repeats:YES]; // Auto-hides mouse.
     lastCursorMoveDate = [[NSDate alloc] init];
     backgroundWindow = [[BlackWindow alloc] init];
-    presentWindow = nil;
     [NiceController setController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(changedWindow:)
@@ -224,7 +222,6 @@ BOOL detectIsPlaying(id each, void* context){
 -(void)unpresentScreen
 {
     fullScreenMode = NO;
-    showingMenubar = NO;
     SetSystemUIMode(kUIModeNormal, kUIModeNormal);
     [backgroundWindow orderOut:nil];
 }
