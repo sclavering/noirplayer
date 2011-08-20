@@ -58,20 +58,6 @@ BOOL detectIsPlaying(id each, void* context){
     return [each isPlaying];
 }
 
-id makeBackgrounds(id each, void* context){
-    id tBWindow = [[BlackWindow alloc] init];
-    [tBWindow setReleasedWhenClosed:YES];
-    [tBWindow setFrame:[each frame] display:YES];
-    [tBWindow orderBack:nil];
-    return tBWindow;
-}
-
-id swapForWindows(id each, void* context){
-    
-    return [each window];
-    
-}
-
 @implementation NiceController
 
 #pragma mark Class Methods
@@ -98,7 +84,6 @@ id swapForWindows(id each, void* context){
                                                     userInfo:nil repeats:YES]; // Auto-hides mouse.
     lastCursorMoveDate = [[NSDate alloc] init];
     backgroundWindow = [[BlackWindow alloc] init];
-    backgroundWindows = nil;
     presentWindow = nil;
     [NiceController setController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -116,7 +101,6 @@ id swapForWindows(id each, void* context){
     [mouseMoveTimer invalidate];
     [antiSleepTimer invalidate];
     [lastCursorMoveDate release];
-    [backgroundWindows release];
     [super dealloc];
 }
 
@@ -170,12 +154,8 @@ id swapForWindows(id each, void* context){
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void)preventSleep:(id)sender
 {
-
-
-
     if([[NSApp orderedDocuments] detectUsingFunction:detectIsPlaying context:nil])
         UpdateSystemActivity(OverallAct);
-
 }
 
 -(id)mainDocument
@@ -247,10 +227,6 @@ id swapForWindows(id each, void* context){
     showingMenubar = NO;
     SetSystemUIMode(kUIModeNormal, kUIModeNormal);
     [backgroundWindow orderOut:nil];
-
-    [backgroundWindows makeObjectsPerformSelector:@selector(close)];
-    [backgroundWindows release];
-    backgroundWindows = nil;
 }
 
 -(void)enterFullScreen
