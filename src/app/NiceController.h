@@ -57,7 +57,6 @@
 +(void)setController:(id)aNiceController;
 
 -(id)mainWindowProxy;
--(void)openURLs:(NSArray *)files;
 -(void)checkMouseLocation:(id)sender;
 -(id)mainDocument;
 -(void)changedWindow:(NSNotification *)notification;

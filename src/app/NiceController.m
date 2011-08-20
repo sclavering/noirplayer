@@ -106,21 +106,6 @@ BOOL detectIsPlaying(id each, void* context){
     return [super runModalOpenPanel:openPanel forTypes:[RCMovieView supportedFileExtensions]];
 }
 
--(void)openURLs:(NSArray *)files
-{
-    for(unsigned i = 0; i < [files count]; i++) {
-		NSError* tError = nil;
-        id tempURL = [files objectAtIndex:i];
-        id tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-        [tempDoc loadURL:tempURL firstTime:YES];
-        if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
-		if (tError) {
-			[NSApp presentError:tError];
-			return;
-		}
-    }
-}
-
 -(void)checkMouseLocation:(id)sender
 {
     NSRect tempRect =[[[NSScreen screens] objectAtIndex:0] frame];
@@ -163,7 +148,17 @@ BOOL detectIsPlaying(id each, void* context){
 
 -(IBAction)openDocument:(id)sender
 {
-    [self openURLs: [self URLsFromRunningOpenPanel]];
+    NSArray *files = [self URLsFromRunningOpenPanel];
+    for(unsigned i = 0; i < [files count]; i++) {
+        NSError* tError = nil;
+        id tempURL = [files objectAtIndex:i];
+        id tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
+        [tempDoc loadURL:tempURL firstTime:YES];
+        if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
+		if(!tError) continue;
+        [NSApp presentError:tError];
+        return;
+    }
 }
 
 -(IBAction)newDocument:(id)sender
