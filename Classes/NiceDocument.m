@@ -145,20 +145,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     [super dealloc];
 }
 
-- (id)initWithContentsOfFile:(NSString *)fileName ofType:(NSString *)docType
-{
-    if((self = [super initWithContentsOfFile:fileName ofType:docType])){
-    }
-    return self;
-}
-
-- (id)initWithContentsOfURL:(NSURL *)aURL ofType:(NSString *)docType
-{
-    if((self = [super initWithContentsOfFile:[aURL absoluteString] ofType:docType])){
-    }
-    return self;
-}
-
 #pragma mark -
 #pragma mark File Operations
 
