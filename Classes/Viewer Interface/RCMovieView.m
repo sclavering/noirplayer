@@ -67,27 +67,33 @@
 /* Forward all drag events to the window itself. */
 -(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
-	return [[self window] draggingEntered:sender];
+	return [[self _windowDrag] draggingEntered:sender];
 }
 
 -(NSDragOperation)draggingUpdated:(id)sender
 {
-	return [[self window] draggingUpdated:sender];
+	return [[self _windowDrag] draggingUpdated:sender];
 }
 
 -(BOOL)prepareForDragOperation:(id)sender
 {
-	return [[self window] prepareForDragOperation:sender];
+	return [[self _windowDrag] prepareForDragOperation:sender];
 }
 
 -(BOOL)performDragOperation:(id <NSDraggingInfo>)sender
 {
-	return [[self window] performDragOperation:sender];
+	return [[self _windowDrag] performDragOperation:sender];
 }
 
 -(void)concludeDragOperation:(id <NSDraggingInfo>)sender
 {
-	[[self window] concludeDragOperation:sender];
+	[[self _windowDrag] concludeDragOperation:sender];
+}
+
+-(id<NSDraggingDestination>)_windowDrag
+{
+    // We know our window is a NiceWindow, which implements the protocol
+    return (id<NSDraggingDestination>) [self window];
 }
 
 -(BOOL)openURL:(NSURL *)url

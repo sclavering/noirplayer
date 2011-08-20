@@ -71,6 +71,8 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(BOOL)performDragOperation:(id <NSDraggingInfo>)sender;
 -(void)concludeDragOperation:(id <NSDraggingInfo>)sender;
 
+-(id<NSDraggingDestination>)_windowDrag;
+
 -(void)ffStart:(int)seconds;
 -(void)ffEnd;
 -(void)rrStart:(int)seconds;
