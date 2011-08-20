@@ -162,24 +162,7 @@
 
 -(NSSize)naturalSize
 {
-    Rect aRect;
-    GetMovieNaturalBoundsRect([film quickTimeMovie], &aRect);
-    NSSize tSize = NSMakeSize((float)(aRect.right - aRect.left), (float)(aRect.bottom - aRect.top));
-    SampleDescriptionHandle anImageDesc = NULL;
-    @try {
-        NSArray* tArray = [film tracksOfMediaType:QTMediaTypeVideo];
-        QTTrack* tTrack = [tArray count] > 0 ? [tArray objectAtIndex:0] : nil;
-        if(tTrack) {
-            anImageDesc = (SampleDescriptionHandle)NewHandle(sizeof(SampleDescription));
-            GetMediaSampleDescription([[tTrack media] quickTimeMedia], 1, anImageDesc);
-        }
-    }
-    @catch(NSException *exception) {
-    }
-    @finally{
-        if(anImageDesc) DisposeHandle((Handle)anImageDesc);
-    }
-    return tSize;
+    return [[film attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
 }
 
 - (void)drawRect:(NSRect)aRect
@@ -272,8 +255,7 @@
 
 -(BOOL)hasEnded:(id)sender
 {
-    Movie tempMovie = [film quickTimeMovie];
-    return IsMovieDone(tempMovie);
+    return [self currentMovieTime] >= [self totalTime];
 }
 
 #pragma mark -
@@ -281,23 +263,19 @@
 
 -(double)totalTime
 {
-    return (double)[self totalTimePrecise] / [self currentMovieTimeScale];
+    QTTime duration = [film duration];
+    return duration.timeValue / duration.timeScale;
 }
 
 -(double)currentMovieTime
 {
-    return (double)[self currentMovieTimePrecise] / [self currentMovieTimeScale];
+    QTTime current = [film currentTime];
+    return current.timeValue / current.timeScale;
 }
 
 -(void)setCurrentMovieTime:(double)newMovieTime
 {
-    [self setCurrentMovieTimePrecise:newMovieTime * [self currentMovieTimeScale]];
-}
-
--(double)totalTimePrecise
-{
-    Movie tempMovie = [film quickTimeMovie];
-    return GetMovieDuration(tempMovie);
+    [film setCurrentTime: QTMakeTime(newMovieTime, 1)];
 }
 
 -(NSNumber*)_percentLoaded
@@ -307,24 +285,6 @@
     QTGetTimeInterval([film duration], &tDuration);
     QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
     return [NSNumber numberWithDouble: (double) tMaxLoaded / tDuration];
-}
-
--(long)currentMovieTimeScale
-{
-    Movie tempMovie = [film quickTimeMovie];
-    return GetMovieTimeScale(tempMovie);
-}
-
--(long)currentMovieTimePrecise
-{
-    Movie tempMovie = [film quickTimeMovie];
-    return  GetMovieTime(tempMovie, NULL);
-}
-
--(void)setCurrentMovieTimePrecise:(long)newMovieTime
-{
-    Movie tempMovie = [film quickTimeMovie];
-    SetMovieTimeValue(tempMovie, newMovieTime);
 }
 
 -(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;
