@@ -242,7 +242,7 @@
 {
     wasPlaying = NO;
     
-    [(<NPMoviePlayer>)trueMovieView stop];
+    [(id<NPMoviePlayer>)trueMovieView stop];
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
 }
 
