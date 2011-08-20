@@ -47,24 +47,6 @@
 
 @implementation  NSArray (STNonSharedCollectionAdditions)
 
-+(id)arrayWithNumbersForRange:(NSRange)aRange{
-    return [[[self alloc] initWithNumbersForRange:aRange] autorelease];
-}
-+(id)arrayWithNumbersForRange:(NSRange)aRange overInterval:(double)anInterval{
-    return [[[self alloc] initWithNumbersForRange:aRange overInterval:anInterval] autorelease];
-}
-
--(id)initWithNumbersForRange:(NSRange)aRange{
-    return [self initWithNumbersForRange:aRange overInterval:1.0];
-}
--(id)initWithNumbersForRange:(NSRange)aRange overInterval:(double)anInterval{
-    double i;
-    NSMutableArray* tempArray = [NSMutableArray array];
-    for(i = aRange.location; i < aRange.location+aRange.length; i=i+anInterval)
-        [tempArray addObject:[NSNumber numberWithDouble:i]];
-    return [self initWithArray:tempArray];
-}
-
 -(id)firstObject{
     if([self count] > 0)
         return [self objectAtIndex:0];
@@ -72,14 +54,8 @@
         return nil;
 }
 
--(id)secondObject{
-      if([self count] > 1)
-          return [self objectAtIndex:1];
-      else
-          return nil;
-}
-
 @end
+
 @interface  NSArray(STPrivateAdditions)
 -(id)_STEmptyMutableCollection;
 -(id)_STObjectForObject:(id)anObject;
@@ -87,13 +63,12 @@
 -(id)_STReturnMeFromCollection:(id)aCollection;
 -(NSEnumerator*)_STEnumerator;
 @end
-@implementation  NSArray(STPrivateAdditions)
 
+@implementation  NSArray(STPrivateAdditions)
 
 -(NSEnumerator*)_STEnumerator{
     return [self objectEnumerator];
 }
-
 
 -(id)_STEmptyMutableCollection{
     return [NSMutableArray arrayWithCapacity:[self count]];
@@ -112,6 +87,7 @@
 }
 
 @end
+
 @implementation  NSArray(STSharedCollectionAdditions)
 
 #include "STSharedEnum.m"

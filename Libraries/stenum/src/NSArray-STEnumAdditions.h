@@ -52,29 +52,6 @@
  @copyright James Tuley
  */
 
-
-/*!
-@defined NSArrayPair
- @abstract   Shortcut to to put a pair of objects into an NSArray
- @param      a first object
- @param      b second object
- @result     returns an NSArray with the two objects in that order;
- */
-
-#define NSArrayPair(a,b) [NSArray arrayWithObjects:a,b,nil]
-
-/*!
-@defined NSArrayTrio
- @abstract   Shortcut to to put a trio of objects into an NSArray
- @param      a first object
- @param      b second object
- @param      c last object
- 
- @result     returns an NSArray with the three objects in that order;
- */
-
-#define NSArrayTrio(a,b,c) [NSArray arrayWithObjects:a,b,c,nil]
-
 /*!
 @category NSArray(STNonSharedCollectionAdditions)
  @abstract    Methods that are only added to NSArrays
@@ -82,44 +59,6 @@
  */
 
 @interface NSArray (STNonSharedCollectionAdditions)
-/*!
-    @method arrayWithNumbersForRange:    
-    @abstract Complete Creation Method:  Array with NSNumbers across aRange (index,length) by an interval of 1.0
-    @discussion You may use this to use for things you might use a for loop
-     <pre>
-     @textblock
-     NSArray* bigArray;
-      ...//initalized somewhere
-     NSArray* ZeroThroughNineArray =[NSArray arrayWithNumbersForRange:NSMakeRange(0,10)];
-     id collectForIndex(id each, void* context){
-         return [bigArray objectForIndex:[each intValue]];
-     }
-     NSArray* firstTenOfBigArray = [ZeroThroughNineArray collectUsingFunction:collectForIndex
-                                                                    context:nil];
- 
-     @/textblock
-     </pre>
-*/
-
-+(id)arrayWithNumbersForRange:(NSRange)aRange;
-
-/*!
-@method     arrayWithNumbersForRange:overInterval:
- @abstract  Complete Creation Method: Array initalized with NSNumbers across aRange (index,length) by an interval of anInterval
- */
-
-+(id)arrayWithNumbersForRange:(NSRange)aRange overInterval:(double)anInterval;
-
-/*!
-@method     initWithNumbersForRange:
- @abstract  Array initalized with NSNumbers across aRange (index,length) by an interval of 1.0
- */
--(id)initWithNumbersForRange:(NSRange)aRange;
-/*!
-@method     initWithNumbersForRange:overInterval:
- @abstract   Array initalized with NSNumbers across aRange (index,length) by an interval of anInterval
- */
--(id)initWithNumbersForRange:(NSRange)aRange overInterval:(double)anInterval;
 
 /*!
 @method     firstObject
@@ -127,13 +66,6 @@
  @result first object in the array
  */
 -(id)firstObject;
-
-/*!
-@method     secondObject
- @abstract  see @link NSArrayPair NSArrayPair@/link
- @result second object in the array
- */
--(id)secondObject;
 
 @end
 
