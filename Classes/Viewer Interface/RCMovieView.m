@@ -332,24 +332,6 @@
     return [NSNumber numberWithDouble: (double) tMaxLoaded / tDuration];
 }
 
--(double)currentMovieFrameRate
-{
-    int sampleSize = 5;
-    OSType myTypes[1];
-    Movie tempMovie = [film quickTimeMovie];
-    TimeValue newTime = 1;
-    TimeValue tempTime = 0;
-    myTypes[0] = VisualMediaCharacteristic;      // we want video samples
-    int myCount = 0;
-    while(tempTime <= (sampleSize * [self currentMovieTimeScale]) && myCount <= (sampleSize * [self currentMovieTimeScale])) {
-        GetMovieNextInterestingTime(tempMovie, nextTimeStep, 1, myTypes, tempTime, fixed1, &newTime, NULL);
-        if(tempTime == newTime) break;
-        tempTime = newTime;
-        myCount++;
-    }
-    return (double)myCount / ((double)newTime / [self currentMovieTimeScale]);
-}
-
 -(long)currentMovieTimeScale
 {
     Movie tempMovie = [film quickTimeMovie];

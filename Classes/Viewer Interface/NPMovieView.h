@@ -114,7 +114,6 @@
 -(BOOL)muted;
 -(void)setMuted:(BOOL)aBool;
 -(double)currentMovieTime;
--(double)currentMovieFrameRate;
 -(void)setCurrentMovieTime:(double)aDouble;
 -(double)totalTime;
 -(double)percentLoaded;

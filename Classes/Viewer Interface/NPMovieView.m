@@ -631,11 +631,6 @@
 	return [trueMovieView currentMovieTime];
 }
 
--(double)currentMovieFrameRate
-{
-    return [trueMovieView currentMovieFrameRate];
-}
-
 -(double)percentLoaded{
 	if([trueMovieView respondsToSelector:@selector(_percentLoaded)]){
 		return [((NSNumber*)[trueMovieView _percentLoaded]) doubleValue];

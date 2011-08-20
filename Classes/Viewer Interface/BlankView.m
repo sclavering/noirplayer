@@ -103,7 +103,6 @@
 -(double)totalTime{ return 0.0;}
 -(double)currentMovieTime{ return 0.0;}
 -(void)setCurrentMovieTime:(double)newMovieTime{}
--(double)currentMovieFrameRate{ return 0.0;}
 
 -(id)menuTitle{return @"Empty Movie";}
 
