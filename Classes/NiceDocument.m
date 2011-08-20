@@ -41,6 +41,7 @@
 #import "NiceWindow/NiceWindowController.h"
 #import "ControlPlay.h"
 #import "ArrayExtras.h"
+#import "NPApplication.h"
 
 #define VOLUME_ITEM -43
 
@@ -93,14 +94,6 @@ void findSpace(id each, void* context, BOOL* endthis){
         }
     }
 }
-
-#import "NPApplication.h"
-
-@interface NiceDocument(Private)
-
-
-
-@end
 
 
 @implementation NiceDocument
