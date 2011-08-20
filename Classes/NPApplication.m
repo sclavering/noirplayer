@@ -38,9 +38,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 /**
-* NPApplication.m
- * NicePlayer
- *
  * The application subclass that allows for us to detect mouse movement when the application
  * is not in focus, allowing us to show and hide movie controls even when other apps are
  * active.

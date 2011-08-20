@@ -1,15 +1,3 @@
-/**
- * NPMovieView.m
- * NicePlayer
- *
- * Contains the code for the main view that appears in NiceWindow. It is responsible for
- * creating instances of different movie player views (from plugins) that open movies
- * using different APIs (Quicktime, DVDPlayback, etc.) Basically, it acts as a wrapper
- * for the subview that it dynamically creates, processing most of the various clicks
- * and other events that take place.
- */
-
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *

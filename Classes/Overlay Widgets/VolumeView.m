@@ -1,10 +1,3 @@
-/**
- * VolumeView.m
- * NicePlayer
- *
- * The view that displays the volume overlay when the volume is adjusted.
- */
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *

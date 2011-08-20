@@ -1,14 +1,3 @@
-//
-/**
- * NPMovieProtocol.m
- * NicePlayer
- *
- * Defines the basic protocol that views must adhere to if they are to be considered supported
- * plugins. You should adopt this protocol, as well as inheriting from NPPluginView (or,
- * implement the necessary methods contained in NPPluginView).
- */
-
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *
