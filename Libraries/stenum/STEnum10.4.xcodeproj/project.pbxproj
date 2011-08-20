@@ -30,21 +30,12 @@
 		3E5A6CF507FF7A7600B21217 /* STEnum.hdoc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = STEnum.hdoc; sourceTree = "<group>"; };
 		3E5A6D5207FF878600B21217 /* STSharedEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STSharedEnum.h; sourceTree = "<group>"; };
 		3E5A6D5307FF878600B21217 /* STSharedEnum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STSharedEnum.m; sourceTree = "<group>"; };
-		3EBAD69608006B550040D4A3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = /Library/Frameworks/SenTestingKit.framework; sourceTree = "<absolute>"; };
 		3ECA9DFB07FF284D008C70BA /* NSArray-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray-STEnumAdditions.h"; sourceTree = "<group>"; };
 		3ECA9DFC07FF284D008C70BA /* NSArray-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray-STEnumAdditions.m"; sourceTree = "<group>"; };
 		3ECA9DFD07FF284D008C70BA /* NSDictionary-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-STEnumAdditions.h"; sourceTree = "<group>"; };
 		3ECA9DFE07FF284D008C70BA /* NSDictionary-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary-STEnumAdditions.m"; sourceTree = "<group>"; };
 		3ECA9DFF07FF284D008C70BA /* NSSet-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet-STEnumAdditions.h"; sourceTree = "<group>"; };
 		3ECA9E0007FF284D008C70BA /* NSSet-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9E1D07FF2A63008C70BA /* Test-NSArray-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-NSArray-STEnumAdditions.h"; sourceTree = "<group>"; };
-		3ECA9E1E07FF2A63008C70BA /* Test-NSArray-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Test-NSArray-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9E1F07FF2A63008C70BA /* Test-NSDictionary-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-NSDictionary-STEnumAdditions.h"; sourceTree = "<group>"; };
-		3ECA9E2007FF2A63008C70BA /* Test-NSDictionary-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Test-NSDictionary-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9E2107FF2A63008C70BA /* Test-NSSet-STEnumAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-NSSet-STEnumAdditions.h"; sourceTree = "<group>"; };
-		3ECA9E2207FF2A63008C70BA /* Test-NSSet-STEnumAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Test-NSSet-STEnumAdditions.m"; sourceTree = "<group>"; };
-		3ECA9E3107FF2AEA008C70BA /* Test-Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Test-Functions.h"; sourceTree = "<group>"; };
-		3ECA9E3207FF2AEA008C70BA /* Test-Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Test-Functions.m"; sourceTree = "<group>"; };
 		3ECAA48407FF61D5008C70BA /* STEnum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEnum.h; sourceTree = "<group>"; };
 		3ECAA48807FF61ED008C70BA /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		3EEF53BC0ABA35D4008E80DA /* STEnum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = STEnum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +65,6 @@
 			isa = PBXGroup;
 			children = (
 				08FB77AEFE84172EC02AAC07 /* src */,
-				3ECA9E0907FF288D008C70BA /* test */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
@@ -120,7 +110,6 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3EBAD69608006B550040D4A3 /* SenTestingKit.framework */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -142,21 +131,6 @@
 				32DBCF5E0370ADEE00C91783 /* STEnum_Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		3ECA9E0907FF288D008C70BA /* test */ = {
-			isa = PBXGroup;
-			children = (
-				3ECA9E3107FF2AEA008C70BA /* Test-Functions.h */,
-				3ECA9E3207FF2AEA008C70BA /* Test-Functions.m */,
-				3ECA9E1D07FF2A63008C70BA /* Test-NSArray-STEnumAdditions.h */,
-				3ECA9E1E07FF2A63008C70BA /* Test-NSArray-STEnumAdditions.m */,
-				3ECA9E1F07FF2A63008C70BA /* Test-NSDictionary-STEnumAdditions.h */,
-				3ECA9E2007FF2A63008C70BA /* Test-NSDictionary-STEnumAdditions.m */,
-				3ECA9E2107FF2A63008C70BA /* Test-NSSet-STEnumAdditions.h */,
-				3ECA9E2207FF2A63008C70BA /* Test-NSSet-STEnumAdditions.m */,
-			);
-			path = test;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
