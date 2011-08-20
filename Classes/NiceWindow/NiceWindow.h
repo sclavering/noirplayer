@@ -59,7 +59,6 @@
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;
 
-    BOOL scrubbingDrag;
     BOOL fullScreen;
     BOOL fillScreen;
     BOOL fillWidthScreen;
