@@ -48,12 +48,14 @@
 
 @implementation NiceWindow
 
--(float)scrubberHeight{
-	return [theOverlayControllerWindow frame].size.height;
+-(float)scrubberHeight
+{
+    return [theOverlayControllerWindow frame].size.height;
 }
 
--(float)titlebarHeight{
-	return [theOverlayTitleBar frame].size.height;
+-(float)titlebarHeight
+{
+    return [theOverlayTitleBar frame].size.height;
 }
 
 - (id)initWithContentRect:(NSRect)contentRect
@@ -140,8 +142,9 @@
     [self setOverLayVolumeLocation];
 }
 
--(void)setFrameOrigin:(NSPoint)orign{
-	[super setFrameOrigin:orign];
+-(void)setFrameOrigin:(NSPoint)orign
+{
+    [super setFrameOrigin:orign];
 }
 
 -(BOOL)canBecomeMainWindow
@@ -154,8 +157,6 @@
     [super becomeKeyWindow];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
-
-
 
 -(BOOL)canBecomeKeyWindow
 {
@@ -177,15 +178,11 @@
 }
 
 -(IBAction)performClose:(id)sender
-{	
-	
-	
+{
     [(NPMovieView *)theMovieView stop];
 	[self orderOut:sender];//order out before stops double button click from causing crash
-		if(fullScreen)
-			[[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
-		
-		[self close];
+    if(fullScreen) [[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
+    [self close];
 }
 
 -(void)updateVolume
@@ -195,20 +192,14 @@
     miniVolume =[theMovieView volume];
 }
 
-
 -(void)restoreVolume
 {
-    // NSLog(@"%f",miniVolume);
     [theMovieView setVolume:miniVolume];
 }
 
 - (void)performMiniaturize:(id)sender
 {
-    if(!fullScreen){
-        //   miniVolume =[theMovieView volume];
-        //NSLog(@"%f",miniVolume);
-        [self miniaturize:sender];
-    }
+    if(!fullScreen) [self miniaturize:sender];
 }
 
 /**
@@ -345,7 +336,6 @@
 {
     if(!windowOverlayControllerIsShowing) return;
     [theOverlayControllerWindow setAlphaValue:0.0];
- //   [self setShowsResizeIndicator:NO];
     windowOverlayControllerIsShowing = NO;
 }
 
@@ -365,45 +355,26 @@
 {
     NSRect frame = [self frame];
     NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
-	NSRect intersect = NSIntersectionRect(frame,visibleFrame);
-    if(!fullScreen){
-        if(NSEqualRects(intersect, frame))
-            [theOverlayTitleBar setFrame:NSMakeRect(frame.origin.x,
-                                                    frame.origin.y + frame.size.height - [theOverlayTitleBar frame].size.height,
-                                                    frame.size.width,
-                                                    [theOverlayTitleBar frame].size.height) display:YES];
-        else
-            [theOverlayTitleBar setFrame:NSMakeRect(intersect.origin.x,
-                                                    intersect.origin.y
-                                                    + intersect.size.height - [theOverlayTitleBar frame].size.height,
-                                                    intersect.size.width,
-                                                    [theOverlayTitleBar frame].size.height) display:YES];
-    } else{
-        if ([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]){
+    NSRect intersect = NSIntersectionRect(frame,visibleFrame);
+    if(!fullScreen) {
+        if(NSEqualRects(intersect, frame)) {
+            [theOverlayTitleBar setFrame:NSMakeRect(frame.origin.x, frame.origin.y + frame.size.height - [theOverlayTitleBar frame].size.height, frame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
+        } else {
+            [theOverlayTitleBar setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y + intersect.size.height - [theOverlayTitleBar frame].size.height, intersect.size.width, [theOverlayTitleBar frame].size.height) display:YES];
+        }
+    } else {
+        if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]) {
              visibleFrame = [[NSScreen mainScreen] frame];
-
-            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x,
-                                                visibleFrame.origin.y
-                                                + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - [NSMenuView menuBarHeight],
-                                                visibleFrame.size.width,
-                                                [theOverlayTitleBar frame].size.height) display:YES];
-            
-        }else{
-            
-            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x,
-                                                    visibleFrame.origin.y
-                                                    + visibleFrame.size.height - [theOverlayTitleBar frame].size.height,
-                                                    visibleFrame.size.width,
-                                                    [theOverlayTitleBar frame].size.height) display:YES];
+            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - [NSMenuView menuBarHeight], visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
+        } else {
+            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height, visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
         }
     }
 }
 
 -(void)hideOverLayTitle
 {
-    if(titleOverlayIsShowing == NO)
-        return;
-    
+    if(!titleOverlayIsShowing) return;
     [theOverlayTitleBar setAlphaValue:0.0];
     titleOverlayIsShowing = NO;
 }
@@ -421,22 +392,14 @@
 
 -(void)setOverLayVolumeLocation
 {
-	NSRect frame =[self frame];
-	NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
-	NSRect intersect = NSIntersectionRect(frame,visibleFrame);
-	
-	if(NSEqualRects(intersect, frame))
-		
-		[theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame],
-												NSMidX(frame) -  NSMidX([theOverlayVolume frame]),
-												NSMidY(frame) - NSMidY([theOverlayVolume frame]))		display:YES];
-	
-	else
-	    [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame],
-												NSMidX(intersect) - NSMidX([theOverlayVolume frame]),
-												NSMidY(intersect)- NSMidY([theOverlayVolume frame]))		display:YES];
-	
-	
+    NSRect frame = [self frame];
+    NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
+    NSRect intersect = NSIntersectionRect(frame,visibleFrame);
+    if(NSEqualRects(intersect, frame)) {
+        [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(frame) - NSMidX([theOverlayVolume frame]), NSMidY(frame) - NSMidY([theOverlayVolume frame])) display:YES];
+    } else {
+        [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(intersect) - NSMidX([theOverlayVolume frame]), NSMidY(intersect) - NSMidY([theOverlayVolume frame])) display:YES];
+    }
 }
 
 -(void)hideOverLayVolume:(id)dummy
@@ -464,12 +427,12 @@
 }
 
 -(void)setFixedAspect:(BOOL)aBool{
-    if(!aBool){
-		[self setResizeIncrements:NSMakeSize(1.0,1.0)];
-    } else{
-		[self setAspectRatio:aspectRatio];
-		_lastSize=NSMakeSize(0, 0);
+    if(aBool){
+        [self setAspectRatio:aspectRatio];
+        _lastSize = NSMakeSize(0, 0);
         [self resizeToAspectRatio];
+    } else {
+        [self setResizeIncrements:NSMakeSize(1.0, 1.0)];
     }
 }
 
@@ -488,11 +451,12 @@
 {
     return [self makeFullScreenOnScreen:[self screen]];
 }
+
 -(void)makeFullScreenOnScreen:(NSScreen*) aScreen
 {
-    if(!fullScreen){
+    if(!fullScreen) {
 		fullScreen = YES;
-		[self setLevel:NSFloatingWindowLevel +2];
+		[self setLevel:NSFloatingWindowLevel + 2];
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
 		[self fillScreenSizeOnScreen:aScreen];
@@ -508,8 +472,7 @@
         [self resetFillingFlags];
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
-		if([self fixedAspect])
-			[self resizeToAspectRatio];
+        if([self fixedAspect]) [self resizeToAspectRatio];
     }
     [theMovieView drawMovieFrame];
     [theOverlayTitleBar orderFront:self];
@@ -531,11 +494,7 @@
 {
     id enumerator = [[self childWindows] objectEnumerator];
     id object;
-    
-    while((object = [enumerator nextObject])){
-        [object setLevel:windowLevel];   
-    }
-    
+    while((object = [enumerator nextObject])) [object setLevel:windowLevel];
     [super setLevel:windowLevel];
 }
 
@@ -552,47 +511,31 @@
 {
     float newHeight = aSize.height;
     float newWidth = aSize.width;
-    
+
     if(newHeight <= [self minSize].height || newWidth <= [self minSize].width) {
         newHeight = [self frame].size.height;
         newWidth = [self frame].size.width;
     }
-    
-			NSRect screenFrame = [[self screen] visibleFrame];
-			NSRect centerRect = NSMakeRect([self frame].origin.x+(([self frame].size.width-newWidth)/2),
-										   [self frame].origin.y+(([self frame].size.height-newHeight)/2),
-										   newWidth, newHeight);
-			NSRect newRect = centerRect;
-			
-			if(([self frame].origin.x < screenFrame.origin.x)
-			   || ([self frame].origin.y < screenFrame.origin.y)
-			   || (([self frame].origin.x + [self frame].size.width) > (screenFrame.origin.x + screenFrame.size.width))
-			   || (([self frame].origin.y + [self frame].size.height) > (screenFrame.origin.y + screenFrame.size.height))){
-				return centerRect;
-			}
-			
-			if(newRect.origin.x < screenFrame.origin.x)
-				newRect.origin.x = screenFrame.origin.x;
-			
-			if(newRect.origin.y < screenFrame.origin.y)
-				newRect.origin.y = screenFrame.origin.y;
-			
-			if((screenFrame.origin.x + screenFrame.size.width) < (newRect.origin.x + newRect.size.width))
-				newRect.origin.x -= (newRect.origin.x + newRect.size.width) - (screenFrame.origin.x + screenFrame.size.width);
-			
-			if((screenFrame.origin.y + screenFrame.size.height) < (newRect.origin.y + newRect.size.height))
-				newRect.origin.y -= (newRect.origin.y + newRect.size.height) - (screenFrame.origin.y + screenFrame.size.height);
-			
-			if(newRect.origin.x < screenFrame.origin.x)
-				newRect.origin.x = centerRect.origin.x;
-			
-			if(newRect.origin.y < screenFrame.origin.y)
-				newRect.origin.y = centerRect.origin.y;
-			return newRect;
+
+    NSRect screenFrame = [[self screen] visibleFrame];
+    NSRect centerRect = NSMakeRect([self frame].origin.x + ([self frame].size.width - newWidth) / 2, [self frame].origin.y + ([self frame].size.height - newHeight) / 2, newWidth, newHeight);
+
+    if([self frame].origin.x < screenFrame.origin.x || [self frame].origin.y < screenFrame.origin.y || [self frame].origin.x + [self frame].size.width > screenFrame.origin.x + screenFrame.size.width || [self frame].origin.y + [self frame].size.height > screenFrame.origin.y + screenFrame.size.height) {
+        return centerRect;
+    }
+
+    NSRect newRect = centerRect;
+    if(newRect.origin.x < screenFrame.origin.x) newRect.origin.x = screenFrame.origin.x;
+    if(newRect.origin.y < screenFrame.origin.y) newRect.origin.y = screenFrame.origin.y;
+
+    if(screenFrame.origin.x + screenFrame.size.width < newRect.origin.x + newRect.size.width) newRect.origin.x -= (newRect.origin.x + newRect.size.width) - (screenFrame.origin.x + screenFrame.size.width);
+    if(screenFrame.origin.y + screenFrame.size.height < newRect.origin.y + newRect.size.height) newRect.origin.y -= (newRect.origin.y + newRect.size.height) - (screenFrame.origin.y + screenFrame.size.height);
+
+    if(newRect.origin.x < screenFrame.origin.x) newRect.origin.x = centerRect.origin.x;
+    if(newRect.origin.y < screenFrame.origin.y) newRect.origin.y = centerRect.origin.y;
+
+    return newRect;
 }
-
-
-
 
 /**
 * Resize the window by a floating point percentage value, with 1.0 being no change.
@@ -603,21 +546,17 @@
     float deltaHeight = amount;
     float newHeight = [self frame].size.height + deltaHeight;
     float newWidth = ([self aspectRatio].width/[self aspectRatio].height)*newHeight;
-    
     if(newHeight <= [self minSize].height) {
         newHeight =[self frame].size.height;
         newWidth= [self frame].size.width;
     }
-    
     [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:animate];
 }
 
 -(void)_JTRefitFills
 {
-    if(isFilling)
-        [self fillScreenSize:nil];
-    if(isWidthFilling)
-        [self fillWidthSize:nil];
+    if(isFilling) [self fillScreenSize:nil];
+    if(isWidthFilling) [self fillWidthSize:nil];
 }
 
 - (void)setTitle:(NSString *)aString
@@ -629,13 +568,11 @@
 -(IBAction)halfSize:(id)sender
 {
     [self resizeNormalByScaler:0.5];
-    
 }
 
 -(IBAction)normalSize:(id)sender
 {
     [self resizeNormalByScaler:1.0];
-    
 }
 
 -(IBAction)doubleSize:(id)sender
@@ -643,12 +580,12 @@
     [self resizeNormalByScaler:2.0];
 }
 
--(void)resizeNormalByScaler:(float)aScaler{
+-(void)resizeNormalByScaler:(float)aScaler
+{
     [self resetFillingFlags];
-    [self resizeWithSize: NSMakeSize(aScaler*[self aspectRatio].width,aScaler*[self aspectRatio].height) animate:NO];
-    if (fullScreen)
-        [self center];   
-	[self setInitialDrag:nil];
+    [self resizeWithSize: NSMakeSize(aScaler * [self aspectRatio].width, aScaler * [self aspectRatio].height) animate:NO];
+    if(fullScreen) [self center];
+    [self setInitialDrag:nil];
 }
 
 -(void)resetFillingFlags
@@ -664,18 +601,15 @@
 
 -(void)fillScreenSizeOnScreen:(NSScreen*)aScreen{
     [self resetFillingFlags];
-    isFilling=YES;
-    
+    isFilling = YES;
     NSSize aSize = [self getResizeAspectRatioSizeOnScreen:aScreen];
     NSRect newRect = [self calcResizeSize:aSize];
     newRect.origin.x = 0;
     newRect = [self centerRect:newRect onScreen:aScreen];
     [self setFrame:newRect display:YES];
     [self centerOnScreen:aScreen];
-		[self setInitialDrag:nil];
-
+    [self setInitialDrag:nil];
 }
-
 
 -(IBAction)fillWidthSize:(id)sender
 {
@@ -687,10 +621,7 @@
     [self resetFillingFlags];
     isWidthFilling = YES;
     NSRect tempRect  = [aScreen frame];
-    float tempVertAmount = tempRect.size.width
-        *([self aspectRatio].height/[self aspectRatio].width)
-        -[self frame].size.height;
-    
+    float tempVertAmount = tempRect.size.width * ([self aspectRatio].height / [self aspectRatio].width) - [self frame].size.height;
     [self resize:tempVertAmount animate:NO];
     [self centerOnScreen:aScreen];
 }
@@ -718,12 +649,8 @@
 
 - (NSSize)aspectRatio
 {
-    if(fixedAspectRatio)
-		return [super aspectRatio];
-    else{
-        return NSMakeSize( ([self frame].size.width / [self frame].size.height) * aspectRatio.height, aspectRatio.height);
-    }
-	
+    if(fixedAspectRatio) return [super aspectRatio];
+    return NSMakeSize(([self frame].size.width / [self frame].size.height) * aspectRatio.height, aspectRatio.height);
 }
 
 /**
@@ -735,7 +662,6 @@
 
 -(NSSize)getResizeAspectRatioSize
 {
-	
     return [self getResizeAspectRatioSizeOnScreen:[self screen]];
 }
 
@@ -745,16 +671,11 @@
     float newWidth = (([self frame].size.height / ratio.height) * ratio.width);
     if(isFilling | isWidthFilling){
         float width = [aScreen frame].size.width;
-        
         float height = [aScreen frame].size.height;
         float calcHeigth =(width / ratio.width) * ratio.height;
-        if(calcHeigth >height){
-            return NSMakeSize((height / ratio.height) * ratio.width, height);
-        }else{
-            return NSMakeSize(width, (width / ratio.width) * ratio.height);
-        }
+        if(calcHeigth > height) return NSMakeSize((height / ratio.height) * ratio.width, height);
+        return NSMakeSize(width, (width / ratio.width) * ratio.height);
     }
-	
     return NSMakeSize(newWidth, [self frame].size.height);
 }
 
@@ -763,11 +684,9 @@
  */
 -(void)initialDefaultSize
 {
-	_lastSize = [theMovieView naturalSize];
-
-    [self resizeWithSize:NSMakeSize([self aspectRatio].width,[self aspectRatio].height) animate:YES];
-    if (fullScreen)
-        [self center];	
+    _lastSize = [theMovieView naturalSize];
+    [self resizeWithSize:NSMakeSize([self aspectRatio].width, [self aspectRatio].height) animate:YES];
+    if(fullScreen) [self center];
 }
 
 /**
@@ -775,15 +694,14 @@
  */
 -(void)resizeToAspectRatio
 {
-	NSSize tSize = [theMovieView naturalSize];
+    NSSize tSize = [theMovieView naturalSize];
     [self setAspectRatio:[theMovieView naturalSize]];
-	if (!NSEqualSizes(_lastSize, tSize)) {
-		NSSize aSize = [self getResizeAspectRatioSize];
-		[self resizeWithSize:aSize animate:YES];
-		[self _JTRefitFills];
-		_lastSize = tSize;
-	}
-   
+    if(!NSEqualSizes(_lastSize, tSize)) {
+        NSSize aSize = [self getResizeAspectRatioSize];
+        [self resizeWithSize:aSize animate:YES];
+        [self _JTRefitFills];
+        _lastSize = tSize;
+    }
 }
 
 - (IBAction)center:(id)sender
@@ -798,18 +716,11 @@
     [self centerOnScreen:[self screen]];
 }
 
-- (void)centerOnScreen:(NSScreen*)aScreen{
-	if(fullScreen){
-	    [self removeChildWindow:theOverlayTitleBar];
-	}
-	
-    [self setFrame:[self centerRect:[self frame] onScreen:aScreen]
-           display:YES];
-	if(fullScreen){
-	    [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
-	}
-	
-    
+- (void)centerOnScreen:(NSScreen*)aScreen
+{
+    if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
+    [self setFrame:[self centerRect:[self frame] onScreen:aScreen] display:YES];
+    if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 -(NSRect)centerRect:(NSRect)aRect
@@ -819,13 +730,8 @@
 
 -(NSRect)centerRect:(NSRect)aRect onScreen:(NSScreen*)aScreen
 {
-    NSRect screenRect;
-    if (!fullScreen)
-        screenRect = [aScreen visibleFrame];
-    else
-        screenRect = [aScreen frame];
-    return NSOffsetRect(aRect, NSMidX(screenRect)-NSMidX(aRect),
-                        NSMidY(screenRect)-NSMidY(aRect));
+    NSRect screenRect = fullScreen ? [aScreen frame] : [aScreen visibleFrame];
+    return NSOffsetRect(aRect, NSMidX(screenRect) - NSMidX(aRect), NSMidY(screenRect) - NSMidY(aRect));
 }
 
 #pragma mark -
@@ -833,29 +739,22 @@
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-	initialDrag =[self convertScreenToBase:[NSEvent mouseLocation]];
+	initialDrag = [self convertScreenToBase:[NSEvent mouseLocation]];
 }
 
 -(void)mouseDragged:(NSEvent *)anEvent
 {
-        if(fullScreen && !NSEqualRects([[[NSDocumentController sharedDocumentController] backgroundWindow] frame],[[NSScreen mainScreen]frame])){
-            [[[NSDocumentController sharedDocumentController] backgroundWindow] setFrame:[[NSScreen mainScreen]frame] 
-                                                                                 display:YES];
-            if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]])
-                SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
-            dropScreen = YES;
-        }
-		[self showOverLayTitle];
-		/* If we don't do a remove, the child window gets automatically placed when the parent window moves, even if we try
-			to set the location manually. */
-		if(fullScreen){
-			[self removeChildWindow:theOverlayTitleBar];
-		}
-		
-		[self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
-		if(fullScreen){
-			[self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
-		}
+    if(fullScreen && !NSEqualRects([[[NSDocumentController sharedDocumentController] backgroundWindow] frame], [[NSScreen mainScreen] frame])) {
+        [[[NSDocumentController sharedDocumentController] backgroundWindow] setFrame:[[NSScreen mainScreen] frame] display:YES];
+        if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+        dropScreen = YES;
+    }
+    [self showOverLayTitle];
+    /* If we don't do a remove, the child window gets automatically placed when the parent window moves, even if we try
+        to set the location manually. */
+    if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
+    [self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
+    if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 
@@ -872,9 +771,7 @@
         [self _JTRefitFills];
     }
     dropScreen = NO;
-    
     [self hideOverLayTitle];
-	
 }
 
 /* These two events always get passed down to the view. */
@@ -903,10 +800,12 @@
 {
     return thePlayButton;
 }
+
 -(id)rrButton
 {
     return theRRButton;
 }
+
 -(id)ffButton
 {
     return theFFButton;
