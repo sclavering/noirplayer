@@ -110,7 +110,6 @@ void findSpace(id each, void* context, BOOL* endthis){
     self = [super init];
     if(self){
         hasRealMovie = NO;
-        asffrrTimer = nil;
         movieMenuItem = nil;
         menuObjects = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self

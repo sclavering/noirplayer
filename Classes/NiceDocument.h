@@ -53,7 +53,6 @@
     NSURL* theCurrentURL;
     id movieMenuItem;
     NSMutableArray *menuObjects;
-    id asffrrTimer;
     BOOL hasRealMovie;
     BOOL wasPlayingBeforeMini;	
 }
