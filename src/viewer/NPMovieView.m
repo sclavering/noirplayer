@@ -148,7 +148,6 @@
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
         [self finalProxyViewLoad];
     }
-    openedURL = didOpen ? url : nil;
     return didOpen;
 }
 

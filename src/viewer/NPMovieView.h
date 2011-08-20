@@ -43,7 +43,6 @@
 @class NiceWindow;
 
 @interface NPMovieView : NSView {
-    NSURL *openedURL;
     id trueMovieView;
     id contextMenu;
     id title;
