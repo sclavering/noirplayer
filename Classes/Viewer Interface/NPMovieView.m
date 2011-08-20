@@ -424,7 +424,7 @@
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSUpArrowFunctionKey: case NSDownArrowFunctionKey:
-			[self timedHideOverlayWithSelector:@"hideOverLayVolume"];
+			[self timedHideVolumeOverlay];
  			break;
 		default:
 			[super keyUp:anEvent];
@@ -433,9 +433,9 @@
 
 -(void)showOverLayVolume
 {
-	[self cancelPreviousPerformRequestsWithSelector:@"hideOverLayVolume"];
+	[NSObject cancelPreviousPerformRequestsWithTarget:[self window] selector:@selector(hideOverLayVolume:) object:nil];
 	[((NiceWindow *)[self window])automaticShowOverLayVolume];
-	[self timedHideOverlayWithSelector:@"hideOverLayVolume"];
+	[self timedHideVolumeOverlay];
 }
 
 -(void)smartHideMouseOverOverlays
@@ -454,21 +454,9 @@
 	[((NiceWindow *)[self window]) mouseMoved:newEvent];
 }
 
--(void)timedHideOverlayWithSelector:(NSString *)aStringSelector
+-(void)timedHideVolumeOverlay
 {
-	[self performSelector:@selector(hideOverlayWithSelector:) withObject:aStringSelector afterDelay:1.0];
-}
-
--(void)cancelPreviousPerformRequestsWithSelector:(NSString *)aStringSelector
-{
-	[NSObject cancelPreviousPerformRequestsWithTarget:self
-											 selector:@selector(hideOverlayWithSelector:)
-											   object:aStringSelector];
-}
-
--(void)hideOverlayWithSelector:(NSString *)aStringSelector
-{
-	[[self window] performSelector:sel_registerName([aStringSelector cString])];
+	[[self window] performSelector:@selector(hideOverLayVolume:) withObject:nil afterDelay:1.0];
 }
 
 #pragma mark -
@@ -624,7 +612,6 @@
 	
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
-
 
 #pragma mark -
 #pragma mark Pluggables

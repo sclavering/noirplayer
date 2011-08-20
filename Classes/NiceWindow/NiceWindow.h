@@ -111,7 +111,8 @@
 -(void)automaticShowOverLayVolume;
 -(void)showOverLayVolume;
 -(void)setOverLayVolumeLocation;
--(void)hideOverLayVolume;
+// the dummy arg is so it can be called via performSelector:withObject:afterDelay:
+-(void)hideOverLayVolume:(id)dummy;
 
 #pragma mark -
 #pragma mark Window Toggles

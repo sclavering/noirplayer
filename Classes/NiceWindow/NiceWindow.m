@@ -446,7 +446,7 @@
 	
 }
 
--(void)hideOverLayVolume
+-(void)hideOverLayVolume:(id)dummy
 {
     [theOverlayVolume setAlphaValue:0.0];
 }

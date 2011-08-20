@@ -42,9 +42,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 
-
 #import <Cocoa/Cocoa.h>
-
 
 @class ControlPlay;
 @class NiceWindow;
@@ -96,9 +94,7 @@
 
 -(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;
--(void)timedHideOverlayWithSelector:(NSString *)aStringSelector;
--(void)cancelPreviousPerformRequestsWithSelector:(NSString *)aStringSelector;
--(void)hideOverlayWithSelector:(NSString *)aStringSelector;
+-(void)timedHideVolumeOverlay;
 
 -(id)myMenu;
 -(id)menuTitle;
