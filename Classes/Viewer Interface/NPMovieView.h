@@ -119,6 +119,5 @@
 -(double)totalTime;
 -(double)percentLoaded;
 -(void)drawMovieFrame;
--(void)setLoopMode:(NSQTMovieLoopMode)flag;
 
 @end

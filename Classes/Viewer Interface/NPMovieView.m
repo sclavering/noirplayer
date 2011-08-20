@@ -726,11 +726,6 @@
 	[trueMovieView drawMovieFrame];
 }
 
--(void)setLoopMode:(NSQTMovieLoopMode)flag
-{
-	[trueMovieView setLoopMode:flag];
-}
-
 /* Non working code */
 #define CROP_STEP1 NSViewMinXMargin | NSViewMaxYMargin
 #define CROP_STEP2 NSViewMaxXMargin | NSViewMinYMargin

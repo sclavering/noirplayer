@@ -58,7 +58,6 @@
 -(NSSize)naturalSize{
 	return NSMakeSize(320,240);
 }
--(void)setLoopMode:(NSQTMovieLoopMode)flag{}
 
 -(BOOL)muted{
 	return volume < 0;

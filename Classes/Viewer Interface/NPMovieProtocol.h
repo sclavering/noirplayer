@@ -73,7 +73,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
 -(void)drawMovieFrame;
 
 -(NSSize)naturalSize;
--(void)setLoopMode:(NSQTMovieLoopMode)flag;
 
 -(BOOL)muted;
 -(void)setMuted:(BOOL)aBOOL;
