@@ -87,7 +87,7 @@
 				<string key="NSWindowRect">{{239, 227}, {416, 32}}</string>
 				<int key="NSWTFlags">1081610240</int>
 				<string key="NSWindowTitle">Scrubber</string>
-				<string key="NSWindowClass">OverlayControllerWindow</string>
+				<string key="NSWindowClass">OverlayWindow</string>
 				<object class="NSMutableString" key="NSViewClass">
 					<characters key="NS.bytes">View</characters>
 				</object>
@@ -206,7 +206,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{131, 5}</string>
 				<object class="NSView" key="NSWindowView" id="184141507">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -215,7 +215,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{373, 24}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1058342575"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -225,8 +224,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{49, 2}, {327, 20}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="944708147">
 								<int key="NSCellFlags">67239424</int>
@@ -250,7 +247,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{4, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="547257827"/>
 							<int key="NSTag">666</int>
 							<bool key="NSEnabled">YES</bool>
@@ -282,7 +278,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{24, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="301179114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="574122407">
@@ -313,8 +308,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="661584273"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -1160,46 +1153,6 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NiceWindow.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">OverlayControllerWindow</string>
-					<string key="superclassName">OverlayWindow</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>ffButton</string>
-							<string>rrButton</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSButton</string>
-							<string>NSButton</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>ffButton</string>
-							<string>rrButton</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">ffButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">rrButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/OverlayControllerWindow.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

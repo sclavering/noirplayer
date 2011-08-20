@@ -40,8 +40,6 @@
 		3E8C96D1073EF4730048CB70 /* mp4.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96C8073EF4730048CB70 /* mp4.icns */; };
 		3E8C96D2073EF4730048CB70 /* mpg.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96C9073EF4730048CB70 /* mpg.icns */; };
 		3E8C96D3073EF4730048CB70 /* swf.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96CA073EF4730048CB70 /* swf.icns */; };
-		3E8CC449068A9D850034FCCC /* OverlayControllerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */; };
-		3E8CC44A068A9D850034FCCC /* OverlayControllerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */; };
 		3E8CC453068AA1290034FCCC /* close-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC44F068AA1290034FCCC /* close-highlight.png */; };
 		3E8CC454068AA1290034FCCC /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC450068AA1290034FCCC /* close.png */; };
 		3E8CC455068AA1290034FCCC /* minimize-highlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC451068AA1290034FCCC /* minimize-highlight.png */; };
@@ -142,8 +140,6 @@
 		3E8C96C8073EF4730048CB70 /* mp4.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mp4.icns; sourceTree = "<group>"; };
 		3E8C96C9073EF4730048CB70 /* mpg.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = mpg.icns; sourceTree = "<group>"; };
 		3E8C96CA073EF4730048CB70 /* swf.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = swf.icns; sourceTree = "<group>"; };
-		3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayControllerWindow.h; path = "Classes/Overlay Widgets/OverlayControllerWindow.h"; sourceTree = "<group>"; };
-		3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayControllerWindow.m; path = "Classes/Overlay Widgets/OverlayControllerWindow.m"; sourceTree = "<group>"; };
 		3E8CC44F068AA1290034FCCC /* close-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "close-highlight.png"; path = "Resources/close-highlight.png"; sourceTree = "<group>"; };
 		3E8CC450068AA1290034FCCC /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Resources/close.png; sourceTree = "<group>"; };
 		3E8CC451068AA1290034FCCC /* minimize-highlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "minimize-highlight.png"; path = "Resources/minimize-highlight.png"; sourceTree = "<group>"; };
@@ -315,8 +311,6 @@
 				25B913240741736A001B68D9 /* OverlaysControl.m */,
 				3EDA2680065C8E570000CCEE /* OverlayWindow.h */,
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
-				3E8CC447068A9D850034FCCC /* OverlayControllerWindow.h */,
-				3E8CC448068A9D850034FCCC /* OverlayControllerWindow.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
 				3E95D4A006613F05008755D1 /* BlackWindow.m */,
 				252BDDD7076A4744006CF96B /* ControlPlay.h */,
@@ -438,7 +432,6 @@
 				3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
 				3E9E62900661708200B788A8 /* NiceScrubber.h in Headers */,
-				3E8CC449068A9D850034FCCC /* OverlayControllerWindow.h in Headers */,
 				3E110B63069BD80100C5800B /* ClickableTextField.h in Headers */,
 				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
@@ -571,7 +564,6 @@
 				3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
 				3E9E62910661708200B788A8 /* NiceScrubber.m in Sources */,
-				3E8CC44A068A9D850034FCCC /* OverlayControllerWindow.m in Sources */,
 				3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */,
 				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,

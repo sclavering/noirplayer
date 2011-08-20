@@ -41,10 +41,9 @@
 #import "OverlaysControl.h"
 #import "NiceController.h"
 #import "NiceScrubber.h"
-
 #import "NiceWindow.h"
-#import "OverlayControllerWindow.h"
 #import "NPApplication.h"
+
 
 @implementation NiceWindow
 
