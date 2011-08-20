@@ -50,7 +50,6 @@
     
     NSTrackingRectTag trackingRect;
     
-    BOOL dragButton;
     BOOL wasPlaying;
     BOOL mouseEntered;
 }

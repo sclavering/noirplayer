@@ -428,8 +428,6 @@
 
 - (void)mouseUp:(NSEvent *)anEvent
 {
-    dragButton = NO;
-	
 	if(([anEvent type] == NSLeftMouseUp)
 	   && (([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask)){ /* This is a control click. */
 	   [self rightMouseUp:anEvent];
@@ -467,8 +465,7 @@
 
 - (void)mouseDragged:(NSEvent *)anEvent
 {
-    if(!dragButton)
-        [((NiceWindow *)[self window]) mouseDragged:anEvent];
+    [((NiceWindow *)[self window]) mouseDragged:anEvent];
 }
 
 -(BOOL)canAnimateResize
