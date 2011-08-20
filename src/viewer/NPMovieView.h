@@ -51,9 +51,6 @@
     
     NSTrackingRectTag trackingRect;
     
-    NSString *fileType;
-    NSString *fileExtension;
-
     BOOL dragButton;
     BOOL wasPlaying;
     BOOL mouseEntered;

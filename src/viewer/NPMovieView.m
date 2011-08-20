@@ -62,8 +62,6 @@
         [self addSubview:trueMovieView];
         [self setAutoresizesSubviews:YES];
 		title = nil;
-		fileType = nil;
-		fileExtension = nil;
 		internalVolume = 1.0;
     }
     return self;
@@ -116,31 +114,6 @@
 {
     if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
-
-    if(fileType) [fileType release];
-    fileType = nil;
-    if(fileExtension) [fileExtension release];
-    fileExtension = nil;
-
-    fileExtension = [[[url path] lastPathComponent] pathExtension];
-    fileType = NSHFSTypeOfFile([url path]);
-    BOOL isDir;
-    [[NSFileManager defaultManager] fileExistsAtPath:[url path] isDirectory:&isDir];
-    if(isDir) {
-        fileExtension = [NSString stringWithString:@"public.folder"];
-        fileType = nil;
-    }
-
-    if(fileType && [fileType length] == 0) {
-        fileType = nil;
-    } else {
-        [fileType retain];
-    }
-    if(fileExtension && [fileExtension length] == 0) {
-        fileExtension = nil;
-    } else {
-        [fileExtension retain];
-    }
 
     BOOL didOpen = NO;
     NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
