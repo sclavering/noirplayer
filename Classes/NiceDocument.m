@@ -185,8 +185,6 @@ void findSpace(id each, void* context, BOOL* endthis){
  */
 -(void)loadURL:(NSURL *)url firstTime:(BOOL)isFirst
 {
-	if([[NSURL URLWithString:@"placeholder://URL_Placeholder"] isEqualTo:url])
-		return;
     [self readFromURL:url ofType:nil];
     [self finalOpenURLFirstTime:isFirst];
     [self updateAfterLoad];
