@@ -70,10 +70,8 @@
 #pragma mark Presentation
 
 -(void)presentScreen;
--(void)presentScreenOnScreen:(NSScreen*)aScreen;
 -(void)unpresentScreen;
 -(void)enterFullScreen;
--(void)enterFullScreenOnScreen:(NSScreen*)aScreen;
 -(void)exitFullScreen;
 
 #pragma mark -

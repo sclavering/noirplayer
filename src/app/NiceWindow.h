@@ -120,7 +120,6 @@
 #pragma mark Window Attributes
 
 -(void)makeFullScreen;
--(void)makeFullScreenOnScreen:(NSScreen*) aScreen;
 -(void)makeNormalScreen;
 -(BOOL)isFullScreen;
 -(void)setLevel:(int)windowLevel;
@@ -134,7 +133,6 @@
 -(IBAction)doubleSize:(id)sender;
 -(void)resetFillingFlags;
 -(IBAction)fillScreenSize:(id)sender;
--(void)fillScreenSizeOnScreen:(NSScreen*)aScreen;
 -(IBAction)fillWidthSize:(id)sender;
 -(void)fillWidthSizeWithScreen:(NSScreen*)aScreen;
 -(void)setAspectRatio:(NSSize)ratio;

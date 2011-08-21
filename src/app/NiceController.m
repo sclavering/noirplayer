@@ -163,14 +163,10 @@ BOOL detectIsPlaying(id each, void* context) {
 
 -(void)presentScreen
 {
-    [self presentScreenOnScreen:[NSScreen mainScreen]];
-}
-
--(void)presentScreenOnScreen:(NSScreen*)aScreen
-{
+    id screen = [NSScreen mainScreen];
     fullScreenMode = YES;
-    if([aScreen isEqualTo:[[NSScreen screens] objectAtIndex:0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
-    [backgroundWindow setFrame:[aScreen frame] display:YES];
+    if([screen isEqualTo:[[NSScreen screens] objectAtIndex:0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+    [backgroundWindow setFrame:[screen frame] display:YES];
     [backgroundWindow orderBack:nil];
 }
 
@@ -191,14 +187,6 @@ BOOL detectIsPlaying(id each, void* context) {
     id tempWindow = [NSApp bestMovieWindow];
     [tempWindow makeFullScreen];
     [self presentScreen];
-    [backgroundWindow setPresentingWindow:tempWindow];
-}
-
--(void)enterFullScreenOnScreen:(NSScreen*)aScreen
-{
-    id tempWindow = [NSApp bestMovieWindow];
-    [tempWindow makeFullScreenOnScreen:aScreen];
-    [self presentScreenOnScreen:aScreen];
     [backgroundWindow setPresentingWindow:tempWindow];
 }
 

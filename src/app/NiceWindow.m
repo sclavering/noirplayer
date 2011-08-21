@@ -418,17 +418,12 @@
 
 -(void)makeFullScreen
 {
-    return [self makeFullScreenOnScreen:[self screen]];
-}
-
--(void)makeFullScreenOnScreen:(NSScreen*) aScreen
-{
     if(!fullScreen) {
 		fullScreen = YES;
 		[self setLevel:NSFloatingWindowLevel + 2];
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
-		[self fillScreenSizeOnScreen:aScreen];
+		[self fillScreenSize:nil];
     }
     [theMovieView drawMovieFrame];
     [self hideAllImmediately];
@@ -565,18 +560,15 @@
 
 -(IBAction)fillScreenSize:(id)sender
 {
-    [self fillScreenSizeOnScreen:[self screen]];
-}
-
--(void)fillScreenSizeOnScreen:(NSScreen*)aScreen{
+    id screen = [self screen];
     [self resetFillingFlags];
     isFilling = YES;
-    NSSize aSize = [self getResizeAspectRatioSizeOnScreen:aScreen];
+    NSSize aSize = [self getResizeAspectRatioSizeOnScreen:screen];
     NSRect newRect = [self calcResizeSize:aSize];
     newRect.origin.x = 0;
-    newRect = [self centerRect:newRect onScreen:aScreen];
+    newRect = [self centerRect:newRect onScreen:screen];
     [self setFrame:newRect display:YES];
-    [self centerOnScreen:aScreen];
+    [self centerOnScreen:screen];
     [self setInitialDrag:nil];
 }
 
