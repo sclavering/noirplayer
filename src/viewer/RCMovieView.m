@@ -97,7 +97,6 @@
 
 -(BOOL)openURL:(NSURL *)url
 {
-    myURL = url;
     [film release];
     film = [[QTMovie movieWithURL:url error:nil] retain];
     if(!film) return NO;
@@ -291,13 +290,6 @@
 
 #pragma mark -
 #pragma mark Menus
-
--(id)menuTitle
-{
-    NSString *file = [[[myURL absoluteString] lastPathComponent] stringByDeletingPathExtension];
-    file = (NSString *)CFURLCreateStringByReplacingPercentEscapes(NULL, (CFStringRef)file, (CFStringRef)@"");
-    return [file autorelease];
-}
 
 -(id)pluginMenu
 {

@@ -466,11 +466,6 @@
 	return [myMenu autorelease];
 }
 
--(id)menuTitle
-{
-    return trueMovieView ? [trueMovieView menuTitle] : @"";
-}
-
 -(id)pluginMenu
 {
     return [trueMovieView pluginMenu];

@@ -48,7 +48,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 @interface RCMovieView : NSView
 {
     enum play_states oldPlayState;
-    NSURL *myURL;
     QTMovie *film;
     QTMovieView *qtView;
     NSDictionary* movieCache;
@@ -95,7 +94,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(double)currentMovieTime;
 -(void)setCurrentMovieTime:(double)newMovieTime;
 
--(id)menuTitle;
 -(id)pluginMenu;
 
 -(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender;

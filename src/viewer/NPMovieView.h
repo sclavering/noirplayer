@@ -85,7 +85,6 @@
 -(void)timedHideVolumeOverlay;
 
 -(id)myMenu;
--(id)menuTitle;
 -(id)pluginMenu;
 -(id)contextualMenu;
 -(void)rebuildMenu;

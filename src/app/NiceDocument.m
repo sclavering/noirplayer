@@ -102,7 +102,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 {
     self = [super init];
     if(self){
-        movieMenuItem = nil;
         menuObjects = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(rebuildMenu)
@@ -114,13 +113,8 @@ void findSpace(id each, void* context, BOOL* endthis)
 
 -(void)dealloc
 {
-    int i;
-    
-    if(movieMenuItem != nil && ([[self movieMenu] indexOfItem:movieMenuItem] != -1))
-        [[self movieMenu] removeItem:movieMenuItem];
-    
     if(menuObjects != nil){
-        for(i = 0; i < (int)[menuObjects count]; i++)
+        for(NSUInteger i = 0; i < [menuObjects count]; i++)
             [[self movieMenu] removeItem:[menuObjects objectAtIndex:i]];
         [menuObjects release];
     }
@@ -382,34 +376,21 @@ stuff won't work properly! */
 {
     // xxx this ought to show a Volume menu on the Movie menu
 
-    int i;
     id pluginMenu = [theMovieView pluginMenu];
     if(!pluginMenu)
 		pluginMenu = [NSMutableArray array];
 
-    if(movieMenuItem != nil && ([[self movieMenu] indexOfItem:movieMenuItem] != -1)){
-        [[self movieMenu] removeItem:movieMenuItem];
-        movieMenuItem = nil;
-    }
-    
-    if(menuObjects != nil){
-        for(i = 0; i < (int)[menuObjects count]; i++)
+    if(menuObjects != nil) {
+        for(NSUInteger i = 0; i < [menuObjects count]; i++)
             [[self movieMenu] removeItem:[menuObjects objectAtIndex:i]];
         [menuObjects release];
         menuObjects = nil;
     }
     
-	id tMenuTitle =[theMovieView menuTitle];
-	if(tMenuTitle == nil)
-		tMenuTitle = @"Untitled Movie";
-    movieMenuItem = [[NSMenuItem alloc] initWithTitle:tMenuTitle action:nil keyEquivalent:@""];
-
     if([[self window] isKeyWindow]) {
         menuObjects = [[NSMutableArray array] retain];
-        [movieMenuItem setEnabled:NO];
-        [[self movieMenu] insertItem:movieMenuItem atIndex:0];
-        for(i = (int)[pluginMenu count] - 1; i >= 0; i--){	// Reverse iteration for easier addition
-            [[self movieMenu] insertItem:[pluginMenu objectAtIndex:i] atIndex:1];
+        for(NSUInteger i = 0; i < [pluginMenu count]; i++) {
+            [[self movieMenu] insertItem:[pluginMenu objectAtIndex:i] atIndex:i];
             [menuObjects addObject:[pluginMenu objectAtIndex:i]];
         }
     }
