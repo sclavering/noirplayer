@@ -42,7 +42,6 @@
 #import <QTKit/QTKit.h>
 #import <AppKit/NSDragging.h>
 
-enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1 };
 enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 @interface RCMovieView : NSView
@@ -104,6 +103,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)rrStart:(int)seconds;
 -(void)rrEnd;
 
--(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;
+-(void)incrementMovieTime:(long)timeDifference;
 
 @end

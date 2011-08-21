@@ -182,7 +182,7 @@
 
 -(void)ffDo:(int)seconds
 {
-    [self incrementMovieTime:seconds inDirection:DIRECTION_FORWARD];
+    [self incrementMovieTime:seconds];
     [self drawMovieFrame];
 }
 
@@ -203,7 +203,7 @@
 
 -(void)rrDo:(int)seconds
 {
-    [self incrementMovieTime:seconds inDirection:DIRECTION_BACKWARD];
+    [self incrementMovieTime:-seconds];
     [self drawMovieFrame];
 }
 
@@ -239,9 +239,9 @@
     [film setCurrentTime: QTMakeTime(newMovieTime, 1)];
 }
 
--(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;
+-(void)incrementMovieTime:(long)timeDifference
 {
-    [self setCurrentMovieTime:([self currentMovieTime] + (aDirection * timeDifference))];
+    [self setCurrentMovieTime:([self currentMovieTime] + timeDifference)];
 }
 
 @end
