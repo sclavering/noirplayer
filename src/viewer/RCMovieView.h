@@ -70,12 +70,4 @@
 -(void)start;
 -(void)stop;
 
--(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender;
--(NSDragOperation)draggingUpdated:(id)sender;
--(BOOL)prepareForDragOperation:(id)sender;
--(BOOL)performDragOperation:(id<NSDraggingInfo>)sender;
--(void)concludeDragOperation:(id<NSDraggingInfo>)sender;
-
--(id<NSDraggingDestination>)_windowDrag;
-
 @end
