@@ -87,7 +87,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(id)contextualMenu;
 -(void)rebuildMenu;
 
--(BOOL)canAnimateResize;
 -(void)scrollWheelResize:(float)delta;
 
 -(double)scrubLocation:(id)sender;

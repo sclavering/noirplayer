@@ -503,7 +503,7 @@
  */
 -(void)resizeWithSize:(NSSize)aSize animate:(BOOL)animate
 {
-    [self setFrame:[self calcResizeSize:aSize] display:YES animate:(animate ? [theMovieView canAnimateResize] : NO)];
+    [self setFrame:[self calcResizeSize:aSize] display:YES animate:animate];
 }
 
 -(NSRect)calcResizeSize:(NSSize)aSize

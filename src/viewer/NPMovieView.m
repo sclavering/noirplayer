@@ -373,13 +373,6 @@
     [((NiceWindow *)[self window]) mouseDragged:anEvent];
 }
 
--(BOOL)canAnimateResize
-{
-    if([trueMovieView respondsToSelector:@selector(canAnimateResize)])
-		return [trueMovieView canAnimateResize];
-    return YES;
-}
-
 -(void)scrollWheel:(NSEvent *)anEvent
 {
     float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
