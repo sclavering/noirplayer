@@ -96,8 +96,8 @@
 		25294AA7076E937E00D4B325 /* play_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play_over.png; path = Resources/play_over.png; sourceTree = "<group>"; };
 		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = src/widgets/ControlPlay.h; sourceTree = "<group>"; };
 		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = src/widgets/ControlPlay.m; sourceTree = "<group>"; };
-		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = src/viewer/NPMovieView.h; sourceTree = "<group>"; };
-		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = src/viewer/NPMovieView.m; sourceTree = "<group>"; };
+		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = src/app/NPMovieView.h; sourceTree = "<group>"; };
+		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = src/app/NPMovieView.m; sourceTree = "<group>"; };
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		259CC53707374066001ED5FA /* NPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplication.h; path = src/app/NPApplication.h; sourceTree = "<group>"; };
 		259CC53807374066001ED5FA /* NPApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplication.m; path = src/app/NPApplication.m; sourceTree = "<group>"; };
@@ -245,29 +245,22 @@
 		252BD45D07697C6A006CF96B /* app */ = {
 			isa = PBXGroup;
 			children = (
+				259CC53707374066001ED5FA /* NPApplication.h */,
+				259CC53807374066001ED5FA /* NPApplication.m */,
+				3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */,
+				3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */,
 				3E28CCA20808E0F000F59FF5 /* NiceWindowController.h */,
 				3E28CCA30808E0F000F59FF5 /* NiceWindowController.m */,
 				3EEDF763065B507B00E3545C /* NiceWindow.h */,
 				3EEDF764065B507B00E3545C /* NiceWindow.m */,
-				3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */,
-				3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */,
-				259CC53707374066001ED5FA /* NPApplication.h */,
-				259CC53807374066001ED5FA /* NPApplication.m */,
 				3EEDF76B065B5ACD00E3545C /* NiceController.h */,
 				3EEDF76C065B5ACD00E3545C /* NiceController.m */,
 				2A37F4AEFDCFA73011CA2CEA /* NiceDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */,
-			);
-			name = app;
-			sourceTree = "<group>";
-		};
-		257D61370753F45800702BD0 /* viewer */ = {
-			isa = PBXGroup;
-			children = (
 				257D61660753F92D00702BD0 /* NPMovieView.h */,
 				257D61670753F92D00702BD0 /* NPMovieView.m */,
 			);
-			name = viewer;
+			name = app;
 			sourceTree = "<group>";
 		};
 		25B912D707416725001B68D9 /* widgets */ = {
@@ -314,7 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				252BD45D07697C6A006CF96B /* app */,
-				257D61370753F45800702BD0 /* viewer */,
 				25B912D707416725001B68D9 /* widgets */,
 				2A37F4AFFDCFA73011CA2CEA /* util */,
 			);
