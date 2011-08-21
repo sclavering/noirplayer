@@ -36,14 +36,14 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-
 #import <Cocoa/Cocoa.h>
+#import "RCMovieView.h"
 
 @class ControlPlay;
 @class NiceWindow;
 
 @interface NPMovieView : NSView {
-    id trueMovieView;
+    RCMovieView* trueMovieView;
     id contextMenu;
     id title;
 	float internalVolume;

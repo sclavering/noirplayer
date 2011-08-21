@@ -40,11 +40,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
-#import "NPMovieProtocol.h"
+#import <AppKit/NSDragging.h>
 
+enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1 };
 enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
-@interface RCMovieView : NSView <NPMoviePlayer>
+@interface RCMovieView : NSView
 {
     enum play_states oldPlayState;
     NSURL *myURL;
@@ -57,11 +58,52 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 +(RCMovieView *)makeWithURL:(NSURL *)url;
 +(NSArray *)supportedFileExtensions;
 
--(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;
+-(id)initWithFrame:(NSRect)frame;
+-(void)close;
+-(BOOL)openURL:(NSURL *)url;
+
+-(void)keyDown:(NSEvent *)anEvent;
+-(void)keyUp:(NSEvent *)anEvent;
+-(void)mouseDown:(NSEvent *)anEvent;
+-(void)mouseMoved:(NSEvent *)anEvent;
+
+/**
+ * Sent on screen size change.
+ */
+-(void)drawMovieFrame;
+
+-(NSSize)naturalSize;
+
+-(BOOL)muted;
+-(void)setMuted:(BOOL)aBOOL;
+-(float)volume;
+-(void)setVolume:(float)aVolume;
+
+-(BOOL)isPlaying;
+-(void)start;
+-(void)stop;
+
+-(void)ffStart:(int)seconds;
+-(void)ffDo:(int)seconds;
+-(void)ffEnd;
+-(void)rrStart:(int)seconds;
+-(void)rrDo:(int)seconds;
+-(void)rrEnd;
+
+-(BOOL)hasEnded:(id)sender;
+
+-(double)totalTime;
+-(double)currentMovieTime;
+-(void)setCurrentMovieTime:(double)newMovieTime;
+
+-(id)menuTitle;
+-(id)pluginMenu;
+
+-(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender;
 -(NSDragOperation)draggingUpdated:(id)sender;
 -(BOOL)prepareForDragOperation:(id)sender;
--(BOOL)performDragOperation:(id <NSDraggingInfo>)sender;
--(void)concludeDragOperation:(id <NSDraggingInfo>)sender;
+-(BOOL)performDragOperation:(id<NSDraggingInfo>)sender;
+-(void)concludeDragOperation:(id<NSDraggingInfo>)sender;
 
 -(id<NSDraggingDestination>)_windowDrag;
 

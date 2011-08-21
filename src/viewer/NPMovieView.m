@@ -38,7 +38,6 @@
 
 #import "NPMovieView.h"
 #import "ControlPlay.h"
-#import "NPMovieProtocol.h"
 #import "NiceWindow.h"
 #import "NiceDocument.h"
 #import "RCMovieView.h"
@@ -151,7 +150,7 @@
 {
     wasPlaying = NO;
     
-    [(id<NPMoviePlayer>)trueMovieView stop];
+    [trueMovieView stop];
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
 }
 
