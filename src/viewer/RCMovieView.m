@@ -109,18 +109,16 @@
 -(id)initWithFrame:(NSRect)frame
 {
     if((self = [super initWithFrame:frame])){
-		
-	qtView = [[QTMovieView alloc] initWithFrame:frame];
-	[self addSubview:qtView];
+        qtView = [[QTMovieView alloc] initWithFrame:frame];
+        [self addSubview:qtView];
         oldPlayState = STATE_INACTIVE;
         [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
-	[qtView setFillColor:[NSColor blackColor]];
+        [qtView setFillColor:[NSColor blackColor]];
         [qtView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
         [qtView setControllerVisible:NO];
         [qtView setEditable:NO];
-	[qtView setPreservesAspectRatio:NO];
+        [qtView setPreservesAspectRatio:NO];
     }
-
     return self;
 }
 
