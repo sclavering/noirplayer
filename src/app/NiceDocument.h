@@ -53,7 +53,6 @@
     NSURL* theCurrentURL;
     id movieMenuItem;
     NSMutableArray *menuObjects;
-    BOOL hasRealMovie;
     BOOL wasPlayingBeforeMini;	
 }
 
@@ -64,7 +63,6 @@
 
 #pragma mark Window Information
 
--(BOOL)isActive;
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification;
 -(void)windowControllerDidLoadNib:(NSWindowController *) aController;
 -(void)updateAfterLoad;

@@ -157,7 +157,7 @@ BOOL detectIsPlaying(id each, void* context){
         if(!movieView) continue; // xxx report the error
         id tempDoc = [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         [tempDoc loadURL:url withMovieView:movieView];
-        if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
+        if(!i) [[self mainDocument] play:self];
         if(tError) [NSApp presentError:tError];
     }
 }

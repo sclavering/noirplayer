@@ -107,7 +107,7 @@
     [super dealloc];
 }
 
--(BOOL)openURL:(NSURL *)url withMovieView:view
+-(void)openURL:(NSURL *)url withMovieView:view
 {
     if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
@@ -120,8 +120,6 @@
     [trueMovieView setVolume:internalVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
-
-    return YES;
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint

@@ -54,7 +54,7 @@
     BOOL mouseEntered;
 }
 
--(BOOL)openURL:(NSURL *)url withMovieView:view;
+-(void)openURL:(NSURL *)url withMovieView:view;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;

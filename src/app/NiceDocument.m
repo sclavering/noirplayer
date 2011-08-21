@@ -102,7 +102,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 {
     self = [super init];
     if(self){
-        hasRealMovie = NO;
         movieMenuItem = nil;
         menuObjects = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -174,31 +173,20 @@ void findSpace(id each, void* context, BOOL* endthis)
 -(void)loadURL:(NSURL *)url withMovieView:(id)movieView
 {
     [self readFromURL:url ofType:nil];
-
-    if([theMovieView openURL:theCurrentURL withMovieView:movieView]) {
-        hasRealMovie = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-        [theWindow restoreVolume];
-        [self calculateAspectRatio];
-        [theWindow initialDefaultSize];
-        [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
-        [theWindow setTitle:[theWindow title]];
-        [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
-        [NSApp updateWindowsItem:theWindow];
-    } else {
-        hasRealMovie = NO;
-    }
-
+    [theMovieView openURL:theCurrentURL withMovieView:movieView];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+    [theWindow restoreVolume];
+    [self calculateAspectRatio];
+    [theWindow initialDefaultSize];
+    [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
+    [theWindow setTitle:[theWindow title]];
+    [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
+    [NSApp updateWindowsItem:theWindow];
     [self updateAfterLoad];
 }
 
 #pragma mark -
 #pragma mark Window Information
-
--(BOOL)isActive
-{
-    return hasRealMovie;
-}
 
 -(BOOL)isPlaying
 {
