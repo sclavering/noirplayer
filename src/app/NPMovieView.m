@@ -70,7 +70,6 @@
         oldPlayState = STATE_INACTIVE;
         wasPlaying = NO;
         [self setAutoresizesSubviews:YES];
-		title = nil;
 		internalVolume = 1.0;
     }
     return self;
@@ -119,15 +118,11 @@
 	[self close];
     if(mouseEntered)
 		[self mouseExited:nil];
-    [title release];
     [super dealloc];
 }
 
 -(void)openURL:(NSURL *)url withMovie:aMovie
 {
-    if(title) [title release];
-    title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
-
     qtview = [[QTMovieView alloc] initWithFrame:[self bounds]];
     [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
     [qtview setFillColor:[NSColor blackColor]];

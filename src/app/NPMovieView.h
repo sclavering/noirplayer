@@ -48,7 +48,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
     QTMovie* movie;
     QTMovieView* qtview;
     id contextMenu;
-    id title;
 	float internalVolume;
     NSTrackingRectTag trackingRect;
     enum play_states oldPlayState;
