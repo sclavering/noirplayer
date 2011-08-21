@@ -167,7 +167,7 @@ void findSpace(id each, void* context, BOOL* endthis)
 -(void)loadURL:(NSURL *)url withMovie:(QTMovie*)movie
 {
     [self readFromURL:url ofType:nil];
-    [theMovieView openURL:theCurrentURL withMovie:movie];
+    [theMovieView openMovie:movie];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [theWindow restoreVolume];
     [self calculateAspectRatio];

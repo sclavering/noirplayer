@@ -121,7 +121,7 @@
     [super dealloc];
 }
 
--(void)openURL:(NSURL *)url withMovie:aMovie
+-(void)openMovie:aMovie
 {
     qtview = [[QTMovieView alloc] initWithFrame:[self bounds]];
     [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];

@@ -57,7 +57,7 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 +(NSArray *)supportedFileExtensions;
 
--(void)openURL:(NSURL *)url withMovie:(QTMovie*)movie;
+-(void)openMovie:(QTMovie*)movie;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
