@@ -138,9 +138,9 @@ BOOL detectIsPlaying(id each, void* context) {
         if(!m) continue; // xxx report the error
         id doc = [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         [doc loadURL:url withMovie:m];
-        if(!i) [[self mainDocument] play:self];
         if(tError) [NSApp presentError:tError];
     }
+    if([files count]) [[self mainDocument] play:self];
 }
 
 -(IBAction)toggleFullScreen:(id)sender
