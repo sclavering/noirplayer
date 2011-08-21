@@ -220,8 +220,7 @@
     id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
     [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]], NSFontAttributeName, nil]] autorelease]];
 
-    /* Update rest of UI */
-	if(theMovieView !=nil){
+	if(theMovieView) {
 		[theScrubBar setDoubleValue:[theMovieView scrubLocation:sender]];
 		[theScrubBar setLoadedValue:[theMovieView percentLoaded]];
 	}
@@ -239,27 +238,9 @@
 -(void)setupOverlays
 {
     NSRect currentFrame = [self frame];
-    [self putOverlay:theOverlayControllerWindow
-		   asChildOf:self
-             inFrame:NSMakeRect(currentFrame.origin.x,
-                                currentFrame.origin.y,
-                                currentFrame.size.width,
-                                [theOverlayControllerWindow frame].size.height)
-      withVisibility:NO];
-	
-    [self putOverlay:theOverlayTitleBar
-		   asChildOf:self
-             inFrame:NSMakeRect(currentFrame.origin.x,
-                                currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height,
-                                currentFrame.size.width,
-                                [theOverlayTitleBar frame].size.height)
-      withVisibility:NO];
-    [self putOverlay:theOverlayVolume
-		   asChildOf:self
-             inFrame:NSOffsetRect([theOverlayVolume frame],
-                                  NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]),
-                                  NSMidY(currentFrame) - NSMidY([theOverlayVolume frame]))
-      withVisibility:NO];
+    [self putOverlay:theOverlayControllerWindow asChildOf:self inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height) withVisibility:NO];
+    [self putOverlay:theOverlayTitleBar asChildOf:self inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height) withVisibility:NO];
+    [self putOverlay:theOverlayVolume asChildOf:self inFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]), NSMidY(currentFrame) - NSMidY([theOverlayVolume frame])) withVisibility:NO];
 }
 
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aWindow inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible
@@ -287,7 +268,8 @@
     [theOverlayVolume setAlphaValue:0.0];
 }
 
--(BOOL)scrubberInUse{
+-(BOOL)scrubberInUse
+{
     return [theScrubBar inUse];
 }
 
@@ -312,22 +294,13 @@
 	NSRect intersect = NSIntersectionRect(frame,mainFrame);
 	
     if(!fullScreen){
-        if(NSEqualRects(intersect, frame)){
-            [theOverlayControllerWindow setFrame:NSMakeRect(frame.origin.x,
-                                                  frame.origin.y,
-                                                  frame.size.width,
-                                                  [theOverlayControllerWindow frame].size.height) display:YES];
+        if(NSEqualRects(intersect, frame)) {
+            [theOverlayControllerWindow setFrame:NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
         } else {
-            [theOverlayControllerWindow setFrame:NSMakeRect(intersect.origin.x,
-                                                  intersect.origin.y,
-                                                  intersect.size.width,
-                                                  [theOverlayControllerWindow frame].size.height) display:YES];
+            [theOverlayControllerWindow setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y, intersect.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
         }
 	} else {
-        [theOverlayControllerWindow setFrame:NSMakeRect(mainFrame.origin.x,
-                                              mainFrame.origin.y,
-                                              mainFrame.size.width,
-                                              [theOverlayControllerWindow frame].size.height) display:YES];
+        [theOverlayControllerWindow setFrame:NSMakeRect(mainFrame.origin.x, mainFrame.origin.y, mainFrame.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
 	}
 }
 
@@ -363,7 +336,7 @@
         }
     } else {
         if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]) {
-             visibleFrame = [[NSScreen mainScreen] frame];
+            visibleFrame = [[NSScreen mainScreen] frame];
             [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - [NSMenuView menuBarHeight], visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
         } else {
             [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height, visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
@@ -425,7 +398,8 @@
     [self setFixedAspect: ![self fixedAspect]];
 }
 
--(void)setFixedAspect:(BOOL)aBool{
+-(void)setFixedAspect:(BOOL)aBool
+{
     if(aBool){
         [self setAspectRatio:aspectRatio];
         _lastSize = NSMakeSize(0, 0);
@@ -442,10 +416,6 @@
 
 #pragma mark Window Attributes
 
-/**
-* The window can either be normal or full screen. Normal implies a normally sized window on the desktop,
- * and full screen implies a full screen presentation of a movie.
- */
 -(void)makeFullScreen
 {
     return [self makeFullScreenOnScreen:[self screen]];

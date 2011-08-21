@@ -44,13 +44,12 @@
 
 id controller;
 
-BOOL detectIsPlaying(id each, void* context){
+BOOL detectIsPlaying(id each, void* context) {
     return [each isPlaying];
 }
 
 @implementation NiceController
 
-#pragma mark Class Methods
 +(id)controller
 {
     return controller;
@@ -61,31 +60,21 @@ BOOL detectIsPlaying(id each, void* context){
     controller = aNiceController;
 }
 
-#pragma mark Instance Methods
-
 -(void)awakeFromNib
 {
-    lastMouseLocation = NSMakePoint(0,0);
-    fullScreenMode =  NO;
-    mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:.2
-                                                      target:self
-                                                    selector:@selector(checkMouseLocation:)
-                                                    userInfo:nil repeats:YES]; // Auto-hides mouse.
+    lastMouseLocation = NSMakePoint(0, 0);
+    fullScreenMode = NO;
+    mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkMouseLocation:) userInfo:nil repeats:YES]; // Auto-hides mouse.
     lastCursorMoveDate = [[NSDate alloc] init];
     backgroundWindow = [[BlackWindow alloc] init];
     [NiceController setController:self];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(changedWindow:)
-                                                 name:@"NSWindowDidBecomeMainNotification"
-                                               object:nil];
-    antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0
-                                                      target:self
-                                                    selector:@selector(preventSleep:)
-                                                    userInfo:nil repeats:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedWindow:) name:@"NSWindowDidBecomeMainNotification" object:nil];
+    antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(preventSleep:) userInfo:nil repeats:YES];
     [NSApp setDelegate:self];
 }
 
--(void)dealloc{
+-(void)dealloc
+{
     [mouseMoveTimer invalidate];
     [antiSleepTimer invalidate];
     [lastCursorMoveDate release];
@@ -109,15 +98,13 @@ BOOL detectIsPlaying(id each, void* context){
 {
     NSRect tempRect =[[[NSScreen screens] objectAtIndex:0] frame];
     NSPoint tempPoint =[NSEvent mouseLocation];
-    if(!NSEqualPoints(lastMouseLocation,tempPoint)){
+    if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
         [lastCursorMoveDate release];
         lastCursorMoveDate = [[NSDate alloc] init];
         lastMouseLocation= tempPoint;
         [NSCursor setHiddenUntilMouseMoves:NO];
-    }else{
-        if(fullScreenMode && ([lastCursorMoveDate timeIntervalSinceNow] < -3)){
-            [NSCursor setHiddenUntilMouseMoves:YES];
-        }
+    } else {
+        if(fullScreenMode && [lastCursorMoveDate timeIntervalSinceNow] < -3) [NSCursor setHiddenUntilMouseMoves:YES];
     }
     
     tempRect.origin.y=tempRect.size.height -24;
@@ -143,6 +130,7 @@ BOOL detectIsPlaying(id each, void* context){
     }
 }
 
+#pragma mark -
 #pragma mark Interface
 
 -(IBAction)openDocument:(id)sender
@@ -169,9 +157,9 @@ BOOL detectIsPlaying(id each, void* context){
 
 -(IBAction)toggleFullScreen:(id)sender
 {
-    if(fullScreenMode){
+    if(fullScreenMode) {
         [self exitFullScreen];
-    }else if([[NSApp mainWindow] isKindOfClass:[NiceWindow self]]){
+    } else if([[NSApp mainWindow] isKindOfClass:[NiceWindow self]]) {
         [self enterFullScreen];
     }
 }
@@ -193,14 +181,13 @@ BOOL detectIsPlaying(id each, void* context){
 -(void)presentScreenOnScreen:(NSScreen*)aScreen
 {
     fullScreenMode = YES;
-    if([aScreen isEqualTo:[[NSScreen screens] objectAtIndex:0]])
-        SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
-    
+    if([aScreen isEqualTo:[[NSScreen screens] objectAtIndex:0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
     [backgroundWindow setFrame:[aScreen frame] display:YES];
     [backgroundWindow orderBack:nil];
 }
 
--(BOOL)isFullScreen{
+-(BOOL)isFullScreen
+{
 	return fullScreenMode;
 }
 
@@ -230,8 +217,7 @@ BOOL detectIsPlaying(id each, void* context){
 -(void)exitFullScreen
 {
     id tempWindow = [NSApp bestMovieWindow];
-    if(tempWindow != nil)
-        [tempWindow makeNormalScreen];
+    if(tempWindow) [tempWindow makeNormalScreen];
     [self unpresentScreen];
 }
 
@@ -243,7 +229,8 @@ BOOL detectIsPlaying(id each, void* context){
     return backgroundWindow;
 }
 
--(IBAction)dummyMethod:(id)temp{
+-(IBAction)dummyMethod:(id)temp
+{
 }
 
 @end

@@ -50,8 +50,8 @@
         [self doesNotRecognizeSelector:[invocation selector]];
 }
 
-- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
-    
-  return  [NSWindow instanceMethodSignatureForSelector:aSelector];
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+{
+  return [NSWindow instanceMethodSignatureForSelector:aSelector];
 }
 @end

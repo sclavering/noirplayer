@@ -165,7 +165,6 @@ BOOL selectNiceWindow(id each, void* context){
         tempWindow = [[NSApp movieWindows] firstObject];
     }
     return tempWindow;
-    
 }
 
 @end
