@@ -71,7 +71,6 @@
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         oldPlayState = STATE_INACTIVE;
         wasPlaying = NO;
-        [self addSubview:trueMovieView];
         [self setAutoresizesSubviews:YES];
 		title = nil;
 		internalVolume = 1.0;
@@ -128,11 +127,13 @@
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
 
     trueMovieView = view;
+    qtview = [trueMovieView qtview];
+    movie = [qtview movie];
     [view setFrame: [self bounds]];
 
     [self addSubview:trueMovieView];
 
-    [[trueMovieView qtmovie] setVolume:internalVolume];
+    [movie setVolume:internalVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 }
@@ -155,20 +156,20 @@
 -(void)start
 {
     wasPlaying = YES;
-    [trueMovieView start];
-    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
+    [movie play];
+    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
 }
 
 -(void)stop
 {
     wasPlaying = NO;
-    [trueMovieView stop];
-    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
+    [movie stop];
+    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
 }
 
 -(void)toggleMute
 {
-    [[trueMovieView qtmovie] setMuted:![[trueMovieView qtmovie] muted]];
+    [movie setMuted:![movie muted]];
     [((NiceWindow *)[self window]) updateVolume];
 }
 
@@ -202,7 +203,7 @@
 
 -(BOOL)isPlaying
 {
-	return [trueMovieView isPlaying];
+    return [movie rate] != 0.0;
 }
 
 -(BOOL)wasPlaying
@@ -416,9 +417,6 @@
 	return [myMenu autorelease];
 }
 
-#pragma mark -
-#pragma mark Menus
-
 -(id)pluginMenu
 {
     id pluginMenu = [[NSMutableArray array] retain];
@@ -439,7 +437,7 @@
 -(NSMenu*)audioTrackMenu
 {
     NSMenu* tReturnMenu =[[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [[trueMovieView qtmovie] tracksOfMediaType:@"soun"];
+    NSArray* tArray = [movie tracksOfMediaType:@"soun"];
     for(NSUInteger i = 0; i < [tArray count]; i++) {
         QTTrack* tTrack = [tArray objectAtIndex:i];
         NSDictionary* tDict = [tTrack trackAttributes];
@@ -455,7 +453,7 @@
 -(NSMenu*)videoTrackMenu
 {
     NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [[trueMovieView qtmovie] tracksOfMediaType:@"vide"];
+    NSArray* tArray = [movie tracksOfMediaType:@"vide"];
     for(NSUInteger i = 0; i < [tArray count]; i++) {
         QTTrack* tTrack = [tArray objectAtIndex:i];
         NSDictionary* tDict = [tTrack trackAttributes];
@@ -502,90 +500,60 @@
 #pragma mark -
 #pragma mark Pluggables
 
-/* Used to determine the proper size of the window at a given magnification factor. */
 -(NSSize)naturalSize
 {
-    NSSize movieSize = [trueMovieView naturalSize];
-    if((movieSize.width == 0) && (movieSize.height == 0))
-	return NSMakeSize(320, 240);
-    else
-	return movieSize;
+    NSSize sz = [[movie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
+    return sz.width && sz.height ? sz : NSMakeSize(320, 240);
 }
 
 -(double)percentLoaded
 {
-    QTMovie* film = [trueMovieView qtmovie];
     NSTimeInterval tDuration;
-    QTGetTimeInterval([film duration], &tDuration);
+    QTGetTimeInterval([movie duration], &tDuration);
     NSTimeInterval tMaxLoaded;
-    QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
+    QTGetTimeInterval([movie maxTimeLoaded], &tMaxLoaded);
     return tMaxLoaded / tDuration;
 }
 
 -(BOOL)muted
 {
-	return [[trueMovieView qtmovie] muted];
+    return [movie muted];
 }
 
 -(void)setMuted:(BOOL)aBool
 {
-	[[trueMovieView qtmovie] setMuted:aBool];
+    [movie setMuted:aBool];
 }
 
 -(float)volumeWithMute
 {
-	float volume;
-	
-	if(trueMovieView)
-		volume = [[trueMovieView qtmovie] volume];
-	else
-		volume = 1.0;
-	
-	if(volume < -2.0)
-		volume = -2.0;
-	if(volume > 2.0)
-		volume = 2.0;
-
-	return volume;
+    float volume = [movie volume];
+    if(volume < -2.0) volume = -2.0;
+    if(volume > 2.0) volume = 2.0;
+    return volume;
 }
 
 -(float)volume
 {
-	float volume;
-	
-	if(trueMovieView)
-		volume = [[trueMovieView qtmovie] volume];
-	else
-		volume = 1.0;
-	
-	if(volume < 0.0)
-		volume = 0.0;
-	if(volume > 2.0)
-		volume = 2.0;
-
-	return volume;
+    float volume = [movie volume];
+    if(volume < 0.0) volume = 0.0;
+    if(volume > 2.0) volume = 2.0;
+    return volume;
 }
 
 -(void)setVolume:(float)aVolume
 {
-	if(aVolume < 0.0)
-		aVolume = 0.0;
-	if(aVolume > 2.0)
-		aVolume = 2.0;
-	internalVolume = aVolume;
-	[[trueMovieView qtmovie] setVolume:internalVolume];
-
-	if([[trueMovieView qtmovie] volume] <= 0.0)
-		[[trueMovieView qtmovie] setMuted:YES];
-	else
-		[[trueMovieView qtmovie] setMuted:NO];
-	
+    if(aVolume < 0.0) aVolume = 0.0;
+    if(aVolume > 2.0) aVolume = 2.0;
+    internalVolume = aVolume;
+    [movie setVolume:internalVolume];
+    [movie setMuted: [movie volume] <= 0.0];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(void)drawMovieFrame
 {
-	[trueMovieView drawMovieFrame];
+    [qtview setNeedsDisplay:YES];
 }
 
 /* Non working code */
@@ -630,19 +598,19 @@
 
 -(double)totalTime
 {
-    QTTime duration = [[trueMovieView qtmovie] duration];
+    QTTime duration = [movie duration];
     return duration.timeValue / duration.timeScale;
 }
 
 -(double)currentMovieTime
 {
-    QTTime current = [[trueMovieView qtmovie] currentTime];
+    QTTime current = [movie currentTime];
     return current.timeValue / current.timeScale;
 }
 
 -(void)setCurrentMovieTime:(double)newMovieTime
 {
-    [[trueMovieView qtmovie] setCurrentTime: QTMakeTime(newMovieTime, 1)];
+    [movie setCurrentTime: QTMakeTime(newMovieTime, 1)];
 }
 
 -(BOOL)hasEnded:(id)sender

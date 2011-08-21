@@ -47,7 +47,6 @@
     return view && [view openURL:url] ? view : nil;
 }
 
--(QTMovie*)qtmovie { return film; }
 -(QTMovieView*)qtview { return qtView; }
 
 -(BOOL)openURL:(NSURL *)url
@@ -90,37 +89,9 @@
 	qtView = nil;
 }
 
--(void)drawMovieFrame
-{
-    [qtView setNeedsDisplay:YES];
-}
-
--(NSSize)naturalSize
-{
-    return [[film attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
-}
-
 - (void)drawRect:(NSRect)aRect
 {
     [qtView drawRect:aRect];
-}
-
-#pragma mark -
-#pragma mark Controls
-
--(BOOL)isPlaying
-{
-    return ([film rate] != 0.0);
-}
-
--(void)start
-{
-    [film play];
-}
-
--(void)stop
-{
-    [film stop];
 }
 
 @end

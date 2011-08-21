@@ -46,6 +46,8 @@
 enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 @interface NPMovieView : NSView {
+    QTMovie* movie;
+    QTMovieView* qtview;
     RCMovieView* trueMovieView;
     id contextMenu;
     id title;

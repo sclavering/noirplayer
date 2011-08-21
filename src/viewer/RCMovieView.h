@@ -52,22 +52,10 @@
 
 +(RCMovieView *)makeWithURL:(NSURL *)url;
 
--(QTMovie*) qtmovie;
 -(QTMovieView*) qtview;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)close;
 -(BOOL)openURL:(NSURL *)url;
-
-/**
- * Sent on screen size change.
- */
--(void)drawMovieFrame;
-
--(NSSize)naturalSize;
-
--(BOOL)isPlaying;
--(void)start;
--(void)stop;
 
 @end
