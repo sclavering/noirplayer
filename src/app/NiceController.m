@@ -143,13 +143,6 @@ BOOL detectIsPlaying(id each, void* context) {
     }
 }
 
--(IBAction)newDocument:(id)sender
-{
-    [super newDocument:sender];
-    id tempWindow =[NSApp mainWindow];
-    [NSApp changeWindowsItem:tempWindow title:[tempWindow title] filename:NO];
-}
-
 -(IBAction)toggleFullScreen:(id)sender
 {
     if(fullScreenMode) {
