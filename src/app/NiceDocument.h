@@ -50,7 +50,6 @@
 {
     IBOutlet NPMovieView *theMovieView;
     IBOutlet NiceWindow *theWindow;
-    NSURL* theCurrentURL;
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;	
 }

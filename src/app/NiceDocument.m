@@ -119,7 +119,6 @@ void findSpace(id each, void* context, BOOL* endthis)
         [menuObjects release];
     }
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [theCurrentURL release];
     [super dealloc];
 }
 
@@ -146,9 +145,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    if(theCurrentURL)
-        [theCurrentURL release];
-    theCurrentURL = [url retain];
     return YES;
 }
 
@@ -160,7 +156,7 @@ void findSpace(id each, void* context, BOOL* endthis)
     [theWindow restoreVolume];
     [self calculateAspectRatio];
     [theWindow initialDefaultSize];
-    [theWindow setTitleWithRepresentedFilename:[theCurrentURL path]];
+    [theWindow setTitleWithRepresentedFilename:[url path]];
     [theWindow setTitle:[theWindow title]];
     [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
     [NSApp updateWindowsItem:theWindow];
@@ -191,12 +187,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-
-    // Add any code here that needs to be executed once the windowController has loaded the document's window.
-    if(theCurrentURL == nil){
-        [NSApp addWindowsItem:theWindow title:@"NicePlayer" filename:NO];
-    } 
-    
     [self updateAfterLoad];
 	[self repositionAfterLoad];
 	[[self window] orderFront:aController];
