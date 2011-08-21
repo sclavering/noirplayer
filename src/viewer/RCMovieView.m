@@ -38,11 +38,6 @@
 
 #import "RCMovieView.h"
 
-@interface QTMovie(IdlingAdditions)
--(BOOL)idling;
--(QTTime)maxTimeLoaded;
-@end
-
 @implementation RCMovieView
 
 +(RCMovieView *)makeWithURL:(NSURL *)url
@@ -264,15 +259,6 @@
 -(void)setCurrentMovieTime:(double)newMovieTime
 {
     [film setCurrentTime: QTMakeTime(newMovieTime, 1)];
-}
-
--(NSNumber*)_percentLoaded
-{
-    NSTimeInterval tMaxLoaded;
-    NSTimeInterval tDuration;
-    QTGetTimeInterval([film duration], &tDuration);
-    QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
-    return [NSNumber numberWithDouble: (double) tMaxLoaded / tDuration];
 }
 
 -(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;

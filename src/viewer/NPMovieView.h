@@ -37,6 +37,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import <Cocoa/Cocoa.h>
+#import <QTKit/QTKit.h>
 #import "RCMovieView.h"
 
 @class ControlPlay;

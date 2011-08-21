@@ -44,6 +44,10 @@
 
 #define SCRUB_STEP_DURATION 5
 
+@interface QTMovie(IdlingAdditions)
+-(QTTime)maxTimeLoaded;
+@end
+
 @interface NPMovieView(private)
 -(NSNumber*)_percentLoaded;
 @end
@@ -524,13 +528,14 @@
 	return [trueMovieView currentMovieTime];
 }
 
--(double)percentLoaded{
-	if([trueMovieView respondsToSelector:@selector(_percentLoaded)]){
-		return [((NSNumber*)[trueMovieView _percentLoaded]) doubleValue];
-	}else{
-		return 1.0;
-	}
-
+-(double)percentLoaded
+{
+    QTMovie* film = [trueMovieView qtmovie];
+    NSTimeInterval tDuration;
+    QTGetTimeInterval([film duration], &tDuration);
+    NSTimeInterval tMaxLoaded;
+    QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
+    return tMaxLoaded / tDuration;
 }
 
 -(void)setCurrentMovieTime:(double)aDouble
