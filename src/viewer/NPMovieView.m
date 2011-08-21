@@ -215,11 +215,7 @@
 
 -(void)keyDown:(NSEvent *)anEvent
 {
-    if(([anEvent modifierFlags] & NSShiftKeyMask)){
-		/* Pass down shift flagged keys to trueMovieView */
-		[trueMovieView keyDown:anEvent];
-		return;
-    }
+    if(([anEvent modifierFlags] & NSShiftKeyMask)) return;
     
     switch([[anEvent characters] characterAtIndex:0]){
 		case ' ':
@@ -265,12 +261,8 @@
 
 -(void)keyUp:(NSEvent*)anEvent
 {
-	if(([anEvent modifierFlags] & NSShiftKeyMask)){
-		/* Pass down shift flagged keys to trueMovieView */
-		[trueMovieView keyUp:anEvent];
-		return;
-    }
-	
+	if(([anEvent modifierFlags] & NSShiftKeyMask)) return;
+
 	switch([[anEvent characters] characterAtIndex:0]){
 		case ' ':
 			[self smartHideMouseOverOverlays];
@@ -329,18 +321,15 @@
 
 - (void)mouseDown:(NSEvent *)anEvent
 {
-	   if([anEvent type] == NSLeftMouseDown){
-			  if(([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask){ /* This is a control click. */
-				  [self rightMouseDown:anEvent];
-				  return;
-			  }
-		   }
-	if(([anEvent clickCount] > 0) && (([anEvent clickCount] % 2) == 0)){
-		   [self mouseDoubleClick:anEvent];
-	   } else {
-		   [trueMovieView mouseDown:anEvent];
-		   [((NiceWindow *)[self window]) mouseDown:anEvent];
-	   }
+    if([anEvent type] == NSLeftMouseDown && ([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask) {
+        [self rightMouseDown:anEvent];
+        return;
+    }
+    if([anEvent clickCount] > 0 && [anEvent clickCount] % 2 == 0) {
+        [self mouseDoubleClick:anEvent];
+    } else {
+        [((NiceWindow *)[self window]) mouseDown:anEvent];
+    }
 }
 
 - (void)mouseUp:(NSEvent *)anEvent
@@ -361,7 +350,6 @@
 
 - (void)mouseMoved:(NSEvent *)anEvent
 {
-	[trueMovieView mouseMoved:anEvent];
 	[self smartHideMouseOverOverlays];
 }
 

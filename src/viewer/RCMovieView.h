@@ -59,11 +59,6 @@
 -(void)close;
 -(BOOL)openURL:(NSURL *)url;
 
--(void)keyDown:(NSEvent *)anEvent;
--(void)keyUp:(NSEvent *)anEvent;
--(void)mouseDown:(NSEvent *)anEvent;
--(void)mouseMoved:(NSEvent *)anEvent;
-
 /**
  * Sent on screen size change.
  */

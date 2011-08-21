@@ -122,22 +122,6 @@
 	qtView = nil;
 }
 
--(void)keyDown:(NSEvent *)anEvent
-{
-}
-
--(void)keyUp:(NSEvent *)anEvent
-{
-}
-
--(void)mouseDown:(NSEvent *)anEvent
-{
-}
-
--(void)mouseMoved:(NSEvent *)anEvent
-{
-}
-
 -(void)drawMovieFrame
 {
     [qtView setNeedsDisplay:YES];
