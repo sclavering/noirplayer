@@ -131,7 +131,7 @@
 
     [self addSubview:trueMovieView];
 
-    [trueMovieView setVolume:internalVolume];
+    [[trueMovieView qtmovie] setVolume:internalVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 }
@@ -161,7 +161,6 @@
 -(void)stop
 {
     wasPlaying = NO;
-    
     [trueMovieView stop];
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
 }
@@ -213,7 +212,7 @@
 
 -(void)toggleMute
 {
-    [trueMovieView setMuted:![trueMovieView muted]];
+    [[trueMovieView qtmovie] setMuted:![[trueMovieView qtmovie] muted]];
     [((NiceWindow *)[self window]) updateVolume];
 }
 
@@ -603,12 +602,12 @@
 
 -(BOOL)muted
 {
-	return [trueMovieView muted];
+	return [[trueMovieView qtmovie] muted];
 }
 
 -(void)setMuted:(BOOL)aBool
 {
-	[trueMovieView setMuted:aBool];
+	[[trueMovieView qtmovie] setMuted:aBool];
 }
 
 -(float)volumeWithMute
@@ -616,7 +615,7 @@
 	float volume;
 	
 	if(trueMovieView)
-		volume = [trueMovieView volume];
+		volume = [[trueMovieView qtmovie] volume];
 	else
 		volume = 1.0;
 	
@@ -633,7 +632,7 @@
 	float volume;
 	
 	if(trueMovieView)
-		volume = [trueMovieView volume];
+		volume = [[trueMovieView qtmovie] volume];
 	else
 		volume = 1.0;
 	
@@ -652,12 +651,12 @@
 	if(aVolume > 2.0)
 		aVolume = 2.0;
 	internalVolume = aVolume;
-	[trueMovieView setVolume:internalVolume];
+	[[trueMovieView qtmovie] setVolume:internalVolume];
 
-	if([trueMovieView volume] <= 0.0)
-		[trueMovieView setMuted:YES];
+	if([[trueMovieView qtmovie] volume] <= 0.0)
+		[[trueMovieView qtmovie] setMuted:YES];
 	else
-		[trueMovieView setMuted:NO];
+		[[trueMovieView qtmovie] setMuted:NO];
 	
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }

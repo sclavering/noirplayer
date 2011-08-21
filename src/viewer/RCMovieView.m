@@ -154,28 +154,6 @@
     [qtView drawRect:aRect];
 }
 
-#pragma mark Volume
-
--(BOOL)muted
-{
-    return [film muted];
-}
-
--(void)setMuted:(BOOL)aBOOL
-{
-    [film setMuted:aBOOL];
-}
-
--(float)volume
-{
-    return [film volume];
-}
-
--(void)setVolume:(float)aVolume
-{
-    [film setVolume:aVolume];
-}
-
 #pragma mark -
 #pragma mark Controls
 

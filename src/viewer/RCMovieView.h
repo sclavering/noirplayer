@@ -74,11 +74,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 -(NSSize)naturalSize;
 
--(BOOL)muted;
--(void)setMuted:(BOOL)aBOOL;
--(float)volume;
--(void)setVolume:(float)aVolume;
-
 -(BOOL)isPlaying;
 -(void)start;
 -(void)stop;
