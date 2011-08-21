@@ -55,6 +55,9 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 +(RCMovieView *)makeWithURL:(NSURL *)url;
 
+-(QTMovie*) qtmovie;
+-(QTMovieView*) qtview;
+
 -(id)initWithFrame:(NSRect)frame;
 -(void)close;
 -(BOOL)openURL:(NSURL *)url;

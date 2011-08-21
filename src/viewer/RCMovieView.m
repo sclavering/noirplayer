@@ -52,6 +52,9 @@
     return view && [view openURL:url] ? view : nil;
 }
 
+-(QTMovie*)qtmovie { return film; }
+-(QTMovieView*)qtview { return qtView; }
+
 /* Forward all drag events to the window itself. */
 -(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender
 {
