@@ -69,6 +69,7 @@
     if ((self = [super initWithFrame:aRect])) {
         trueMovieView = nil;
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
+        oldPlayState = STATE_INACTIVE;
         wasPlaying = NO;
         [self addSubview:trueMovieView];
         [self setAutoresizesSubviews:YES];
@@ -165,51 +166,6 @@
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
 }
 
--(void)ffStart
-{
-    [trueMovieView ffStart:SCRUB_STEP_DURATION];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)ffDo
-{
-    [self ffDo:SCRUB_STEP_DURATION];
-}
-
--(void)ffDo:(int)aSeconds
-{
-    [trueMovieView ffDo:aSeconds];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)ffEnd
-{
-    [trueMovieView ffEnd];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)rrStart
-{
-    [trueMovieView rrStart:SCRUB_STEP_DURATION];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)rrDo
-{
-    [self rrDo:SCRUB_STEP_DURATION];
-}
-
--(void)rrDo:(int)aSeconds{
-    [trueMovieView rrDo:aSeconds];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)rrEnd
-{
-    [trueMovieView rrEnd];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
 -(void)toggleMute
 {
     [[trueMovieView qtmovie] setMuted:![[trueMovieView qtmovie] muted]];
@@ -235,13 +191,13 @@
 
 -(IBAction)scrub:(id)sender
 {
-	[trueMovieView setCurrentMovieTime:([trueMovieView totalTime] * [sender doubleValue])];
+    [self setCurrentMovieTime:([self totalTime] * [sender doubleValue])];
     [((NiceWindow *)[self window]) updateByTime:sender];
 }
 
 -(double)scrubLocation:(id)sender
 {
-	return (double)[trueMovieView currentMovieTime] / (double)[trueMovieView totalTime];
+	return (double)[self currentMovieTime] / (double)[self totalTime];
 }
 
 -(BOOL)isPlaying
@@ -275,17 +231,17 @@
 			if(![anEvent isARepeat])
 				[self ffStart];
 			else
-				[self ffDo];
+				[self ffDo:SCRUB_STEP_DURATION];
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-                [trueMovieView setCurrentMovieTime:0];
+                [self setCurrentMovieTime:0];
 				break;
 			}
 			if(![anEvent isARepeat])
 				[self rrStart];
 			else
-				[self rrDo];
+				[self rrDo:SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
 			[self incrementVolume];
@@ -575,11 +531,6 @@
 	return movieSize;
 }
 
--(double)currentMovieTime
-{
-	return [trueMovieView currentMovieTime];
-}
-
 -(double)percentLoaded
 {
     QTMovie* film = [trueMovieView qtmovie];
@@ -588,16 +539,6 @@
     NSTimeInterval tMaxLoaded;
     QTGetTimeInterval([film maxTimeLoaded], &tMaxLoaded);
     return tMaxLoaded / tDuration;
-}
-
--(void)setCurrentMovieTime:(double)aDouble
-{
-    [trueMovieView setCurrentMovieTime:aDouble];
-}
-
--(BOOL)hasEnded:(id)sender
-{
-	return [trueMovieView hasEnded:sender];
 }
 
 -(BOOL)muted
@@ -661,11 +602,6 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
--(double)totalTime
-{
-	return [trueMovieView totalTime];
-}
-
 -(void)drawMovieFrame
 {
 	[trueMovieView drawMovieFrame];
@@ -706,6 +642,83 @@
 {
     [NSApp mouseExited:theEvent];
     mouseEntered = NO;
+}
+
+#pragma mark -
+#pragma mark Calculations
+
+-(double)totalTime
+{
+    QTTime duration = [[trueMovieView qtmovie] duration];
+    return duration.timeValue / duration.timeScale;
+}
+
+-(double)currentMovieTime
+{
+    QTTime current = [[trueMovieView qtmovie] currentTime];
+    return current.timeValue / current.timeScale;
+}
+
+-(void)setCurrentMovieTime:(double)newMovieTime
+{
+    [[trueMovieView qtmovie] setCurrentTime: QTMakeTime(newMovieTime, 1)];
+}
+
+-(BOOL)hasEnded:(id)sender
+{
+    return [self currentMovieTime] >= [self totalTime];
+}
+
+#pragma mark -
+#pragma mark Stepping
+
+-(void)rrStart
+{
+    if(oldPlayState == STATE_INACTIVE) oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
+    [self stop];
+    [self rrDo:SCRUB_STEP_DURATION];
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)rrDo:(int)seconds
+{
+    [self incrementMovieTime:-seconds];
+    [self drawMovieFrame];
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)rrEnd
+{
+    if(oldPlayState == STATE_PLAYING) [self start];
+    oldPlayState = STATE_INACTIVE;
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)ffStart
+{
+    if(oldPlayState == STATE_INACTIVE) oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
+    [self stop];
+    [self ffDo:SCRUB_STEP_DURATION];
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)ffDo:(int)seconds
+{
+    [self incrementMovieTime:seconds];
+    [self drawMovieFrame];
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)ffEnd
+{
+    if(oldPlayState == STATE_PLAYING) [self start];
+    oldPlayState = STATE_INACTIVE;
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)incrementMovieTime:(long)timeDifference
+{
+    [self setCurrentMovieTime:([self currentMovieTime] + timeDifference)];
 }
 
 @end

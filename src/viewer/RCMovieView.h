@@ -42,11 +42,9 @@
 #import <QTKit/QTKit.h>
 #import <AppKit/NSDragging.h>
 
-enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 @interface RCMovieView : NSView
 {
-    enum play_states oldPlayState;
     QTMovie *film;
     QTMovieView *qtView;
     NSDictionary* movieCache;
@@ -77,19 +75,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)start;
 -(void)stop;
 
--(void)ffStart:(int)seconds;
--(void)ffDo:(int)seconds;
--(void)ffEnd;
--(void)rrStart:(int)seconds;
--(void)rrDo:(int)seconds;
--(void)rrEnd;
-
--(BOOL)hasEnded:(id)sender;
-
--(double)totalTime;
--(double)currentMovieTime;
--(void)setCurrentMovieTime:(double)newMovieTime;
-
 -(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender;
 -(NSDragOperation)draggingUpdated:(id)sender;
 -(BOOL)prepareForDragOperation:(id)sender;
@@ -97,12 +82,5 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)concludeDragOperation:(id<NSDraggingInfo>)sender;
 
 -(id<NSDraggingDestination>)_windowDrag;
-
--(void)ffStart:(int)seconds;
--(void)ffEnd;
--(void)rrStart:(int)seconds;
--(void)rrEnd;
-
--(void)incrementMovieTime:(long)timeDifference;
 
 @end

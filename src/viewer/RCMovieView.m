@@ -96,7 +96,6 @@
     if((self = [super initWithFrame:frame])){
         qtView = [[QTMovieView alloc] initWithFrame:frame];
         [self addSubview:qtView];
-        oldPlayState = STATE_INACTIVE;
         [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
         [qtView setFillColor:[NSColor blackColor]];
         [qtView setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
@@ -170,78 +169,6 @@
 -(void)stop
 {
     [film stop];
-}
-
--(void)ffStart:(int)seconds
-{
-    if(oldPlayState == STATE_INACTIVE)
-        oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
-    [self stop];
-    [self ffDo:seconds];
-}
-
--(void)ffDo:(int)seconds
-{
-    [self incrementMovieTime:seconds];
-    [self drawMovieFrame];
-}
-
--(void)ffEnd
-{
-    if(oldPlayState == STATE_PLAYING)
-        [self start];
-    oldPlayState = STATE_INACTIVE;
-}
-
--(void)rrStart:(int)seconds
-{
-    if(oldPlayState == STATE_INACTIVE)
-        oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
-    [self stop];
-    [self rrDo:seconds];
-}
-
--(void)rrDo:(int)seconds
-{
-    [self incrementMovieTime:-seconds];
-    [self drawMovieFrame];
-}
-
--(void)rrEnd
-{
-    if(oldPlayState == STATE_PLAYING)
-        [self start];
-    oldPlayState = STATE_INACTIVE;
-}
-
--(BOOL)hasEnded:(id)sender
-{
-    return [self currentMovieTime] >= [self totalTime];
-}
-
-#pragma mark -
-#pragma mark Calculations
-
--(double)totalTime
-{
-    QTTime duration = [film duration];
-    return duration.timeValue / duration.timeScale;
-}
-
--(double)currentMovieTime
-{
-    QTTime current = [film currentTime];
-    return current.timeValue / current.timeScale;
-}
-
--(void)setCurrentMovieTime:(double)newMovieTime
-{
-    [film setCurrentTime: QTMakeTime(newMovieTime, 1)];
-}
-
--(void)incrementMovieTime:(long)timeDifference
-{
-    [self setCurrentMovieTime:([self currentMovieTime] + timeDifference)];
 }
 
 @end

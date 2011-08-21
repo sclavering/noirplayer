@@ -43,14 +43,15 @@
 @class ControlPlay;
 @class NiceWindow;
 
+enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
+
 @interface NPMovieView : NSView {
     RCMovieView* trueMovieView;
     id contextMenu;
     id title;
 	float internalVolume;
-    
     NSTrackingRectTag trackingRect;
-    
+    enum play_states oldPlayState;
     BOOL wasPlaying;
     BOOL mouseEntered;
 }
@@ -64,14 +65,6 @@
 
 -(void)start;
 -(void)stop;
--(void)ffStart;
--(void)ffDo;
--(void)ffDo:(int)aSeconds;
--(void)ffEnd;
--(void)rrStart;
--(void)rrDo;
--(void)rrDo:(int)aSeconds;
--(void)rrEnd;
 
 -(void)toggleMute;
 -(void)incrementVolume;
@@ -97,18 +90,24 @@
 -(BOOL)canAnimateResize;
 -(void)scrollWheelResize:(float)delta;
 
-#pragma mark -
-#pragma mark Calculations
-
 -(double)scrubLocation:(id)sender;
 -(NSSize)naturalSize;
--(BOOL)hasEnded:(id)sender;
 -(BOOL)muted;
 -(void)setMuted:(BOOL)aBool;
--(double)currentMovieTime;
--(void)setCurrentMovieTime:(double)aDouble;
--(double)totalTime;
 -(double)percentLoaded;
 -(void)drawMovieFrame;
+
+-(double)totalTime;
+-(double)currentMovieTime;
+-(void)setCurrentMovieTime:(double)aDouble;
+-(BOOL)hasEnded:(id)sender;
+
+-(void)ffStart;
+-(void)ffDo:(int)aSeconds;
+-(void)ffEnd;
+-(void)rrStart;
+-(void)rrDo:(int)aSeconds;
+-(void)rrEnd;
+-(void)incrementMovieTime:(long)timeDifference;
 
 @end
