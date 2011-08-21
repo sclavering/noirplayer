@@ -152,10 +152,8 @@
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[trueMovieView isPlaying]];
 }
 
-
 -(void)ffStart
 {
-    [[((NiceWindow *)[self window]) ffButton] highlight:YES];
     [trueMovieView ffStart:SCRUB_STEP_DURATION];
     [((NiceWindow *)[self window]) updateByTime:nil];
 }
@@ -173,15 +171,12 @@
 
 -(void)ffEnd
 {
-    [[((NiceWindow *)[self window]) ffButton] highlight:NO];
     [trueMovieView ffEnd];
     [((NiceWindow *)[self window]) updateByTime:nil];
-    
 }
 
 -(void)rrStart
 {
-    [[((NiceWindow *)[self window]) rrButton] highlight:YES];
     [trueMovieView rrStart:SCRUB_STEP_DURATION];
     [((NiceWindow *)[self window]) updateByTime:nil];
 }
@@ -198,10 +193,8 @@
 
 -(void)rrEnd
 {
-    [[((NiceWindow *)[self window]) rrButton] highlight:NO];
     [trueMovieView rrEnd];
     [((NiceWindow *)[self window]) updateByTime:nil];
-    
 }
 
 -(void)toggleMute
