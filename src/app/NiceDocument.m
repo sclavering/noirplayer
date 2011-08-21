@@ -229,40 +229,19 @@ void findSpace(id each, void* context, BOOL* endthis)
 
 -(void)repositionAfterLoad
 {
-    int tScreenPref = -1;
-    
-    NSScreen* tScreen = [NSScreen mainScreen];
-    NSArray* tScreens = [NSScreen screens];
-    
-    if(tScreenPref > 0 && (tScreenPref < (int)[tScreens count])){
-        tScreen = [tScreens objectAtIndex:tScreenPref];
-    }  
-        
-    NSValue* tPoint = nil;
-      
     NSArray* tMovieWindows = [[NSApp movieWindows] rejectUsingFunction:rejectSelf context:(void*)self];
-    
-    
-    NSMutableDictionary* tContext = [NSMutableDictionary dictionaryWithObjectsAndKeys:self,@"self",tMovieWindows,@"tMovieWindows", nil];
 
-    
-    if(tScreenPref < 0){
-        id tArray =[[NSScreen screens] sortedArrayUsingFunction:sortByMain context:nil];
-        [tArray doUsingFunction:findSpace context:(void*)tContext];
-    }else{
-        BOOL tDummy;
-        findSpace(tScreen,(void*)tContext,&tDummy);
-    }
-    
-    tPoint = [tContext objectForKey:@"tPoint"];
-    
-    
-    if(tPoint == nil){
+    NSMutableDictionary* tContext = [NSMutableDictionary dictionaryWithObjectsAndKeys:self, @"self",tMovieWindows, @"tMovieWindows", nil];
 
-        id tWindow = [[NSApp movieWindows] detectUsingFunction:findWindowScreen context:(void*)tScreen];
-        [[self window] cascadeTopLeftFromPoint:[tWindow frame].origin];
-    }else{
+    id tArray = [[NSScreen screens] sortedArrayUsingFunction:sortByMain context:nil];
+    [tArray doUsingFunction:findSpace context:(void*)tContext];
+
+    NSValue* tPoint = [tContext objectForKey:@"tPoint"];
+    if(tPoint) {
         [[self window] setFrameOrigin:[tPoint pointValue]];
+    } else {
+        id tWindow = [[NSApp movieWindows] detectUsingFunction:findWindowScreen context:(void*)[NSScreen mainScreen]];
+        [[self window] cascadeTopLeftFromPoint:[tWindow frame].origin];
     }
 }
 
