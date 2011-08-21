@@ -171,11 +171,11 @@ void findSpace(id each, void* context, BOOL* endthis)
     return YES;
 }
 
--(void)loadURL:(NSURL *)url
+-(void)loadURL:(NSURL *)url withMovieView:(id)movieView
 {
     [self readFromURL:url ofType:nil];
 
-    if([theMovieView openURL:theCurrentURL]) {
+    if([theMovieView openURL:theCurrentURL withMovieView:movieView]) {
         hasRealMovie = YES;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
         [theWindow restoreVolume];

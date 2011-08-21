@@ -49,8 +49,6 @@ enum direction { DIRECTION_BACKWARD = -1, DIRECTION_FORWARD = 1};
 -(void)close;
 -(BOOL)openURL:(NSURL *)url;
 
--(BOOL)loadMovie;
-
 -(void)keyDown:(NSEvent *)anEvent;
 -(void)keyUp:(NSEvent *)anEvent;
 -(void)mouseDown:(NSEvent *)anEvent;

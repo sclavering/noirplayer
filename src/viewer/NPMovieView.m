@@ -40,7 +40,6 @@
 #import "ControlPlay.h"
 #import "NPMovieProtocol.h"
 #import "NiceWindow.h"
-#import "BlankView.h"
 #import "NiceDocument.h"
 #import "RCMovieView.h"
 
@@ -55,8 +54,7 @@
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
-        NSRect subview = NSMakeRect(0, 0, aRect.size.width, aRect.size.height);
-        trueMovieView = [[BlankView alloc] initWithFrame:subview];
+        trueMovieView = nil;
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         wasPlaying = NO;
         [self addSubview:trueMovieView];
@@ -110,61 +108,21 @@
     [super dealloc];
 }
 
--(BOOL)openURL:(NSURL *)url
+-(BOOL)openURL:(NSURL *)url withMovieView:view
 {
     if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
 
-    BOOL didOpen = NO;
-    NSRect subview = NSMakeRect(0, 0, [self frame].size.width, [self frame].size.height);
-    NSException *noLoadException = [NSException exceptionWithName:@"NoLoadPlugin" reason:@"CouldntLoad" userInfo:nil];
+    trueMovieView = view;
+    [view setFrame: [self bounds]];
 
-    @try {
-        trueMovieView = [RCMovieView alloc];
-        if(!trueMovieView) @throw noLoadException;
-        if([trueMovieView initWithFrame:subview]) {
-            didOpen = [trueMovieView openURL:url];
-        } else {
-            [trueMovieView release];
-            trueMovieView = nil;
-        }
-        if(didOpen) {
-            [self addSubview:trueMovieView];
-            if(![self loadMovie]) @throw noLoadException;
-        } else {
-            if(trueMovieView) {
-                [trueMovieView release];
-                trueMovieView = nil;
-            }
-            @throw noLoadException;
-        }
-    }
-    @catch(NSException *exception) {
-        didOpen = NO;
-        trueMovieView = [[BlankView alloc] initWithFrame:subview];
-        [self addSubview:trueMovieView];
-    }
-    @finally {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-        [self finalProxyViewLoad];
-    }
-    return didOpen;
-}
+    [self addSubview:trueMovieView];
 
--(BOOL)loadMovie
-{
-	BOOL didLoadMovie = [trueMovieView loadMovie];
-	
-	if(didLoadMovie){
-		[trueMovieView setVolume:internalVolume];
-	}
-	
-	return didLoadMovie;
-}
+    [trueMovieView setVolume:internalVolume];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+    [trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 
--(void)finalProxyViewLoad
-{
-	[trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
+    return YES;
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint

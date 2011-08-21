@@ -54,6 +54,7 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
     NSDictionary* movieCache;
 }
 
++(RCMovieView *)makeWithURL:(NSURL *)url;
 +(NSArray *)supportedFileExtensions;
 
 -(NSDragOperation)draggingEntered:(id <NSDraggingInfo>)sender;

@@ -151,13 +151,14 @@ BOOL detectIsPlaying(id each, void* context){
     NSArray *files = [self URLsFromRunningOpenPanel];
     for(unsigned i = 0; i < [files count]; i++) {
         NSError* tError = nil;
-        id tempURL = [files objectAtIndex:i];
-        id tempDoc = [self openDocumentWithContentsOfURL:tempURL display:YES error:&tError];
-        [tempDoc loadURL:tempURL];
+        id url = [files objectAtIndex:i];
+        // Check we can load the movie first, by trying to do so.
+        id movieView = [RCMovieView makeWithURL:url];
+        if(!movieView) continue; // xxx report the error
+        id tempDoc = [self openDocumentWithContentsOfURL:url display:YES error:&tError];
+        [tempDoc loadURL:url withMovieView:movieView];
         if(!i && [[self mainDocument] isActive]) [[self mainDocument] play:self];
-		if(!tError) continue;
-        [NSApp presentError:tError];
-        return;
+        if(tError) [NSApp presentError:tError];
     }
 }
 

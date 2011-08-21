@@ -45,6 +45,13 @@
 
 @implementation RCMovieView
 
++(RCMovieView *)makeWithURL:(NSURL *)url
+{
+    // The frame is reset to something sane later
+    RCMovieView* view = [[[RCMovieView alloc] initWithFrame:NSMakeRect(0, 0, 10, 10)] autorelease];
+    return view && [view openURL:url] ? view : nil;
+}
+
 +(NSArray *)supportedFileExtensions
 {
     return [NSArray arrayWithObjects:
@@ -91,9 +98,12 @@
 -(BOOL)openURL:(NSURL *)url
 {
     myURL = url;
-	[film release];
-	film = [[QTMovie movieWithURL:url error:nil] retain];
-    return (film) ? YES : NO;
+    [film release];
+    film = [[QTMovie movieWithURL:url error:nil] retain];
+    if(!film) return NO;
+    [qtView setMovie:film];
+    muted = [film muted];
+    return YES;
 }
 
 -(id)initWithFrame:(NSRect)frame
@@ -128,13 +138,6 @@
 	[qtView release];
 	[qtView removeFromSuperviewWithoutNeedingDisplay];
 	qtView = nil;
-}
-
--(BOOL)loadMovie
-{
-    [qtView setMovie:film];
-    muted = [film muted];
-    return YES;
 }
 
 -(void)keyDown:(NSEvent *)anEvent

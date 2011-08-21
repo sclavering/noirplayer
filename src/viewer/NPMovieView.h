@@ -54,8 +54,7 @@
     BOOL mouseEntered;
 }
 
--(BOOL)openURL:(NSURL *)url;
--(BOOL)loadMovie;
+-(BOOL)openURL:(NSURL *)url withMovieView:view;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
@@ -80,7 +79,6 @@
 
 -(BOOL)isPlaying;
 -(BOOL)wasPlaying;
--(void)finalProxyViewLoad;
 
 -(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;
