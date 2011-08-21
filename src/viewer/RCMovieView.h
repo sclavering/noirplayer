@@ -51,7 +51,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
     NSURL *myURL;
     QTMovie *film;
     QTMovieView *qtView;
-    BOOL muted;
     NSDictionary* movieCache;
 }
 

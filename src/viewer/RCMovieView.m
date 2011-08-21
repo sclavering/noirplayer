@@ -102,7 +102,6 @@
     film = [[QTMovie movieWithURL:url error:nil] retain];
     if(!film) return NO;
     [qtView setMovie:film];
-    muted = [film muted];
     return YES;
 }
 
@@ -178,7 +177,6 @@
 
 -(void)setMuted:(BOOL)aBOOL
 {
-    muted = aBOOL;
     [film setMuted:aBOOL];
 }
 
