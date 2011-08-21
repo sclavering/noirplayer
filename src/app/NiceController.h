@@ -43,7 +43,6 @@
 #import "NiceWindow.h"
 
 @interface NiceController : NSDocumentController {
-    IBOutlet id mainWindowProxy;
     bool fullScreenMode;
     NSDate* lastCursorMoveDate;
     NSPoint lastMouseLocation;
@@ -56,7 +55,6 @@
 +(id)controller;
 +(void)setController:(id)aNiceController;
 
--(id)mainWindowProxy;
 -(void)checkMouseLocation:(id)sender;
 -(id)mainDocument;
 -(void)changedWindow:(NSNotification *)notification;

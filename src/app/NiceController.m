@@ -81,11 +81,6 @@ BOOL detectIsPlaying(id each, void* context) {
     [super dealloc];
 }
 
--(id)mainWindowProxy
-{
-    return mainWindowProxy;
-}
-
 -(NSInteger)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions
 {
     [openPanel setAllowsMultipleSelection:YES];
