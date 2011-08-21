@@ -38,7 +38,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import <QTKit/QTKit.h>
-#import "RCMovieView.h"
 
 @class ControlPlay;
 @class NiceWindow;
@@ -48,7 +47,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 @interface NPMovieView : NSView {
     QTMovie* movie;
     QTMovieView* qtview;
-    RCMovieView* trueMovieView;
     id contextMenu;
     id title;
 	float internalVolume;
@@ -60,7 +58,7 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 +(NSArray *)supportedFileExtensions;
 
--(void)openURL:(NSURL *)url withMovieView:view;
+-(void)openURL:(NSURL *)url withMovie:(QTMovie*)movie;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;

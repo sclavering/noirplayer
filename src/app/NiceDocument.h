@@ -58,7 +58,7 @@
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 -(BOOL)readFromFile:(NSString *)fileName ofType:(NSString *)docType;
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType;
--(void)loadURL:(NSURL *)url withMovieView:(id)movieView;
+-(void)loadURL:(NSURL *)url withMovie:(QTMovie*)movie;
 
 #pragma mark Window Information
 

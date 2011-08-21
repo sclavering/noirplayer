@@ -40,7 +40,6 @@
 #import "ControlPlay.h"
 #import "NiceWindow.h"
 #import "NiceDocument.h"
-#import "RCMovieView.h"
 
 #define SCRUB_STEP_DURATION 5
 
@@ -67,7 +66,6 @@
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
-        trueMovieView = nil;
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         oldPlayState = STATE_INACTIVE;
         wasPlaying = NO;
@@ -81,7 +79,7 @@
 -(void)awakeFromNib
 {
 	[self registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
-	[trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
+	[qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 	[[NSNotificationCenter defaultCenter] addObserver:self
 											 selector:@selector(rebuildMenu)
 												 name:@"RebuildMenu"
@@ -110,6 +108,10 @@
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[self unregisterDraggedTypes];
+    [qtview setMovie:nil];
+    [qtview removeFromSuperviewWithoutNeedingDisplay];
+    qtview = nil;
+    movie = nil;
 }
 
 -(void)dealloc
@@ -121,21 +123,25 @@
     [super dealloc];
 }
 
--(void)openURL:(NSURL *)url withMovieView:view
+-(void)openURL:(NSURL *)url withMovie:aMovie
 {
     if(title) [title release];
     title = [[[[url path] lastPathComponent] stringByDeletingPathExtension] retain];
 
-    trueMovieView = view;
-    qtview = [trueMovieView qtview];
-    movie = [qtview movie];
-    [view setFrame: [self bounds]];
+    qtview = [[QTMovieView alloc] initWithFrame:[self bounds]];
+    [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    [qtview setFillColor:[NSColor blackColor]];
+    [qtview setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    [qtview setControllerVisible:NO];
+    [qtview setEditable:NO];
+    [qtview setPreservesAspectRatio:NO];
+    [qtview setMovie:aMovie];
+    [self addSubview:qtview];
 
-    [self addSubview:trueMovieView];
-
+    movie = aMovie;
     [movie setVolume:internalVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [trueMovieView registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
+    [qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint
