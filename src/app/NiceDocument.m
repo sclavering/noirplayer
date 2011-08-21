@@ -143,21 +143,9 @@ void findSpace(id each, void* context, BOOL* endthis)
     return tData;
 }
 
-/**
-* This gets called automatically when a user attempts to open a document via the open menu.
- */
-- (BOOL)readFromFile:(NSString *)fileName ofType:(NSString *)docType
+// Called when a file is dropped on the app icon
+-(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    return [self readFromURL:[NSURL fileURLWithPath:fileName] ofType:docType];
-}
-
-/**
-* Things to do for a new file passed in. This gets called by the document controller automatically when
- * files are dropped onto the app icon.
- */
-- (BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType
-{
-    // Insert code here to read your document from the given data.  You can also choose to override -loadFileWrapperRepresentation:ofType: or -readFromFile:ofType: instead.
     if(theCurrentURL)
         [theCurrentURL release];
     theCurrentURL = [url retain];
@@ -166,7 +154,7 @@ void findSpace(id each, void* context, BOOL* endthis)
 
 -(void)loadURL:(NSURL *)url withMovie:(QTMovie*)movie
 {
-    [self readFromURL:url ofType:nil];
+    [self readFromURL:url ofType:nil error:nil];
     [theMovieView openMovie:movie];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [theWindow restoreVolume];
