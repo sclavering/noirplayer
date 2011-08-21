@@ -54,6 +54,8 @@
     BOOL mouseEntered;
 }
 
++(NSArray *)supportedFileExtensions;
+
 -(void)openURL:(NSURL *)url withMovieView:view;
 -(void)close;
 

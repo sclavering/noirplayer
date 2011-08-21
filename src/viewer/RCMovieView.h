@@ -54,7 +54,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 }
 
 +(RCMovieView *)makeWithURL:(NSURL *)url;
-+(NSArray *)supportedFileExtensions;
 
 -(id)initWithFrame:(NSRect)frame;
 -(void)close;

@@ -50,6 +50,16 @@
 
 @implementation NPMovieView
 
++(NSArray *)supportedFileExtensions
+{
+    return [NSArray arrayWithObjects:
+        // File extensions
+        @"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4", @"mkv", @"flv", @"divx", @"m4v", @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
+        // Finder types
+        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_",
+        nil];
+}
+
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {

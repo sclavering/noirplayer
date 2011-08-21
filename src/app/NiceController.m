@@ -103,7 +103,7 @@ BOOL detectIsPlaying(id each, void* context){
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
-    return [super runModalOpenPanel:openPanel forTypes:[RCMovieView supportedFileExtensions]];
+    return [super runModalOpenPanel:openPanel forTypes:[NPMovieView supportedFileExtensions]];
 }
 
 -(void)checkMouseLocation:(id)sender
