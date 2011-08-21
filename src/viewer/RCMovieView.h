@@ -96,8 +96,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(double)currentMovieTime;
 -(void)setCurrentMovieTime:(double)newMovieTime;
 
--(id)pluginMenu;
-
 -(NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender;
 -(NSDragOperation)draggingUpdated:(id)sender;
 -(BOOL)prepareForDragOperation:(id)sender;
@@ -112,9 +110,5 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)rrEnd;
 
 -(void)incrementMovieTime:(long)timeDifference inDirection:(enum direction)aDirection;
-
--(NSMenu*)audioTrackMenu;
-
--(NSMenu*)videoTrackMenu;
 
 @end

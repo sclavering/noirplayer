@@ -480,9 +480,62 @@
 	return [myMenu autorelease];
 }
 
+#pragma mark -
+#pragma mark Menus
+
 -(id)pluginMenu
 {
-    return [trueMovieView pluginMenu];
+    id pluginMenu = [[NSMutableArray array] retain];
+
+    id newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
+    [newItem setTarget:self];
+	[newItem setSubmenu:[self videoTrackMenu]];
+    [pluginMenu addObject:newItem];
+
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
+    [newItem setTarget:self];
+	[newItem setSubmenu:[self audioTrackMenu]];
+    [pluginMenu addObject:newItem];
+
+    return [pluginMenu autorelease];
+}
+
+-(NSMenu*)audioTrackMenu
+{
+    NSMenu* tReturnMenu =[[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [[trueMovieView qtmovie] tracksOfMediaType:@"soun"];
+    for(NSUInteger i = 0; i < [tArray count]; i++) {
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
+}
+
+-(NSMenu*)videoTrackMenu
+{
+    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [[trueMovieView qtmovie] tracksOfMediaType:@"vide"];
+    for(NSUInteger i = 0; i < [tArray count]; i++) {
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
+}
+
+-(IBAction)toggleTrack:(id)sender
+{
+    [[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
 }
 
 -(id)contextualMenu

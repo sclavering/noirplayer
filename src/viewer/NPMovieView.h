@@ -89,6 +89,8 @@
 
 -(id)myMenu;
 -(id)pluginMenu;
+-(NSMenu*)audioTrackMenu;
+-(NSMenu*)videoTrackMenu;
 -(id)contextualMenu;
 -(void)rebuildMenu;
 
