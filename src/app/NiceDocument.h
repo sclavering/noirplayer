@@ -67,7 +67,6 @@
 -(NSMenu *)movieMenu;
 -(void)rebuildMenu;
 -(id)window;
--(NSSize)calculateAspectRatio;
 -(NSMenuItem*)volumeMenu;
 
 #pragma mark Interface

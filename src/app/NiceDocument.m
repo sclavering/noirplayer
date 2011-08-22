@@ -181,7 +181,9 @@ void findSpace(id each, void* context, BOOL* endthis)
 	[[self window] orderFront:aController];
     [theMovieView openMovie:movie];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [self calculateAspectRatio];
+    NSSize aSize = [theMovieView naturalSize];
+    [theWindow setAspectRatio:aSize];
+    [theWindow setMinSize:NSMakeSize(150 * aSize.width / aSize.height, 150)];
     [theWindow initialDefaultSize];
     [theWindow setTitle:[theWindow title]];
     [self updateAfterLoad];
@@ -194,7 +196,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 -(void)updateAfterLoad
 {
     [NSApp updateWindowsItem:theWindow];
-    [self calculateAspectRatio];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [[self window] updateVolume];
 }
@@ -317,14 +318,6 @@ stuff won't work properly! */
 -(id)window
 {
     return theWindow;
-}
-
-- (NSSize)calculateAspectRatio
-{
-    NSSize aSize = [theMovieView naturalSize];
-		[theWindow setAspectRatio:aSize];
-		[theWindow setMinSize:NSMakeSize((aSize.width/aSize.height)*150,150)];
-	return aSize;
 }
 
 #pragma mark Interface
