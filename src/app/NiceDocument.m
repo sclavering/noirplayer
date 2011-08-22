@@ -152,16 +152,6 @@ void findSpace(id each, void* context, BOOL* endthis)
     return movie ? YES : NO;
 }
 
--(void)finishLoading
-{
-    [theMovieView openMovie:movie];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [self calculateAspectRatio];
-    [theWindow initialDefaultSize];
-    [theWindow setTitle:[theWindow title]];
-    [self updateAfterLoad];
-}
-
 #pragma mark -
 #pragma mark Window Information
 
@@ -189,6 +179,12 @@ void findSpace(id each, void* context, BOOL* endthis)
     [self updateAfterLoad];
 	[self repositionAfterLoad];
 	[[self window] orderFront:aController];
+    [theMovieView openMovie:movie];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+    [self calculateAspectRatio];
+    [theWindow initialDefaultSize];
+    [theWindow setTitle:[theWindow title]];
+    [self updateAfterLoad];
 }
 
 /**

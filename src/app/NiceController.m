@@ -134,8 +134,7 @@ BOOL detectIsPlaying(id each, void* context) {
     for(unsigned i = 0; i < [files count]; i++) {
         NSError* tError = nil;
         id url = [files objectAtIndex:i];
-        id doc = [self openDocumentWithContentsOfURL:url display:YES error:&tError];
-        if(doc) [doc finishLoading];
+        [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         if(tError) [NSApp presentError:tError];
     }
     if(![NSApp mainWindow]) NSLog(@"no main window");

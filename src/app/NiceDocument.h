@@ -56,7 +56,6 @@
 }
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
--(void)finishLoading;
 
 #pragma mark Window Information
 
