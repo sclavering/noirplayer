@@ -134,12 +134,11 @@ BOOL detectIsPlaying(id each, void* context) {
     for(unsigned i = 0; i < [files count]; i++) {
         NSError* tError = nil;
         id url = [files objectAtIndex:i];
-        QTMovie* m = [QTMovie movieWithURL:url error:nil];
-        if(!m) continue; // xxx report the error
         id doc = [self openDocumentWithContentsOfURL:url display:YES error:&tError];
-        [doc loadURL:url withMovie:m];
+        if(doc) [doc finishLoading];
         if(tError) [NSApp presentError:tError];
     }
+    if(![NSApp mainWindow]) NSLog(@"no main window");
     if([files count]) [[self mainDocument] play:self];
 }
 

@@ -51,11 +51,12 @@
     IBOutlet NPMovieView *theMovieView;
     IBOutlet NiceWindow *theWindow;
     NSMutableArray *menuObjects;
-    BOOL wasPlayingBeforeMini;	
+    BOOL wasPlayingBeforeMini;
+    QTMovie* movie;
 }
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
--(void)loadURL:(NSURL *)url withMovie:(QTMovie*)movie;
+-(void)finishLoading;
 
 #pragma mark Window Information
 

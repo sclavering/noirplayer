@@ -145,21 +145,21 @@ void findSpace(id each, void* context, BOOL* endthis)
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    return YES;
+    movie = [QTMovie movieWithURL:url error:outError];
+    [theWindow setTitleWithRepresentedFilename:[url path]];
+    [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
+    [NSApp updateWindowsItem:theWindow];
+    return movie ? YES : NO;
 }
 
--(void)loadURL:(NSURL *)url withMovie:(QTMovie*)movie
+-(void)finishLoading
 {
-    [self readFromURL:url ofType:nil error:nil];
     [theMovieView openMovie:movie];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [theWindow restoreVolume];
     [self calculateAspectRatio];
     [theWindow initialDefaultSize];
-    [theWindow setTitleWithRepresentedFilename:[url path]];
     [theWindow setTitle:[theWindow title]];
-    [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
-    [NSApp updateWindowsItem:theWindow];
     [self updateAfterLoad];
 }
 
