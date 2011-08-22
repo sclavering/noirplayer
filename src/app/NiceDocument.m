@@ -156,7 +156,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 {
     [theMovieView openMovie:movie];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [theWindow restoreVolume];
     [self calculateAspectRatio];
     [theWindow initialDefaultSize];
     [theWindow setTitle:[theWindow title]];
