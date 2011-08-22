@@ -255,12 +255,11 @@ void findSpace(id each, void* context, BOOL* endthis)
 -(IBAction)switchVolume:(NSMenuItem*)sender{
 	[theMovieView setVolume:[[sender representedObject] intValue]/100.0];
 }
--(IBAction)mute:(id)sender{
-	[theMovieView setMuted:![theMovieView muted]];
-}
+
 -(IBAction)increaseVolume:(id)sender{
 	[theMovieView incrementVolume];
 }
+
 -(IBAction)decreaseVolume:(id)sender{
 	[theMovieView decrementVolume];
 }
@@ -272,18 +271,10 @@ void findSpace(id each, void* context, BOOL* endthis)
 	NSMenu* tMenu = [[[NSMenu alloc]init] autorelease];
 	
 	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Mute",@"Mute menu item")];
-	[tItem setKeyEquivalent:@"del"];
-	[tItem setState: [theMovieView muted] ? NSOnState: NSOffState];
-	[tItem setTarget:self];
-	[tItem setAction:@selector(mute:)];
-	[tMenu addItem:tItem];
-	
-	tItem = [[[NSMenuItem alloc] init] autorelease];
 	[tItem setTitle:NSLocalizedString(@"Increase Volume",@"Increase Volume menu item")];
 	[tItem setKeyEquivalent:@"="];
 	[tItem setTarget:self];
-		[tItem setKeyEquivalentModifierMask:0];
+    [tItem setKeyEquivalentModifierMask:0];
 
 	[tItem setAction:@selector(increaseVolume:)];
 	[tMenu addItem:tItem];
@@ -296,31 +287,6 @@ void findSpace(id each, void* context, BOOL* endthis)
 	[tItem setTarget:self];
 	[tItem setAction:@selector(decreaseVolume:)];
 	[tMenu addItem:tItem];
-	
-	[tMenu addItem:[NSMenuItem separatorItem]];
-
-
-
-	for(int i= 200; i>=0;i-=20){
-			tItem = [[[NSMenuItem alloc] init] autorelease];
-			[tItem setTitle:[NSString stringWithFormat:@"%d%%",i]];
-			
-			int tInt =(int)(fabsf([theMovieView volumeWithMute]) * 10);
-			
-			if(tInt == i /10)
-				[tItem setState:NSOnState];
-			else if(tInt > i /10
-					&& tInt < (i /10) +2 )
-				[tItem setState:NSMixedState];
-			else
-				[tItem setState:NSOffState];
-
-			[tItem setTag:VOLUME_ITEM];
-			[tItem setRepresentedObject:[NSNumber numberWithInt:i]];
-			[tItem setTarget:self];
-			[tItem setAction:@selector(switchVolume:)];
-			[tMenu addItem:tItem];
-	}
 	
 	[tHeading setSubmenu:tMenu];
 	

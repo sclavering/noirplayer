@@ -73,7 +73,6 @@
 #pragma mark Interface
 
 -(IBAction)switchVolume:(NSMenuItem*)sender;
--(IBAction)mute:(id)sender;
 -(IBAction)increaseVolume:(id)sender;
 -(IBAction)decreaseVolume:(id)sender;
 -(void)play:(id)sender;
