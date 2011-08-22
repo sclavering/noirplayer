@@ -176,30 +176,18 @@ void findSpace(id each, void* context, BOOL* endthis)
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
 {
     [super windowControllerDidLoadNib:aController];
-    [self updateAfterLoad];
+    [NSApp updateWindowsItem:theWindow];
+    [[self window] updateVolume];
 	[self repositionAfterLoad];
 	[[self window] orderFront:aController];
     [theMovieView openMovie:movie];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     NSSize aSize = [theMovieView naturalSize];
     [theWindow setAspectRatio:aSize];
     [theWindow setMinSize:NSMakeSize(150 * aSize.width / aSize.height, 150)];
     [theWindow initialDefaultSize];
     [theWindow setTitle:[theWindow title]];
-    [self updateAfterLoad];
-}
-
-/**
-* Update the UI after loading a movie by doing things such as scaling to the proper aspect ratio and
- * refreshing GUI items.
- */
--(void)updateAfterLoad
-{
-    [NSApp updateWindowsItem:theWindow];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [[self window] updateVolume];
 }
-
 
 -(void)repositionAfterLoad
 {
