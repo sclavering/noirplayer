@@ -337,7 +337,7 @@
     } else {
         if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]) {
             visibleFrame = [[NSScreen mainScreen] frame];
-            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - [NSMenuView menuBarHeight], visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
+            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - [[NSApp mainMenu] menuBarHeight], visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
         } else {
             [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height, visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
         }
