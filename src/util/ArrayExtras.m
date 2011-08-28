@@ -40,10 +40,6 @@
 
 @implementation  NSArray (ArrayExtras)
 
--(id)firstObject{
-    return [self count] > 0 ? [self objectAtIndex:0] : nil;
-}
-
 -(void)doUsingFunction:(STDoFunction)actionFunction context:(void *)context{
     NSEnumerator *enumerator = [self objectEnumerator];
     id each;

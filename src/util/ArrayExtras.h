@@ -77,13 +77,6 @@ typedef BOOL (*STSelectFunction)(id, void *);
 @interface NSArray (ArrayExtras)
 
 /*!
- @method     firstObject
- @abstract  see @link NSArrayPair NSArrayPair@/link
- @result first object in the array
- */
--(id)firstObject;
-
-/*!
  @method     doUsingFunction:context:
  @abstract   Runs the doFunction on very element in the collection in enumeration order.
  @param      doFunction read more at @link //apple_ref/c/tdef/STDoFunction STDoFunction @/link
