@@ -54,7 +54,6 @@
 {
     [super finishLaunching];
     lastPoint = [NSEvent mouseLocation];
-    inactiveTimer = nil;
     [self setDelegate:self];
 }
 

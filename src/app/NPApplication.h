@@ -41,7 +41,6 @@
 #import "NiceController.h"
 
 @interface NPApplication : NSApplication {
-	NSTimer *inactiveTimer;
 	NSPoint lastPoint;
 }
 
