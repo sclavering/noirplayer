@@ -44,7 +44,6 @@
  */
 
 #import "NPApplication.h"
-#import "NiceUtilities.h"
 
 
 @implementation NPApplication

@@ -37,7 +37,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NiceController.h"
-#import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "NiceDocument.h"
 

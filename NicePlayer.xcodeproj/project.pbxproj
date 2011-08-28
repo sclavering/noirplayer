@@ -54,8 +54,6 @@
 		3EC8C601065DD31F00988449 /* playClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FE065DD31F00988449 /* playClick.png */; };
 		3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDA2680065C8E570000CCEE /* OverlayWindow.h */; };
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
-		3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEB7DB7076B754F0090E740 /* NiceUtilities.h */; };
-		3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB7DB8076B754F0090E740 /* NiceUtilities.m */; };
 		3EEDF762065B4CFF00E3545C /* black.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EEDF761065B4CFF00E3545C /* black.png */; };
 		3EEDF765065B507B00E3545C /* NiceWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EEDF763065B507B00E3545C /* NiceWindow.h */; };
 		3EEDF766065B507B00E3545C /* NiceWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EEDF764065B507B00E3545C /* NiceWindow.m */; };
@@ -141,8 +139,6 @@
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
 		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = src/widgets/OverlayWindow.h; sourceTree = "<group>"; };
 		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = src/widgets/OverlayWindow.m; sourceTree = "<group>"; };
-		3EEB7DB7076B754F0090E740 /* NiceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceUtilities.h; path = src/util/NiceUtilities.h; sourceTree = "<group>"; };
-		3EEB7DB8076B754F0090E740 /* NiceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceUtilities.m; path = src/util/NiceUtilities.m; sourceTree = "<group>"; };
 		3EEDF761065B4CFF00E3545C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black.png; path = Resources/black.png; sourceTree = "<group>"; };
 		3EEDF763065B507B00E3545C /* NiceWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NiceWindow.h; path = src/app/NiceWindow.h; sourceTree = "<group>"; };
 		3EEDF764065B507B00E3545C /* NiceWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NiceWindow.m; path = src/app/NiceWindow.m; sourceTree = "<group>"; };
@@ -307,8 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
-				3EEB7DB7076B754F0090E740 /* NiceUtilities.h */,
-				3EEB7DB8076B754F0090E740 /* NiceUtilities.m */,
 				32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */,
 			);
 			name = util;
@@ -383,7 +377,6 @@
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61680753F92D00702BD0 /* NPMovieView.h in Headers */,
 				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
-				3EEB7DBB076B754F0090E740 /* NiceUtilities.h in Headers */,
 				697496120B55EA800030D4D2 /* OverlayTitleWindow.h in Headers */,
 				6974971F0B56033F0030D4D2 /* TitleBackgroundView.h in Headers */,
 				6977CC670CE3DF8B00B4EBB6 /* NPScalingButton.h in Headers */,
@@ -506,7 +499,6 @@
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
 				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
-				3EEB7DBC076B754F0090E740 /* NiceUtilities.m in Sources */,
 				697496130B55EA800030D4D2 /* OverlayTitleWindow.m in Sources */,
 				697497200B56033F0030D4D2 /* TitleBackgroundView.m in Sources */,
 				6977CD5A0CE3F63000B4EBB6 /* NPScalingButton.m in Sources */,
