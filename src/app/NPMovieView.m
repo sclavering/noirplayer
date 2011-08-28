@@ -70,7 +70,6 @@
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         oldPlayState = STATE_INACTIVE;
         [self setAutoresizesSubviews:YES];
-		internalVolume = 1.0;
     }
     return self;
 }
@@ -134,7 +133,6 @@
     [self addSubview:qtview];
 
     movie = aMovie;
-    [movie setVolume:internalVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
     [qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 }
@@ -480,8 +478,7 @@
 {
     if(aVolume < 0.0) aVolume = 0.0;
     if(aVolume > 2.0) aVolume = 2.0;
-    internalVolume = aVolume;
-    [movie setVolume:internalVolume];
+    [movie setVolume:aVolume];
     [movie setMuted:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
