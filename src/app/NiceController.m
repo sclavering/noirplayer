@@ -44,10 +44,6 @@
 
 id controller;
 
-BOOL detectIsPlaying(id each, void* context) {
-    return [each isPlaying];
-}
-
 @implementation NiceController
 
 +(id)controller
@@ -109,8 +105,13 @@ BOOL detectIsPlaying(id each, void* context) {
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void)preventSleep:(id)sender
 {
-    if([[NSApp orderedDocuments] detectUsingFunction:detectIsPlaying context:nil])
+    NSEnumerator *enumerator = [[NSApp orderedDocuments] objectEnumerator];
+    id each;
+    while((each = [enumerator nextObject])) {
+        if(![each isPlaying]) continue;
         UpdateSystemActivity(OverallAct);
+        return;
+    }
 }
 
 -(id)mainDocument
