@@ -54,7 +54,6 @@
 {
     [super finishLaunching];
     lastPoint = [NSEvent mouseLocation];
-    [self setDelegate:self];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
