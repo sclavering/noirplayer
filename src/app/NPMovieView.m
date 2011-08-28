@@ -553,31 +553,6 @@
     [qtview setNeedsDisplay:YES];
 }
 
-/* Non working code */
-#define CROP_STEP1 NSViewMinXMargin | NSViewMaxYMargin
-#define CROP_STEP2 NSViewMaxXMargin | NSViewMinYMargin
-#define FINAL_SIZING NSViewWidthSizable | NSViewHeightSizable
-
-//crop doesn't work this is more test code
--(IBAction)crop:(id)sender
-{
-    NSRect newFrame = NSMakeRect(100+20,100+30,100+340,100+270);
-    NSRect currentFrame = [((NiceWindow *)[self window]) frame];
-    NSRect resizingFrame = currentFrame;
-    
-    resizingFrame.size.width -= (newFrame.origin.x);
-    resizingFrame.size.height -= (newFrame.origin.y);
-    [self setAutoresizingMask:CROP_STEP1];
-    [((NiceWindow *)[self window]) setFrame:resizingFrame display:YES];
-    resizingFrame.size.width -= (currentFrame.size.width - newFrame.size.width);
-    resizingFrame.size.height -= (currentFrame.size.height - newFrame.size.height);
-    [self setAutoresizingMask:CROP_STEP2];
-    [((NiceWindow *)[self window]) setFrame:resizingFrame display:YES];
-    [self setAutoresizingMask:FINAL_SIZING];
-    [((NiceWindow *)[self window]) setAspectRatio:[((NiceWindow *)[self window]) frame].size];
-	
-}
-
 - (void)mouseEntered:(NSEvent *)theEvent
 {
     [NSApp mouseEntered:theEvent];
