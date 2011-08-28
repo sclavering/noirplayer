@@ -153,9 +153,6 @@
 {
     [[theWindow playButton] setImage:[NSImage imageNamed:@"play"]];
     [[theWindow playButton] setAlternateImage:[NSImage imageNamed:@"playClick"]];
-    if([theMovieView wasPlaying] && ![(NiceWindow*)[self window] scrubberInUse])
-        if([[self window] isFullScreen])
-            [[self window] unFullScreen];
 }
 
 -(NSMenu *)movieMenu
