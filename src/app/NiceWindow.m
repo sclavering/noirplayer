@@ -78,7 +78,6 @@
         dropScreen = NO;
         isFilling = NO;
         isWidthFilling = NO;
-        miniVolume = 1;
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
 		fixedAspectRatio = YES;
@@ -188,12 +187,6 @@
 {
     [theVolumeView setMuted:[theMovieView muted]];
     [theVolumeView setVolume:[theMovieView volume]];
-    miniVolume =[theMovieView volume];
-}
-
--(void)restoreVolume
-{
-    [theMovieView setVolume:miniVolume];
 }
 
 - (void)performMiniaturize:(id)sender

@@ -117,9 +117,7 @@
 
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
-    [theWindow restoreVolume];
-    if(wasPlayingBeforeMini)
-	[theMovieView start];
+    if(wasPlayingBeforeMini) [theMovieView start];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController

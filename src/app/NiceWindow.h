@@ -69,7 +69,6 @@
 
     BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
     id timeUpdaterTimer;
-    float miniVolume;
     NSRect beforeFullScreen;
 
     NSSize aspectRatio;
@@ -85,7 +84,6 @@
 -(BOOL)validateMenuItem:(NSMenuItem*)anItem;
 -(IBAction)performClose:(id)sender;
 -(void)updateVolume;
--(void)restoreVolume;
 -(void)performMiniaturize:(id)sender;
 -(IBAction)updateByTime:(id)sender;
 
