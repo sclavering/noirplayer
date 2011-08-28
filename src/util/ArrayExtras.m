@@ -40,37 +40,6 @@
 
 @implementation  NSArray (ArrayExtras)
 
--(void)doUsingFunction:(STDoFunction)actionFunction context:(void *)context{
-    NSEnumerator *enumerator = [self objectEnumerator];
-    id each;
-    BOOL tBreak = NO;
-    while((each = [enumerator nextObject]) && !tBreak) {
-        actionFunction(each, context, &tBreak);
-    }
-}
-
--(id)selectUsingFunction:(STSelectFunction)selectingFunction context:(void *)context{
-    id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
-    NSEnumerator *enumerator = [self objectEnumerator];
-    id each;
-    while((each = [enumerator nextObject])) {
-        if(!selectingFunction(each, context)) continue;
-        [tempCollection addObject: each];
-    }
-    return [[self classForCoder] arrayWithArray:tempCollection];
-}
-
--(id)rejectUsingFunction:(STSelectFunction)rejectingFunction context:(void *)context{
-    id tempCollection = [NSMutableArray arrayWithCapacity:[self count]];
-    NSEnumerator *enumerator = [self objectEnumerator];
-    id each;
-    while((each = [enumerator nextObject])) {
-        if(rejectingFunction(each, context)) continue;
-        [tempCollection addObject:each];
-    }
-    return [[self classForCoder] arrayWithArray:tempCollection];
-}
-
 -(id)detectUsingFunction:(STSelectFunction)detectingFunction context:(void *)context{
     id returnObject = nil;
     NSEnumerator *enumerator = [self objectEnumerator];

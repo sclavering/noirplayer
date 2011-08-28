@@ -48,11 +48,6 @@
 #import "ArrayExtras.h"
 
 
-BOOL selectNiceWindow(id each, void* context){
-    return [each isKindOfClass:[NiceWindow class]];
-}
-
-
 @implementation NPApplication
 
 - (void)finishLaunching
@@ -151,11 +146,6 @@ BOOL selectNiceWindow(id each, void* context){
         // we did not catch this one
         [super sendEvent:anEvent];
     }
-}
-
--(NSArray *)movieWindows
-{
-    return [[super orderedWindows] selectUsingFunction:selectNiceWindow context:nil];
 }
 
 @end

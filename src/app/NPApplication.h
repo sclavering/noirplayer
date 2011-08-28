@@ -45,7 +45,6 @@
 	NSPoint lastPoint;
 }
 
--(NSArray *)movieWindows;
 -(void)testCursorMovement;
 
 @end

@@ -38,24 +38,6 @@
 #import <Foundation/Foundation.h>
 
 /*!
- @typedef STDoFunction
- @abstract   Function pointer for doUsingFunction:context:
- @discussion Example Declaration:
- <pre>
- @textblock
- void aDoFunction(id each, void* aContext,BOOL* aBreak){
-
- }
- @/textblock
- </pre>
- @param each id (any object) that you are enumerating through
- @param context void* pointer that you can use to pass in extra variables
- @param abreak BOOL* pointer when assigned to true, ends the while loop;
- @result returns void
- */
-typedef void (*STDoFunction)(id, void *,BOOL *);
-
-/*!
  @typedef STSelectFunction
  @abstract   Function pointer for selectUsingFunction:context:,detectUsingFunction:context:,rejectUsingFunction:context:
  @discussion Example Declaration:
@@ -75,32 +57,6 @@ typedef BOOL (*STSelectFunction)(id, void *);
 
 
 @interface NSArray (ArrayExtras)
-
-/*!
- @method     doUsingFunction:context:
- @abstract   Runs the doFunction on very element in the collection in enumeration order.
- @param      doFunction read more at @link //apple_ref/c/tdef/STDoFunction STDoFunction @/link
- @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
- */
--(void)doUsingFunction:(STDoFunction)doFunction context:(void *)context;
-
-/*!
- @method     selectUsingFunction:context:
- @abstract   Selects all objects in which the selectingFunction returns true.
- @discussion (comprehensive description)
- @param      selectingFunction read more at @link //apple_ref/c/tdef/STSelectFunction STSelectFunction @/link
- @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
- */
--(id)selectUsingFunction:(STSelectFunction)selectingFunction context:(void *)context;
-
-/*!
- @method     rejectUsingFunction:context:
- @abstract  Rejects all objects in which the rejectingFunction returns true.
- @discussion (comprehensive description)
- @param      rejectingFunction read more at @link //apple_ref/c/tdef/STSelectFunction STSelectFunction @/link
- @param      context This context pointer allows you to pass in extra contextual objects (useful when using static functions)
- */
--(id)rejectUsingFunction:(STSelectFunction)rejectingFunction context:(void *)context;
 
 /*!
  @method     detectUsingFunction:context:

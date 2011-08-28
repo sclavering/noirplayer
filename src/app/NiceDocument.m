@@ -45,56 +45,6 @@
 
 #define VOLUME_ITEM -43
 
-BOOL rejectSelf(id each,void* context){
-    return [each isEqual:[(NiceDocument*)context window]];
-}
-
-NSInteger sortByMain(id v1, id v2, void* context){
-    if([v1 isEqualTo:v2])
-        return NSOrderedSame;
-    if([[NSScreen mainScreen] isEqualTo: v1]){
-        return NSOrderedAscending;
-    }
-    
-    return NSOrderedAscending;
-}
-
-BOOL findWindowScreen(id each, void* context){
-    return [[each screen] isEqual:(NSScreen*)context];
-}
-
-BOOL findOpenPoint(id eachwin, void* context){
-    
-    NSMutableDictionary* tContext =(NSMutableDictionary*) context;
-    
-    NSValue* tPoint =[tContext objectForKey:@"tPoint"];
-    NiceDocument* tSelf =[tContext objectForKey:@"self"];
-    NSRect tWinRect = [eachwin frame];
-    NSRect tNewRect = NSMakeRect([tPoint pointValue].x,[tPoint pointValue].y,[[tSelf window] frame].size.width,[[tSelf window] frame].size.height);
-    NSRect tSubScreenRect =[[tContext objectForKey:@"tSubScreenRect"] rectValue];
-    
-    return NSIntersectsRect(tWinRect,tNewRect) || !NSContainsRect(tSubScreenRect,tNewRect);
-}
-
-void findSpace(id each, void* context, BOOL* endthis)
-{
-    NSMutableDictionary* tContext =(NSMutableDictionary*) context;
-    NSRect tSubScreenRect = [each visibleFrame];
-    [tContext setObject:[NSValue valueWithRect:tSubScreenRect] forKey:@"tSubScreenRect"];
-    NiceDocument* tSelf = [tContext objectForKey:@"self"];
-    for(float j = tSubScreenRect.origin.y + tSubScreenRect.size.height - [[tSelf window] frame].size.height; j >= tSubScreenRect.origin.y; j -= [[tSelf window] frame].size.height){
-        for(float i = tSubScreenRect.origin.x; i < tSubScreenRect.origin.x + tSubScreenRect.size.width; i+= [[tSelf window] frame].size.width){
-            NSValue* tPoint= [NSValue valueWithPoint:NSMakePoint(i,j)];
-            [tContext setObject:tPoint forKey:@"tPoint"];
-            if(nil == [[tContext objectForKey:@"tMovieWindows"] detectUsingFunction:findOpenPoint context:(void*)tContext]){
-                *endthis = YES;
-                return;
-            }
-            tPoint = nil;
-        }
-    }
-}
-
 
 @implementation NiceDocument
 
@@ -178,7 +128,6 @@ void findSpace(id each, void* context, BOOL* endthis)
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [[self window] updateVolume];
-	[self repositionAfterLoad];
 	[[self window] orderFront:aController];
     [theMovieView openMovie:movie];
     NSSize aSize = [theMovieView naturalSize];
@@ -187,24 +136,6 @@ void findSpace(id each, void* context, BOOL* endthis)
     [theWindow initialDefaultSize];
     [theWindow setTitle:[theWindow title]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-}
-
--(void)repositionAfterLoad
-{
-    NSArray* tMovieWindows = [[NSApp movieWindows] rejectUsingFunction:rejectSelf context:(void*)self];
-
-    NSMutableDictionary* tContext = [NSMutableDictionary dictionaryWithObjectsAndKeys:self, @"self",tMovieWindows, @"tMovieWindows", nil];
-
-    id tArray = [[NSScreen screens] sortedArrayUsingFunction:sortByMain context:nil];
-    [tArray doUsingFunction:findSpace context:(void*)tContext];
-
-    NSValue* tPoint = [tContext objectForKey:@"tPoint"];
-    if(tPoint) {
-        [[self window] setFrameOrigin:[tPoint pointValue]];
-    } else {
-        id tWindow = [[NSApp movieWindows] detectUsingFunction:findWindowScreen context:(void*)[NSScreen mainScreen]];
-        [[self window] cascadeTopLeftFromPoint:[tWindow frame].origin];
-    }
 }
 
 - (void)makeWindowControllers{
