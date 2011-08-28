@@ -42,7 +42,6 @@
 
 -(id)initWithCoder:(id)aCoder{
     self =[super initWithCoder:aCoder];
-    muted = NO;
     volume=1.0;
     return self;
 }
@@ -58,18 +57,8 @@
 
 }
 
--(void)setMuted:(BOOL)aBOOL{
-    muted = aBOOL;
-    if(muted)
-        [self setImage:[NSImage imageNamed:@"volume_muted"]];
-    else
-        [self setImage:[NSImage imageNamed:@"volume_with_sound"]];
-    [self setNeedsDisplay];
-}
-
 - (void)drawRect:(NSRect)aRect{
     [super drawRect:aRect];   
-    if(!muted){
         float hue;
         float top;
         if (volume <=1.0){
@@ -85,8 +74,7 @@
                          brightness:(top/volume)
                               alpha:1.0] set];
         
-            NSRectFill(NSMakeRect(20,15,32*volume,8));
-    }
+        NSRectFill(NSMakeRect(20,15,32*volume,8));
 }
 
 @end

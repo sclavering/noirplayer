@@ -69,7 +69,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)decrementVolume;
 -(void)setVolume:(float)aVolume;
 -(float)volume;
--(float)volumeWithMute;
 
 -(BOOL)isPlaying;
 -(BOOL)wasPlaying;
@@ -89,8 +88,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 -(double)scrubLocation:(id)sender;
 -(NSSize)naturalSize;
--(BOOL)muted;
--(void)setMuted:(BOOL)aBool;
 -(double)percentLoaded;
 -(void)drawMovieFrame;
 

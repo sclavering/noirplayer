@@ -185,7 +185,6 @@
 
 -(void)updateVolume
 {
-    [theVolumeView setMuted:[theMovieView muted]];
     [theVolumeView setVolume:[theMovieView volume]];
 }
 

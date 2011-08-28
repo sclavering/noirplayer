@@ -166,14 +166,12 @@
 
 -(void)incrementVolume
 {
-	[self setMuted:NO];
 	[self setVolume:[self volume]+.1];
 	[((NiceWindow *)[self window]) updateVolume];
 }
 
 -(void)decrementVolume
 {
-	[self setMuted:NO];
 	[self setVolume:[self volume]-.1];
 	[((NiceWindow *)[self window]) updateVolume];
 }
@@ -502,24 +500,6 @@
     return tMaxLoaded / tDuration;
 }
 
--(BOOL)muted
-{
-    return [movie muted];
-}
-
--(void)setMuted:(BOOL)aBool
-{
-    [movie setMuted:aBool];
-}
-
--(float)volumeWithMute
-{
-    float volume = [movie volume];
-    if(volume < -2.0) volume = -2.0;
-    if(volume > 2.0) volume = 2.0;
-    return volume;
-}
-
 -(float)volume
 {
     float volume = [movie volume];
@@ -534,7 +514,7 @@
     if(aVolume > 2.0) aVolume = 2.0;
     internalVolume = aVolume;
     [movie setVolume:internalVolume];
-    [movie setMuted: [movie volume] <= 0.0];
+    [movie setMuted:NO];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 

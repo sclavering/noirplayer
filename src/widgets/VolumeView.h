@@ -45,7 +45,6 @@
 
 @interface VolumeView : NSImageView
 {
-    BOOL muted;
     float volume;
 }
 @end
