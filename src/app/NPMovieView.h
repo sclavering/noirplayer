@@ -43,14 +43,11 @@
 @class NiceWindow;
 @class NiceDocument;
 
-enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
-
 @interface NPMovieView : NSView {
     QTMovie* movie;
     QTMovieView* qtview;
     id contextMenu;
     NSTrackingRectTag trackingRect;
-    enum play_states oldPlayState;
     BOOL mouseEntered;
 }
 
@@ -81,18 +78,8 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 -(void)scrollWheelResize:(float)delta;
 
--(double)scrubLocation:(id)sender;
 -(NSSize)naturalSize;
 -(double)percentLoaded;
 -(void)drawMovieFrame;
-
--(double)totalTime;
--(double)currentMovieTime;
--(void)setCurrentMovieTime:(double)aDouble;
--(BOOL)hasEnded:(id)sender;
-
--(void)startStepping;
--(void)stepBy:(int)aSeconds;
--(void)endStepping;
 
 @end

@@ -49,6 +49,7 @@
 {
     self = [super init];
     if(self){
+        preSteppingState = PSS_INACTIVE;
         menuObjects = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(rebuildMenu)
@@ -240,6 +241,57 @@ stuff won't work properly! */
 {
     [movie stop];
     [[theWindow playButton] changeToProperButton:[self isPlaying]];
+}
+
+#pragma mark Stepping
+
+-(void)startStepping
+{
+    if(preSteppingState == PSS_INACTIVE) preSteppingState = [self isPlaying] ? PSS_PLAYING : PSS_STOPPED;
+    [self pauseMovie];
+}
+
+-(void)stepBy:(int)seconds
+{
+    [self setCurrentMovieTime:([self currentMovieTime] + seconds)];
+    [theMovieView drawMovieFrame];
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+-(void)endStepping
+{
+    if(preSteppingState == PSS_PLAYING) [self playMovie];
+    preSteppingState = PSS_INACTIVE;
+    [((NiceWindow *)[self window]) updateByTime:nil];
+}
+
+#pragma mark Time
+
+-(double)totalTime
+{
+    QTTime duration = [movie duration];
+    return duration.timeValue / duration.timeScale;
+}
+
+-(double)currentMovieTime
+{
+    QTTime current = [movie currentTime];
+    return current.timeValue / current.timeScale;
+}
+
+-(void)setCurrentMovieTime:(double)newMovieTime
+{
+    [movie setCurrentTime:QTMakeTime(newMovieTime, 1)];
+}
+
+-(double)currentTimeAsFraction
+{
+    return [self currentMovieTime] / [self totalTime];
+}
+
+-(void)setMovieTimeByFraction:(double)when
+{
+    [self setCurrentMovieTime:[self totalTime] * when];
 }
 
 #pragma mark Volume

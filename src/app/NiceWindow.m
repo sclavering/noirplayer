@@ -196,14 +196,16 @@
     if((sender != self) && [theScrubBar isHidden])
         return;
 
-    int t = theMovieView ? [theMovieView totalTime] : 0;
-    int c = theMovieView ? [theMovieView currentMovieTime] : 0;
+    NiceDocument* doc = [[self windowController] document];
+
+    int t = [doc totalTime];
+    int c = [doc currentMovieTime];
     int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
     id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
     [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:[NSDictionary dictionaryWithObjectsAndKeys:[NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]], NSFontAttributeName, nil]] autorelease]];
 
 	if(theMovieView) {
-		[theScrubBar setDoubleValue:[theMovieView scrubLocation:sender]];
+		[theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
 		[theScrubBar setLoadedValue:[theMovieView percentLoaded]];
 	}
     [theScrubBar setNeedsDisplay:YES];

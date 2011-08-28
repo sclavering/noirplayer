@@ -46,6 +46,8 @@
 @class NiceWindow;
 @class NPMovieView;
 
+enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
+
 @interface NiceDocument : NSDocument
 {
     IBOutlet NPMovieView *theMovieView;
@@ -53,6 +55,7 @@
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;
     QTMovie* movie;
+    enum PreStepingStates preSteppingState;
 }
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
@@ -78,6 +81,20 @@
 -(void)togglePlayingMovie;
 -(void)playMovie;
 -(void)pauseMovie;
+
+#pragma mark Stepping
+
+-(void)startStepping;
+-(void)stepBy:(int)aSeconds;
+-(void)endStepping;
+
+#pragma mark Time
+
+-(double)totalTime;
+-(double)currentMovieTime;
+-(void)setCurrentMovieTime:(double)aDouble;
+-(double)currentTimeAsFraction;
+-(void)setMovieTimeByFraction:(double)when;
 
 #pragma mark Volume
 

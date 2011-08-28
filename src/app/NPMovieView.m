@@ -68,7 +68,6 @@
 {
     if ((self = [super initWithFrame:aRect])) {
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
-        oldPlayState = STATE_INACTIVE;
         [self setAutoresizesSubviews:YES];
     }
     return self;
@@ -169,13 +168,8 @@
 
 -(IBAction)scrub:(id)sender
 {
-    [self setCurrentMovieTime:([self totalTime] * [sender doubleValue])];
+    [[self niceDocument] setMovieTimeByFraction:[sender doubleValue]];
     [((NiceWindow *)[self window]) updateByTime:sender];
-}
-
--(double)scrubLocation:(id)sender
-{
-	return (double)[self currentMovieTime] / (double)[self totalTime];
 }
 
 #pragma mark -
@@ -190,16 +184,16 @@
 			if(![anEvent isARepeat]) [[self niceDocument] togglePlayingMovie];
 			break;
 		case NSRightArrowFunctionKey:
-            if(![anEvent isARepeat]) [self startStepping];
-            [self stepBy:SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [[self niceDocument] startStepping];
+            [[self niceDocument] stepBy:SCRUB_STEP_DURATION];
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-                [self setCurrentMovieTime:0];
+                [[self niceDocument] setCurrentMovieTime:0];
 				break;
 			}
-            if(![anEvent isARepeat]) [self startStepping];
-            [self stepBy:-SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [[self niceDocument] startStepping];
+            [[self niceDocument] stepBy:-SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
 			[self incrementVolume];
@@ -226,11 +220,11 @@
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSRightArrowFunctionKey:
-			[self endStepping];
+			[[self niceDocument] endStepping];
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSLeftArrowFunctionKey:
-			[self endStepping];
+			[[self niceDocument] endStepping];
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSUpArrowFunctionKey: case NSDownArrowFunctionKey:
@@ -336,9 +330,9 @@
     float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
 
     if(deltaX) {
-        [self startStepping];
-        [self stepBy:SCRUB_STEP_DURATION * deltaX];
-        [self endStepping];
+        [[self niceDocument] startStepping];
+        [[self niceDocument] stepBy:SCRUB_STEP_DURATION * deltaX];
+        [[self niceDocument] endStepping];
     }
 
     if(deltaY) [self scrollWheelResize:deltaY];
@@ -498,54 +492,6 @@
 {
     [NSApp mouseExited:theEvent];
     mouseEntered = NO;
-}
-
-#pragma mark -
-#pragma mark Calculations
-
--(double)totalTime
-{
-    QTTime duration = [movie duration];
-    return duration.timeValue / duration.timeScale;
-}
-
--(double)currentMovieTime
-{
-    QTTime current = [movie currentTime];
-    return current.timeValue / current.timeScale;
-}
-
--(void)setCurrentMovieTime:(double)newMovieTime
-{
-    [movie setCurrentTime: QTMakeTime(newMovieTime, 1)];
-}
-
--(BOOL)hasEnded:(id)sender
-{
-    return [self currentMovieTime] >= [self totalTime];
-}
-
-#pragma mark -
-#pragma mark Stepping
-
--(void)startStepping
-{
-    if(oldPlayState == STATE_INACTIVE) oldPlayState = [[self niceDocument] isPlaying] ? STATE_PLAYING : STATE_STOPPED;
-    [[self niceDocument] pauseMovie];
-}
-
--(void)stepBy:(int)seconds
-{
-    [self setCurrentMovieTime:([self currentMovieTime] + seconds)];
-    [self drawMovieFrame];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)endStepping
-{
-    if(oldPlayState == STATE_PLAYING) [[self niceDocument] playMovie];
-    oldPlayState = STATE_INACTIVE;
-    [((NiceWindow *)[self window]) updateByTime:nil];
 }
 
 @end
