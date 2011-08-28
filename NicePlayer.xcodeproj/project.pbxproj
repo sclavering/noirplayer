@@ -100,7 +100,7 @@
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* NiceDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NiceDocument.m; path = src/app/NiceDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* NiceDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NiceDocument.h; path = src/app/NiceDocument.h; sourceTree = "<group>"; };
-		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/util/main.m; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/app/main.m; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NicePlayer_Prefix.pch; sourceTree = "<group>"; };
@@ -233,6 +233,8 @@
 		252BD45D07697C6A006CF96B /* app */ = {
 			isa = PBXGroup;
 			children = (
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */,
 				259CC53707374066001ED5FA /* NPApplication.h */,
 				259CC53807374066001ED5FA /* NPApplication.m */,
 				3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */,
@@ -294,18 +296,8 @@
 			children = (
 				252BD45D07697C6A006CF96B /* app */,
 				25B912D707416725001B68D9 /* widgets */,
-				2A37F4AFFDCFA73011CA2CEA /* util */,
 			);
 			name = src;
-			sourceTree = "<group>";
-		};
-		2A37F4AFFDCFA73011CA2CEA /* util */ = {
-			isa = PBXGroup;
-			children = (
-				2A37F4B0FDCFA73011CA2CEA /* main.m */,
-				32DBCF750370BD2300C91783 /* NicePlayer_Prefix.pch */,
-			);
-			name = util;
 			sourceTree = "<group>";
 		};
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
