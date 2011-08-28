@@ -53,7 +53,6 @@
 -(void)mousePressed:(id)sender;
 -(void)makeTrackingRect;
 
--(void)togglePlaying;
 -(void)changeToProperButton:(BOOL)isPlaying;
 -(void)changeToPauseButton;
 -(void)changeToPlayButton;

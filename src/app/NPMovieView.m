@@ -59,6 +59,11 @@
         nil];
 }
 
+-(NiceDocument*)niceDocument
+{
+    return [[[self window] windowController] document];
+}
+
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
@@ -149,18 +154,6 @@
 #pragma mark -
 #pragma mark Controls
 
--(void)start
-{
-    [movie play];
-    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
-}
-
--(void)stop
-{
-    [movie stop];
-    [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
-}
-
 -(void)incrementVolume
 {
 	[self setVolume:[self volume]+.1];
@@ -187,11 +180,6 @@
 	return (double)[self currentMovieTime] / (double)[self totalTime];
 }
 
--(BOOL)isPlaying
-{
-    return [movie rate] != 0.0;
-}
-
 #pragma mark -
 #pragma mark Keyboard Events
 
@@ -201,9 +189,7 @@
     
     switch([[anEvent characters] characterAtIndex:0]){
 		case ' ':
-			if(![anEvent isARepeat]){
-				[[((NiceWindow *)[self window]) playButton] togglePlaying];
-			}
+			if(![anEvent isARepeat]) [[self niceDocument] togglePlayingMovie];
 			break;
 		case NSRightArrowFunctionKey:
             if(![anEvent isARepeat]) [self startStepping];
@@ -374,9 +360,9 @@
 	id newItem;
 	
 	newItem = [[[NSMenuItem alloc] initWithTitle:@"Play/Pause"
-					      action:@selector(togglePlaying)
+					      action:@selector(togglePlayingMovie)
 				       keyEquivalent:@""] autorelease];
-	[newItem setTarget:[((NiceWindow *)[self window]) playButton]];
+	[newItem setTarget:[self niceDocument]];
 	[myMenu addObject:newItem];
 
 	[myMenu addObject:[[[[self window]windowController]document] volumeMenu]];
@@ -547,8 +533,8 @@
 
 -(void)startStepping
 {
-    if(oldPlayState == STATE_INACTIVE) oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
-    [self stop];
+    if(oldPlayState == STATE_INACTIVE) oldPlayState = [[self niceDocument] isPlaying] ? STATE_PLAYING : STATE_STOPPED;
+    [[self niceDocument] pauseMovie];
 }
 
 -(void)stepBy:(int)seconds
@@ -560,7 +546,7 @@
 
 -(void)endStepping
 {
-    if(oldPlayState == STATE_PLAYING) [self start];
+    if(oldPlayState == STATE_PLAYING) [[self niceDocument] playMovie];
     oldPlayState = STATE_INACTIVE;
     [((NiceWindow *)[self window]) updateByTime:nil];
 }

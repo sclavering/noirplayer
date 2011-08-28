@@ -138,7 +138,7 @@ id controller;
         if(tError) [NSApp presentError:tError];
     }
     if(![NSApp mainWindow]) NSLog(@"no main window");
-    if([files count]) [[self mainDocument] play:self];
+    if([files count]) [[self mainDocument] playMovie];
 }
 
 -(IBAction)toggleFullScreen:(id)sender

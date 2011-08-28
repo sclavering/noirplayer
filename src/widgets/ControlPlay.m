@@ -127,15 +127,7 @@
 {
 	[self setState:NSOnState];
 	[super mouseDown:theEvent];
-	[self togglePlaying];
-}
-
--(void)togglePlaying
-{
-	if([actionView isPlaying])
-		[(NPMovieView *)actionView stop];
-	else
-		[actionView start];
+	[[actionView niceDocument] togglePlayingMovie];
 }
 
 -(void)changeToProperButton:(BOOL)isPlaying

@@ -102,20 +102,15 @@
 #pragma mark -
 #pragma mark Window Information
 
--(BOOL)isPlaying
-{
-    return [theMovieView isPlaying];
-}
-
 - (void)windowDidMiniaturize:(NSNotification *)aNotification
 {
-    wasPlayingBeforeMini = [(NPMovieView *)theMovieView isPlaying];
-    [(NPMovieView *)theMovieView stop];
+    wasPlayingBeforeMini = [self isPlaying];
+    [self pauseMovie];
 }
 
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
-    if(wasPlayingBeforeMini) [theMovieView start];
+    if(wasPlayingBeforeMini) [self playMovie];
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -232,17 +227,31 @@ stuff won't work properly! */
     return theWindow;
 }
 
-#pragma mark Interface
+#pragma mark Play/Pause
 
--(void)play:(id)sender
+-(BOOL)isPlaying
 {
-    [theMovieView start];
+    return [movie rate] != 0.0;
 }
 
--(void)pause:(id)sender
+-(void)togglePlayingMovie
 {
-    [theMovieView stop];
+    [self isPlaying] ? [self pauseMovie] : [self playMovie];
 }
+
+-(void)playMovie
+{
+    [movie play];
+    [[theWindow playButton] changeToProperButton:[self isPlaying]];
+}
+
+-(void)pauseMovie
+{
+    [movie stop];
+    [[theWindow playButton] changeToProperButton:[self isPlaying]];
+}
+
+#pragma mark Volume
 
 -(float)volume
 {

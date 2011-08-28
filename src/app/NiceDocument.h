@@ -72,8 +72,15 @@
 -(IBAction)switchVolume:(NSMenuItem*)sender;
 -(IBAction)increaseVolume:(id)sender;
 -(IBAction)decreaseVolume:(id)sender;
--(void)play:(id)sender;
--(void)pause:(id)sender;
+
+#pragma mark Play/Pause
+
+-(BOOL)isPlaying;
+-(void)togglePlayingMovie;
+-(void)playMovie;
+-(void)pauseMovie;
+
+#pragma mark Volume
 
 -(float)volume;
 

@@ -41,6 +41,7 @@
 
 @class ControlPlay;
 @class NiceWindow;
+@class NiceDocument;
 
 enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
@@ -56,20 +57,17 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 
 +(NSArray *)supportedFileExtensions;
 
+-(NiceDocument*)niceDocument;
+
 -(void)openMovie:(QTMovie*)movie;
 -(void)close;
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
 
--(void)start;
--(void)stop;
-
 -(void)incrementVolume;
 -(void)decrementVolume;
 -(void)setVolume:(float)aVolume;
 -(float)volume;
-
--(BOOL)isPlaying;
 
 -(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;

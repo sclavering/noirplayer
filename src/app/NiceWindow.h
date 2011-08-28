@@ -40,6 +40,7 @@
 
 @class NPMovieView;
 @class NiceScrubber;
+@class ControlPlay;
 
 @interface NiceWindow : NSWindow
 {
@@ -52,7 +53,7 @@
 
     IBOutlet NiceScrubber* theScrubBar;
     IBOutlet id theTimeField;
-    IBOutlet id thePlayButton;
+    IBOutlet ControlPlay* thePlayButton;
 	
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;

@@ -171,8 +171,8 @@
 
 -(IBAction)performClose:(id)sender
 {
-    [(NPMovieView *)theMovieView stop];
-	[self orderOut:sender];//order out before stops double button click from causing crash
+    [[[self windowController] document] pauseMovie];
+    [self orderOut:sender]; //order out before stops double button click from causing crash
     if(fullScreen) [[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
     [self close];
 }
