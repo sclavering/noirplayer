@@ -193,10 +193,6 @@
  */
 -(IBAction)updateByTime:(id)sender
 {
-    if([theMovieView hasEnded:self]){
-        [[[self windowController] document] movieHasEnded];
-    }
-    
     if((sender != self) && [theScrubBar isHidden])
         return;
 

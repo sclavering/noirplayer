@@ -141,15 +141,6 @@
     [(NiceWindow *)[self window] setupOverlays];
 }
 
-/**
-* If movie has ended, then set the proper images for the controls and play the next movie.
- */
--(void)movieHasEnded
-{
-    [[theWindow playButton] setImage:[NSImage imageNamed:@"play"]];
-    [[theWindow playButton] setAlternateImage:[NSImage imageNamed:@"playClick"]];
-}
-
 -(NSMenu *)movieMenu
 {
     return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Movie",@"Movie")] submenu];
