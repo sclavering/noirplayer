@@ -65,7 +65,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)start;
 -(void)stop;
 
--(void)toggleMute;
 -(void)incrementVolume;
 -(void)decrementVolume;
 -(void)setVolume:(float)aVolume;

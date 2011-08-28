@@ -164,12 +164,6 @@
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
 }
 
--(void)toggleMute
-{
-    [movie setMuted:![movie muted]];
-    [((NiceWindow *)[self window]) updateVolume];
-}
-
 -(void)incrementVolume
 {
 	[self setMuted:NO];
@@ -243,10 +237,6 @@
 			break;
 		case NSDownArrowFunctionKey:
 			[self decrementVolume];
-			[self showOverLayVolume];
-			break;
-		case NSDeleteFunctionKey:
-			[self toggleMute];
 			[self showOverLayVolume];
 			break;
 		case 0x1B:
