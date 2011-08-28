@@ -53,8 +53,6 @@
     IBOutlet NiceScrubber* theScrubBar;
     IBOutlet id theTimeField;
     IBOutlet id thePlayButton;
-    IBOutlet id theRRButton;
-    IBOutlet id theFFButton;
 	
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;
@@ -158,8 +156,6 @@
 #pragma mark Accessor Methods
 
 -(id)playButton;
--(id)rrButton;
--(id)ffButton;
 
 -(NSArray *)acceptableDragTypes;
 

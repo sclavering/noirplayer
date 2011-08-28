@@ -1535,14 +1535,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>newDocument:</string>
 							<string>openDocument:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1552,17 +1550,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>newDocument:</string>
 							<string>openDocument:</string>
 							<string>toggleFixedAspectRatio:</string>
 							<string>toggleFullScreen:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">newDocument:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">openDocument:</string>
 								<string key="candidateClassName">id</string>
@@ -1682,13 +1675,11 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
 							<string>theOverlayTitleBar</string>
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
-							<string>theRRButton</string>
 							<string>theScrubBar</string>
 							<string>theTimeField</string>
 							<string>theTitleField</string>
@@ -1696,9 +1687,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>NPMovieView</string>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1713,13 +1702,11 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>theFFButton</string>
 							<string>theMovieView</string>
 							<string>theOverlayControllerWindow</string>
 							<string>theOverlayTitleBar</string>
 							<string>theOverlayVolume</string>
 							<string>thePlayButton</string>
-							<string>theRRButton</string>
 							<string>theScrubBar</string>
 							<string>theTimeField</string>
 							<string>theTitleField</string>
@@ -1727,10 +1714,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theFFButton</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theMovieView</string>
 								<string key="candidateClassName">NPMovieView</string>
@@ -1749,10 +1732,6 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">thePlayButton</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">theRRButton</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBToOneOutletInfo">

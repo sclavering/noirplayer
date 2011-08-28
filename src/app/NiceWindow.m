@@ -102,12 +102,7 @@
     [self setAcceptsMouseMovedEvents:YES];
     
     [thePlayButton setKeyEquivalent:@" "];
-    [theRRButton setKeyEquivalent:[NSString stringWithFormat:@"%C",NSLeftArrowFunctionKey,nil]];
-    [theFFButton setKeyEquivalent:[NSString stringWithFormat:@"%C",NSRightArrowFunctionKey,nil]];
-    
     [thePlayButton setActionView:theMovieView];
-    [theRRButton setActionView:theMovieView];
-    [theFFButton setActionView:theMovieView];
 }
 
 -(void)close
@@ -747,16 +742,6 @@
 -(id)playButton
 {
     return thePlayButton;
-}
-
--(id)rrButton
-{
-    return theRRButton;
-}
-
--(id)ffButton
-{
-    return theFFButton;
 }
 
 #pragma mark -
