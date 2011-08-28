@@ -110,7 +110,6 @@
 	NSAutoreleasePool* tPool = [NSAutoreleasePool new];
     [timeUpdaterTimer invalidate];
 
-	isClosing = YES;
     [theMovieView close];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super close];

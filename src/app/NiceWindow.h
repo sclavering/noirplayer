@@ -58,10 +58,7 @@
     BOOL titleOverlayIsShowing;
 
     BOOL fullScreen;
-    BOOL fillScreen;
-    BOOL fillWidthScreen;
     BOOL isFilling;
-	BOOL isClosing;
     BOOL isWidthFilling;
     BOOL fixedAspectRatio;
 
