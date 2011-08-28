@@ -206,20 +206,16 @@
 			}
 			break;
 		case NSRightArrowFunctionKey:
-			if(![anEvent isARepeat])
-				[self ffStart];
-			else
-				[self ffDo:SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [self startStepping];
+            [self stepBy:SCRUB_STEP_DURATION];
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
                 [self setCurrentMovieTime:0];
 				break;
 			}
-			if(![anEvent isARepeat])
-				[self rrStart];
-			else
-				[self rrDo:SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [self startStepping];
+            [self stepBy:-SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
 			[self incrementVolume];
@@ -246,11 +242,11 @@
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSRightArrowFunctionKey:
-			[self ffEnd];
+			[self endStepping];
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSLeftArrowFunctionKey:
-			[self rrEnd];
+			[self endStepping];
 			[self smartHideMouseOverOverlays];
 			break;
 		case NSUpArrowFunctionKey: case NSDownArrowFunctionKey:
@@ -356,15 +352,9 @@
     float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
 
     if(deltaX) {
-        if(deltaX > 0){
-            [self ffStart];
-            [self ffDo:SCRUB_STEP_DURATION * fabsf(deltaX)];
-            [self ffEnd];
-        } else {
-            [self rrStart];
-            [self rrDo:SCRUB_STEP_DURATION * fabsf(deltaX)];
-            [self rrEnd];
-        }
+        [self startStepping];
+        [self stepBy:SCRUB_STEP_DURATION * deltaX];
+        [self endStepping];
     }
 
     if(deltaY) [self scrollWheelResize:deltaY];
@@ -555,53 +545,24 @@
 #pragma mark -
 #pragma mark Stepping
 
--(void)rrStart
+-(void)startStepping
 {
     if(oldPlayState == STATE_INACTIVE) oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
     [self stop];
-    [self rrDo:SCRUB_STEP_DURATION];
-    [((NiceWindow *)[self window]) updateByTime:nil];
 }
 
--(void)rrDo:(int)seconds
+-(void)stepBy:(int)seconds
 {
-    [self incrementMovieTime:-seconds];
+    [self setCurrentMovieTime:([self currentMovieTime] + seconds)];
     [self drawMovieFrame];
     [((NiceWindow *)[self window]) updateByTime:nil];
 }
 
--(void)rrEnd
+-(void)endStepping
 {
     if(oldPlayState == STATE_PLAYING) [self start];
     oldPlayState = STATE_INACTIVE;
     [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)ffStart
-{
-    if(oldPlayState == STATE_INACTIVE) oldPlayState = [self isPlaying] ? STATE_PLAYING : STATE_STOPPED;
-    [self stop];
-    [self ffDo:SCRUB_STEP_DURATION];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)ffDo:(int)seconds
-{
-    [self incrementMovieTime:seconds];
-    [self drawMovieFrame];
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)ffEnd
-{
-    if(oldPlayState == STATE_PLAYING) [self start];
-    oldPlayState = STATE_INACTIVE;
-    [((NiceWindow *)[self window]) updateByTime:nil];
-}
-
--(void)incrementMovieTime:(long)timeDifference
-{
-    [self setCurrentMovieTime:([self currentMovieTime] + timeDifference)];
 }
 
 @end

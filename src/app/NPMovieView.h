@@ -94,12 +94,8 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(void)setCurrentMovieTime:(double)aDouble;
 -(BOOL)hasEnded:(id)sender;
 
--(void)ffStart;
--(void)ffDo:(int)aSeconds;
--(void)ffEnd;
--(void)rrStart;
--(void)rrDo:(int)aSeconds;
--(void)rrEnd;
--(void)incrementMovieTime:(long)timeDifference;
+-(void)startStepping;
+-(void)stepBy:(int)aSeconds;
+-(void)endStepping;
 
 @end
