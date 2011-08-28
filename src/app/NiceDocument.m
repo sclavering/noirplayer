@@ -38,7 +38,6 @@
 
 #import "NiceDocument.h"
 #import "NiceUtilities.h"
-#import "NiceWindowController.h"
 #import "ControlPlay.h"
 #import "ArrayExtras.h"
 #import "NPApplication.h"
@@ -138,8 +137,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
-- (void)makeWindowControllers{
-	NiceWindowController *controller = [[NiceWindowController alloc] initWithWindowNibName:@"NiceDocument" owner:self];
+- (void)makeWindowControllers
+{
+	NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NiceDocument" owner:self];
     [self addWindowController:controller];
 	[controller release];
 }
