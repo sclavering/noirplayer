@@ -45,7 +45,6 @@
 	NSPoint lastPoint;
 }
 
--(id)bestMovieWindow;
 -(NSArray *)movieWindows;
 -(void)testCursorMovement;
 

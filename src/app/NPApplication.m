@@ -158,13 +158,4 @@ BOOL selectNiceWindow(id each, void* context){
     return [[super orderedWindows] selectUsingFunction:selectNiceWindow context:nil];
 }
 
--(id)bestMovieWindow
-{
-    id tempWindow = [NSApp mainWindow];
-    if((tempWindow == nil) || (![tempWindow isKindOfClass:[NiceWindow class]]))  {
-        tempWindow = [[NSApp movieWindows] firstObject];
-    }
-    return tempWindow;
-}
-
 @end

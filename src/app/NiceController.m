@@ -182,7 +182,7 @@ BOOL detectIsPlaying(id each, void* context) {
 
 -(void)enterFullScreen
 {
-    id tempWindow = [NSApp bestMovieWindow];
+    id tempWindow = [NSApp mainWindow];
     [tempWindow makeFullScreen];
     [self presentScreen];
     [backgroundWindow setPresentingWindow:tempWindow];
@@ -190,7 +190,7 @@ BOOL detectIsPlaying(id each, void* context) {
 
 -(void)exitFullScreen
 {
-    id tempWindow = [NSApp bestMovieWindow];
+    id tempWindow = [NSApp mainWindow];
     if(tempWindow) [tempWindow makeNormalScreen];
     [self unpresentScreen];
 }
