@@ -45,7 +45,6 @@
 
 #import "NPApplication.h"
 #import "NiceUtilities.h"
-#import "ArrayExtras.h"
 
 
 @implementation NPApplication

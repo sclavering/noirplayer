@@ -39,7 +39,6 @@
 #import "NiceDocument.h"
 #import "NiceUtilities.h"
 #import "ControlPlay.h"
-#import "ArrayExtras.h"
 #import "NPApplication.h"
 
 #define VOLUME_ITEM -43

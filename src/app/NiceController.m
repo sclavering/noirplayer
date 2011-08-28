@@ -40,7 +40,7 @@
 #import "NiceUtilities.h"
 #import "NPApplication.h"
 #import "NiceDocument.h"
-#import "ArrayExtras.h"
+
 
 id controller;
 
