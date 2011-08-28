@@ -343,11 +343,6 @@
     titleOverlayIsShowing = NO;
 }
 
--(void)automaticShowOverLayVolume
-{
-    [self showOverLayVolume];
-}
-
 -(void)showOverLayVolume
 {
 	[self setOverLayVolumeLocation];

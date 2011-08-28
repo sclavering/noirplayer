@@ -100,7 +100,6 @@
 -(void)showOverLayTitle;
 -(void)setOverlayTitleLocation;
 -(void)hideOverLayTitle;
--(void)automaticShowOverLayVolume;
 -(void)showOverLayVolume;
 -(void)setOverLayVolumeLocation;
 // the dummy arg is so it can be called via performSelector:withObject:afterDelay:

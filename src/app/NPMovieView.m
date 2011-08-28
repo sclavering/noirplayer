@@ -264,7 +264,7 @@
 -(void)showOverLayVolume
 {
 	[NSObject cancelPreviousPerformRequestsWithTarget:[self window] selector:@selector(hideOverLayVolume:) object:nil];
-	[((NiceWindow *)[self window])automaticShowOverLayVolume];
+	[((NiceWindow *)[self window]) showOverLayVolume];
 	[self timedHideVolumeOverlay];
 }
 
