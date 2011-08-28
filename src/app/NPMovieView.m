@@ -47,10 +47,6 @@
 -(QTTime)maxTimeLoaded;
 @end
 
-@interface NPMovieView(private)
--(NSNumber*)_percentLoaded;
-@end
-
 @implementation NPMovieView
 
 +(NSArray *)supportedFileExtensions
