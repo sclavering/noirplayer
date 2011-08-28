@@ -64,7 +64,6 @@
     if ((self = [super initWithFrame:aRect])) {
         contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         oldPlayState = STATE_INACTIVE;
-        wasPlaying = NO;
         [self setAutoresizesSubviews:YES];
 		internalVolume = 1.0;
     }
@@ -152,14 +151,12 @@
 
 -(void)start
 {
-    wasPlaying = YES;
     [movie play];
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
 }
 
 -(void)stop
 {
-    wasPlaying = NO;
     [movie stop];
     [[((NiceWindow *)[self window]) playButton] changeToProperButton:[self isPlaying]];
 }
@@ -193,11 +190,6 @@
 -(BOOL)isPlaying
 {
     return [movie rate] != 0.0;
-}
-
--(BOOL)wasPlaying
-{
-    return wasPlaying;
 }
 
 #pragma mark -

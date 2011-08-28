@@ -51,7 +51,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 	float internalVolume;
     NSTrackingRectTag trackingRect;
     enum play_states oldPlayState;
-    BOOL wasPlaying;
     BOOL mouseEntered;
 }
 
@@ -71,7 +70,6 @@ enum play_states { STATE_INACTIVE, STATE_STOPPED, STATE_PLAYING };
 -(float)volume;
 
 -(BOOL)isPlaying;
--(BOOL)wasPlaying;
 
 -(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;
