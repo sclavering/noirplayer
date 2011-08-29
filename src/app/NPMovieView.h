@@ -51,8 +51,6 @@
     BOOL mouseEntered;
 }
 
-+(NSArray *)supportedFileExtensions;
-
 -(NiceDocument*)niceDocument;
 
 -(void)openMovie:(QTMovie*)movie;

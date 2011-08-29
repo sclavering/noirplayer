@@ -81,7 +81,11 @@ id controller;
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
-    return [super runModalOpenPanel:openPanel forTypes:[NPMovieView supportedFileExtensions]];
+    return [super runModalOpenPanel:openPanel forTypes:[NSArray arrayWithObjects:
+        // File extensions
+        @"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4", @"mkv", @"flv", @"divx", @"m4v", @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
+        // Finder types
+        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_", nil]];
 }
 
 -(void)checkMouseLocation:(id)sender
