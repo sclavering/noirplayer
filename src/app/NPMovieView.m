@@ -212,9 +212,6 @@
 			[[self niceDocument] endStepping];
 			[self smartHideMouseOverOverlays];
 			break;
-		case NSUpArrowFunctionKey: case NSDownArrowFunctionKey:
-			[self timedHideVolumeOverlay];
- 			break;
 		default:
 			[super keyUp:anEvent];
     }
