@@ -252,11 +252,6 @@
     [theOverlayVolume setAlphaValue:0.0];
 }
 
--(BOOL)scrubberInUse
-{
-    return [theScrubBar inUse];
-}
-
 -(void)showOverlayControlBar
 {
     if(windowOverlayControllerIsShowing) return;

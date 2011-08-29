@@ -146,11 +146,6 @@
     [[self target] performSelector:[self action] withObject:self];
 }
 
--(BOOL)inUse
-{
-    return dragging;
-}
-
 -(void)mouseUp:(NSEvent *)anEvent
 {
     dragging = NO;

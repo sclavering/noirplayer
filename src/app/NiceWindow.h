@@ -85,7 +85,6 @@
 
 #pragma mark -
 #pragma mark Overlays
--(BOOL)scrubberInUse;
 -(void)setupOverlays;
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aChild inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible;
 -(void)hideOverlays;

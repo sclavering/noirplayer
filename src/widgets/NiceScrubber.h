@@ -51,7 +51,6 @@
     bool dragging;
 }
 
--(BOOL)inUse;
 -(double)loadedValue;
 -(void)setLoadedValue:(double)aValue;
 -(double)doubleValue;
