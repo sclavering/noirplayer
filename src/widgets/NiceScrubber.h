@@ -40,9 +40,6 @@
 
 
 @interface NiceScrubber : NSControl {
-    NSImage* left;
-    NSImage* right;
-    NSImage* center;
     NSImage* scrub;
     double value;
 	double loaded;

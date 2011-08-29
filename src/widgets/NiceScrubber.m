@@ -59,9 +59,6 @@
 
 -(void)dealloc
 {
-    [left release];
-    [right release];
-    [center release];
     [scrub release];
     [target release];
     [super dealloc];
