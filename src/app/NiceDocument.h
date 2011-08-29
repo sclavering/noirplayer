@@ -67,7 +67,6 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(NSMenu *)movieMenu;
 -(void)rebuildMenu;
 -(id)window;
--(NSMenuItem*)volumeMenu;
 
 #pragma mark Play/Pause
 
@@ -91,10 +90,6 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(void)setMovieTimeByFraction:(double)when;
 
 #pragma mark Volume
-
--(IBAction)switchVolume:(NSMenuItem*)sender;
--(IBAction)increaseVolume:(id)sender;
--(IBAction)decreaseVolume:(id)sender;
 
 -(float)volume;
 -(void)setVolume:(float)aVolume;

@@ -66,6 +66,7 @@
 							<string key="NSFrameSize">{320, 240}</string>
 							<reference key="NSSuperview" ref="918380141"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSClassName">NPMovieView</string>
 							<string key="NSExtension">NSView</string>
 						</object>
@@ -159,6 +160,7 @@
 							<string key="NSFrame">{{328, 9}, {83, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="248469940">
 								<int key="NSCellFlags">67239424</int>
@@ -224,6 +226,7 @@
 							<string key="NSFrame">{{49, 2}, {327, 20}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="944708147">
 								<int key="NSCellFlags">67239424</int>
@@ -354,6 +357,7 @@
 							<string key="NSFrame">{{6, -3}, {102, 102}}</string>
 							<reference key="NSSuperview" ref="902978893"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="825665416">
 								<int key="NSCellFlags">130560</int>
@@ -890,45 +894,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">NiceDocument</string>
 					<string key="superclassName">NSDocument</string>
-					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>decreaseVolume:</string>
-							<string>increaseVolume:</string>
-							<string>switchVolume:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-							<string>NSMenuItem</string>
-						</object>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>decreaseVolume:</string>
-							<string>increaseVolume:</string>
-							<string>switchVolume:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">decreaseVolume:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">increaseVolume:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">switchVolume:</string>
-								<string key="candidateClassName">NSMenuItem</string>
-							</object>
-						</object>
-					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -1071,7 +1036,7 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
-							<string>id</string>
+							<string>ControlPlay</string>
 							<string>NiceScrubber</string>
 							<string>id</string>
 							<string>id</string>
@@ -1112,7 +1077,7 @@
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">thePlayButton</string>
-								<string key="candidateClassName">id</string>
+								<string key="candidateClassName">ControlPlay</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">theScrubBar</string>

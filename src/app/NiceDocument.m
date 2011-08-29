@@ -144,35 +144,6 @@
     return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Movie",@"Movie")] submenu];
 }
 
--(NSMenuItem*)volumeMenu{
-	NSMenuItem* tHeading = [[[NSMenuItem alloc] init] autorelease];
-	[tHeading setTitle:NSLocalizedString(@"Volume",@"Volume Menu item")];
-
-	NSMenu* tMenu = [[[NSMenu alloc]init] autorelease];
-	
-	NSMenuItem* tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Increase Volume",@"Increase Volume menu item")];
-	[tItem setKeyEquivalent:@"="];
-	[tItem setTarget:self];
-    [tItem setKeyEquivalentModifierMask:0];
-
-	[tItem setAction:@selector(increaseVolume:)];
-	[tMenu addItem:tItem];
-	
-	tItem = [[[NSMenuItem alloc] init] autorelease];
-	[tItem setTitle:NSLocalizedString(@"Decrease Volume",@"Increase Volume menu item")];
-	[tItem setKeyEquivalent:@"-"];
-		[tItem setKeyEquivalentModifierMask:0];
-
-	[tItem setTarget:self];
-	[tItem setAction:@selector(decreaseVolume:)];
-	[tMenu addItem:tItem];
-	
-	[tHeading setSubmenu:tMenu];
-	
-	return tHeading;
-}
-
 /* Always call this method by raising the notification "RebuildAllMenus" otherwise
 stuff won't work properly! */
 -(void)rebuildMenu
@@ -280,21 +251,6 @@ stuff won't work properly! */
 }
 
 #pragma mark Volume
-
--(IBAction)switchVolume:(NSMenuItem*)sender
-{
-	[self setVolume:[[sender representedObject] intValue] / 100.0];
-}
-
--(IBAction)increaseVolume:(id)sender
-{
-	[self incrementVolume];
-}
-
--(IBAction)decreaseVolume:(id)sender
-{
-	[self decrementVolume];
-}
 
 -(float)volume
 {

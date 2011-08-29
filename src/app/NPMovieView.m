@@ -329,8 +329,6 @@
 	[newItem setTarget:[self niceDocument]];
 	[myMenu addObject:newItem];
 
-	[myMenu addObject:[[[[self window]windowController]document] volumeMenu]];
-
 	return [myMenu autorelease];
 }
 
