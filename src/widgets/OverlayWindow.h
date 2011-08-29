@@ -40,7 +40,6 @@
 
 @interface OverlayWindow : NSWindow
 {
-    BOOL mouseEntered;
 }
 
 @end
