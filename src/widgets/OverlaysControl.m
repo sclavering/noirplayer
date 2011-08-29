@@ -109,14 +109,12 @@ static id overlayControl = nil;
 	
 	NSRect windowFrame = [aWindow frame];
 	NSRect mainVisibleFrame = [[NSScreen mainScreen] visibleFrame];
-	NSRect tempRect = NSMakeRect(windowFrame.origin.x,  windowFrame.origin.y + windowFrame.size.height - [aWindow titlebarHeight],
-								 windowFrame.size.width, [aWindow titlebarHeight]);
-	
-	if ((mainVisibleFrame.origin.y + mainVisibleFrame.size.height) > (windowFrame.origin.y + windowFrame.size.height)){	
+	NSRect tempRect = NSMakeRect(windowFrame.origin.x, windowFrame.origin.y + windowFrame.size.height - [aWindow titlebarHeight], windowFrame.size.width, [aWindow titlebarHeight]);
+
+	if(mainVisibleFrame.origin.y + mainVisibleFrame.size.height > windowFrame.origin.y + windowFrame.size.height) {
 		tempRect.origin = NSMakePoint(0, windowFrame.size.height - [aWindow titlebarHeight]);
 	} else {
-	    tempRect.origin = [aWindow convertScreenToBase:NSMakePoint(windowFrame.origin.x, mainVisibleFrame.origin.y
-								       + mainVisibleFrame.size.height - [aWindow titlebarHeight])];
+	    tempRect.origin = [aWindow convertScreenToBase:NSMakePoint(windowFrame.origin.x, mainVisibleFrame.origin.y + mainVisibleFrame.size.height - [aWindow titlebarHeight])];
 	}
 	return NSMouseInRect([aWindow convertScreenToBase:aScreenPoint], tempRect, NO);
 }
@@ -124,23 +122,20 @@ static id overlayControl = nil;
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint
 {
     id someWindows = [NSApp orderedWindows];
-    id aWindow;
-    unsigned i;
     BOOL hitTopMost = NO;
-    
-    for(i = 0, aWindow = [someWindows objectAtIndex:i];
-	i < [someWindows count]; aWindow = [someWindows objectAtIndex:i++]){
-	if([aWindow isKindOfClass:[NiceWindow class]]){
-	    if(!hitTopMost){
-		if([self showOverlayForWindow:aWindow atPoint:aScreenPoint]){
-		    hitTopMost = YES;
-		    continue;
-		} else if([self isLocation:aScreenPoint inWindow:aWindow]){
-		    hitTopMost = YES;
-		}
-	    }
-	    [aWindow hideOverlays];
-	}
+    for(unsigned i = 0; i < [someWindows count]; i++) {
+        id aWindow = [someWindows objectAtIndex:i];
+        if(![aWindow isKindOfClass:[NiceWindow class]]) continue;
+        if(!hitTopMost) {
+            if([self showOverlayForWindow:aWindow atPoint:aScreenPoint]) {
+                hitTopMost = YES;
+                continue;
+            }
+            if([self isLocation:aScreenPoint inWindow:aWindow]) {
+                hitTopMost = YES;
+            }
+        }
+        [aWindow hideOverlays];
     }
 }
 
