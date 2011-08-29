@@ -255,14 +255,14 @@ stuff won't work properly! */
 {
     [self setCurrentMovieTime:([self currentMovieTime] + seconds)];
     [theMovieView drawMovieFrame];
-    [((NiceWindow *)[self window]) updateByTime:nil];
+    [theWindow updateByTime:nil];
 }
 
 -(void)endStepping
 {
     if(preSteppingState == PSS_PLAYING) [self playMovie];
     preSteppingState = PSS_INACTIVE;
-    [((NiceWindow *)[self window]) updateByTime:nil];
+    [theWindow updateByTime:nil];
 }
 
 #pragma mark Time
