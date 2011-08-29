@@ -179,7 +179,7 @@
 
 -(void)updateVolume
 {
-    [theVolumeView setVolume:[theMovieView volume]];
+    [theVolumeView setVolume:[[theMovieView niceDocument] volume]];
 }
 
 - (void)performMiniaturize:(id)sender

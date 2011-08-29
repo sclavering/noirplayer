@@ -80,11 +80,8 @@
     id tDict = [NSDictionary dictionaryWithObjectsAndKeys:
         [NSNumber numberWithInt:0],@"MajorVersion",
         [NSNumber numberWithInt:1],@"MinorVersion",
-        [NSDictionary dictionaryWithObjectsAndKeys:
-                [NSNumber numberWithFloat:[theMovieView volume]], @"Volume",
-                nil
-            ], @"Contents",
-            nil];
+        [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithFloat:[self volume]], @"Volume",nil],
+      @"Contents", nil];
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
     return tData;
@@ -145,18 +142,6 @@
 -(NSMenu *)movieMenu
 {
     return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Movie",@"Movie")] submenu];
-}
-
--(IBAction)switchVolume:(NSMenuItem*)sender{
-	[theMovieView setVolume:[[sender representedObject] intValue]/100.0];
-}
-
--(IBAction)increaseVolume:(id)sender{
-	[theMovieView incrementVolume];
-}
-
--(IBAction)decreaseVolume:(id)sender{
-	[theMovieView decrementVolume];
 }
 
 -(NSMenuItem*)volumeMenu{
@@ -296,9 +281,48 @@ stuff won't work properly! */
 
 #pragma mark Volume
 
+-(IBAction)switchVolume:(NSMenuItem*)sender
+{
+	[self setVolume:[[sender representedObject] intValue] / 100.0];
+}
+
+-(IBAction)increaseVolume:(id)sender
+{
+	[self incrementVolume];
+}
+
+-(IBAction)decreaseVolume:(id)sender
+{
+	[self decrementVolume];
+}
+
 -(float)volume
 {
-	return [theMovieView volume];
+    float volume = [movie volume];
+    if(volume < 0.0) volume = 0.0;
+    if(volume > 2.0) volume = 2.0;
+    return volume;
+}
+
+-(void)setVolume:(float)aVolume
+{
+    if(aVolume < 0.0) aVolume = 0.0;
+    if(aVolume > 2.0) aVolume = 2.0;
+    [movie setVolume:aVolume];
+    [movie setMuted:NO];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+}
+
+-(void)incrementVolume
+{
+    [self setVolume:[self volume] + 0.1];
+    [theWindow updateVolume];
+}
+
+-(void)decrementVolume
+{
+    [self setVolume:[self volume] - 0.1];
+    [theWindow updateVolume];
 }
 
 @end

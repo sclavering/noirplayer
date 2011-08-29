@@ -149,21 +149,6 @@
 }
 
 #pragma mark -
-#pragma mark Controls
-
--(void)incrementVolume
-{
-	[self setVolume:[self volume]+.1];
-	[((NiceWindow *)[self window]) updateVolume];
-}
-
--(void)decrementVolume
-{
-	[self setVolume:[self volume]-.1];
-	[((NiceWindow *)[self window]) updateVolume];
-}
-
-#pragma mark -
 #pragma mark Widgets
 
 -(IBAction)scrub:(id)sender
@@ -196,11 +181,11 @@
             [[self niceDocument] stepBy:-SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
-			[self incrementVolume];
+			[[self niceDocument] incrementVolume];
 			[self showOverLayVolume];
 			break;
 		case NSDownArrowFunctionKey:
-			[self decrementVolume];
+			[[self niceDocument] decrementVolume];
 			[self showOverLayVolume];
 			break;
 		case 0x1B:
@@ -458,23 +443,6 @@
     NSTimeInterval tMaxLoaded;
     QTGetTimeInterval([movie maxTimeLoaded], &tMaxLoaded);
     return tMaxLoaded / tDuration;
-}
-
--(float)volume
-{
-    float volume = [movie volume];
-    if(volume < 0.0) volume = 0.0;
-    if(volume > 2.0) volume = 2.0;
-    return volume;
-}
-
--(void)setVolume:(float)aVolume
-{
-    if(aVolume < 0.0) aVolume = 0.0;
-    if(aVolume > 2.0) aVolume = 2.0;
-    [movie setVolume:aVolume];
-    [movie setMuted:NO];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(void)drawMovieFrame

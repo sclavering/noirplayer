@@ -60,11 +60,6 @@
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
 
--(void)incrementVolume;
--(void)decrementVolume;
--(void)setVolume:(float)aVolume;
--(float)volume;
-
 -(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;
 -(void)timedHideVolumeOverlay;

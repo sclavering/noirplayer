@@ -69,12 +69,6 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(id)window;
 -(NSMenuItem*)volumeMenu;
 
-#pragma mark Interface
-
--(IBAction)switchVolume:(NSMenuItem*)sender;
--(IBAction)increaseVolume:(id)sender;
--(IBAction)decreaseVolume:(id)sender;
-
 #pragma mark Play/Pause
 
 -(BOOL)isPlaying;
@@ -98,6 +92,13 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 
 #pragma mark Volume
 
+-(IBAction)switchVolume:(NSMenuItem*)sender;
+-(IBAction)increaseVolume:(id)sender;
+-(IBAction)decreaseVolume:(id)sender;
+
 -(float)volume;
+-(void)setVolume:(float)aVolume;
+-(void)incrementVolume;
+-(void)decrementVolume;
 
 @end
