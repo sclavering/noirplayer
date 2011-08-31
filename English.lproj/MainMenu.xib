@@ -412,26 +412,6 @@
 									<reference key="NSOnImage" ref="1056899151"/>
 									<reference key="NSMixedImage" ref="839886485"/>
 								</object>
-								<object class="NSMenuItem" id="255876879">
-									<reference key="NSMenu" ref="98428999"/>
-									<string key="NSTitle">Fill Screen</string>
-									<string key="NSKeyEquiv">3</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
-								<object class="NSMenuItem" id="46671800">
-									<reference key="NSMenu" ref="98428999"/>
-									<bool key="NSIsDisabled">YES</bool>
-									<bool key="NSIsSeparator">YES</bool>
-									<string key="NSTitle"/>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="952820232">
 									<reference key="NSMenu" ref="98428999"/>
 									<string key="NSTitle">Full Screen</string>
@@ -753,14 +733,6 @@
 						<reference key="destination" ref="605204440"/>
 					</object>
 					<int key="connectionID">219</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">fillScreenSize:</string>
-						<reference key="source" ref="905383721"/>
-						<reference key="destination" ref="255876879"/>
-					</object>
-					<int key="connectionID">229</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1123,19 +1095,12 @@
 						<reference key="object" ref="98428999"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="46671800"/>
 							<reference ref="436844339"/>
 							<reference ref="854836878"/>
 							<reference ref="713980456"/>
-							<reference ref="255876879"/>
 							<reference ref="952820232"/>
 						</object>
 						<reference key="parent" ref="909680531"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">224</int>
-						<reference key="object" ref="46671800"/>
-						<reference key="parent" ref="98428999"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">225</int>
@@ -1150,11 +1115,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">227</int>
 						<reference key="object" ref="713980456"/>
-						<reference key="parent" ref="98428999"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">228</int>
-						<reference key="object" ref="255876879"/>
 						<reference key="parent" ref="98428999"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1292,11 +1252,9 @@
 					<string>213.IBPluginDependency</string>
 					<string>214.IBPluginDependency</string>
 					<string>216.IBPluginDependency</string>
-					<string>224.IBPluginDependency</string>
 					<string>225.IBPluginDependency</string>
 					<string>226.IBPluginDependency</string>
 					<string>227.IBPluginDependency</string>
-					<string>228.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
 					<string>236.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
@@ -1318,8 +1276,6 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1594,7 +1550,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>center:</string>
 							<string>doubleSize:</string>
-							<string>fillScreenSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
 							<string>performClose:</string>
@@ -1602,7 +1557,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1617,7 +1571,6 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>center:</string>
 							<string>doubleSize:</string>
-							<string>fillScreenSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
 							<string>performClose:</string>
@@ -1631,10 +1584,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">doubleSize:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">fillScreenSize:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

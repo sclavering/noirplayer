@@ -123,7 +123,7 @@
 -(IBAction)normalSize:(id)sender;
 -(IBAction)doubleSize:(id)sender;
 -(void)resetFillingFlags;
--(IBAction)fillScreenSize:(id)sender;
+-(void)fillScreenSize:(id)sender;
 -(void)setAspectRatio:(NSSize)ratio;
 -(NSSize)getResizeAspectRatioSize;
 -(NSSize)getResizeAspectRatioSizeOnScreen:(NSScreen*) aScreen;

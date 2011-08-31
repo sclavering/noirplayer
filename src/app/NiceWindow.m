@@ -524,7 +524,7 @@
     isFilling = NO;
 }
 
--(IBAction)fillScreenSize:(id)sender
+-(void)fillScreenSize:(id)sender
 {
     id screen = [self screen];
     [self resetFillingFlags];
