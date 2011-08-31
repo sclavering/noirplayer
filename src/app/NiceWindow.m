@@ -396,7 +396,7 @@
 		[self setLevel:NSFloatingWindowLevel + 2];
 		[self makeKeyAndOrderFront:self];
 		beforeFullScreen = [self frame];
-		[self fillScreenSize:nil];
+		[self fillScreenSize];
     }
     [theMovieView drawMovieFrame];
     [self hideAllImmediately];
@@ -524,17 +524,16 @@
     isFilling = NO;
 }
 
--(void)fillScreenSize:(id)sender
+-(void)fillScreenSize
 {
-    id screen = [self screen];
     [self resetFillingFlags];
     isFilling = YES;
-    NSSize aSize = [self getResizeAspectRatioSizeOnScreen:screen];
+    NSSize aSize = [self getResizeAspectRatioSize];
     NSRect newRect = [self calcResizeSize:aSize];
     newRect.origin.x = 0;
-    newRect = [self centerRect:newRect onScreen:screen];
+    newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
-    [self centerOnScreen:screen];
+    [self centerOnScreen];
     [self setInitialDrag:nil];
 }
 
@@ -574,16 +573,12 @@
 
 -(NSSize)getResizeAspectRatioSize
 {
-    return [self getResizeAspectRatioSizeOnScreen:[self screen]];
-}
-
--(NSSize)getResizeAspectRatioSizeOnScreen:(NSScreen*) aScreen
-{
     NSSize ratio = [self aspectRatio];
     float newWidth = (([self frame].size.height / ratio.height) * ratio.width);
     if(isFilling) {
-        float width = [aScreen frame].size.width;
-        float height = [aScreen frame].size.height;
+        NSRect frame = [[self screen] frame];
+        float width = frame.size.width;
+        float height = frame.size.height;
         float calcHeigth =(width / ratio.width) * ratio.height;
         if(calcHeigth > height) return NSMakeSize((height / ratio.height) * ratio.width, height);
         return NSMakeSize(width, (width / ratio.width) * ratio.height);
@@ -610,7 +605,7 @@
     if(!NSEqualSizes(_lastSize, tSize)) {
         NSSize aSize = [self getResizeAspectRatioSize];
         [self resizeWithSize:aSize animate:YES];
-        if(isFilling) [self fillScreenSize:nil];
+        if(isFilling) [self fillScreenSize];
         _lastSize = tSize;
     }
 }
@@ -624,24 +619,19 @@
 - (void)center
 {
 	[self setInitialDrag:nil];
-    [self centerOnScreen:[self screen]];
+    [self centerOnScreen];
 }
 
-- (void)centerOnScreen:(NSScreen*)aScreen
+- (void)centerOnScreen
 {
     if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
-    [self setFrame:[self centerRect:[self frame] onScreen:aScreen] display:YES];
+    [self setFrame:[self centerRect:[self frame]] display:YES];
     if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 -(NSRect)centerRect:(NSRect)aRect
 {
-    return [self centerRect:aRect onScreen:[self screen]];
-}
-
--(NSRect)centerRect:(NSRect)aRect onScreen:(NSScreen*)aScreen
-{
-    NSRect screenRect = fullScreen ? [aScreen frame] : [aScreen visibleFrame];
+    NSRect screenRect = fullScreen ? [[self screen] frame] : [[self screen] visibleFrame];
     return NSOffsetRect(aRect, NSMidX(screenRect) - NSMidX(aRect), NSMidY(screenRect) - NSMidY(aRect));
 }
 
@@ -679,7 +669,7 @@
 {
     if(dropScreen){			// If the screen has been dropped onto a different display
         [self center];
-        if(isFilling) [self fillScreenSize:nil];
+        if(isFilling) [self fillScreenSize];
     }
     dropScreen = NO;
     [self hideOverLayTitle];

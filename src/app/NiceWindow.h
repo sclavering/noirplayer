@@ -123,17 +123,15 @@
 -(IBAction)normalSize:(id)sender;
 -(IBAction)doubleSize:(id)sender;
 -(void)resetFillingFlags;
--(void)fillScreenSize:(id)sender;
+-(void)fillScreenSize;
 -(void)setAspectRatio:(NSSize)ratio;
 -(NSSize)getResizeAspectRatioSize;
--(NSSize)getResizeAspectRatioSizeOnScreen:(NSScreen*) aScreen;
 -(void)resizeToAspectRatio;
 -(void)resizeNormalByScaler:(float)aScaler;
 -(IBAction)center:(id)sender;
-- (void)centerOnScreen:(NSScreen*)aScreen;
+-(void)centerOnScreen;
 -(void)center;
 -(NSRect)centerRect:(NSRect)aRect;
--(NSRect)centerRect:(NSRect)aRect onScreen:(NSScreen*)aScreen;
 
 #pragma mark -
 #pragma mark Mouse Events
