@@ -57,7 +57,6 @@
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
-        contextMenu = [[NSMenu alloc] initWithTitle:@"NicePlayer"];
         [self setAutoresizesSubviews:YES];
     }
     return self;
@@ -67,10 +66,6 @@
 {
 	[self registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 	[qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
-	[[NSNotificationCenter defaultCenter] addObserver:self
-											 selector:@selector(rebuildMenu)
-												 name:@"RebuildMenu"
-											   object:nil];	
 	[[NSNotificationCenter defaultCenter] addObserver:self
 						 selector:@selector(rebuildTrackingRects)
 						     name:NSViewFrameDidChangeNotification
@@ -285,7 +280,6 @@
 
 -(void)rightMouseDown:(NSEvent *)anEvent
 {
-    [NSMenu popUpContextMenu:[self contextualMenu] withEvent:anEvent forView:self];
 }
 
 -(void)rightMouseUp:(NSEvent *)anEvent
@@ -385,31 +379,6 @@
 {
     [[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
-}
-
--(id)contextualMenu
-{	
-	[self rebuildMenu];
-	return contextMenu;
-}
-
--(void)rebuildMenu
-{
-	unsigned i;
-
-	while([contextMenu numberOfItems] > 0)
-		[contextMenu removeItemAtIndex:0];
-
-	id myMenu = [self myMenu];
-	id pluginMenu = [self pluginMenu];
-	for(i = 0; i < [myMenu count]; i++)
-		[contextMenu addItem:[myMenu objectAtIndex:i]];
-	if([pluginMenu count] > 0)
-		[contextMenu addItem:[NSMenuItem separatorItem]];
-	for(i = 0; i < [pluginMenu count]; i++)
-		[contextMenu addItem:[pluginMenu objectAtIndex:i]];
-	
-	[[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 #pragma mark -

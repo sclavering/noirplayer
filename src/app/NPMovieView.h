@@ -46,7 +46,6 @@
 @interface NPMovieView : NSView {
     QTMovie* movie;
     QTMovieView* qtview;
-    id contextMenu;
     NSTrackingRectTag trackingRect;
     BOOL mouseEntered;
 }
@@ -66,8 +65,6 @@
 -(id)pluginMenu;
 -(NSMenu*)audioTrackMenu;
 -(NSMenu*)videoTrackMenu;
--(id)contextualMenu;
--(void)rebuildMenu;
 
 -(void)scrollWheelResize:(float)delta;
 
