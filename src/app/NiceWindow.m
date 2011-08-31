@@ -94,8 +94,6 @@
     [theScrubBar setAction:@selector(scrub:)];
     [self setReleasedWhenClosed:YES];
 	
-	[self registerForDraggedTypes:[self acceptableDragTypes]];
-    
 	id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
 	[tParagraph setAlignment:NSCenterTextAlignment];
 
@@ -737,44 +735,6 @@
 -(id)playButton
 {
     return thePlayButton;
-}
-
-#pragma mark -
-#pragma mark Drag and Drop
-
-// Lots of info gleaned from http://www.stone.com/The_Cocoa_Files/Ins_and_Outs_of_Drag_and_D.html
-
--(unsigned int)draggingEntered:(id)sender
-{
-    unsigned int sourceMask = [sender draggingSourceOperationMask];
-    NSPasteboard *pboard = [sender draggingPasteboard];
-    NSString *type = [pboard availableTypeFromArray:[self acceptableDragTypes]];
-    if (type) return sourceMask;
-    return NSDragOperationNone;
-}
-
--(unsigned int)draggingUpdated:(id)sender
-{
-    return [sender draggingSourceOperationMask];
-}
-
--(BOOL)prepareForDragOperation:(id)sender
-{
-    return YES;
-}
-
--(BOOL)performDragOperation:(id <NSDraggingInfo>)sender
-{
-    return YES;
-}
-
--(void)concludeDragOperation:(id <NSDraggingInfo>)sender
-{
-}
-
--(NSArray *)acceptableDragTypes
-{
-    return [NSArray arrayWithObjects:NSFilenamesPboardType,nil];
 }
 
 @end

@@ -153,6 +153,4 @@
 
 -(id)playButton;
 
--(NSArray *)acceptableDragTypes;
-
 @end

@@ -60,8 +60,6 @@
 
 -(void)awakeFromNib
 {
-	[self registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
-	[qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 	[[NSNotificationCenter defaultCenter] addObserver:self
 						 selector:@selector(rebuildTrackingRects)
 						     name:NSViewFrameDidChangeNotification
@@ -85,7 +83,6 @@
 -(void)close
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[self unregisterDraggedTypes];
     [qtview setMovie:nil];
     [qtview removeFromSuperviewWithoutNeedingDisplay];
     qtview = nil;
@@ -114,7 +111,6 @@
 
     movie = aMovie;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-    [qtview registerForDraggedTypes:[(NiceWindow *)[self window] acceptableDragTypes]];
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint
