@@ -236,10 +236,6 @@
 
 - (void)mouseDown:(NSEvent *)anEvent
 {
-    if([anEvent type] == NSLeftMouseDown && ([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask) {
-        [self rightMouseDown:anEvent];
-        return;
-    }
     if([anEvent clickCount] > 0 && [anEvent clickCount] % 2 == 0) {
         [self mouseDoubleClick:anEvent];
     } else {
@@ -249,11 +245,6 @@
 
 - (void)mouseUp:(NSEvent *)anEvent
 {
-	if(([anEvent type] == NSLeftMouseUp)
-	   && (([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask)){ /* This is a control click. */
-	   [self rightMouseUp:anEvent];
-	   return;
-	}
 	[((NiceWindow *)[self window]) mouseUp:anEvent];
 }
 
@@ -274,15 +265,7 @@
 	return nil;
 }
 
--(void)rightMouseDown:(NSEvent *)anEvent
-{
-}
-
--(void)rightMouseUp:(NSEvent *)anEvent
-{
-}
-
-- (void)mouseDragged:(NSEvent *)anEvent
+-(void)mouseDragged:(NSEvent *)anEvent
 {
     [((NiceWindow *)[self window]) mouseDragged:anEvent];
 }

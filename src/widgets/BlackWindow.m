@@ -83,21 +83,10 @@
 {
     if(presentingWindow != nil)
 		[presentingWindow makeKeyAndOrderFront:anEvent];
-
-		
 }
 
 -(void)mouseUp:(NSEvent *)anEvent
 {
-	if(([anEvent type] == NSLeftMouseUp) && (([anEvent modifierFlags] & NSControlKeyMask) == NSControlKeyMask)){ /* This is a control click. */
-		[presentingWindow rightMouseUp:anEvent];
-		return;
-	}
-}
-
--(void)rightMouseUp:(NSEvent *)anEvent
-{
-	[presentingWindow rightMouseUp:anEvent];
 }
 
 -(void)orderOut:(id)sender

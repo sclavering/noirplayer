@@ -710,11 +710,6 @@
 
 /* These two events always get passed down to the view. */
 
--(void)rightMouseUp:(NSEvent *)anEvent
-{
-    [theMovieView rightMouseUp:anEvent];
-}
-
 -(void)setInitialDrag:(NSEvent *)anEvent
 {
 	initialDrag =[self convertScreenToBase:[NSEvent mouseLocation]];
