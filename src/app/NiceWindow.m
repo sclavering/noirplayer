@@ -79,7 +79,6 @@
         [self setHasShadow:YES];
         dropScreen = NO;
         isFilling = NO;
-        isWidthFilling = NO;
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
 		fixedAspectRatio = YES;
@@ -494,7 +493,6 @@
 -(void)_JTRefitFills
 {
     if(isFilling) [self fillScreenSize:nil];
-    if(isWidthFilling) [self fillWidthSize:nil];
 }
 
 - (void)setTitle:(NSString *)aString
@@ -529,7 +527,6 @@
 -(void)resetFillingFlags
 {
     isFilling = NO;
-    isWidthFilling = NO;
 }
 
 -(IBAction)fillScreenSize:(id)sender
@@ -544,21 +541,6 @@
     [self setFrame:newRect display:YES];
     [self centerOnScreen:screen];
     [self setInitialDrag:nil];
-}
-
--(IBAction)fillWidthSize:(id)sender
-{
-    [self fillWidthSizeWithScreen:[self screen]];
-}
-
--(void)fillWidthSizeWithScreen:(NSScreen*)aScreen
-{
-    [self resetFillingFlags];
-    isWidthFilling = YES;
-    NSRect tempRect  = [aScreen frame];
-    float tempVertAmount = tempRect.size.width * ([self aspectRatio].height / [self aspectRatio].width) - [self frame].size.height;
-    [self resize:tempVertAmount animate:NO];
-    [self centerOnScreen:aScreen];
 }
 
 /**
@@ -604,7 +586,7 @@
 {
     NSSize ratio = [self aspectRatio];
     float newWidth = (([self frame].size.height / ratio.height) * ratio.width);
-    if(isFilling | isWidthFilling){
+    if(isFilling) {
         float width = [aScreen frame].size.width;
         float height = [aScreen frame].size.height;
         float calcHeigth =(width / ratio.width) * ratio.height;

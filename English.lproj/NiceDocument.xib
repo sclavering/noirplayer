@@ -65,7 +65,6 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrameSize">{320, 240}</string>
 							<reference key="NSSuperview" ref="918380141"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSClassName">NPMovieView</string>
 							<string key="NSExtension">NSView</string>
@@ -73,7 +72,6 @@
 					</object>
 					<string key="NSFrameSize">{320, 240}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="489220107"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -215,7 +213,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{373, 24}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1058342575"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -225,7 +222,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{49, 2}, {327, 20}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="944708147">
@@ -250,7 +246,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{4, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="547257827"/>
 							<int key="NSTag">666</int>
 							<bool key="NSEnabled">YES</bool>
@@ -282,7 +277,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{24, -1}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="301179114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="574122407">
@@ -314,7 +308,6 @@
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="661584273"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -356,7 +349,6 @@
 							</object>
 							<string key="NSFrame">{{6, -3}, {102, 102}}</string>
 							<reference key="NSSuperview" ref="902978893"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSImageCell" key="NSCell" id="825665416">
@@ -376,7 +368,6 @@
 					</object>
 					<string key="NSFrameSize">{116, 96}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="1035658001"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -949,7 +940,6 @@
 							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>fillScreenSize:</string>
-							<string>fillWidthSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
 							<string>performClose:</string>
@@ -957,7 +947,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -974,7 +963,6 @@
 							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>fillScreenSize:</string>
-							<string>fillWidthSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
 							<string>performClose:</string>
@@ -992,10 +980,6 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">fillScreenSize:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">fillWidthSize:</string>
 								<string key="candidateClassName">id</string>
 							</object>
 							<object class="IBActionInfo">

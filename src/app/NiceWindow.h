@@ -60,7 +60,6 @@
 
     BOOL fullScreen;
     BOOL isFilling;
-    BOOL isWidthFilling;
     BOOL fixedAspectRatio;
 
     BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
@@ -125,8 +124,6 @@
 -(IBAction)doubleSize:(id)sender;
 -(void)resetFillingFlags;
 -(IBAction)fillScreenSize:(id)sender;
--(IBAction)fillWidthSize:(id)sender;
--(void)fillWidthSizeWithScreen:(NSScreen*)aScreen;
 -(void)setAspectRatio:(NSSize)ratio;
 -(NSSize)getResizeAspectRatioSize;
 -(NSSize)getResizeAspectRatioSizeOnScreen:(NSScreen*) aScreen;
