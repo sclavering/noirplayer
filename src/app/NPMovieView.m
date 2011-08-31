@@ -270,24 +270,6 @@
     [((NiceWindow *)[self window]) mouseDragged:anEvent];
 }
 
--(void)scrollWheel:(NSEvent *)anEvent
-{
-    float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
-
-    if(deltaX) {
-        [[self niceDocument] startStepping];
-        [[self niceDocument] stepBy:SCRUB_STEP_DURATION * deltaX];
-        [[self niceDocument] endStepping];
-    }
-
-    if(deltaY) [self scrollWheelResize:deltaY];
-}
-
--(void)scrollWheelResize:(float)delta
-{
-    [((NiceWindow *)[self window]) resize:delta*5 animate:NO];
-}
-
 #pragma mark -
 #pragma mark Pluggables
 

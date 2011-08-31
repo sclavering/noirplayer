@@ -61,8 +61,6 @@
 -(void)smartHideMouseOverOverlays;
 -(void)timedHideVolumeOverlay;
 
--(void)scrollWheelResize:(float)delta;
-
 -(void)drawMovieFrame;
 
 @end

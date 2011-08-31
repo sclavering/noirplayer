@@ -44,6 +44,8 @@
 #import "NiceWindow.h"
 #import "NPApplication.h"
 
+#define SCRUB_STEP_DURATION 5
+
 
 @implementation NiceWindow
 
@@ -717,7 +719,14 @@
 
 -(void)scrollWheel:(NSEvent *)anEvent
 {
-	[theMovieView scrollWheel:anEvent];
+    float deltaX = [anEvent deltaX], deltaY = [anEvent deltaY];
+    if(deltaX) {
+        id doc = [[self windowController] document];
+        [doc startStepping];
+        [doc stepBy:SCRUB_STEP_DURATION * deltaX];
+        [doc endStepping];
+    }
+    if(deltaY) [self resize:deltaY * 5 animate:NO];
 }
 
 #pragma mark -
