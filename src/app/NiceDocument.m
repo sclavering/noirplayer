@@ -150,10 +150,6 @@ stuff won't work properly! */
 {
     // xxx this ought to show a Volume menu on the Movie menu
 
-    id pluginMenu = [theMovieView pluginMenu];
-    if(!pluginMenu)
-		pluginMenu = [NSMutableArray array];
-
     if(menuObjects != nil) {
         for(NSUInteger i = 0; i < [menuObjects count]; i++)
             [[self movieMenu] removeItem:[menuObjects objectAtIndex:i]];
@@ -163,11 +159,71 @@ stuff won't work properly! */
     
     if([[self window] isKeyWindow]) {
         menuObjects = [[NSMutableArray array] retain];
-        for(NSUInteger i = 0; i < [pluginMenu count]; i++) {
-            [[self movieMenu] insertItem:[pluginMenu objectAtIndex:i] atIndex:i];
-            [menuObjects addObject:[pluginMenu objectAtIndex:i]];
+        id videoMenuItems = [self videoMenuItems];
+        for(NSUInteger i = 0; i < [videoMenuItems count]; i++) {
+            [[self movieMenu] insertItem:[videoMenuItems objectAtIndex:i] atIndex:i];
+            [menuObjects addObject:[videoMenuItems objectAtIndex:i]];
         }
     }
+}
+
+-(NSMutableArray*)videoMenuItems
+{
+    id items = [[[NSMutableArray array] retain] autorelease];
+
+    id newItem = [[[NSMenuItem alloc] initWithTitle:@"Play/Pause" action:@selector(togglePlayingMovie) keyEquivalent:@""] autorelease];
+	[newItem setTarget:self];
+	[items addObject:newItem];
+
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
+    [newItem setTarget:self];
+	[newItem setSubmenu:[self videoTrackMenu]];
+    [items addObject:newItem];
+
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
+    [newItem setTarget:self];
+	[newItem setSubmenu:[self audioTrackMenu]];
+    [items addObject:newItem];
+
+    return items;
+}
+
+-(NSMenu*)audioTrackMenu
+{
+    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [movie tracksOfMediaType:@"soun"];
+    for(NSUInteger i = 0; i < [tArray count]; i++) {
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
+}
+
+-(NSMenu*)videoTrackMenu
+{
+    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSArray* tArray = [movie tracksOfMediaType:@"vide"];
+    for(NSUInteger i = 0; i < [tArray count]; i++) {
+        QTTrack* tTrack = [tArray objectAtIndex:i];
+        NSDictionary* tDict = [tTrack trackAttributes];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        [tItem setRepresentedObject:tTrack];
+        [tItem setTarget:self];
+        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        [tReturnMenu addItem:tItem];
+    }
+    return tReturnMenu;
+}
+
+-(IBAction)toggleTrack:(id)sender
+{
+    [[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
 }
 
 -(id)window

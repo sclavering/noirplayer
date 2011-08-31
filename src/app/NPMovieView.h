@@ -61,11 +61,6 @@
 -(void)smartHideMouseOverOverlays;
 -(void)timedHideVolumeOverlay;
 
--(id)myMenu;
--(id)pluginMenu;
--(NSMenu*)audioTrackMenu;
--(NSMenu*)videoTrackMenu;
-
 -(void)scrollWheelResize:(float)delta;
 
 -(NSSize)naturalSize;

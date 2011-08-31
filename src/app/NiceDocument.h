@@ -66,6 +66,9 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(void)windowControllerDidLoadNib:(NSWindowController *) aController;
 -(NSMenu *)movieMenu;
 -(void)rebuildMenu;
+-(NSMutableArray*)videoMenuItems;
+-(NSMenu*)audioTrackMenu;
+-(NSMenu*)videoTrackMenu;
 -(id)window;
 
 #pragma mark Play/Pause
