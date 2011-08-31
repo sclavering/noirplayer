@@ -490,11 +490,6 @@
     [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:animate];
 }
 
--(void)_JTRefitFills
-{
-    if(isFilling) [self fillScreenSize:nil];
-}
-
 - (void)setTitle:(NSString *)aString
 {
     [theTitleField setStringValue:aString];
@@ -615,7 +610,7 @@
     if(!NSEqualSizes(_lastSize, tSize)) {
         NSSize aSize = [self getResizeAspectRatioSize];
         [self resizeWithSize:aSize animate:YES];
-        [self _JTRefitFills];
+        if(isFilling) [self fillScreenSize:nil];
         _lastSize = tSize;
     }
 }
@@ -684,7 +679,7 @@
 {
     if(dropScreen){			// If the screen has been dropped onto a different display
         [self center];
-        [self _JTRefitFills];
+        if(isFilling) [self fillScreenSize:nil];
     }
     dropScreen = NO;
     [self hideOverLayTitle];
