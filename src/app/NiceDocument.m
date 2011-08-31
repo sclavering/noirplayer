@@ -40,8 +40,10 @@
 #import "ControlPlay.h"
 #import "NPApplication.h"
 
-#define VOLUME_ITEM -43
 
+@interface QTMovie(IdlingAdditions)
+-(QTTime)maxTimeLoaded;
+@end
 
 @implementation NiceDocument
 
@@ -118,7 +120,7 @@
     [[self window] updateVolume];
 	[[self window] orderFront:aController];
     [theMovieView openMovie:movie];
-    NSSize aSize = [theMovieView naturalSize];
+    NSSize aSize = [self naturalSize];
     [theWindow setAspectRatio:aSize];
     [theWindow setMinSize:NSMakeSize(150 * aSize.width / aSize.height, 150)];
     [theWindow initialDefaultSize];
@@ -229,6 +231,21 @@ stuff won't work properly! */
 -(id)window
 {
     return theWindow;
+}
+
+-(double)percentLoaded
+{
+    NSTimeInterval tDuration;
+    QTGetTimeInterval([movie duration], &tDuration);
+    NSTimeInterval tMaxLoaded;
+    QTGetTimeInterval([movie maxTimeLoaded], &tMaxLoaded);
+    return tMaxLoaded / tDuration;
+}
+
+-(NSSize)naturalSize
+{
+    NSSize sz = [[movie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
+    return sz.width && sz.height ? sz : NSMakeSize(320, 240);
 }
 
 #pragma mark Play/Pause

@@ -71,6 +71,9 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(NSMenu*)videoTrackMenu;
 -(id)window;
 
+-(NSSize)naturalSize;
+-(double)percentLoaded;
+
 #pragma mark Play/Pause
 
 -(BOOL)isPlaying;

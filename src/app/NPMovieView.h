@@ -63,8 +63,6 @@
 
 -(void)scrollWheelResize:(float)delta;
 
--(NSSize)naturalSize;
--(double)percentLoaded;
 -(void)drawMovieFrame;
 
 @end

@@ -43,10 +43,6 @@
 
 #define SCRUB_STEP_DURATION 5
 
-@interface QTMovie(IdlingAdditions)
--(QTTime)maxTimeLoaded;
-@end
-
 @implementation NPMovieView
 
 -(NiceDocument*)niceDocument
@@ -311,21 +307,6 @@
 
 #pragma mark -
 #pragma mark Pluggables
-
--(NSSize)naturalSize
-{
-    NSSize sz = [[movie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
-    return sz.width && sz.height ? sz : NSMakeSize(320, 240);
-}
-
--(double)percentLoaded
-{
-    NSTimeInterval tDuration;
-    QTGetTimeInterval([movie duration], &tDuration);
-    NSTimeInterval tMaxLoaded;
-    QTGetTimeInterval([movie maxTimeLoaded], &tMaxLoaded);
-    return tMaxLoaded / tDuration;
-}
 
 -(void)drawMovieFrame
 {

@@ -206,7 +206,7 @@
 
 	if(theMovieView) {
 		[theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
-		[theScrubBar setLoadedValue:[theMovieView percentLoaded]];
+		[theScrubBar setLoadedValue:[doc percentLoaded]];
 	}
     [theScrubBar setNeedsDisplay:YES];
 }
@@ -614,12 +614,10 @@
     return NSMakeSize(newWidth, [self frame].size.height);
 }
 
-/**
-* Resize the window so no scaling occurs -- the resolution given by the aspect ratio.
- */
 -(void)initialDefaultSize
 {
-    _lastSize = [theMovieView naturalSize];
+    id doc = [[self windowController] document];
+    _lastSize = [doc naturalSize];
     [self resizeWithSize:NSMakeSize([self aspectRatio].width, [self aspectRatio].height) animate:YES];
     if(fullScreen) [self center];
 }
@@ -629,8 +627,9 @@
  */
 -(void)resizeToAspectRatio
 {
-    NSSize tSize = [theMovieView naturalSize];
-    [self setAspectRatio:[theMovieView naturalSize]];
+    id doc = [[self windowController] document];
+    NSSize tSize = [doc naturalSize];
+    [self setAspectRatio:[doc naturalSize]];
     if(!NSEqualSizes(_lastSize, tSize)) {
         NSSize aSize = [self getResizeAspectRatioSize];
         [self resizeWithSize:aSize animate:YES];
