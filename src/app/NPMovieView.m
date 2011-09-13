@@ -184,35 +184,16 @@
 
 	switch([[anEvent characters] characterAtIndex:0]){
 		case ' ':
-			[self smartHideMouseOverOverlays];
 			break;
 		case NSRightArrowFunctionKey:
 			[[self niceDocument] endStepping];
-			[self smartHideMouseOverOverlays];
 			break;
 		case NSLeftArrowFunctionKey:
 			[[self niceDocument] endStepping];
-			[self smartHideMouseOverOverlays];
 			break;
 		default:
 			[super keyUp:anEvent];
     }
-}
-
--(void)smartHideMouseOverOverlays
-{
-	/* Simulate and distribute a mouse moved event for the window so that the proper menu stuff gets displayed
-	if we're in a zone that's between gui buttons. */
-	NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
-										   location:[[self niceWindow] convertScreenToBase:[NSEvent mouseLocation]]
-									  modifierFlags:0
-										  timestamp:0
-									   windowNumber:0
-											context:nil
-										eventNumber:0
-										 clickCount:0
-										   pressure:1.0];
-	[[self niceWindow] mouseMoved:newEvent];
 }
 
 #pragma mark -
@@ -245,7 +226,7 @@
 
 - (void)mouseMoved:(NSEvent *)anEvent
 {
-	[self smartHideMouseOverOverlays];
+	[[self niceWindow] mouseMoved:anEvent];
 }
 
 /* This is so we can capture the right mouse event. */

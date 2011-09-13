@@ -58,8 +58,6 @@
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
 
--(void)smartHideMouseOverOverlays;
-
 -(void)drawMovieFrame;
 
 @end
