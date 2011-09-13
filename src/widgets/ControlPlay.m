@@ -44,6 +44,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "ControlPlay.h"
+#import "NiceDocument.h"
 
 @implementation ControlPlay
 
