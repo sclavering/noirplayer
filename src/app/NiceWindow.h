@@ -96,7 +96,6 @@
 -(void)hideOverLayTitle;
 -(void)showVolumeOverlay;
 -(void)hideVolumeOverlay:(id)dummy;
--(void)setOverLayVolumeLocation;
 
 #pragma mark -
 #pragma mark Window Toggles

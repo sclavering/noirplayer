@@ -130,7 +130,6 @@
     [super setFrame:frameRect display:displayFlag];
     [self setOverlayControllerWindowLocation];
     [self setOverlayTitleLocation];
-    [self setOverLayVolumeLocation];
 }
 
 -(void)setFrameOrigin:(NSPoint)orign
@@ -331,22 +330,13 @@
 
 -(void)showVolumeOverlay
 {
-	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeOverlay:) object:nil];
-	[self setOverLayVolumeLocation];
-    [theOverlayVolume setAlphaValue:1.0];
-	[self performSelector:@selector(hideVolumeOverlay:) withObject:nil afterDelay:1.0];
-}
-
--(void)setOverLayVolumeLocation
-{
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeOverlay:) object:nil];
+    [self performSelector:@selector(hideVolumeOverlay:) withObject:nil afterDelay:1.0];
     NSRect frame = [self frame];
     NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
-    NSRect intersect = NSIntersectionRect(frame,visibleFrame);
-    if(NSEqualRects(intersect, frame)) {
-        [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(frame) - NSMidX([theOverlayVolume frame]), NSMidY(frame) - NSMidY([theOverlayVolume frame])) display:YES];
-    } else {
-        [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(intersect) - NSMidX([theOverlayVolume frame]), NSMidY(intersect) - NSMidY([theOverlayVolume frame])) display:YES];
-    }
+    NSRect intersect = NSIntersectionRect(frame, visibleFrame);
+    [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(intersect) - NSMidX([theOverlayVolume frame]), NSMidY(intersect) - NSMidY([theOverlayVolume frame])) display:YES];
+    [theOverlayVolume setAlphaValue:1.0];
 }
 
 -(void)hideVolumeOverlay:(id)dummy
