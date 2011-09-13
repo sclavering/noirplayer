@@ -266,19 +266,9 @@
  */
 -(void)setOverlayControllerWindowLocation
 {
-    NSRect frame = [self frame];
     NSRect mainFrame = [[NSScreen mainScreen] visibleFrame];
-	NSRect intersect = NSIntersectionRect(frame,mainFrame);
-	
-    if(!fullScreen){
-        if(NSEqualRects(intersect, frame)) {
-            [theOverlayControllerWindow setFrame:NSMakeRect(frame.origin.x, frame.origin.y, frame.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
-        } else {
-            [theOverlayControllerWindow setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y, intersect.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
-        }
-	} else {
-        [theOverlayControllerWindow setFrame:NSMakeRect(mainFrame.origin.x, mainFrame.origin.y, mainFrame.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
-	}
+    NSRect r = fullScreen ? mainFrame : NSIntersectionRect([self frame], mainFrame);
+    [theOverlayControllerWindow setFrame:NSMakeRect(r.origin.x, r.origin.y, r.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
 }
 
 -(void)hideOverLayWindow
