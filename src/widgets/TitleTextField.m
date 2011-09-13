@@ -36,9 +36,9 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "ClickableTextField.h"
+#import "TitleTextField.h"
 
-@implementation ClickableTextField
+@implementation TitleTextField
 
 
 - (void)mouseDown:(NSEvent *)theEvent

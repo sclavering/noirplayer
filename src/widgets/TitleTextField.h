@@ -38,7 +38,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ClickableTextField : NSTextField
+@interface TitleTextField : NSTextField
 {
     IBOutlet id theNiceWindow;
 }

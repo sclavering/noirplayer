@@ -22,8 +22,8 @@
 		3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */; };
 		3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */; };
 		3E085CBC065C79EE005286A3 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E085CBB065C79EE005286A3 /* play.png */; };
-		3E110B63069BD80100C5800B /* ClickableTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E110B61069BD80100C5800B /* ClickableTextField.h */; };
-		3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* ClickableTextField.m */; };
+		3E110B63069BD80100C5800B /* TitleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E110B61069BD80100C5800B /* TitleTextField.h */; };
+		3E110B64069BD80100C5800B /* TitleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* TitleTextField.m */; };
 		3E452FF10664719D00BC91B0 /* NiceIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E452FF00664719D00BC91B0 /* NiceIcon.icns */; };
 		3E4DF83706630D50001B9AC5 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DF83506630D50001B9AC5 /* Credits.html */; };
 		3E8C96CB073EF4730048CB70 /* 3gpp.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E8C96C2073EF4730048CB70 /* 3gpp.icns */; };
@@ -107,8 +107,8 @@
 		3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowProxy.h; path = src/app/MainWindowProxy.h; sourceTree = "<group>"; };
 		3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowProxy.m; path = src/app/MainWindowProxy.m; sourceTree = "<group>"; };
 		3E085CBB065C79EE005286A3 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/play.png; sourceTree = "<group>"; };
-		3E110B61069BD80100C5800B /* ClickableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClickableTextField.h; path = src/widgets/ClickableTextField.h; sourceTree = "<group>"; };
-		3E110B62069BD80100C5800B /* ClickableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClickableTextField.m; path = src/widgets/ClickableTextField.m; sourceTree = "<group>"; };
+		3E110B61069BD80100C5800B /* TitleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; name = TitleTextField.h; path = src/widgets/TitleTextField.h; sourceTree = "<group>"; };
+		3E110B62069BD80100C5800B /* TitleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleTextField.m; path = src/widgets/TitleTextField.m; sourceTree = "<group>"; };
 		3E452FF00664719D00BC91B0 /* NiceIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NiceIcon.icns; path = Resources/NiceIcon.icns; sourceTree = "<group>"; };
 		3E4DF83606630D50001B9AC5 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		3E8C96C2073EF4730048CB70 /* 3gpp.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = 3gpp.icns; sourceTree = "<group>"; };
@@ -264,8 +264,8 @@
 				252BDDD8076A4744006CF96B /* ControlPlay.m */,
 				3E9E628E0661708200B788A8 /* NiceScrubber.h */,
 				3E9E628F0661708200B788A8 /* NiceScrubber.m */,
-				3E110B61069BD80100C5800B /* ClickableTextField.h */,
-				3E110B62069BD80100C5800B /* ClickableTextField.m */,
+				3E110B61069BD80100C5800B /* TitleTextField.h */,
+				3E110B62069BD80100C5800B /* TitleTextField.m */,
 				3E9996D006A5101500D1898D /* VolumeView.h */,
 				3E9996D106A5101500D1898D /* VolumeView.m */,
 				697496100B55EA800030D4D2 /* OverlayTitleWindow.h */,
@@ -363,7 +363,7 @@
 				3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
 				3E9E62900661708200B788A8 /* NiceScrubber.h in Headers */,
-				3E110B63069BD80100C5800B /* ClickableTextField.h in Headers */,
+				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
 				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
@@ -485,7 +485,7 @@
 				3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
 				3E9E62910661708200B788A8 /* NiceScrubber.m in Sources */,
-				3E110B64069BD80100C5800B /* ClickableTextField.m in Sources */,
+				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
 				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,

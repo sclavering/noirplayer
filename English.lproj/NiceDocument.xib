@@ -3,25 +3,15 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">11B26</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1617</string>
+		<string key="IBDocument.InterfaceBuilderVersion">907</string>
 		<string key="IBDocument.AppKitVersion">1138</string>
 		<string key="IBDocument.HIToolboxVersion">566.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.CocoaPlugin</string>
-			<string key="NS.object.0">1617</string>
+			<string key="NS.object.0">907</string>
 		</object>
-		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
+		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<string>NSTextField</string>
-			<string>NSView</string>
-			<string>NSWindowTemplate</string>
-			<string>NSTextFieldCell</string>
-			<string>NSCustomView</string>
-			<string>NSButtonCell</string>
-			<string>NSImageCell</string>
-			<string>NSButton</string>
-			<string>NSImageView</string>
-			<string>NSCustomObject</string>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -32,7 +22,9 @@
 			<object class="NSArray" key="dict.sortedKeys" id="0">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 			</object>
-			<reference key="dict.values" ref="0"/>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+			</object>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="284485304">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -54,9 +46,10 @@
 				<string key="NSWindowClass">NiceWindow</string>
 				<string key="NSViewClass">View</string>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<string key="NSWindowContentMinSize">{131, 86}</string>
 				<object class="NSView" key="NSWindowView" id="918380141">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -65,19 +58,16 @@
 							<int key="NSvFlags">274</int>
 							<string key="NSFrameSize">{320, 240}</string>
 							<reference key="NSSuperview" ref="918380141"/>
-							<reference key="NSWindow"/>
 							<string key="NSClassName">NPMovieView</string>
 							<string key="NSExtension">NSView</string>
 						</object>
 					</object>
 					<string key="NSFrameSize">{320, 240}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="489220107"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{131, 108}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="685320436">
@@ -91,9 +81,10 @@
 					<characters key="NS.bytes">View</characters>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<string key="NSWindowContentMinSize">{213, 32}</string>
 				<object class="NSView" key="NSWindowView" id="642530596">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -102,7 +93,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{426, 32}</string>
 							<reference key="NSSuperview" ref="642530596"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="573200896"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -112,7 +102,6 @@
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{32, 32}</string>
 							<reference key="NSSuperview" ref="642530596"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="291814920"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1021034649">
@@ -148,7 +137,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{33, 0}, {298, 32}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="40929851"/>
 							<string key="NSClassName">NiceScrubber</string>
 							<string key="NSExtension">NSView</string>
@@ -158,7 +146,6 @@
 							<int key="NSvFlags">257</int>
 							<string key="NSFrame">{{328, 9}, {83, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="248469940">
 								<int key="NSCellFlags">67239424</int>
@@ -167,7 +154,7 @@
 								<object class="NSFont" key="NSSupport">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">11</double>
-									<int key="NSfFlags">3100</int>
+									<int key="NSfFlags">3088</int>
 								</object>
 								<reference key="NSControlView" ref="40929851"/>
 								<object class="NSColor" key="NSBackgroundColor">
@@ -182,13 +169,11 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{416, 32}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="385862412"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{213, 54}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="986281957">
@@ -202,6 +187,7 @@
 					<characters key="NS.bytes">View</characters>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<string key="NSWindowContentMinSize">{131, 5}</string>
 				<object class="NSView" key="NSWindowView" id="184141507">
 					<nil key="NSNextResponder"/>
@@ -230,7 +216,7 @@
 								<object class="NSFont" key="NSSupport" id="1010471269">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">13</double>
-									<int key="NSfFlags">1044</int>
+									<int key="NSfFlags">1040</int>
 								</object>
 								<reference key="NSControlView" ref="301179114"/>
 								<object class="NSColor" key="NSBackgroundColor">
@@ -310,7 +296,7 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{131, 27}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="72649573">
@@ -324,6 +310,7 @@
 					<characters key="NS.bytes">View</characters>
 				</object>
 				<nil key="NSUserInterfaceItemIdentifier"/>
+				<string key="NSWindowContentMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<string key="NSWindowContentMinSize">{115, 96}</string>
 				<object class="NSView" key="NSWindowView" id="902978893">
 					<nil key="NSNextResponder"/>
@@ -368,7 +355,7 @@
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMinSize">{115, 118}</string>
-				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
+				<string key="NSMaxSize">{1.7976931348623157e+308, 1.7976931348623157e+308}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
 		</object>
@@ -735,6 +722,8 @@
 					<string>-2.IBPluginDependency</string>
 					<string>-3.IBPluginDependency</string>
 					<string>105.IBPluginDependency</string>
+					<string>105.windowTemplate.hasMinSize</string>
+					<string>105.windowTemplate.minSize</string>
 					<string>106.IBPluginDependency</string>
 					<string>108.CustomClassName</string>
 					<string>108.IBPluginDependency</string>
@@ -749,13 +738,19 @@
 					<string>267.IBPluginDependency</string>
 					<string>32.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
+					<string>33.windowTemplate.hasMinSize</string>
+					<string>33.windowTemplate.minSize</string>
 					<string>34.CustomClassName</string>
 					<string>34.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
+					<string>5.windowTemplate.hasMinSize</string>
+					<string>5.windowTemplate.minSize</string>
 					<string>6.IBPluginDependency</string>
 					<string>71.IBPluginDependency</string>
 					<string>79.IBPluginDependency</string>
 					<string>89.IBPluginDependency</string>
+					<string>89.windowTemplate.hasMinSize</string>
+					<string>89.windowTemplate.minSize</string>
 					<string>90.IBPluginDependency</string>
 					<string>92.CustomClassName</string>
 					<string>92.IBPluginDependency</string>
@@ -770,6 +765,8 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{115, 96}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>VolumeView</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -784,15 +781,21 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{213, 32}</string>
 					<string>ControlPlay</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{131, 86}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<boolean value="YES"/>
+					<string>{131, 5}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>ClickableTextField</string>
+					<string>TitleTextField</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>NPScalingButton</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -803,13 +806,17 @@
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<reference key="dict.values" ref="0"/>
+				<object class="NSMutableArray" key="dict.values">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+				</object>
 			</object>
 			<nil key="activeLocalization"/>
 			<object class="NSMutableDictionary" key="localizations">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<reference key="dict.sortedKeys" ref="0"/>
-				<reference key="dict.values" ref="0"/>
+				<object class="NSMutableArray" key="dict.values">
+					<bool key="EncodedWithXMLCoder">YES</bool>
+				</object>
 			</object>
 			<nil key="sourceID"/>
 			<int key="maxID">276</int>
@@ -817,25 +824,6 @@
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBPartialClassDescription">
-					<string key="className">ClickableTextField</string>
-					<string key="superclassName">NSTextField</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">theNiceWindow</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">theNiceWindow</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">theNiceWindow</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/ClickableTextField.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">ControlPlay</string>
 					<string key="superclassName">NPScalingButton</string>
@@ -846,6 +834,7 @@
 				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">FirstResponder</string>
+					<string key="superclassName">NSObject</string>
 					<object class="NSMutableDictionary" key="actions">
 						<string key="NS.key.0">addToPlaylist:</string>
 						<string key="NS.object.0">id</string>
@@ -1093,6 +1082,25 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
+					<string key="className">TitleTextField</string>
+					<string key="superclassName">NSTextField</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">theNiceWindow</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">theNiceWindow</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">theNiceWindow</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
 					<string key="className">VolumeView</string>
 					<string key="superclassName">NSImageView</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
@@ -1117,6 +1125,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
+		<nil key="IBDocument.LastKnownRelativeProjectPath"/>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<bool key="EncodedWithXMLCoder">YES</bool>
