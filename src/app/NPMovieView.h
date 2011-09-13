@@ -58,9 +58,7 @@
 
 -(void)mouseDoubleClick:(NSEvent *)anEvent;
 
--(void)showOverLayVolume;
 -(void)smartHideMouseOverOverlays;
--(void)timedHideVolumeOverlay;
 
 -(void)drawMovieFrame;
 

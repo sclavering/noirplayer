@@ -329,10 +329,12 @@
     titleOverlayIsShowing = NO;
 }
 
--(void)showOverLayVolume
+-(void)showVolumeOverlay
 {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeOverlay:) object:nil];
 	[self setOverLayVolumeLocation];
     [theOverlayVolume setAlphaValue:1.0];
+	[self performSelector:@selector(hideVolumeOverlay:) withObject:nil afterDelay:1.0];
 }
 
 -(void)setOverLayVolumeLocation
@@ -347,7 +349,7 @@
     }
 }
 
--(void)hideOverLayVolume:(id)dummy
+-(void)hideVolumeOverlay:(id)dummy
 {
     [theOverlayVolume setAlphaValue:0.0];
 }

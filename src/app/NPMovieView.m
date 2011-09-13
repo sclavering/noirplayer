@@ -164,11 +164,11 @@
 			break;
 		case NSUpArrowFunctionKey:
 			[[self niceDocument] incrementVolume];
-			[self showOverLayVolume];
+			[[self niceWindow] showVolumeOverlay];
 			break;
 		case NSDownArrowFunctionKey:
 			[[self niceDocument] decrementVolume];
-			[self showOverLayVolume];
+			[[self niceWindow] showVolumeOverlay];
 			break;
 		case 0x1B:
 			[((NiceWindow *)[self window]) unFullScreen];
@@ -199,13 +199,6 @@
     }
 }
 
--(void)showOverLayVolume
-{
-	[NSObject cancelPreviousPerformRequestsWithTarget:[self window] selector:@selector(hideOverLayVolume:) object:nil];
-	[((NiceWindow *)[self window]) showOverLayVolume];
-	[self timedHideVolumeOverlay];
-}
-
 -(void)smartHideMouseOverOverlays
 {
 	/* Simulate and distribute a mouse moved event for the window so that the proper menu stuff gets displayed
@@ -219,12 +212,7 @@
 										eventNumber:0
 										 clickCount:0
 										   pressure:1.0];
-	[((NiceWindow *)[self window]) mouseMoved:newEvent];
-}
-
--(void)timedHideVolumeOverlay
-{
-	[[self window] performSelector:@selector(hideOverLayVolume:) withObject:nil afterDelay:1.0];
+	[[self niceWindow] mouseMoved:newEvent];
 }
 
 #pragma mark -

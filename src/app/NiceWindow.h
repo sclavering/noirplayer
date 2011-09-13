@@ -94,10 +94,9 @@
 -(void)showOverLayTitle;
 -(void)setOverlayTitleLocation;
 -(void)hideOverLayTitle;
--(void)showOverLayVolume;
+-(void)showVolumeOverlay;
+-(void)hideVolumeOverlay:(id)dummy;
 -(void)setOverLayVolumeLocation;
-// the dummy arg is so it can be called via performSelector:withObject:afterDelay:
--(void)hideOverLayVolume:(id)dummy;
 
 #pragma mark -
 #pragma mark Window Toggles
