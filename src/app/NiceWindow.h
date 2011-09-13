@@ -87,7 +87,6 @@
 -(void)setupOverlays;
 -(void)putOverlay:(NSWindow*)anOverlay asChildOf:(NSWindow*)aChild inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible;
 -(void)hideOverlays;
--(void)hideAllImmediately;
 -(void)showOverlayControlBar;
 -(void)setOverlayControllerWindowLocation;
 -(void)hideOverLayWindow;

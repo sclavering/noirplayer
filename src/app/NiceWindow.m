@@ -243,13 +243,6 @@
     [self hideOverLayTitle];
 }
 
--(void)hideAllImmediately
-{
-    [theOverlayControllerWindow setAlphaValue:0.0];
-    [theOverlayTitleBar setAlphaValue:0.0];
-    [theOverlayVolume setAlphaValue:0.0];
-}
-
 -(void)showOverlayControlBar
 {
     if(windowOverlayControllerIsShowing) return;
@@ -381,7 +374,9 @@
 		[self fillScreenSize];
     }
     [theMovieView drawMovieFrame];
-    [self hideAllImmediately];
+    [theOverlayControllerWindow setAlphaValue:0.0];
+    [theOverlayTitleBar setAlphaValue:0.0];
+    [theOverlayVolume setAlphaValue:0.0];
 }
 
 -(void)makeNormalScreen
