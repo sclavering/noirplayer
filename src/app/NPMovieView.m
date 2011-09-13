@@ -136,7 +136,7 @@
 -(IBAction)scrub:(id)sender
 {
     [[self niceDocument] setMovieTimeByFraction:[sender doubleValue]];
-    [((NiceWindow *)[self window]) updateByTime:sender];
+    [[self niceWindow] updateByTime:sender];
 }
 
 #pragma mark -
@@ -171,7 +171,7 @@
 			[[self niceWindow] showVolumeOverlay];
 			break;
 		case 0x1B:
-			[((NiceWindow *)[self window]) unFullScreen];
+			[[self niceWindow] unFullScreen];
 			break;
 		default:
 			[super keyDown:anEvent];
@@ -204,7 +204,7 @@
 	/* Simulate and distribute a mouse moved event for the window so that the proper menu stuff gets displayed
 	if we're in a zone that's between gui buttons. */
 	NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
-										   location:[((NiceWindow *)[self window]) convertScreenToBase:[NSEvent mouseLocation]]
+										   location:[[self niceWindow] convertScreenToBase:[NSEvent mouseLocation]]
 									  modifierFlags:0
 										  timestamp:0
 									   windowNumber:0
@@ -228,19 +228,19 @@
     if([anEvent clickCount] > 0 && [anEvent clickCount] % 2 == 0) {
         [self mouseDoubleClick:anEvent];
     } else {
-        [((NiceWindow *)[self window]) mouseDown:anEvent];
+        [[self niceWindow] mouseDown:anEvent];
     }
 }
 
 - (void)mouseUp:(NSEvent *)anEvent
 {
-	[((NiceWindow *)[self window]) mouseUp:anEvent];
+	[[self niceWindow] mouseUp:anEvent];
 }
 
 - (void)mouseDoubleClick:(NSEvent *)anEvent
 {
-    [((NiceWindow *)[self window]) setInitialDrag:anEvent];
-    [((NiceWindow *)[self window]) toggleWindowFullScreen];
+    [[self niceWindow] setInitialDrag:anEvent];
+    [[self niceWindow] toggleWindowFullScreen];
 }
 
 - (void)mouseMoved:(NSEvent *)anEvent
@@ -256,7 +256,7 @@
 
 -(void)mouseDragged:(NSEvent *)anEvent
 {
-    [((NiceWindow *)[self window]) mouseDragged:anEvent];
+    [[self niceWindow] mouseDragged:anEvent];
 }
 
 #pragma mark -
