@@ -43,6 +43,7 @@
 #import "NiceScrubber.h"
 #import "NiceWindow.h"
 #import "NPApplication.h"
+#import "ControlPlay.h"
 
 #define SCRUB_STEP_DURATION 5
 
