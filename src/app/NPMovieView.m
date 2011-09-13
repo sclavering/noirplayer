@@ -229,12 +229,6 @@
 	[[self niceWindow] mouseMoved:anEvent];
 }
 
-/* This is so we can capture the right mouse event. */
--(NSMenu *)menuForEvent:(NSEvent *)event
-{
-	return nil;
-}
-
 -(void)mouseDragged:(NSEvent *)anEvent
 {
     [[self niceWindow] mouseDragged:anEvent];
