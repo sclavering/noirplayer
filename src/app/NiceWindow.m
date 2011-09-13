@@ -597,9 +597,14 @@
 #pragma mark -
 #pragma mark Mouse Events
 
--(void)mouseDown:(NSEvent *)theEvent
+-(void)mouseDown:(NSEvent *)anEvent
 {
-	initialDrag = [self convertScreenToBase:[NSEvent mouseLocation]];
+    if([anEvent clickCount] > 0 && [anEvent clickCount] % 2 == 0) {
+        [self setInitialDrag:anEvent];
+        [self toggleWindowFullScreen];
+    } else {
+        [self setInitialDrag:anEvent];
+    }
 }
 
 -(void)mouseDragged:(NSEvent *)anEvent

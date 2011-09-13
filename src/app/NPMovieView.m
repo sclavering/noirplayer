@@ -206,12 +206,7 @@
 
 - (void)mouseDown:(NSEvent *)anEvent
 {
-    if([anEvent clickCount] > 0 && [anEvent clickCount] % 2 == 0) {
-        [[self niceWindow] setInitialDrag:anEvent];
-        [[self niceWindow] toggleWindowFullScreen];
-    } else {
-        [[self niceWindow] mouseDown:anEvent];
-    }
+    [[self niceWindow] mouseDown:anEvent];
 }
 
 - (void)mouseUp:(NSEvent *)anEvent
