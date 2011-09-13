@@ -60,16 +60,13 @@
 
     BOOL fullScreen;
     BOOL isFilling;
-    BOOL fixedAspectRatio;
 
     BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
     id timeUpdaterTimer;
     NSRect beforeFullScreen;
 
     NSSize aspectRatio;
-	NSPoint initialDrag;
-    
-	NSSize _lastSize;
+    NSPoint initialDrag;
 }
 
 -(float)scrubberHeight;
@@ -101,8 +98,6 @@
 
 -(BOOL)toggleWindowFullScreen;
 -(void)unFullScreen;
--(BOOL)fixedAspect;
--(void)setFixedAspect:(BOOL)aBool;
 
 #pragma mark Window Attributes
 

@@ -82,7 +82,6 @@
         isFilling = NO;
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
-		fixedAspectRatio = YES;
     }
     return self;
 }
@@ -342,22 +341,6 @@
     [[NiceController controller] exitFullScreen];
 }
 
--(void)setFixedAspect:(BOOL)aBool
-{
-    if(aBool){
-        [self setAspectRatio:aspectRatio];
-        _lastSize = NSMakeSize(0, 0);
-        [self resizeToAspectRatio];
-    } else {
-        [self setResizeIncrements:NSMakeSize(1.0, 1.0)];
-    }
-}
-
--(BOOL)fixedAspect
-{
-    return fixedAspectRatio;
-}
-
 #pragma mark Window Attributes
 
 -(void)makeFullScreen
@@ -382,7 +365,7 @@
         isFilling = NO;
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
-        if([self fixedAspect]) [self resizeToAspectRatio];
+        [self resizeToAspectRatio];
     }
     [theMovieView drawMovieFrame];
     [theOverlayTitleBar orderFront:self];
@@ -515,19 +498,6 @@
     aspectRatio = ratio;
     [super setAspectRatio:ratio];
     [self setMinSize:NSMakeSize(([self aspectRatio].width/[self aspectRatio].height) *[self minSize].height,[self minSize].height)];
-    fixedAspectRatio = YES;
-}
-
--(void)setResizeIncrements:(NSSize)increments
-{
-    [super setResizeIncrements:increments];
-    fixedAspectRatio = NO;
-}
-
-- (NSSize)aspectRatio
-{
-    if(fixedAspectRatio) return [super aspectRatio];
-    return NSMakeSize(([self frame].size.width / [self frame].size.height) * aspectRatio.height, aspectRatio.height);
 }
 
 /**
@@ -554,8 +524,6 @@
 
 -(void)initialDefaultSize
 {
-    id doc = [[self windowController] document];
-    _lastSize = [doc naturalSize];
     [self resizeWithSize:NSMakeSize([self aspectRatio].width, [self aspectRatio].height) animate:YES];
     if(fullScreen) [self centerOnScreen];
 }
@@ -568,7 +536,6 @@
     NSSize aSize = [self getResizeAspectRatioSize];
     [self resizeWithSize:aSize animate:YES];
     if(isFilling) [self fillScreenSize];
-    _lastSize = aSize;
 }
 
 -(void)centerOnScreen
