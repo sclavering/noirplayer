@@ -56,8 +56,6 @@
 -(void)openMovie:(QTMovie*)movie;
 -(void)close;
 
--(void)mouseDoubleClick:(NSEvent *)anEvent;
-
 -(void)drawMovieFrame;
 
 @end
