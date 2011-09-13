@@ -406,7 +406,7 @@
 {
     if(fullScreen) {
 		[self setLevel:NSFloatingWindowLevel];
-        [self resetFillingFlags];
+        isFilling = NO;
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
         if([self fixedAspect]) [self resizeToAspectRatio];
@@ -513,20 +513,14 @@
 
 -(void)resizeNormalByScaler:(float)aScaler
 {
-    [self resetFillingFlags];
+    isFilling = NO;
     [self resizeWithSize: NSMakeSize(aScaler * [self aspectRatio].width, aScaler * [self aspectRatio].height) animate:NO];
     if(fullScreen) [self center];
     [self setInitialDrag:nil];
 }
 
--(void)resetFillingFlags
-{
-    isFilling = NO;
-}
-
 -(void)fillScreenSize
 {
-    [self resetFillingFlags];
     isFilling = YES;
     NSSize aSize = [self getResizeAspectRatioSize];
     NSRect newRect = [self calcResizeSize:aSize];
