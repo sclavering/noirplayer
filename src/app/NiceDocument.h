@@ -69,6 +69,7 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(NSMutableArray*)videoMenuItems;
 -(NSMenu*)audioTrackMenu;
 -(NSMenu*)videoTrackMenu;
+-(NSMenu*)aspectRatioMenu;
 -(id)window;
 
 -(NSSize)naturalSize;

@@ -187,6 +187,10 @@ stuff won't work properly! */
 	[newItem setSubmenu:[self audioTrackMenu]];
     [items addObject:newItem];
 
+    newItem = [[[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""] autorelease];
+    [newItem setSubmenu:[self aspectRatioMenu]];
+    [items addObject:newItem];
+
     return items;
 }
 
@@ -222,10 +226,32 @@ stuff won't work properly! */
     return tReturnMenu;
 }
 
+-(NSMenu*)aspectRatioMenu
+{
+    NSMenu* m = [[[NSMenu alloc] init] autorelease];
+    NSString* labels[] = { @"Natural", @"16:9", @"16:10", @"4:3" };
+    float values[] = { 0, 16.0 / 9.0, 16.0 / 10.0, 4.0 / 3.0 };
+    for(int i = 0; i != 4; ++i) {
+        NSMenuItem* mi = [[[NSMenuItem alloc] initWithTitle:labels[i] action:@selector(selectAspectRatio:) keyEquivalent:@""] autorelease];
+        [mi setRepresentedObject:[NSNumber numberWithFloat:values[i]]];
+        [mi setTarget:self];
+        [m addItem:mi];
+    }
+    return m;
+}
+
 -(IBAction)toggleTrack:(id)sender
 {
     [[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
+}
+
+-(void)selectAspectRatio:(id)sender
+{
+    float val = [[sender representedObject] floatValue];
+    NSSize ratio = val ? NSMakeSize(val, 1) : [self naturalSize];
+    [theWindow setAspectRatio:ratio];
+    [theWindow resizeToAspectRatio];
 }
 
 -(id)window

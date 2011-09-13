@@ -564,15 +564,10 @@
  */
 -(void)resizeToAspectRatio
 {
-    id doc = [[self windowController] document];
-    NSSize tSize = [doc naturalSize];
-    [self setAspectRatio:[doc naturalSize]];
-    if(!NSEqualSizes(_lastSize, tSize)) {
-        NSSize aSize = [self getResizeAspectRatioSize];
-        [self resizeWithSize:aSize animate:YES];
-        if(isFilling) [self fillScreenSize];
-        _lastSize = tSize;
-    }
+    NSSize aSize = [self getResizeAspectRatioSize];
+    [self resizeWithSize:aSize animate:YES];
+    if(isFilling) [self fillScreenSize];
+    _lastSize = aSize;
 }
 
 -(void)centerOnScreen
