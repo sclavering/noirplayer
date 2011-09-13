@@ -50,6 +50,11 @@
     return [[[self window] windowController] document];
 }
 
+-(NiceWindow*)niceWindow
+{
+    return (NiceWindow*) [self window];
+}
+
 -(id)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {

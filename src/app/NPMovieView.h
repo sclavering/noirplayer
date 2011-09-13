@@ -51,6 +51,7 @@
 }
 
 -(NiceDocument*)niceDocument;
+-(NiceWindow*)niceWindow;
 
 -(void)openMovie:(QTMovie*)movie;
 -(void)close;
