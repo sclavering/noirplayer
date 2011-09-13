@@ -341,11 +341,6 @@
     [[NiceController controller] exitFullScreen];
 }
 
--(void)toggleFixedAspectRatio
-{
-    [self setFixedAspect: ![self fixedAspect]];
-}
-
 -(void)setFixedAspect:(BOOL)aBool
 {
     if(aBool){

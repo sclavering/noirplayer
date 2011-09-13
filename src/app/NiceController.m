@@ -124,9 +124,6 @@ id controller;
 
 -(void)changedWindow:(NSNotification *)notification
 {
-    if([[NSApp mainWindow] isKindOfClass:[NiceWindow class]]){
-        [toggleFixedAspectMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) fixedAspect]];
-    }
 }
 
 #pragma mark -
@@ -152,12 +149,6 @@ id controller;
     } else if([[NSApp mainWindow] isKindOfClass:[NiceWindow self]]) {
         [self enterFullScreen];
     }
-}
-
--(IBAction)toggleFixedAspectRatio:(id)sender
-{
-    [((NiceWindow *)[NSApp mainWindow]) toggleFixedAspectRatio];
-    [toggleFixedAspectMenuItem setState:[((NiceWindow *)[NSApp mainWindow]) fixedAspect]];
 }
 
 #pragma mark -

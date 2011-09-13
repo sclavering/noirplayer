@@ -49,7 +49,6 @@
     NSTimer* mouseMoveTimer;
     id backgroundWindow;
     id antiSleepTimer;
-    IBOutlet id toggleFixedAspectMenuItem;
 }
 
 +(id)controller;
@@ -64,7 +63,6 @@
 
 -(IBAction)openDocument:(id)sender;
 -(IBAction)toggleFullScreen:(id)sender;
--(IBAction)toggleFixedAspectRatio:(id)sender;
 
 #pragma mark -
 #pragma mark Presentation

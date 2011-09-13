@@ -103,7 +103,6 @@
 -(void)unFullScreen;
 -(BOOL)fixedAspect;
 -(void)setFixedAspect:(BOOL)aBool;
--(void)toggleFixedAspectRatio;
 
 #pragma mark Window Attributes
 
