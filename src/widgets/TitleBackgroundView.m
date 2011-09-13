@@ -54,8 +54,6 @@
 
 -(void)drawRect:(NSRect)rect
 {
-[[NSImage imageNamed:@"titlebg"]drawInRect:[self frame] fromRect:NSZeroRect operation:NSCompositeSourceOver fraction:0.82];
-	
 }
 
 - (void)mouseDown:(NSEvent *)theEvent

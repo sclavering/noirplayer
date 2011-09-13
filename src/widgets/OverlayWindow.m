@@ -47,14 +47,10 @@
 
 -(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
-    
-    if((self = [super initWithContentRect:contentRect
-							   styleMask:NSBorderlessWindowMask
-								 backing:NSBackingStoreBuffered
-								   defer:YES])){
-		[self setBackgroundColor: [NSColor clearColor]];
-		[self setOpaque:NO];
-	}
+    if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])) {
+        [self setBackgroundColor: [[NSColor blackColor] colorWithAlphaComponent:0.55]];
+        [self setOpaque:NO];
+    }
     return self;
 }
 
