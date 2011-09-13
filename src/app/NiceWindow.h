@@ -129,7 +129,6 @@
 -(void)resizeNormalByScaler:(float)aScaler;
 -(IBAction)center:(id)sender;
 -(void)centerOnScreen;
--(void)center;
 -(NSRect)centerRect:(NSRect)aRect;
 
 #pragma mark -

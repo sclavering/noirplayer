@@ -515,7 +515,7 @@
 {
     isFilling = NO;
     [self resizeWithSize: NSMakeSize(aScaler * [self aspectRatio].width, aScaler * [self aspectRatio].height) animate:NO];
-    if(fullScreen) [self center];
+    if(fullScreen) [self centerOnScreen];
     [self setInitialDrag:nil];
 }
 
@@ -528,7 +528,6 @@
     newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
     [self centerOnScreen];
-    [self setInitialDrag:nil];
 }
 
 /**
@@ -585,7 +584,7 @@
     id doc = [[self windowController] document];
     _lastSize = [doc naturalSize];
     [self resizeWithSize:NSMakeSize([self aspectRatio].width, [self aspectRatio].height) animate:YES];
-    if(fullScreen) [self center];
+    if(fullScreen) [self centerOnScreen];
 }
 
 /**
@@ -604,20 +603,14 @@
     }
 }
 
-- (IBAction)center:(id)sender
+-(IBAction)center:(id)sender
 {
-    [self center];
-}
-
-/* Center on the CURRENT screen */
-- (void)center
-{
-	[self setInitialDrag:nil];
     [self centerOnScreen];
 }
 
-- (void)centerOnScreen
+-(void)centerOnScreen
 {
+    [self setInitialDrag:nil];
     if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
     [self setFrame:[self centerRect:[self frame]] display:YES];
     if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
@@ -662,7 +655,7 @@
 -(void)mouseUp:(NSEvent *)anEvent
 {
     if(dropScreen){			// If the screen has been dropped onto a different display
-        [self center];
+        [self centerOnScreen];
         if(isFilling) [self fillScreenSize];
     }
     dropScreen = NO;
