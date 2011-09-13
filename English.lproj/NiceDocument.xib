@@ -102,6 +102,7 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{426, 32}</string>
 							<reference key="NSSuperview" ref="642530596"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="573200896"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -111,6 +112,7 @@
 							<int key="NSvFlags">256</int>
 							<string key="NSFrameSize">{32, 32}</string>
 							<reference key="NSSuperview" ref="642530596"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="291814920"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="1021034649">
@@ -146,6 +148,7 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{33, 0}, {298, 32}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="40929851"/>
 							<string key="NSClassName">NiceScrubber</string>
 							<string key="NSExtension">NSView</string>
@@ -155,6 +158,7 @@
 							<int key="NSvFlags">257</int>
 							<string key="NSFrame">{{328, 9}, {83, 14}}</string>
 							<reference key="NSSuperview" ref="642530596"/>
+							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="248469940">
 								<int key="NSCellFlags">67239424</int>
@@ -179,6 +183,7 @@
 					</object>
 					<string key="NSFrameSize">{416, 32}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="385862412"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -199,7 +204,7 @@
 				<nil key="NSUserInterfaceItemIdentifier"/>
 				<string key="NSWindowContentMinSize">{131, 5}</string>
 				<object class="NSView" key="NSWindowView" id="184141507">
-					<reference key="NSNextResponder"/>
+					<nil key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -208,7 +213,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrameSize">{373, 24}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1058342575"/>
 							<string key="NSClassName">TitleBackgroundView</string>
 							<string key="NSExtension">NSView</string>
@@ -218,7 +222,6 @@
 							<int key="NSvFlags">258</int>
 							<string key="NSFrame">{{49, 2}, {327, 20}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="944708147">
 								<int key="NSCellFlags">67239424</int>
@@ -242,7 +245,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{4, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="547257827"/>
 							<int key="NSTag">666</int>
 							<bool key="NSEnabled">YES</bool>
@@ -274,7 +276,6 @@
 							<int key="NSvFlags">260</int>
 							<string key="NSFrame">{{24, 0}, {24, 24}}</string>
 							<reference key="NSSuperview" ref="184141507"/>
-							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="301179114"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="574122407">
@@ -305,8 +306,6 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{373, 24}</string>
-					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="661584273"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -934,7 +933,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
@@ -943,7 +941,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -955,7 +952,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
@@ -964,10 +960,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">center:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">doubleSize:</string>
 								<string key="candidateClassName">id</string>

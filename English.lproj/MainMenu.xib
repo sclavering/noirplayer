@@ -474,15 +474,6 @@
 									<reference key="NSMixedImage" ref="839886485"/>
 									<int key="NSTag">7</int>
 								</object>
-								<object class="NSMenuItem" id="239576340">
-									<reference key="NSMenu" ref="14147308"/>
-									<string key="NSTitle">Center</string>
-									<string key="NSKeyEquiv">\</string>
-									<int key="NSKeyEquivModMask">1048576</int>
-									<int key="NSMnemonicLoc">2147483647</int>
-									<reference key="NSOnImage" ref="1056899151"/>
-									<reference key="NSMixedImage" ref="839886485"/>
-								</object>
 								<object class="NSMenuItem" id="293524137">
 									<reference key="NSMenu" ref="14147308"/>
 									<bool key="NSIsDisabled">YES</bool>
@@ -757,14 +748,6 @@
 						<reference key="destination" ref="854836878"/>
 					</object>
 					<int key="connectionID">232</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">center:</string>
-						<reference key="source" ref="905383721"/>
-						<reference key="destination" ref="239576340"/>
-					</object>
-					<int key="connectionID">237</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -1162,7 +1145,6 @@
 							<reference ref="598960999"/>
 							<reference ref="791440666"/>
 							<reference ref="90382222"/>
-							<reference ref="239576340"/>
 							<reference ref="592638494"/>
 							<reference ref="293524137"/>
 						</object>
@@ -1176,11 +1158,6 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">322</int>
 						<reference key="object" ref="592638494"/>
-						<reference key="parent" ref="14147308"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">236</int>
-						<reference key="object" ref="239576340"/>
 						<reference key="parent" ref="14147308"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1199,14 +1176,14 @@
 						<reference key="parent" ref="14147308"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="599337709"/>
-						<reference key="parent" ref="14147308"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">164</int>
 						<reference key="object" ref="691114491"/>
 						<reference key="parent" ref="887747405"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="599337709"/>
+						<reference key="parent" ref="14147308"/>
 					</object>
 				</object>
 			</object>
@@ -1256,7 +1233,6 @@
 					<string>226.IBPluginDependency</string>
 					<string>227.IBPluginDependency</string>
 					<string>23.IBPluginDependency</string>
-					<string>236.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
 					<string>281.IBPluginDependency</string>
 					<string>29.IBPluginDependency</string>
@@ -1276,7 +1252,6 @@
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1548,7 +1523,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
@@ -1557,7 +1531,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1569,7 +1542,6 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>center:</string>
 							<string>doubleSize:</string>
 							<string>halfSize:</string>
 							<string>normalSize:</string>
@@ -1578,10 +1550,6 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">center:</string>
-								<string key="candidateClassName">id</string>
-							</object>
 							<object class="IBActionInfo">
 								<string key="name">doubleSize:</string>
 								<string key="candidateClassName">id</string>

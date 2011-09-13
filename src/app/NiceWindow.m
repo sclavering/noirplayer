@@ -603,11 +603,6 @@
     }
 }
 
--(IBAction)center:(id)sender
-{
-    [self centerOnScreen];
-}
-
 -(void)centerOnScreen
 {
     [self setInitialDrag:nil];
