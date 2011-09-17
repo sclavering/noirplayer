@@ -383,7 +383,7 @@
 /**
 * Sets the window level by setting all of the windows and child windows to their own proper window levels.
  */
--(void)setLevel:(int)windowLevel
+-(void)setLevel:(NSInteger)windowLevel
 {
     id enumerator = [[self childWindows] objectEnumerator];
     id object;
