@@ -380,9 +380,6 @@
     return fullScreen;
 }
 
-/**
-* Sets the window level by setting all of the windows and child windows to their own proper window levels.
- */
 -(void)setLevel:(NSInteger)windowLevel
 {
     id enumerator = [[self childWindows] objectEnumerator];
@@ -528,9 +525,6 @@
     if(fullScreen) [self centerOnScreen];
 }
 
-/**
-* Resize the window to the size returned by getResizeAspectRatioSize
- */
 -(void)resizeToAspectRatio
 {
     NSSize aSize = [self getResizeAspectRatioSize];
