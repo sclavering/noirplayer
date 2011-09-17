@@ -289,11 +289,7 @@
     NSRect visibleFrame = [[NSScreen mainScreen] visibleFrame];
     NSRect intersect = NSIntersectionRect(frame,visibleFrame);
     if(!fullScreen) {
-        if(NSEqualRects(intersect, frame)) {
-            [theOverlayTitleBar setFrame:NSMakeRect(frame.origin.x, frame.origin.y + frame.size.height - [theOverlayTitleBar frame].size.height, frame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
-        } else {
-            [theOverlayTitleBar setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y + intersect.size.height - [theOverlayTitleBar frame].size.height, intersect.size.width, [theOverlayTitleBar frame].size.height) display:YES];
-        }
+        [theOverlayTitleBar setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y + intersect.size.height - [theOverlayTitleBar frame].size.height, intersect.size.width, [theOverlayTitleBar frame].size.height) display:YES];
     } else {
         if([[NSScreen mainScreen] isEqualTo:[[NSScreen screens] objectAtIndex:0]]) {
             visibleFrame = [[NSScreen mainScreen] frame];
