@@ -220,19 +220,16 @@
 -(void)setupOverlays
 {
     NSRect currentFrame = [self frame];
-    [self putOverlay:theOverlayControllerWindow inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height) withVisibility:NO];
-    [self putOverlay:theOverlayTitleBar inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height) withVisibility:NO];
-    [self putOverlay:theOverlayVolume inFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]), NSMidY(currentFrame) - NSMidY([theOverlayVolume frame])) withVisibility:NO];
+    [self putOverlay:theOverlayControllerWindow inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height)];
+    [self putOverlay:theOverlayTitleBar inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height)];
+    [self putOverlay:theOverlayVolume inFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]), NSMidY(currentFrame) - NSMidY([theOverlayVolume frame]))];
 }
 
--(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible
+-(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame
 {
     [anOverlay setFrame:aFrame display:NO];
-    [anOverlay setAlphaValue:(isVisible ? 1.0 : 0.0)];
+    [anOverlay setAlphaValue:0.0];
     [anOverlay setLevel:[self level]];
-	/* For some reason on Tiger, we have to add the child window after we set the alpha and level, otherwise
-		the child window is visible in locations as setFrame: is being called, very odd. Didn't bother to file
-		it in radar. */
     [self addChildWindow:anOverlay ordered:NSWindowAbove];
     [anOverlay orderFront:self];	
 }

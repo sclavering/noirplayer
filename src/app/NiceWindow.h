@@ -82,7 +82,7 @@
 #pragma mark -
 #pragma mark Overlays
 -(void)setupOverlays;
--(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame withVisibility:(BOOL)isVisible;
+-(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame;
 -(void)hideOverlays;
 -(void)showOverlayControlBar;
 -(void)setOverlayControllerWindowLocation;
