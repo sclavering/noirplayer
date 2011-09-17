@@ -308,7 +308,8 @@ stuff won't work properly! */
 
 -(void)stepBy:(int)seconds
 {
-    [self setCurrentMovieTime:([self currentMovieTime] + seconds)];
+    double t = MIN([self currentMovieTime] + seconds, [self totalTime]);
+    [self setCurrentMovieTime:MAX(t, 0)];
     [theMovieView drawMovieFrame];
     [theWindow updateByTime:nil];
 }
