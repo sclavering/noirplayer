@@ -39,7 +39,7 @@
 #import "NiceScrubber.h"
 #import <Carbon/Carbon.h>
 
-#define OFFSET (10 * HIGetScaleFactor())
+#define OFFSET 10
 
 @implementation NiceScrubber
 

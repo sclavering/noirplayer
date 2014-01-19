@@ -49,14 +49,11 @@
 
 - (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
-    NSWindow *result = [super initWithContentRect:contentRect
-                                        styleMask:NSBorderlessWindowMask
-                                          backing:NSBackingStoreBuffered
-                                            defer:YES];
-    [result setBackgroundColor: [NSColor blackColor]];
+    self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES];
+    [self setBackgroundColor: [NSColor blackColor]];
     presentingWindow =nil;
-    [result setLevel:NSFloatingWindowLevel+1];
-    return result;
+    [self setLevel:NSFloatingWindowLevel+1];
+    return self;
 }
 
 - (BOOL)canBecomeMainWindow
