@@ -185,10 +185,6 @@
     if(!fullScreen) [self miniaturize:sender];
 }
 
-/**
-* Takes care of updating the time display window, as well as choosing the format for the time display.
- * Current the format can only be of two different choices: time elapsed or time remaining.
- */
 -(IBAction)updateByTime:(id)sender
 {
     if((sender != self) && [theScrubBar isHidden])
