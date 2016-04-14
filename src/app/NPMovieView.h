@@ -47,7 +47,6 @@
     QTMovie* movie;
     QTMovieView* qtview;
     NSTrackingRectTag trackingRect;
-    BOOL mouseEntered;
 }
 
 -(NiceDocument*)niceDocument;

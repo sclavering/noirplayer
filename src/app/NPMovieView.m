@@ -97,8 +97,6 @@
 -(void)dealloc
 {
 	[self close];
-    if(mouseEntered)
-		[self mouseExited:nil];
     [super dealloc];
 }
 
@@ -230,18 +228,6 @@
 -(void)drawMovieFrame
 {
     [qtview setNeedsDisplay:YES];
-}
-
-- (void)mouseEntered:(NSEvent *)theEvent
-{
-    [NSApp mouseEntered:theEvent];
-    mouseEntered = YES;
-}
-
-- (void)mouseExited:(NSEvent *)theEvent
-{
-    [NSApp mouseExited:theEvent];
-    mouseEntered = NO;
 }
 
 @end
