@@ -153,14 +153,6 @@
 	[self setAlternateImage:[NSImage imageNamed:@"playClick"]];
 }
 
--(void)mouseEntered:(NSEvent *)theEvent
-{
-	if(iAmPlaying)
-		[self setImage:[NSImage imageNamed:@"pause_over"]];
-	else
-		[self setImage:[NSImage imageNamed:@"play_over"]];
-}
-
 -(void)mouseExited:(NSEvent *)theEvent
 {
 	if(iAmPlaying)
