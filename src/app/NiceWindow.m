@@ -219,6 +219,8 @@
     [self putOverlay:theOverlayControllerWindow inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height)];
     [self putOverlay:theOverlayTitleBar inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height)];
     [self putOverlay:theOverlayVolume inFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]), NSMidY(currentFrame) - NSMidY([theOverlayVolume frame]))];
+    // Suppress the default black background.
+    [theOverlayVolume setBackgroundColor: [[NSColor blackColor] colorWithAlphaComponent:0.0]];
 }
 
 -(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame
