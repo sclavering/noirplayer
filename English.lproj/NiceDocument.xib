@@ -290,10 +290,6 @@
 									<string key="NSClassName">NSImage</string>
 									<string key="NSResourceName">minimize</string>
 								</object>
-								<object class="NSCustomResource" key="NSAlternateImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">minimize-highlight</string>
-								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -1113,17 +1109,13 @@
 			<object class="NSArray" key="dict.sortedKeys">
 				<bool key="EncodedWithXMLCoder">YES</bool>
 				<string>close</string>
-				<string>close-highlight</string>
 				<string>minimize</string>
-				<string>minimize-highlight</string>
 				<string>play</string>
 				<string>playClick</string>
 				<string>volume_with_sound</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<string>{96, 96}</string>
-				<string>{96, 96}</string>
 				<string>{96, 96}</string>
 				<string>{96, 96}</string>
 				<string>{128, 128}</string>
