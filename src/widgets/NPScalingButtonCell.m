@@ -12,9 +12,9 @@
 	
 	[controlView lockFocus];
 	[[NSGraphicsContext currentContext] saveGraphicsState];
-	[[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+	[NSGraphicsContext currentContext].imageInterpolation = NSImageInterpolationHigh;
 	[image setFlipped:YES];
-	[image drawInRect:NSIntegralRect(frame) fromRect:NSMakeRect(0, 0, [image size].width, [image size].height) operation:NSCompositeSourceOver fraction:1.0];
+	[image drawInRect:NSIntegralRect(frame) fromRect:NSMakeRect(0, 0, image.size.width, image.size.height) operation:NSCompositeSourceOver fraction:1.0];
 	[[NSGraphicsContext currentContext] restoreGraphicsState];
 	[controlView unlockFocus];
 }

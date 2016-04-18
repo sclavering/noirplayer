@@ -47,7 +47,7 @@
 
 @implementation NoirDocument
 
-- (id)init
+- (instancetype)init
 {
     self = [super init];
     if(self){
@@ -64,8 +64,8 @@
 -(void)dealloc
 {
     if(menuObjects != nil){
-        for(NSUInteger i = 0; i < [menuObjects count]; i++)
-            [[self movieMenu] removeItem:[menuObjects objectAtIndex:i]];
+        for(NSUInteger i = 0; i < menuObjects.count; i++)
+            [[self movieMenu] removeItem:menuObjects[i]];
         [menuObjects release];
     }
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -79,11 +79,9 @@
 {
     // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
 
-    id tDict = [NSDictionary dictionaryWithObjectsAndKeys:
-        [NSNumber numberWithInt:0],@"MajorVersion",
-        [NSNumber numberWithInt:1],@"MinorVersion",
-        [NSDictionary dictionaryWithObjectsAndKeys: [NSNumber numberWithFloat:[self volume]], @"Volume",nil],
-      @"Contents", nil];
+    id tDict = @{@"MajorVersion": @0,
+        @"MinorVersion": @1,
+        @"Contents": @{@"Volume": @([self volume])}};
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
     return tData;
@@ -93,8 +91,8 @@
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
     movie = [QTMovie movieWithURL:url error:outError];
-    [theWindow setTitleWithRepresentedFilename:[url path]];
-    [NSApp changeWindowsItem:theWindow title:[theWindow title] filename:YES];
+    [theWindow setTitleWithRepresentedFilename:url.path];
+    [NSApp changeWindowsItem:theWindow title:theWindow.title filename:YES];
     [NSApp updateWindowsItem:theWindow];
     return movie ? YES : NO;
 }
@@ -122,9 +120,9 @@
     [theMovieView openMovie:movie];
     NSSize aSize = [self naturalSize];
     [theWindow setAspectRatio:aSize];
-    [theWindow setMinSize:NSMakeSize(150 * aSize.width / aSize.height, 150)];
+    theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow initialDefaultSize];
-    [theWindow setTitle:[theWindow title]];
+    [theWindow setTitle:theWindow.title];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
@@ -143,7 +141,7 @@
 
 -(NSMenu *)movieMenu
 {
-    return [[[NSApp mainMenu] itemWithTitle:NSLocalizedString(@"Movie",@"Movie")] submenu];
+    return [NSApp.mainMenu itemWithTitle:NSLocalizedString(@"Movie",@"Movie")].submenu;
 }
 
 /* Always call this method by raising the notification "RebuildAllMenus" otherwise
@@ -153,8 +151,8 @@ stuff won't work properly! */
     // xxx this ought to show a Volume menu on the Movie menu
 
     if(menuObjects != nil) {
-        for(NSUInteger i = 0; i < [menuObjects count]; i++)
-            [[self movieMenu] removeItem:[menuObjects objectAtIndex:i]];
+        for(NSUInteger i = 0; i < menuObjects.count; i++)
+            [[self movieMenu] removeItem:menuObjects[i]];
         [menuObjects release];
         menuObjects = nil;
     }
@@ -163,8 +161,8 @@ stuff won't work properly! */
         menuObjects = [[NSMutableArray array] retain];
         id videoMenuItems = [self videoMenuItems];
         for(NSUInteger i = 0; i < [videoMenuItems count]; i++) {
-            [[self movieMenu] insertItem:[videoMenuItems objectAtIndex:i] atIndex:i];
-            [menuObjects addObject:[videoMenuItems objectAtIndex:i]];
+            [[self movieMenu] insertItem:videoMenuItems[i] atIndex:i];
+            [menuObjects addObject:videoMenuItems[i]];
         }
     }
 }
@@ -198,13 +196,13 @@ stuff won't work properly! */
 {
     NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
     NSArray* tArray = [movie tracksOfMediaType:@"soun"];
-    for(NSUInteger i = 0; i < [tArray count]; i++) {
-        QTTrack* tTrack = [tArray objectAtIndex:i];
+    for(NSUInteger i = 0; i < tArray.count; i++) {
+        QTTrack* tTrack = tArray[i];
         NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
-        [tItem setRepresentedObject:tTrack];
-        [tItem setTarget:self];
-        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        tItem.representedObject = tTrack;
+        tItem.target = self;
+        if([tTrack isEnabled]) tItem.state = NSOnState;
         [tReturnMenu addItem:tItem];
     }
     return tReturnMenu;
@@ -214,13 +212,13 @@ stuff won't work properly! */
 {
     NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
     NSArray* tArray = [movie tracksOfMediaType:@"vide"];
-    for(NSUInteger i = 0; i < [tArray count]; i++) {
-        QTTrack* tTrack = [tArray objectAtIndex:i];
+    for(NSUInteger i = 0; i < tArray.count; i++) {
+        QTTrack* tTrack = tArray[i];
         NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:[tDict objectForKey:@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
-        [tItem setRepresentedObject:tTrack];
-        [tItem setTarget:self];
-        if([tTrack isEnabled]) [tItem setState:NSOnState];
+        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        tItem.representedObject = tTrack;
+        tItem.target = self;
+        if([tTrack isEnabled]) tItem.state = NSOnState;
         [tReturnMenu addItem:tItem];
     }
     return tReturnMenu;
@@ -233,8 +231,8 @@ stuff won't work properly! */
     float values[] = { 0, 16.0 / 9.0, 16.0 / 10.0, 4.0 / 3.0 };
     for(int i = 0; i != 4; ++i) {
         NSMenuItem* mi = [[[NSMenuItem alloc] initWithTitle:labels[i] action:@selector(selectAspectRatio:) keyEquivalent:@""] autorelease];
-        [mi setRepresentedObject:[NSNumber numberWithFloat:values[i]]];
-        [mi setTarget:self];
+        mi.representedObject = @(values[i]);
+        mi.target = self;
         [m addItem:mi];
     }
     return m;

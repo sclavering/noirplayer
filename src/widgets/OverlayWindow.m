@@ -45,10 +45,10 @@
 
 @implementation OverlayWindow
 
--(id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+-(instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
     if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])) {
-        [self setBackgroundColor: [[NSColor blackColor] colorWithAlphaComponent:0.55]];
+        self.backgroundColor = [[NSColor blackColor] colorWithAlphaComponent:0.55];
         [self setOpaque:NO];
     }
     return self;
@@ -72,13 +72,13 @@
 -(void)awakeFromNib
 {
     [self setHasShadow:NO];
-	[self setNextResponder:[self parentWindow]];
+	self.nextResponder = self.parentWindow;
 }
 
 -(void)mouseMoved:(NSEvent *)anEvent
 {
     NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
-					   location:[((NoirWindow *)[self parentWindow]) convertScreenToBase:[NSEvent mouseLocation]]
+					   location:[((NoirWindow *)self.parentWindow) convertScreenToBase:[NSEvent mouseLocation]]
 				      modifierFlags:0
 					  timestamp:0
 				       windowNumber:0
@@ -86,7 +86,7 @@
 					eventNumber:0
 					 clickCount:0
 					   pressure:1.0];
-    [((NoirWindow *)[self parentWindow]) mouseMoved:newEvent];
+    [((NoirWindow *)self.parentWindow) mouseMoved:newEvent];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
@@ -101,8 +101,8 @@
 
 - (void)sendEvent:(NSEvent *)theEvent
 {
-	if([theEvent type] == NSScrollWheel)
-		[((NoirWindow *)[self parentWindow]) scrollWheel:theEvent];
+	if(theEvent.type == NSScrollWheel)
+		[((NoirWindow *)self.parentWindow) scrollWheel:theEvent];
 	else
 		[super sendEvent:theEvent];
 }

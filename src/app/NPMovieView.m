@@ -47,15 +47,15 @@
 
 -(NoirDocument*)noirDocument
 {
-    return [[[self window] windowController] document];
+    return self.window.windowController.document;
 }
 
 -(NoirWindow*)noirWindow
 {
-    return (NoirWindow*) [self window];
+    return (NoirWindow*) self.window;
 }
 
--(id)initWithFrame:(NSRect)aRect
+-(instancetype)initWithFrame:(NSRect)aRect
 {
     if ((self = [super initWithFrame:aRect])) {
         [self setAutoresizesSubviews:YES];
@@ -69,20 +69,20 @@
 						 selector:@selector(rebuildTrackingRects)
 						     name:NSViewFrameDidChangeNotification
 						   object:self];	
-	trackingRect = [self addTrackingRect:[self bounds] owner:self userData:nil assumeInside:NO];
+	trackingRect = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
 }
 
 -(void)rebuildTrackingRects
 {
-	[self viewWillMoveToWindow:[self window]];
+	[self viewWillMoveToWindow:self.window];
 }
 
 -(void)viewWillMoveToWindow:(NSWindow *)window
 {
-	if([self window])
+	if(self.window)
 		[self removeTrackingRect:trackingRect];
 	if(window)
-		trackingRect = [self addTrackingRect:[self bounds] owner:window userData:nil assumeInside:NO];
+		trackingRect = [self addTrackingRect:self.bounds owner:window userData:nil assumeInside:NO];
 }
 
 -(void)close
@@ -102,10 +102,10 @@
 
 -(void)openMovie:aMovie
 {
-    qtview = [[QTMovieView alloc] initWithFrame:[self bounds]];
-    [self setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    qtview = [[QTMovieView alloc] initWithFrame:self.bounds];
+    self.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
     [qtview setFillColor:[NSColor blackColor]];
-    [qtview setAutoresizingMask:(NSViewWidthSizable | NSViewHeightSizable)];
+    qtview.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
     [qtview setControllerVisible:NO];
     [qtview setEditable:NO];
     [qtview setPreservesAspectRatio:NO];
@@ -118,7 +118,7 @@
 
 -(NSView *)hitTest:(NSPoint)aPoint
 {
-    if(NSMouseInRect(aPoint, [self frame], NO))
+    if(NSMouseInRect(aPoint, self.frame, NO))
         return self;
     return nil;
 }
@@ -142,22 +142,22 @@
 
 -(void)keyDown:(NSEvent *)anEvent
 {
-    if(([anEvent modifierFlags] & NSShiftKeyMask)) return;
+    if((anEvent.modifierFlags & NSShiftKeyMask)) return;
     
-    switch([[anEvent characters] characterAtIndex:0]){
+    switch([anEvent.characters characterAtIndex:0]){
 		case ' ':
-			if(![anEvent isARepeat]) [[self noirDocument] togglePlayingMovie];
+			if(!anEvent.ARepeat) [[self noirDocument] togglePlayingMovie];
 			break;
 		case NSRightArrowFunctionKey:
-            if(![anEvent isARepeat]) [[self noirDocument] startStepping];
+            if(!anEvent.ARepeat) [[self noirDocument] startStepping];
             [[self noirDocument] stepBy:SCRUB_STEP_DURATION];
 			break;
 		case NSLeftArrowFunctionKey:
-			if([anEvent modifierFlags] & NSCommandKeyMask){
+			if(anEvent.modifierFlags & NSCommandKeyMask){
                 [[self noirDocument] setCurrentMovieTime:0];
 				break;
 			}
-            if(![anEvent isARepeat]) [[self noirDocument] startStepping];
+            if(!anEvent.ARepeat) [[self noirDocument] startStepping];
             [[self noirDocument] stepBy:-SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
@@ -178,9 +178,9 @@
 
 -(void)keyUp:(NSEvent*)anEvent
 {
-	if(([anEvent modifierFlags] & NSShiftKeyMask)) return;
+	if((anEvent.modifierFlags & NSShiftKeyMask)) return;
 
-	switch([[anEvent characters] characterAtIndex:0]){
+	switch([anEvent.characters characterAtIndex:0]){
 		case ' ':
 			break;
 		case NSRightArrowFunctionKey:

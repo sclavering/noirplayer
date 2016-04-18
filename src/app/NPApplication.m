@@ -96,22 +96,22 @@
     NSPoint locationInWindow;
     NSWindow *theWindow;
     NSView *theView = nil;
-    if(![self isActive]) {
+    if(!self.active) {
         // we do NOT get an NSRightMouseDown event
-        if([anEvent type] == NSRightMouseUp || [anEvent type] == NSMouseMoved) {
+        if(anEvent.type == NSRightMouseUp || anEvent.type == NSMouseMoved) {
             // there seems to be no window assigned with this event at the moment;
             // but just in case ...
-            if((theWindow = [anEvent window])) {
-                locationInWindow = [anEvent locationInWindow];
-                theView = [[theWindow contentView] hitTest:locationInWindow];
+            if((theWindow = anEvent.window)) {
+                locationInWindow = anEvent.locationInWindow;
+                theView = [theWindow.contentView hitTest:locationInWindow];
             } else {
                 // find window
                 NSPoint locationOnScreen = [NSEvent mouseLocation];
-                NSEnumerator *enumerator = [[self orderedWindows] objectEnumerator];
+                NSEnumerator *enumerator = [self.orderedWindows objectEnumerator];
                 while((theWindow = [enumerator nextObject])) {
-                    if(!NSPointInRect(locationOnScreen, [theWindow frame])) continue;
+                    if(!NSPointInRect(locationOnScreen, theWindow.frame)) continue;
                     locationInWindow = [theWindow convertScreenToBase:locationOnScreen];
-                    NSView *contentView = [theWindow contentView];
+                    NSView *contentView = theWindow.contentView;
                     if(!contentView) continue;
                     theView = [contentView hitTest:locationInWindow];
                     if(theView) break;
@@ -119,15 +119,15 @@
             }
             if(theView) {
                 // create new event with useful window, location and event values
-                unsigned int flags = [anEvent modifierFlags];
-                NSTimeInterval timestamp = [anEvent timestamp];
-                int windowNumber = [theWindow windowNumber];
-                NSGraphicsContext *context = [anEvent context];
+                unsigned int flags = anEvent.modifierFlags;
+                NSTimeInterval timestamp = anEvent.timestamp;
+                int windowNumber = theWindow.windowNumber;
+                NSGraphicsContext *context = anEvent.context;
                 // original event is not a mouse down event so the following values are missing
                 int eventNumber = 0; // [anEvent eventNumber]
                 int clickCount = 0; // [anEvent clickCount]
                 float pressure = 1.0; // [anEvent pressure]
-                NSEvent *newEvent = [NSEvent mouseEventWithType:[anEvent type] location:locationInWindow modifierFlags:flags timestamp:timestamp windowNumber:windowNumber context:context eventNumber:eventNumber clickCount:clickCount pressure:pressure];
+                NSEvent *newEvent = [NSEvent mouseEventWithType:anEvent.type location:locationInWindow modifierFlags:flags timestamp:timestamp windowNumber:windowNumber context:context eventNumber:eventNumber clickCount:clickCount pressure:pressure];
                 if([theView acceptsFirstMouse:newEvent]) {
                     // activate app and send event to the window
                     //[self activateIgnoringOtherApps:YES];

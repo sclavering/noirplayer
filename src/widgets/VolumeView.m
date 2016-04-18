@@ -40,7 +40,7 @@
 
 @implementation VolumeView
 
--(id)initWithCoder:(id)aCoder
+-(instancetype)initWithCoder:(id)aCoder
 {
     self = [super initWithCoder:aCoder];
     volume = 1.0;

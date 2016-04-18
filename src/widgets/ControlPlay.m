@@ -43,8 +43,8 @@
 
 -(void)awakeFromNib
 {
-	[self setTarget:self];
-	[self setAction:@selector(mousePressed:)];
+	self.target = self;
+	self.action = @selector(mousePressed:);
 	[self setContinuous:YES];
 	
 	/* The following line controls mouse over highlights. */
@@ -62,7 +62,7 @@
 
 -(BOOL)isInFinalState
 {
-	if([self state] == NSOffState)
+	if(self.state == NSOffState)
 		return YES;
 	return NO;
 }
@@ -82,20 +82,20 @@
 {
 	start = NO;
 	[super mouseUp:theEvent];
-	[self setState:NSOffState];
+	self.state = NSOffState;
 }
 
 /* For mouseover changes */
 
 -(void)setFrame:(NSRect)frameRect
 {
-	[super setBounds:frameRect];
+	super.bounds = frameRect;
 	[self makeTrackingRect];
 }
 
 -(void)setBounds:(NSRect)boundsRect
 {
-	[super setBounds:boundsRect];
+	super.bounds = boundsRect;
 	[self makeTrackingRect];
 }
 
@@ -103,10 +103,10 @@
 {
 	if(tRectTag)
 		[self removeTrackingRect:tRectTag];
-	tRectTag = [self addTrackingRect:[self bounds] owner:self userData:nil assumeInside:NO];
+	tRectTag = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
 }
 
--(id)initWithFrame:(NSRect)rect
+-(instancetype)initWithFrame:(NSRect)rect
 {
     if ((self = [super initWithFrame:rect])) {
 		start = NO;
@@ -119,7 +119,7 @@
 
 -(void)mouseDown:(NSEvent *)theEvent
 {
-	[self setState:NSOnState];
+	self.state = NSOnState;
 	[super mouseDown:theEvent];
 	[[actionView noirDocument] togglePlayingMovie];
 }
@@ -136,22 +136,22 @@
 
 -(void)changeToPauseButton
 {
-    [self setImage:[NSImage imageNamed:@"pause"]];
-    [self setAlternateImage:[NSImage imageNamed:@"pauseClick"]];
+    self.image = [NSImage imageNamed:@"pause"];
+    self.alternateImage = [NSImage imageNamed:@"pauseClick"];
 }
 
 -(void)changeToPlayButton
 {
-	[self setImage:[NSImage imageNamed:@"play"]];
-	[self setAlternateImage:[NSImage imageNamed:@"playClick"]];
+	self.image = [NSImage imageNamed:@"play"];
+	self.alternateImage = [NSImage imageNamed:@"playClick"];
 }
 
 -(void)mouseExited:(NSEvent *)theEvent
 {
 	if(iAmPlaying)
-		[self setImage:[NSImage imageNamed:@"pause"]];
+		self.image = [NSImage imageNamed:@"pause"];
 	else
-		[self setImage:[NSImage imageNamed:@"play"]];
+		self.image = [NSImage imageNamed:@"play"];
 	[self mouseUp:theEvent];
 }
 

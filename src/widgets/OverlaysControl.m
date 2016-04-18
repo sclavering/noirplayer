@@ -59,7 +59,7 @@ static id overlayControl = nil;
 	return overlayControl;
 }
 
--(id)init
+-(instancetype)init
 {
 	if(overlayControl)
 		return overlayControl;
@@ -78,15 +78,15 @@ static id overlayControl = nil;
 -(BOOL)inControlRegion:(NSPoint)aScreenPoint forWindow:(NoirWindow *)aWindow
 {
     if([aWindow isFullScreen]){
-	NSRect mainScreenFrame = [[NSScreen mainScreen] frame];
+	NSRect mainScreenFrame = [NSScreen mainScreen].frame;
 	return (aScreenPoint.y <= (mainScreenFrame.origin.y + [aWindow scrubberHeight])
 		&& aScreenPoint.y >= (mainScreenFrame.origin.y)
 		&& aScreenPoint.x >= mainScreenFrame.origin.x
 		&& aScreenPoint.x <= mainScreenFrame.size.width);
     }
     
-    NSRect windowFrame = [aWindow frame];
-    NSRect mainVisibleFrame = [[NSScreen mainScreen] visibleFrame];
+    NSRect windowFrame = aWindow.frame;
+    NSRect mainVisibleFrame = [NSScreen mainScreen].visibleFrame;
     NSRect tempRect = NSMakeRect(windowFrame.origin.x, windowFrame.origin.y, windowFrame.size.width, [aWindow scrubberHeight]);
     
     if (mainVisibleFrame.origin.y < windowFrame.origin.y){
@@ -100,15 +100,15 @@ static id overlayControl = nil;
 -(BOOL)inTitleRegion:(NSPoint)aScreenPoint forWindow:(NoirWindow*)aWindow
 {
     if([aWindow isFullScreen]){
-		NSRect mainScreenFrame = [[NSScreen mainScreen] frame];
+		NSRect mainScreenFrame = [NSScreen mainScreen].frame;
 		return (aScreenPoint.y <= (mainScreenFrame.origin.y + mainScreenFrame.size.height) 
-				&& aScreenPoint.y >= mainScreenFrame.origin.y + mainScreenFrame.size.height - [aWindow titlebarHeight] - [[NSApp mainMenu] menuBarHeight]
+				&& aScreenPoint.y >= mainScreenFrame.origin.y + mainScreenFrame.size.height - [aWindow titlebarHeight] - NSApp.mainMenu.menuBarHeight
 				&& aScreenPoint.x >= mainScreenFrame.origin.x
 				&& aScreenPoint.x <= mainScreenFrame.size.width);
 	}
 	
-	NSRect windowFrame = [aWindow frame];
-	NSRect mainVisibleFrame = [[NSScreen mainScreen] visibleFrame];
+	NSRect windowFrame = aWindow.frame;
+	NSRect mainVisibleFrame = [NSScreen mainScreen].visibleFrame;
 	NSRect tempRect = NSMakeRect(windowFrame.origin.x, windowFrame.origin.y + windowFrame.size.height - [aWindow titlebarHeight], windowFrame.size.width, [aWindow titlebarHeight]);
 
 	if(mainVisibleFrame.origin.y + mainVisibleFrame.size.height > windowFrame.origin.y + windowFrame.size.height) {
@@ -121,10 +121,10 @@ static id overlayControl = nil;
 
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint
 {
-    id someWindows = [NSApp orderedWindows];
+    id someWindows = NSApp.orderedWindows;
     BOOL hitTopMost = NO;
     for(unsigned i = 0; i < [someWindows count]; i++) {
-        id aWindow = [someWindows objectAtIndex:i];
+        id aWindow = someWindows[i];
         if(![aWindow isKindOfClass:[NoirWindow class]]) continue;
         if(!hitTopMost) {
             if([self showOverlayForWindow:aWindow atPoint:aScreenPoint]) {

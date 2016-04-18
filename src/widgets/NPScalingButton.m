@@ -7,16 +7,16 @@
 
 @implementation NPScalingButton
 
--(id)initWithCoder:(id)aCoder{
+-(instancetype)initWithCoder:(id)aCoder{
     self =[super initWithCoder:aCoder];
 	 NSButtonCell* tCell =[ [[NPScalingButtonCell alloc] init] autorelease];
-	[tCell setBezelStyle:NSRegularSquareBezelStyle];
-	[tCell setImage:[[self cell] image]];
-	[tCell setAlternateImage:[[self cell] alternateImage]];
-	[tCell setHighlightsBy:NSContentsCellMask];
+	tCell.bezelStyle = NSRegularSquareBezelStyle;
+	tCell.image = self.cell.image;
+    [tCell setAlternateImage:[self.cell alternateImage]];
+	tCell.highlightsBy = NSContentsCellMask;
 
 	[tCell setBordered:NO];
-	[self setCell: tCell];
+	self.cell = tCell;
 	
     return self;
 }

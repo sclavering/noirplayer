@@ -41,7 +41,7 @@
 
 @implementation TitleBackgroundView
 
-- (id)initWithFrame:(NSRect)frame {
+- (instancetype)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
 		[[NSNotificationCenter defaultCenter] addObserver:self
@@ -58,16 +58,16 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-		if([theEvent clickCount]>1)
-			[[self window] performMiniaturize:theEvent];
+		if(theEvent.clickCount>1)
+			[self.window performMiniaturize:theEvent];
 		else
-			[[self window] mouseDown:theEvent];
+			[self.window mouseDown:theEvent];
 }
 
 
 - (void)mouseDragged:(NSEvent *)theEvent
 {
-    [[self window] mouseDragged:theEvent];
+    [self.window mouseDragged:theEvent];
 }
 
 
@@ -79,15 +79,15 @@
 
 -(void)rebuildTrackingRects
 {
-	[self viewWillMoveToWindow:[self window]];
+	[self viewWillMoveToWindow:self.window];
 }
 
 -(void)viewWillMoveToWindow:(NSWindow *)window
 {
-	if([self window])
+	if(self.window)
 		[self removeTrackingRect:trackingRect];
 	if(window)
-		trackingRect = [self addTrackingRect:[self bounds] owner:window userData:nil assumeInside:NO];
+		trackingRect = [self addTrackingRect:self.bounds owner:window userData:nil assumeInside:NO];
 }
 
 

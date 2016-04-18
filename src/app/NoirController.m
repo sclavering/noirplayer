@@ -65,7 +65,7 @@ id controller;
     [NoirController setController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedWindow:) name:@"NSWindowDidBecomeMainNotification" object:nil];
     antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(preventSleep:) userInfo:nil repeats:YES];
-    [NSApp setDelegate:self];
+    NSApp.delegate = self;
 }
 
 -(void)dealloc
@@ -81,16 +81,14 @@ id controller;
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
-    return [super runModalOpenPanel:openPanel forTypes:[NSArray arrayWithObjects:
-        // File extensions
-        @"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4", @"mkv", @"flv", @"divx", @"m4v", @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
+    return [super runModalOpenPanel:openPanel forTypes:@[@"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4", @"mkv", @"flv", @"divx", @"m4v", @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
         // Finder types
-        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_", nil]];
+        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_"]];
 }
 
 -(void)checkMouseLocation:(id)sender
 {
-    NSRect tempRect =[[[NSScreen screens] objectAtIndex:0] frame];
+    NSRect tempRect =[NSScreen screens][0].frame;
     NSPoint tempPoint =[NSEvent mouseLocation];
     if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
         [lastCursorMoveDate release];
@@ -98,7 +96,7 @@ id controller;
         lastMouseLocation= tempPoint;
         [NSCursor setHiddenUntilMouseMoves:NO];
     } else {
-        if(fullScreenMode && [lastCursorMoveDate timeIntervalSinceNow] < -3) [NSCursor setHiddenUntilMouseMoves:YES];
+        if(fullScreenMode && lastCursorMoveDate.timeIntervalSinceNow < -3) [NSCursor setHiddenUntilMouseMoves:YES];
     }
     
     tempRect.origin.y=tempRect.size.height -24;
@@ -108,7 +106,7 @@ id controller;
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void)preventSleep:(id)sender
 {
-    NSEnumerator *enumerator = [[NSApp orderedDocuments] objectEnumerator];
+    NSEnumerator *enumerator = [NSApp.orderedDocuments objectEnumerator];
     id each;
     while((each = [enumerator nextObject])) {
         if(![each isPlaying]) continue;
@@ -119,7 +117,7 @@ id controller;
 
 -(id)mainDocument
 {
-    return [self documentForWindow:[NSApp mainWindow]];
+    return [self documentForWindow:NSApp.mainWindow];
 }
 
 -(void)changedWindow:(NSNotification *)notification
@@ -132,21 +130,21 @@ id controller;
 -(IBAction)openDocument:(id)sender
 {
     NSArray *files = [self URLsFromRunningOpenPanel];
-    for(unsigned i = 0; i < [files count]; i++) {
+    for(unsigned i = 0; i < files.count; i++) {
         NSError* tError = nil;
-        id url = [files objectAtIndex:i];
+        id url = files[i];
         [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         if(tError) [NSApp presentError:tError];
     }
-    if(![NSApp mainWindow]) NSLog(@"no main window");
-    if([files count]) [[self mainDocument] playMovie];
+    if(!NSApp.mainWindow) NSLog(@"no main window");
+    if(files.count) [[self mainDocument] playMovie];
 }
 
 -(IBAction)toggleFullScreen:(id)sender
 {
     if(fullScreenMode) {
         [self exitFullScreen];
-    } else if([[NSApp mainWindow] isKindOfClass:[NoirWindow self]]) {
+    } else if([NSApp.mainWindow isKindOfClass:[NoirWindow self]]) {
         [self enterFullScreen];
     }
 }
@@ -158,7 +156,7 @@ id controller;
 {
     id screen = [NSScreen mainScreen];
     fullScreenMode = YES;
-    if([screen isEqualTo:[[NSScreen screens] objectAtIndex:0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+    if([screen isEqualTo:[NSScreen screens][0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
     [backgroundWindow setFrame:[screen frame] display:YES];
     [backgroundWindow orderBack:nil];
 }
@@ -177,7 +175,7 @@ id controller;
 
 -(void)enterFullScreen
 {
-    id tempWindow = [NSApp mainWindow];
+    id tempWindow = NSApp.mainWindow;
     [tempWindow makeFullScreen];
     [self presentScreen];
     [backgroundWindow setPresentingWindow:tempWindow];
@@ -185,7 +183,7 @@ id controller;
 
 -(void)exitFullScreen
 {
-    id tempWindow = [NSApp mainWindow];
+    id tempWindow = NSApp.mainWindow;
     if(tempWindow) [tempWindow makeNormalScreen];
     [self unpresentScreen];
 }

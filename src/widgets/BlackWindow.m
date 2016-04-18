@@ -43,10 +43,10 @@
 
 @implementation BlackWindow
 
-- (id)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
+- (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
 {
     self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES];
-    [self setBackgroundColor: [NSColor blackColor]];
+    self.backgroundColor = [NSColor blackColor];
     presentingWindow =nil;
     [self setLevel:NSFloatingWindowLevel+1];
     return self;

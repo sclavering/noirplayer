@@ -43,7 +43,7 @@
 
 - (void)mouseDown:(NSEvent *)theEvent
 {
-		if([theEvent clickCount]>1)
+		if(theEvent.clickCount>1)
         [theNoirWindow performMiniaturize:theEvent];
 		else
 			[theNoirWindow mouseDown:theEvent];
