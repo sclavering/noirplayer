@@ -20,7 +20,7 @@
 				<string>nsv</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>nsv.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Nullsoft Streaming Video</string>
 			<key>CFBundleTypeRole</key>
@@ -38,7 +38,7 @@
 				<string>nuv</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>ogm.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>MythTV Nuppel Video</string>
 			<key>CFBundleTypeRole</key>
@@ -56,7 +56,7 @@
 				<string>ogm</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>ogm.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>OGM Video</string>
 			<key>CFBundleTypeRole</key>
@@ -74,7 +74,7 @@
 				<string>ogg</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>ogg.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>application/ogg</string>
@@ -96,7 +96,7 @@
 				<string>vdvd</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>vdvd.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Virtual DVD</string>
 			<key>CFBundleTypeRole</key>
@@ -114,7 +114,7 @@
 				<string>divx</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>divx.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/x-divx</string>
@@ -136,7 +136,7 @@
 				<string>flv</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>flv.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/x-flv</string>
@@ -159,7 +159,7 @@
 				<string>asf</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>wmv.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/x-ms-wmv</string>
@@ -186,7 +186,7 @@
 				<string>avi</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>avi.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows video</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -207,7 +207,7 @@
 				<string>qt</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>mov.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Quicktime video</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -230,7 +230,7 @@
 				<string>m75</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>mpg.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>MPEG video</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -250,7 +250,7 @@
 				<string>m2v</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>m2v.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/mpeg2</string>
@@ -274,7 +274,7 @@
 				<string>3gpp</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>3gpp.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/3gpp</string>
@@ -296,7 +296,7 @@
 				<string>m4v</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>mp4.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/mp4</string>
@@ -435,7 +435,7 @@
 				<string>swf</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>swf.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Shockwave Flash</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -455,7 +455,7 @@
 				<string>mkv</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>mkv.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/x-matroska</string>
@@ -502,7 +502,7 @@
 				<string>flc</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>fli.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>video/flc</string>
@@ -526,7 +526,7 @@
 				<string>dv</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>dv.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>DV video</string>
 			<key>CFBundleTypeOSTypes</key>
@@ -564,7 +564,7 @@
 				<string>gvi</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
-			<string>gvi.icns</string>
+			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>GVI</string>
 			<key>CFBundleTypeRole</key>
