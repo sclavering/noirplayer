@@ -98,7 +98,7 @@
                     <textField verticalHuggingPriority="750" id="92" customClass="TitleTextField">
                         <rect key="frame" x="49" y="2" width="327" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="NicePlayer" id="263">
+                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Noir Player" id="263">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>

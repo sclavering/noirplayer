@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	<key>CFBundleDisplayName</key>
-	<string>NicePlayer</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
@@ -581,10 +579,6 @@
 	</array>
 	<key>CFBundleExecutable</key>
 	<string>NicePlayer</string>
-	<key>CFBundleHelpBookFolder</key>
-	<string>NicePlayer.help</string>
-	<key>CFBundleHelpBookName</key>
-	<string>indy.jt.niceplayer.help</string>
 	<key>CFBundleIconFile</key>
 	<string>NiceIcon</string>
 	<key>CFBundleIdentifier</key>
@@ -592,13 +586,13 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>NicePlayer</string>
+	<string>Noir Player</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>0.97</string>
+	<string>0.1</string>
 	<key>CFBundleSignature</key>
-	<string>nIcE</string>
+	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>601</string>
 	<key>NSAppleScriptEnabled</key>
@@ -607,8 +601,6 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NPApplication</string>
-	<key>SUFeedURL</key>
-	<string>http://niceplayer.googlecode.com/svn/appcast/index.xml</string>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>

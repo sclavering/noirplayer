@@ -44,7 +44,7 @@
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<object class="NSMenuItem" id="769076949">
 						<reference key="NSMenu" ref="236746400"/>
-						<string key="NSTitle">NicePlayer</string>
+						<string key="NSTitle">Noir Player</string>
 						<string key="NSKeyEquiv"/>
 						<int key="NSKeyEquivModMask">1048576</int>
 						<int key="NSMnemonicLoc">2147483647</int>
@@ -58,12 +58,12 @@
 						</object>
 						<string key="NSAction">submenuAction:</string>
 						<object class="NSMenu" key="NSSubmenu" id="262009943">
-							<string key="NSTitle">NicePlayer</string>
+							<string key="NSTitle">Noir Player</string>
 							<object class="NSMutableArray" key="NSMenuItems">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSMenuItem" id="915024283">
 									<reference key="NSMenu" ref="262009943"/>
-									<string key="NSTitle">About NicePlayer</string>
+									<string key="NSTitle">About Noir Player</string>
 									<string key="NSKeyEquiv"/>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1056899151"/>
@@ -112,7 +112,7 @@
 								</object>
 								<object class="NSMenuItem" id="182713153">
 									<reference key="NSMenu" ref="262009943"/>
-									<string key="NSTitle">Hide NicePlayer</string>
+									<string key="NSTitle">Hide Noir Player</string>
 									<string key="NSKeyEquiv">h</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -150,7 +150,7 @@
 								</object>
 								<object class="NSMenuItem" id="700261071">
 									<reference key="NSMenu" ref="262009943"/>
-									<string key="NSTitle">Quit NicePlayer</string>
+									<string key="NSTitle">Quit Noir Player</string>
 									<string key="NSKeyEquiv">q</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
