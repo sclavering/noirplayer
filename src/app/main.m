@@ -36,8 +36,7 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import <Cocoa/Cocoa.h>
-#import <Foundation/NSDebug.h>
+@import Cocoa;
 
 int main(int argc, const char *argv[])
 {

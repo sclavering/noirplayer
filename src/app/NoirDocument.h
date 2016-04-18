@@ -36,9 +36,8 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
+@import Cocoa;
 
-
-#import <Cocoa/Cocoa.h>
 #import <Carbon/Carbon.h>
 #import "NPMovieView.h"
 #import "NoirWindow.h"

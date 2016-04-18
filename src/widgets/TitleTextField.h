@@ -36,7 +36,7 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import <Cocoa/Cocoa.h>
+@import Cocoa;
 
 @interface TitleTextField : NSTextField
 {
