@@ -107,10 +107,10 @@
                             <outlet property="theNoirWindow" destination="5" id="104"/>
                         </connections>
                     </textField>
-                    <button tag="666" id="93" customClass="NPScalingButton">
+                    <button tag="666" id="93">
                         <rect key="frame" x="4" y="0.0" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" alternateImage="close-highlight" tag="666" inset="2" id="264">
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" alternateImage="close-highlight" tag="666" imageScaling="proportionallyDown" inset="2" id="264">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -118,10 +118,10 @@
                             <action selector="performClose:" target="5" id="175"/>
                         </connections>
                     </button>
-                    <button id="94" customClass="NPScalingButton">
+                    <button id="94">
                         <rect key="frame" x="24" y="0.0" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="minimize" imagePosition="only" alignment="center" inset="2" id="265">
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="minimize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="265">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system" size="10"/>
                         </buttonCell>
