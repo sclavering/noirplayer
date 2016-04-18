@@ -42,16 +42,12 @@
 
 @interface ControlPlay : NPScalingButton {
     id actionView;
-    BOOL start;
-    BOOL activated;
-    NSTrackingRectTag tRectTag;
 	BOOL iAmPlaying;
 }
 
 -(void)setActionView:(id)aView;
 -(BOOL)isInFinalState;
 -(void)mousePressed:(id)sender;
--(void)makeTrackingRect;
 
 -(void)changeToProperButton:(BOOL)isPlaying;
 -(void)changeToPauseButton;

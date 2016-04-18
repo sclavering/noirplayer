@@ -46,18 +46,11 @@
 	self.target = self;
 	self.action = @selector(mousePressed:);
 	[self setContinuous:YES];
-	
-	/* The following line controls mouse over highlights. */
-	[self makeTrackingRect];
 }
 
 -(void)setActionView:(id)aView
 {
 	actionView = aView;
-}
-
--(void)mouseStart
-{
 }
 
 -(BOOL)isInFinalState
@@ -69,10 +62,6 @@
 
 -(void)mousePressed:(id)sender
 {
-	if(!start){
-		[self mouseStart];
-		start = YES;
-	}
 	if([self isInFinalState]){
 		[self mouseUp:nil];
 	}
@@ -80,41 +69,16 @@
 
 -(void)mouseUp:(NSEvent *)theEvent
 {
-	start = NO;
 	[super mouseUp:theEvent];
 	self.state = NSOffState;
 }
 
-/* For mouseover changes */
-
--(void)setFrame:(NSRect)frameRect
-{
-	super.bounds = frameRect;
-	[self makeTrackingRect];
-}
-
--(void)setBounds:(NSRect)boundsRect
-{
-	super.bounds = boundsRect;
-	[self makeTrackingRect];
-}
-
--(void)makeTrackingRect
-{
-	if(tRectTag)
-		[self removeTrackingRect:tRectTag];
-	tRectTag = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
-}
-
 -(instancetype)initWithFrame:(NSRect)rect
 {
-    if ((self = [super initWithFrame:rect])) {
-		start = NO;
-		activated = NO;
-		tRectTag = 0;
+	if ((self = [super initWithFrame:rect])) {
 		[self changeToProperButton:NO];
 	}
-    return self;
+	return self;
 }
 
 -(void)mouseDown:(NSEvent *)theEvent
