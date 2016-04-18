@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CC866D0831DDA800027929 /* QTKit.framework */; };
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
-		252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */ = {isa = PBXBuildFile; fileRef = 252BDDD7076A4744006CF96B /* ControlPlay.h */; };
-		252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 252BDDD8076A4744006CF96B /* ControlPlay.m */; };
 		257D61680753F92D00702BD0 /* NPMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D61660753F92D00702BD0 /* NPMovieView.h */; };
 		257D61690753F92D00702BD0 /* NPMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257D61670753F92D00702BD0 /* NPMovieView.m */; };
 		258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258C2B700A2D713E00AC22BB /* IOKit.framework */; };
@@ -63,8 +61,6 @@
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		252BDDD7076A4744006CF96B /* ControlPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlPlay.h; path = src/widgets/ControlPlay.h; sourceTree = "<group>"; };
-		252BDDD8076A4744006CF96B /* ControlPlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlPlay.m; path = src/widgets/ControlPlay.m; sourceTree = "<group>"; };
 		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = src/app/NPMovieView.h; sourceTree = "<group>"; };
 		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = src/app/NPMovieView.m; sourceTree = "<group>"; };
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
@@ -207,8 +203,6 @@
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
 				3E95D4A006613F05008755D1 /* BlackWindow.m */,
-				252BDDD7076A4744006CF96B /* ControlPlay.h */,
-				252BDDD8076A4744006CF96B /* ControlPlay.m */,
 				3E9E628E0661708200B788A8 /* NoirScrubber.h */,
 				3E9E628F0661708200B788A8 /* NoirScrubber.m */,
 				3E110B61069BD80100C5800B /* TitleTextField.h */,
@@ -286,7 +280,6 @@
 				259CC53907374066001ED5FA /* NPApplication.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61680753F92D00702BD0 /* NPMovieView.h in Headers */,
-				252BDDD9076A4744006CF96B /* ControlPlay.h in Headers */,
 				6974971F0B56033F0030D4D2 /* TitleBackgroundView.h in Headers */,
 				6977CC670CE3DF8B00B4EBB6 /* NPScalingButton.h in Headers */,
 			);
@@ -387,7 +380,6 @@
 				259CC53A07374066001ED5FA /* NPApplication.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NPMovieView.m in Sources */,
-				252BDDDA076A4744006CF96B /* ControlPlay.m in Sources */,
 				697497200B56033F0030D4D2 /* TitleBackgroundView.m in Sources */,
 				6977CD5A0CE3F63000B4EBB6 /* NPScalingButton.m in Sources */,
 			);

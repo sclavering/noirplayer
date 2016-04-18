@@ -40,7 +40,6 @@
 
 @class NPMovieView;
 @class NoirScrubber;
-@class ControlPlay;
 
 @interface NoirWindow : NSWindow
 {
@@ -53,7 +52,7 @@
 
     IBOutlet NoirScrubber* theScrubBar;
     IBOutlet id theTimeField;
-    IBOutlet ControlPlay* thePlayButton;
+    IBOutlet NSButton* thePlayButton;
 	
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;
@@ -135,5 +134,10 @@
 #pragma mark Accessor Methods
 
 -(id)playButton;
+
+#pragma mark -
+#pragma mark Misc
+
+-(void)updatePlayButton:(BOOL)isPlaying;
 
 @end

@@ -43,7 +43,6 @@
 #import "NoirScrubber.h"
 #import "NoirWindow.h"
 #import "NPApplication.h"
-#import "ControlPlay.h"
 
 #define SCRUB_STEP_DURATION 5
 
@@ -100,6 +99,7 @@
     [self makeFirstResponder:self]; 
     [self setAcceptsMouseMovedEvents:YES];
     
+    [thePlayButton.cell setImageScaling:NSImageScaleProportionallyDown];
     thePlayButton.keyEquivalent = @" ";
     thePlayButton.target = self;
     thePlayButton.action = @selector(doTogglePlaying);
@@ -108,6 +108,16 @@
 // xxx this should probably live elsewhere
 -(void)doTogglePlaying {
     [[theMovieView noirDocument] togglePlayingMovie];
+}
+
+-(void)updatePlayButton:(BOOL)isPlaying {
+    if(isPlaying) {
+        thePlayButton.image = [NSImage imageNamed:@"pause"];
+        thePlayButton.alternateImage = [NSImage imageNamed:@"pauseClick"];
+    } else {
+        thePlayButton.image = [NSImage imageNamed:@"play"];
+        thePlayButton.alternateImage = [NSImage imageNamed:@"playClick"];
+    }
 }
 
 -(void)close

@@ -37,7 +37,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NoirDocument.h"
-#import "ControlPlay.h"
 #import "NPApplication.h"
 
 
@@ -287,13 +286,13 @@ stuff won't work properly! */
 -(void)playMovie
 {
     [movie play];
-    [[theWindow playButton] changeToProperButton:[self isPlaying]];
+    [theWindow updatePlayButton:[self isPlaying]];
 }
 
 -(void)pauseMovie
 {
     [movie stop];
-    [[theWindow playButton] changeToProperButton:[self isPlaying]];
+    [theWindow updatePlayButton:[self isPlaying]];
 }
 
 #pragma mark Stepping

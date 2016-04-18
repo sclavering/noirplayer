@@ -39,7 +39,6 @@
 @import Cocoa;
 #import <QTKit/QTKit.h>
 
-@class ControlPlay;
 @class NoirWindow;
 @class NoirDocument;
 

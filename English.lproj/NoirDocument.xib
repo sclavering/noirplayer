@@ -57,7 +57,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="426" height="32"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     </customView>
-                    <button id="34" customClass="ControlPlay">
+                    <button id="34">
                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <buttonCell key="cell" type="square" title="Play" bezelStyle="shadowlessSquare" image="play" imagePosition="only" alignment="center" alternateImage="playClick" inset="2" id="256">

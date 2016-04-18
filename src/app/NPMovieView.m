@@ -37,7 +37,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NPMovieView.h"
-#import "ControlPlay.h"
 #import "NoirWindow.h"
 #import "NoirDocument.h"
 
