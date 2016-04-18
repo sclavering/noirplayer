@@ -1,10 +1,3 @@
-/**
- * BlackWindow.m
- * NicePlayer
- *
- * The black window that forms the background behind a movie when it is displayed full screen.
- */
-
 /* ***** BEGIN LICENSE BLOCK *****
 * Version: MPL 1.1/GPL 2.0/LGPL 2.1
 *
@@ -42,6 +35,9 @@
 * the terms of any one of the MPL, the GPL or the LGPL.
 *
 * ***** END LICENSE BLOCK ***** */
+
+
+// The black window that forms the background behind a movie when it is displayed full screen.
 
 #import "BlackWindow.h"
 
