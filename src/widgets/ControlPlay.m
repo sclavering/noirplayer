@@ -44,8 +44,7 @@
 -(void)awakeFromNib
 {
 	self.target = self;
-	self.action = @selector(mousePressed:);
-	[self setContinuous:YES];
+	self.action = @selector(togglePlaying:);
 }
 
 -(void)setActionView:(id)aView
@@ -53,24 +52,8 @@
 	actionView = aView;
 }
 
--(BOOL)isInFinalState
-{
-	if(self.state == NSOffState)
-		return YES;
-	return NO;
-}
-
--(void)mousePressed:(id)sender
-{
-	if([self isInFinalState]){
-		[self mouseUp:nil];
-	}
-}
-
--(void)mouseUp:(NSEvent *)theEvent
-{
-	[super mouseUp:theEvent];
-	self.state = NSOffState;
+-(void)togglePlaying:(id)sender {
+  [[actionView noirDocument] togglePlayingMovie];
 }
 
 -(instancetype)initWithFrame:(NSRect)rect
@@ -79,13 +62,6 @@
 		[self changeToProperButton:NO];
 	}
 	return self;
-}
-
--(void)mouseDown:(NSEvent *)theEvent
-{
-	self.state = NSOnState;
-	[super mouseDown:theEvent];
-	[[actionView noirDocument] togglePlayingMovie];
 }
 
 -(void)changeToProperButton:(BOOL)isPlaying
@@ -108,15 +84,6 @@
 {
 	self.image = [NSImage imageNamed:@"play"];
 	self.alternateImage = [NSImage imageNamed:@"playClick"];
-}
-
--(void)mouseExited:(NSEvent *)theEvent
-{
-	if(iAmPlaying)
-		self.image = [NSImage imageNamed:@"pause"];
-	else
-		self.image = [NSImage imageNamed:@"play"];
-	[self mouseUp:theEvent];
 }
 
 @end
