@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NicePlayer.xcodeproj">
+      location = "self:NoirPlayer.xcodeproj">
    </FileRef>
 </Workspace>

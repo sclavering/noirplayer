@@ -578,7 +578,7 @@
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
-	<string>NicePlayer</string>
+	<string>NoirPlayer</string>
 	<key>CFBundleIconFile</key>
 	<string>NiceIcon</string>
 	<key>CFBundleIdentifier</key>
@@ -609,7 +609,7 @@
 				<string>public.avi</string>
 			</array>
 			<key>UTTypeIdentifier</key>
-			<string>indy.jt.niceplayer.divx</string>
+			<string>uk.me.clav.noirplayer.divx</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
@@ -624,7 +624,7 @@
 				<string>public.movie</string>
 			</array>
 			<key>UTTypeIdentifier</key>
-			<string>indy.jt.niceplayer.mkv</string>
+			<string>uk.me.clav.noirplayer.mkv</string>
 			<key>UTTypeTagSpecification</key>
 			<dict>
 				<key>public.filename-extension</key>
