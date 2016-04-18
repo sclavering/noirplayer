@@ -41,21 +41,6 @@
 
 @implementation ControlPlay
 
--(void)awakeFromNib
-{
-	self.target = self;
-	self.action = @selector(togglePlaying:);
-}
-
--(void)setActionView:(id)aView
-{
-	actionView = aView;
-}
-
--(void)togglePlaying:(id)sender {
-  [[actionView noirDocument] togglePlayingMovie];
-}
-
 -(instancetype)initWithFrame:(NSRect)rect
 {
 	if ((self = [super initWithFrame:rect])) {
@@ -66,7 +51,6 @@
 
 -(void)changeToProperButton:(BOOL)isPlaying
 {
-	iAmPlaying = isPlaying;
 	if(isPlaying){
 		[self changeToPauseButton];
 	} else {

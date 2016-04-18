@@ -101,7 +101,13 @@
     [self setAcceptsMouseMovedEvents:YES];
     
     thePlayButton.keyEquivalent = @" ";
-    [thePlayButton setActionView:theMovieView];
+    thePlayButton.target = self;
+    thePlayButton.action = @selector(doTogglePlaying);
+}
+
+// xxx this should probably live elsewhere
+-(void)doTogglePlaying {
+    [[theMovieView noirDocument] togglePlayingMovie];
 }
 
 -(void)close

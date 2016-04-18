@@ -41,12 +41,7 @@
 #import "NPScalingButton.h"
 
 @interface ControlPlay : NPScalingButton {
-    id actionView;
-	BOOL iAmPlaying;
 }
-
--(void)setActionView:(id)aView;
--(void)togglePlaying:(id)sender;
 
 -(void)changeToProperButton:(BOOL)isPlaying;
 -(void)changeToPauseButton;
