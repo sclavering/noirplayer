@@ -3,21 +3,12 @@
 //
 
 #import "NPScalingButton.h"
-#import "NPScalingButtonCell.h"
 
 @implementation NPScalingButton
 
 -(instancetype)initWithCoder:(id)aCoder{
     self =[super initWithCoder:aCoder];
-	 NSButtonCell* tCell =[ [[NPScalingButtonCell alloc] init] autorelease];
-	tCell.bezelStyle = NSRegularSquareBezelStyle;
-	tCell.image = self.cell.image;
-    [tCell setAlternateImage:[self.cell alternateImage]];
-	tCell.highlightsBy = NSContentsCellMask;
-
-	[tCell setBordered:NO];
-	self.cell = tCell;
-	
+    [self.cell setImageScaling:NSImageScaleProportionallyDown];
     return self;
 }
 
