@@ -37,7 +37,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "ControlPlay.h"
-#import "NiceDocument.h"
+#import "NoirDocument.h"
 
 @implementation ControlPlay
 
@@ -121,7 +121,7 @@
 {
 	[self setState:NSOnState];
 	[super mouseDown:theEvent];
-	[[actionView niceDocument] togglePlayingMovie];
+	[[actionView noirDocument] togglePlayingMovie];
 }
 
 -(void)changeToProperButton:(BOOL)isPlaying

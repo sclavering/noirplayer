@@ -14,8 +14,8 @@
 * The Original Code is NicePlayer.
 *
 * The Initial Developer of the Original Code is
-* James Tuley & Robert Chin.
-* Portions created by the Initial Developer are Copyright (C) 2004-2006
+* Jay Tuley & Robert Chin.
+* Portions created by the Initial Developer are Copyright (C) 2004-2005
 * the Initial Developer. All Rights Reserved.
 *
 * Contributor(s):
@@ -36,23 +36,45 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
+
 #import <AppKit/AppKit.h>
+#import <Carbon/Carbon.h>
+#import "BlackWindow.h"
+#import "NoirWindow.h"
 
-
-@interface NiceScrubber : NSControl {
-    NSImage* scrub;
-    double value;
-	double loaded;
-    id target;
-    SEL action;
-    bool dragging;
+@interface NoirController : NSDocumentController {
+    bool fullScreenMode;
+    NSDate* lastCursorMoveDate;
+    NSPoint lastMouseLocation;
+    NSTimer* mouseMoveTimer;
+    id backgroundWindow;
+    id antiSleepTimer;
 }
 
--(double)loadedValue;
--(void)setLoadedValue:(double)aValue;
--(double)doubleValue;
--(void)setDoubleValue:(double)aValue;
++(id)controller;
++(void)setController:(id)aNoirController;
 
--(void)_doUpdate:(NSEvent*)ev;
+-(void)checkMouseLocation:(id)sender;
+-(id)mainDocument;
+-(void)changedWindow:(NSNotification *)notification;
+
+#pragma mark -
+#pragma mark Interface
+
+-(IBAction)openDocument:(id)sender;
+-(IBAction)toggleFullScreen:(id)sender;
+
+#pragma mark -
+#pragma mark Presentation
+
+-(void)presentScreen;
+-(void)unpresentScreen;
+-(void)enterFullScreen;
+-(void)exitFullScreen;
+
+#pragma mark -
+#pragma mark Accessor Methods
+
+-(id)backgroundWindow;
 
 @end

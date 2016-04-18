@@ -41,7 +41,7 @@
  */
 
 #import "OverlaysControl.h"
-#import "NiceWindow.h"
+#import "NoirWindow.h"
 
 static id overlayControl = nil;
 
@@ -75,7 +75,7 @@ static id overlayControl = nil;
 	return NSMouseInRect(aScreenPoint, [aWindow frame], NO);
 }
 
--(BOOL)inControlRegion:(NSPoint)aScreenPoint forWindow:(NiceWindow *)aWindow
+-(BOOL)inControlRegion:(NSPoint)aScreenPoint forWindow:(NoirWindow *)aWindow
 {
     if([aWindow isFullScreen]){
 	NSRect mainScreenFrame = [[NSScreen mainScreen] frame];
@@ -97,7 +97,7 @@ static id overlayControl = nil;
     return NSMouseInRect([aWindow convertScreenToBase:aScreenPoint], tempRect, NO);
 }
 
--(BOOL)inTitleRegion:(NSPoint)aScreenPoint forWindow:(NiceWindow*)aWindow
+-(BOOL)inTitleRegion:(NSPoint)aScreenPoint forWindow:(NoirWindow*)aWindow
 {
     if([aWindow isFullScreen]){
 		NSRect mainScreenFrame = [[NSScreen mainScreen] frame];
@@ -125,7 +125,7 @@ static id overlayControl = nil;
     BOOL hitTopMost = NO;
     for(unsigned i = 0; i < [someWindows count]; i++) {
         id aWindow = [someWindows objectAtIndex:i];
-        if(![aWindow isKindOfClass:[NiceWindow class]]) continue;
+        if(![aWindow isKindOfClass:[NoirWindow class]]) continue;
         if(!hitTopMost) {
             if([self showOverlayForWindow:aWindow atPoint:aScreenPoint]) {
                 hitTopMost = YES;
@@ -139,7 +139,7 @@ static id overlayControl = nil;
     }
 }
 
--(BOOL)showOverlayForWindow:(NiceWindow *)aWindow atPoint:(NSPoint)aScreenPoint
+-(BOOL)showOverlayForWindow:(NoirWindow *)aWindow atPoint:(NSPoint)aScreenPoint
 {
     if([self inControlRegion:aScreenPoint forWindow:aWindow]){
 		[aWindow showOverlayControlBar];

@@ -38,7 +38,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@class NiceWindow;
+@class NoirWindow;
 
 @interface OverlaysControl : NSObject {
 }
@@ -46,6 +46,6 @@
 +(id)control;
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint;
 
--(BOOL)showOverlayForWindow:(NiceWindow *)aWindow atPoint:(NSPoint)aScreenPoint;
+-(BOOL)showOverlayForWindow:(NoirWindow *)aWindow atPoint:(NSPoint)aScreenPoint;
 
 @end

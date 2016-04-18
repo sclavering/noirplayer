@@ -37,8 +37,8 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import <AppKit/AppKit.h>
-#import "NiceController.h"
-#import "NiceWindow.h"
+#import "NoirController.h"
+#import "NoirWindow.h"
 
 @interface BlackWindow : NSWindow {
     id presentingWindow;

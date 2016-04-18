@@ -36,23 +36,23 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "NiceController.h"
+#import "NoirController.h"
 #import "NPApplication.h"
-#import "NiceDocument.h"
+#import "NoirDocument.h"
 
 
 id controller;
 
-@implementation NiceController
+@implementation NoirController
 
 +(id)controller
 {
     return controller;
 }
 
-+(void)setController:(id)aNiceController
++(void)setController:(id)aNoirController
 {
-    controller = aNiceController;
+    controller = aNoirController;
 }
 
 -(void)awakeFromNib
@@ -62,7 +62,7 @@ id controller;
     mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkMouseLocation:) userInfo:nil repeats:YES]; // Auto-hides mouse.
     lastCursorMoveDate = [[NSDate alloc] init];
     backgroundWindow = [[BlackWindow alloc] init];
-    [NiceController setController:self];
+    [NoirController setController:self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changedWindow:) name:@"NSWindowDidBecomeMainNotification" object:nil];
     antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(preventSleep:) userInfo:nil repeats:YES];
     [NSApp setDelegate:self];
@@ -146,7 +146,7 @@ id controller;
 {
     if(fullScreenMode) {
         [self exitFullScreen];
-    } else if([[NSApp mainWindow] isKindOfClass:[NiceWindow self]]) {
+    } else if([[NSApp mainWindow] isKindOfClass:[NoirWindow self]]) {
         [self enterFullScreen];
     }
 }

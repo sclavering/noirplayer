@@ -38,7 +38,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "NiceController.h"
+#import "NoirController.h"
 
 @interface NPApplication : NSApplication {
 	NSPoint lastPoint;

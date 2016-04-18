@@ -38,21 +38,21 @@
 
 #import "NPMovieView.h"
 #import "ControlPlay.h"
-#import "NiceWindow.h"
-#import "NiceDocument.h"
+#import "NoirWindow.h"
+#import "NoirDocument.h"
 
 #define SCRUB_STEP_DURATION 5
 
 @implementation NPMovieView
 
--(NiceDocument*)niceDocument
+-(NoirDocument*)noirDocument
 {
     return [[[self window] windowController] document];
 }
 
--(NiceWindow*)niceWindow
+-(NoirWindow*)noirWindow
 {
-    return (NiceWindow*) [self window];
+    return (NoirWindow*) [self window];
 }
 
 -(id)initWithFrame:(NSRect)aRect
@@ -133,8 +133,8 @@
 
 -(IBAction)scrub:(id)sender
 {
-    [[self niceDocument] setMovieTimeByFraction:[sender doubleValue]];
-    [[self niceWindow] updateByTime:sender];
+    [[self noirDocument] setMovieTimeByFraction:[sender doubleValue]];
+    [[self noirWindow] updateByTime:sender];
 }
 
 #pragma mark -
@@ -146,30 +146,30 @@
     
     switch([[anEvent characters] characterAtIndex:0]){
 		case ' ':
-			if(![anEvent isARepeat]) [[self niceDocument] togglePlayingMovie];
+			if(![anEvent isARepeat]) [[self noirDocument] togglePlayingMovie];
 			break;
 		case NSRightArrowFunctionKey:
-            if(![anEvent isARepeat]) [[self niceDocument] startStepping];
-            [[self niceDocument] stepBy:SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [[self noirDocument] startStepping];
+            [[self noirDocument] stepBy:SCRUB_STEP_DURATION];
 			break;
 		case NSLeftArrowFunctionKey:
 			if([anEvent modifierFlags] & NSCommandKeyMask){
-                [[self niceDocument] setCurrentMovieTime:0];
+                [[self noirDocument] setCurrentMovieTime:0];
 				break;
 			}
-            if(![anEvent isARepeat]) [[self niceDocument] startStepping];
-            [[self niceDocument] stepBy:-SCRUB_STEP_DURATION];
+            if(![anEvent isARepeat]) [[self noirDocument] startStepping];
+            [[self noirDocument] stepBy:-SCRUB_STEP_DURATION];
 			break;
 		case NSUpArrowFunctionKey:
-			[[self niceDocument] incrementVolume];
-			[[self niceWindow] showVolumeOverlay];
+			[[self noirDocument] incrementVolume];
+			[[self noirWindow] showVolumeOverlay];
 			break;
 		case NSDownArrowFunctionKey:
-			[[self niceDocument] decrementVolume];
-			[[self niceWindow] showVolumeOverlay];
+			[[self noirDocument] decrementVolume];
+			[[self noirWindow] showVolumeOverlay];
 			break;
 		case 0x1B:
-			[[self niceWindow] unFullScreen];
+			[[self noirWindow] unFullScreen];
 			break;
 		default:
 			[super keyDown:anEvent];
@@ -184,10 +184,10 @@
 		case ' ':
 			break;
 		case NSRightArrowFunctionKey:
-			[[self niceDocument] endStepping];
+			[[self noirDocument] endStepping];
 			break;
 		case NSLeftArrowFunctionKey:
-			[[self niceDocument] endStepping];
+			[[self noirDocument] endStepping];
 			break;
 		default:
 			[super keyUp:anEvent];
@@ -204,22 +204,22 @@
 
 - (void)mouseDown:(NSEvent *)anEvent
 {
-    [[self niceWindow] mouseDown:anEvent];
+    [[self noirWindow] mouseDown:anEvent];
 }
 
 - (void)mouseUp:(NSEvent *)anEvent
 {
-	[[self niceWindow] mouseUp:anEvent];
+	[[self noirWindow] mouseUp:anEvent];
 }
 
 - (void)mouseMoved:(NSEvent *)anEvent
 {
-	[[self niceWindow] mouseMoved:anEvent];
+	[[self noirWindow] mouseMoved:anEvent];
 }
 
 -(void)mouseDragged:(NSEvent *)anEvent
 {
-    [[self niceWindow] mouseDragged:anEvent];
+    [[self noirWindow] mouseDragged:anEvent];
 }
 
 #pragma mark -

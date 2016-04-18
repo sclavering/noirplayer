@@ -14,8 +14,8 @@
 * The Original Code is NicePlayer.
 *
 * The Initial Developer of the Original Code is
-* Jay Tuley & Robert Chin.
-* Portions created by the Initial Developer are Copyright (C) 2004-2005
+* James Tuley & Robert Chin.
+* Portions created by the Initial Developer are Copyright (C) 2004-2006
 * the Initial Developer. All Rights Reserved.
 *
 * Contributor(s):
@@ -37,44 +37,70 @@
 * ***** END LICENSE BLOCK ***** */
 
 
-#import <AppKit/AppKit.h>
-#import <Carbon/Carbon.h>
-#import "BlackWindow.h"
-#import "NiceWindow.h"
 
-@interface NiceController : NSDocumentController {
-    bool fullScreenMode;
-    NSDate* lastCursorMoveDate;
-    NSPoint lastMouseLocation;
-    NSTimer* mouseMoveTimer;
-    id backgroundWindow;
-    id antiSleepTimer;
+#import <Cocoa/Cocoa.h>
+#import <Carbon/Carbon.h>
+#import "NPMovieView.h"
+#import "NoirWindow.h"
+
+@class NoirWindow;
+@class NPMovieView;
+
+enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
+
+@interface NoirDocument : NSDocument
+{
+    IBOutlet NPMovieView *theMovieView;
+    IBOutlet NoirWindow *theWindow;
+    NSMutableArray *menuObjects;
+    BOOL wasPlayingBeforeMini;
+    QTMovie* movie;
+    enum PreStepingStates preSteppingState;
 }
 
-+(id)controller;
-+(void)setController:(id)aNiceController;
+-(NSData *)dataRepresentationOfType:(NSString *)aType;
 
--(void)checkMouseLocation:(id)sender;
--(id)mainDocument;
--(void)changedWindow:(NSNotification *)notification;
+#pragma mark Window Information
 
-#pragma mark -
-#pragma mark Interface
+-(void)windowDidDeminiaturize:(NSNotification *)aNotification;
+-(void)windowControllerDidLoadNib:(NSWindowController *) aController;
+-(NSMenu *)movieMenu;
+-(void)rebuildMenu;
+-(NSMutableArray*)videoMenuItems;
+-(NSMenu*)audioTrackMenu;
+-(NSMenu*)videoTrackMenu;
+-(NSMenu*)aspectRatioMenu;
+-(id)window;
 
--(IBAction)openDocument:(id)sender;
--(IBAction)toggleFullScreen:(id)sender;
+-(NSSize)naturalSize;
+-(double)percentLoaded;
 
-#pragma mark -
-#pragma mark Presentation
+#pragma mark Play/Pause
 
--(void)presentScreen;
--(void)unpresentScreen;
--(void)enterFullScreen;
--(void)exitFullScreen;
+-(BOOL)isPlaying;
+-(void)togglePlayingMovie;
+-(void)playMovie;
+-(void)pauseMovie;
 
-#pragma mark -
-#pragma mark Accessor Methods
+#pragma mark Stepping
 
--(id)backgroundWindow;
+-(void)startStepping;
+-(void)stepBy:(int)aSeconds;
+-(void)endStepping;
+
+#pragma mark Time
+
+-(double)totalTime;
+-(double)currentMovieTime;
+-(void)setCurrentMovieTime:(double)aDouble;
+-(double)currentTimeAsFraction;
+-(void)setMovieTimeByFraction:(double)when;
+
+#pragma mark Volume
+
+-(float)volume;
+-(void)setVolume:(float)aVolume;
+-(void)incrementVolume;
+-(void)decrementVolume;
 
 @end

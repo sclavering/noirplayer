@@ -40,8 +40,8 @@
 #import <QTKit/QTKit.h>
 
 @class ControlPlay;
-@class NiceWindow;
-@class NiceDocument;
+@class NoirWindow;
+@class NoirDocument;
 
 @interface NPMovieView : NSView {
     QTMovie* movie;
@@ -49,8 +49,8 @@
     NSTrackingRectTag trackingRect;
 }
 
--(NiceDocument*)niceDocument;
--(NiceWindow*)niceWindow;
+-(NoirDocument*)noirDocument;
+-(NoirWindow*)noirWindow;
 
 -(void)openMovie:(QTMovie*)movie;
 -(void)close;

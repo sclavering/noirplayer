@@ -36,7 +36,7 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "NiceDocument.h"
+#import "NoirDocument.h"
 #import "ControlPlay.h"
 #import "NPApplication.h"
 
@@ -45,7 +45,7 @@
 -(QTTime)maxTimeLoaded;
 @end
 
-@implementation NiceDocument
+@implementation NoirDocument
 
 - (id)init
 {
@@ -130,7 +130,7 @@
 
 - (void)makeWindowControllers
 {
-	NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NiceDocument" owner:self];
+	NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
     [self addWindowController:controller];
 	[controller release];
 }
@@ -138,7 +138,7 @@
 - (void)showWindows
 {
     [super showWindows];
-    [(NiceWindow *)[self window] setupOverlays];
+    [(NoirWindow *)[self window] setupOverlays];
 }
 
 -(NSMenu *)movieMenu

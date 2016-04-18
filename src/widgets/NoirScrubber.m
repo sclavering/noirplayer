@@ -36,12 +36,12 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "NiceScrubber.h"
+#import "NoirScrubber.h"
 #import <Carbon/Carbon.h>
 
 #define OFFSET 10
 
-@implementation NiceScrubber
+@implementation NoirScrubber
 
 - (id)initWithFrame:(NSRect)frame
 {

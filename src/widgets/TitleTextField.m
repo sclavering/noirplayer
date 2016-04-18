@@ -44,16 +44,16 @@
 - (void)mouseDown:(NSEvent *)theEvent
 {
 		if([theEvent clickCount]>1)
-        [theNiceWindow performMiniaturize:theEvent];
+        [theNoirWindow performMiniaturize:theEvent];
 		else
-			[theNiceWindow mouseDown:theEvent];
+			[theNoirWindow mouseDown:theEvent];
 }
 
 
 
 - (void)mouseDragged:(NSEvent *)theEvent
 {
-    [theNiceWindow mouseDragged:theEvent];
+    [theNoirWindow mouseDragged:theEvent];
 }
 
 @end

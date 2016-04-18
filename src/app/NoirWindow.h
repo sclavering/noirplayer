@@ -39,10 +39,10 @@
 #import <Cocoa/Cocoa.h>
 
 @class NPMovieView;
-@class NiceScrubber;
+@class NoirScrubber;
 @class ControlPlay;
 
-@interface NiceWindow : NSWindow
+@interface NoirWindow : NSWindow
 {
     IBOutlet NPMovieView* theMovieView;
     IBOutlet id theOverlayControllerWindow;
@@ -51,7 +51,7 @@
     IBOutlet id theVolumeView;
     IBOutlet id theTitleField;
 
-    IBOutlet NiceScrubber* theScrubBar;
+    IBOutlet NoirScrubber* theScrubBar;
     IBOutlet id theTimeField;
     IBOutlet ControlPlay* thePlayButton;
 	

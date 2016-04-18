@@ -41,7 +41,7 @@
  */
 
 #import "OverlayWindow.h"
-#import "NiceWindow.h"
+#import "NoirWindow.h"
 
 @implementation OverlayWindow
 
@@ -78,7 +78,7 @@
 -(void)mouseMoved:(NSEvent *)anEvent
 {
     NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
-					   location:[((NiceWindow *)[self parentWindow]) convertScreenToBase:[NSEvent mouseLocation]]
+					   location:[((NoirWindow *)[self parentWindow]) convertScreenToBase:[NSEvent mouseLocation]]
 				      modifierFlags:0
 					  timestamp:0
 				       windowNumber:0
@@ -86,7 +86,7 @@
 					eventNumber:0
 					 clickCount:0
 					   pressure:1.0];
-    [((NiceWindow *)[self parentWindow]) mouseMoved:newEvent];
+    [((NoirWindow *)[self parentWindow]) mouseMoved:newEvent];
 }
 
 - (void)mouseEntered:(NSEvent *)theEvent
@@ -102,7 +102,7 @@
 - (void)sendEvent:(NSEvent *)theEvent
 {
 	if([theEvent type] == NSScrollWheel)
-		[((NiceWindow *)[self parentWindow]) scrollWheel:theEvent];
+		[((NoirWindow *)[self parentWindow]) scrollWheel:theEvent];
 	else
 		[super sendEvent:theEvent];
 }

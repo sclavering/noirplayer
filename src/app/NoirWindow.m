@@ -37,18 +37,18 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NPMovieView.h"
-#import "NiceDocument.h"
+#import "NoirDocument.h"
 #import "OverlaysControl.h"
-#import "NiceController.h"
-#import "NiceScrubber.h"
-#import "NiceWindow.h"
+#import "NoirController.h"
+#import "NoirScrubber.h"
+#import "NoirWindow.h"
 #import "NPApplication.h"
 #import "ControlPlay.h"
 
 #define SCRUB_STEP_DURATION 5
 
 
-@implementation NiceWindow
+@implementation NoirWindow
 
 -(float)scrubberHeight
 {
@@ -177,7 +177,7 @@
 
 -(void)updateVolume
 {
-    [theVolumeView setVolume:[[theMovieView niceDocument] volume]];
+    [theVolumeView setVolume:[[theMovieView noirDocument] volume]];
 }
 
 - (void)performMiniaturize:(id)sender
@@ -190,7 +190,7 @@
     if((sender != self) && [theScrubBar isHidden])
         return;
 
-    NiceDocument* doc = [[self windowController] document];
+    NoirDocument* doc = [[self windowController] document];
 
     int t = [doc totalTime];
     int c = [doc currentMovieTime];
@@ -323,13 +323,13 @@
 
 -(BOOL)toggleWindowFullScreen
 {
-    [[NiceController controller] toggleFullScreen:self];
+    [[NoirController controller] toggleFullScreen:self];
     return fullScreen;
 }
 
 -(void)unFullScreen
 {
-    [[NiceController controller] exitFullScreen];
+    [[NoirController controller] exitFullScreen];
 }
 
 #pragma mark Window Attributes

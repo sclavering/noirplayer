@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="NiceDocument">
+        <customObject id="-2" userLabel="File's Owner" customClass="NoirDocument">
             <connections>
                 <outlet property="theMovieView" destination="120" id="126"/>
                 <outlet property="theWindow" destination="5" id="29"/>
@@ -14,7 +14,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Movie Window" customClass="NiceWindow">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="5" userLabel="Movie Window" customClass="NoirWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" topStrut="YES"/>
             <rect key="contentRect" x="48" y="148" width="320" height="240"/>
@@ -65,7 +65,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
-                    <customView id="79" customClass="NiceScrubber">
+                    <customView id="79" customClass="NoirScrubber">
                         <rect key="frame" x="33" y="0.0" width="298" height="32"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     </customView>
@@ -104,7 +104,7 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
                         </textFieldCell>
                         <connections>
-                            <outlet property="theNiceWindow" destination="5" id="104"/>
+                            <outlet property="theNoirWindow" destination="5" id="104"/>
                         </connections>
                     </textField>
                     <button tag="666" id="93" customClass="NPScalingButton">
@@ -132,7 +132,7 @@
                 </subviews>
             </view>
             <connections>
-                <outlet property="theNiceWindow" destination="5" id="166"/>
+                <outlet property="theNoirWindow" destination="5" id="166"/>
             </connections>
             <point key="canvasLocation" x="287.5" y="334"/>
         </window>

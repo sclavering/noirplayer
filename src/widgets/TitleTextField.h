@@ -40,6 +40,6 @@
 
 @interface TitleTextField : NSTextField
 {
-    IBOutlet id theNiceWindow;
+    IBOutlet id theNoirWindow;
 }
 @end

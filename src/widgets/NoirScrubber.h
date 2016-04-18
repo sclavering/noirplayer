@@ -36,71 +36,23 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
+#import <AppKit/AppKit.h>
 
 
-#import <Cocoa/Cocoa.h>
-#import <Carbon/Carbon.h>
-#import "NPMovieView.h"
-#import "NiceWindow.h"
-
-@class NiceWindow;
-@class NPMovieView;
-
-enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
-
-@interface NiceDocument : NSDocument
-{
-    IBOutlet NPMovieView *theMovieView;
-    IBOutlet NiceWindow *theWindow;
-    NSMutableArray *menuObjects;
-    BOOL wasPlayingBeforeMini;
-    QTMovie* movie;
-    enum PreStepingStates preSteppingState;
+@interface NoirScrubber : NSControl {
+    NSImage* scrub;
+    double value;
+	double loaded;
+    id target;
+    SEL action;
+    bool dragging;
 }
 
--(NSData *)dataRepresentationOfType:(NSString *)aType;
+-(double)loadedValue;
+-(void)setLoadedValue:(double)aValue;
+-(double)doubleValue;
+-(void)setDoubleValue:(double)aValue;
 
-#pragma mark Window Information
-
--(void)windowDidDeminiaturize:(NSNotification *)aNotification;
--(void)windowControllerDidLoadNib:(NSWindowController *) aController;
--(NSMenu *)movieMenu;
--(void)rebuildMenu;
--(NSMutableArray*)videoMenuItems;
--(NSMenu*)audioTrackMenu;
--(NSMenu*)videoTrackMenu;
--(NSMenu*)aspectRatioMenu;
--(id)window;
-
--(NSSize)naturalSize;
--(double)percentLoaded;
-
-#pragma mark Play/Pause
-
--(BOOL)isPlaying;
--(void)togglePlayingMovie;
--(void)playMovie;
--(void)pauseMovie;
-
-#pragma mark Stepping
-
--(void)startStepping;
--(void)stepBy:(int)aSeconds;
--(void)endStepping;
-
-#pragma mark Time
-
--(double)totalTime;
--(double)currentMovieTime;
--(void)setCurrentMovieTime:(double)aDouble;
--(double)currentTimeAsFraction;
--(void)setMovieTimeByFraction:(double)when;
-
-#pragma mark Volume
-
--(float)volume;
--(void)setVolume:(float)aVolume;
--(void)incrementVolume;
--(void)decrementVolume;
+-(void)_doUpdate:(NSEvent*)ev;
 
 @end
