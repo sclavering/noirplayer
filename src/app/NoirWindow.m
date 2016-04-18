@@ -99,7 +99,6 @@
     [self makeFirstResponder:self]; 
     [self setAcceptsMouseMovedEvents:YES];
     
-    [thePlayButton.cell setImageScaling:NSImageScaleProportionallyDown];
     thePlayButton.keyEquivalent = @" ";
     thePlayButton.target = self;
     thePlayButton.action = @selector(doTogglePlaying);
