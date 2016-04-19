@@ -15,6 +15,11 @@
 
 @implementation NoirWindow
 
+-(NoirDocument*)noirDoc
+{
+    return self.windowController.document;
+}
+
 -(float)scrubberHeight
 {
     return [theOverlayControllerWindow frame].size.height;
@@ -69,7 +74,7 @@
 
 // xxx this should probably live elsewhere
 -(void)doTogglePlaying {
-    [[theMovieView noirDocument] togglePlayingMovie];
+    [[self noirDoc] togglePlayingMovie];
 }
 
 -(void)updatePlayButton:(BOOL)isPlaying {
@@ -153,7 +158,7 @@
 
 -(void)updateVolume
 {
-    [theVolumeView setVolume:[[theMovieView noirDocument] volume]];
+    [theVolumeView setVolume:[[self noirDoc] volume]];
     [self showVolumeOverlay];
 }
 

@@ -10,11 +10,6 @@
 
 @implementation NoirMovieView
 
--(NoirDocument*)noirDocument
-{
-    return self.window.windowController.document;
-}
-
 -(NoirWindow*)noirWindow
 {
     return (NoirWindow*) self.window;
@@ -69,7 +64,7 @@
 
 -(IBAction)scrub:(id)sender
 {
-    [[self noirDocument] setMovieTimeByFraction:[sender doubleValue]];
+    [[self.window noirDoc] setMovieTimeByFraction:[sender doubleValue]];
     [[self noirWindow] updateByTime:sender];
 }
 
@@ -82,25 +77,25 @@
     
     switch([anEvent.characters characterAtIndex:0]){
         case ' ':
-            if(!anEvent.ARepeat) [[self noirDocument] togglePlayingMovie];
+            if(!anEvent.ARepeat) [[self.window noirDoc] togglePlayingMovie];
             break;
         case NSRightArrowFunctionKey:
-            if(!anEvent.ARepeat) [[self noirDocument] startStepping];
-            [[self noirDocument] stepBy:SCRUB_STEP_DURATION];
+            if(!anEvent.ARepeat) [[self.window noirDoc] startStepping];
+            [[self.window noirDoc] stepBy:SCRUB_STEP_DURATION];
             break;
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask){
-                [[self noirDocument] setCurrentMovieTime:0];
+                [[self.window noirDoc] setCurrentMovieTime:0];
                 break;
             }
-            if(!anEvent.ARepeat) [[self noirDocument] startStepping];
-            [[self noirDocument] stepBy:-SCRUB_STEP_DURATION];
+            if(!anEvent.ARepeat) [[self.window noirDoc] startStepping];
+            [[self.window noirDoc] stepBy:-SCRUB_STEP_DURATION];
             break;
         case NSUpArrowFunctionKey:
-            [[self noirDocument] incrementVolume];
+            [[self.window noirDoc] incrementVolume];
             break;
         case NSDownArrowFunctionKey:
-            [[self noirDocument] decrementVolume];
+            [[self.window noirDoc] decrementVolume];
             break;
         case 0x1B:
             [[self noirWindow] unFullScreen];
@@ -118,10 +113,10 @@
         case ' ':
             break;
         case NSRightArrowFunctionKey:
-            [[self noirDocument] endStepping];
+            [[self.window noirDoc] endStepping];
             break;
         case NSLeftArrowFunctionKey:
-            [[self noirDocument] endStepping];
+            [[self.window noirDoc] endStepping];
             break;
         default:
             [super keyUp:anEvent];

@@ -6,6 +6,7 @@
 
 @class NoirMovieView;
 @class NoirScrubber;
+@class NoirDocument;
 
 @interface NoirWindow : NSWindow
 {
@@ -34,8 +35,9 @@
     NSPoint initialDrag;
 }
 
--(float)scrubberHeight;
+-(NoirDocument*)noirDoc;
 
+-(float)scrubberHeight;
 -(float)titlebarHeight;
 
 -(BOOL)validateMenuItem:(NSMenuItem*)anItem;

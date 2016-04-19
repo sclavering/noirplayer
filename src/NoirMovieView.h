@@ -13,7 +13,6 @@
     QTMovieLayer* qtlayer;
 }
 
--(NoirDocument*)noirDocument;
 -(NoirWindow*)noirWindow;
 
 -(void)openMovie:(QTMovie*)movie;
