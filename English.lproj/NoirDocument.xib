@@ -53,10 +53,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="416" height="32"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="168" customClass="TitleBackgroundView">
-                        <rect key="frame" x="0.0" y="0.0" width="426" height="32"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                    </customView>
                     <button id="34">
                         <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
