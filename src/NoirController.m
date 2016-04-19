@@ -161,8 +161,4 @@ id controller;
     return backgroundWindow;
 }
 
--(IBAction)dummyMethod:(id)temp
-{
-}
-
 @end
