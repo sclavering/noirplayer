@@ -575,14 +575,4 @@
     if(deltaY) [self resize:deltaY * 5 animate:NO];
 }
 
-#pragma mark -
-#pragma mark Accessor Methods
-
-/* These accessor methods are used to set button attributes by NoirMovieView */
-
--(id)playButton
-{
-    return thePlayButton;
-}
-
 @end

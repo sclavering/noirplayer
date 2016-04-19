@@ -97,11 +97,6 @@
 -(void)scrollWheel:(NSEvent *)anEvent;
 
 #pragma mark -
-#pragma mark Accessor Methods
-
--(id)playButton;
-
-#pragma mark -
 #pragma mark Misc
 
 -(void)updatePlayButton:(BOOL)isPlaying;
