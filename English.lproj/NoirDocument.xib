@@ -87,10 +87,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="167" customClass="TitleBackgroundView">
-                        <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                    </customView>
                     <textField verticalHuggingPriority="750" id="92" customClass="TitleTextField">
                         <rect key="frame" x="49" y="2" width="327" height="20"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
