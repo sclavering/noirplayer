@@ -38,12 +38,12 @@
 
 @import Cocoa;
 
-@class NPMovieView;
+@class NoirMovieView;
 @class NoirScrubber;
 
 @interface NoirWindow : NSWindow
 {
-    IBOutlet NPMovieView* theMovieView;
+    IBOutlet NoirMovieView* theMovieView;
     IBOutlet id theOverlayControllerWindow;
     IBOutlet id theOverlayTitleBar;
     IBOutlet id theOverlayVolume;

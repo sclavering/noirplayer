@@ -36,13 +36,13 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "NPMovieView.h"
+#import "NoirMovieView.h"
 #import "NoirDocument.h"
 #import "OverlaysControl.h"
 #import "NoirController.h"
 #import "NoirScrubber.h"
 #import "NoirWindow.h"
-#import "NPApplication.h"
+#import "NoirApp.h"
 
 #define SCRUB_STEP_DURATION 5
 
@@ -617,7 +617,7 @@
 #pragma mark -
 #pragma mark Accessor Methods
 
-/* These accessor methods are used to set button attributes by NPMovieView */
+/* These accessor methods are used to set button attributes by NoirMovieView */
 
 -(id)playButton
 {

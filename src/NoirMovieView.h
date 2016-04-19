@@ -14,7 +14,7 @@
 * The Original Code is NicePlayer.
 *
 * The Initial Developer of the Original Code is
-* Jay Tuley & Robert Chin.
+* James Tuley & Robert Chin.
 * Portions created by the Initial Developer are Copyright (C) 2004-2005
 * the Initial Developer. All Rights Reserved.
 *
@@ -37,13 +37,21 @@
 * ***** END LICENSE BLOCK ***** */
 
 @import Cocoa;
+#import <QTKit/QTKit.h>
 
-#import "NoirController.h"
+@class NoirWindow;
+@class NoirDocument;
 
-@interface NPApplication : NSApplication {
-	NSPoint lastPoint;
+@interface NoirMovieView : NSView {
+    QTMovie* movie;
+    QTMovieLayer* qtlayer;
+    NSTrackingRectTag trackingRect;
 }
 
--(void)testCursorMovement;
+-(NoirDocument*)noirDocument;
+-(NoirWindow*)noirWindow;
+
+-(void)openMovie:(QTMovie*)movie;
+-(void)close;
 
 @end

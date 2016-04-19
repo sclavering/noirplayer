@@ -38,17 +38,17 @@
 
 @import Cocoa;
 
-#import "NPMovieView.h"
+#import "NoirMovieView.h"
 #import "NoirWindow.h"
 
 @class NoirWindow;
-@class NPMovieView;
+@class NoirMovieView;
 
 enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 
 @interface NoirDocument : NSDocument
 {
-    IBOutlet NPMovieView *theMovieView;
+    IBOutlet NoirMovieView *theMovieView;
     IBOutlet NoirWindow *theWindow;
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;

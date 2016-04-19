@@ -37,7 +37,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NoirDocument.h"
-#import "NPApplication.h"
+#import "NoirApp.h"
 
 
 @interface QTMovie(IdlingAdditions)

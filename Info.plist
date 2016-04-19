@@ -600,7 +600,7 @@
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
-	<string>NPApplication</string>
+	<string>NoirApp</string>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
 		<dict>

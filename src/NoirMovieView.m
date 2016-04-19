@@ -36,13 +36,13 @@
 *
 * ***** END LICENSE BLOCK ***** */
 
-#import "NPMovieView.h"
+#import "NoirMovieView.h"
 #import "NoirWindow.h"
 #import "NoirDocument.h"
 
 #define SCRUB_STEP_DURATION 5
 
-@implementation NPMovieView
+@implementation NoirMovieView
 
 -(NoirDocument*)noirDocument
 {

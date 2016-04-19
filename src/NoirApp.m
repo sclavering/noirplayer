@@ -43,10 +43,10 @@
  * active.
  */
 
-#import "NPApplication.h"
+#import "NoirApp.h"
 
 
-@implementation NPApplication
+@implementation NoirApp
 
 - (void)finishLaunching
 {

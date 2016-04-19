@@ -37,7 +37,7 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NoirController.h"
-#import "NPApplication.h"
+#import "NoirApp.h"
 #import "NoirDocument.h"
 
 
