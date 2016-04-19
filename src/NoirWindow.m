@@ -55,9 +55,7 @@
 
 -(void)awakeFromNib
 {
-    theScrubBar.target = theMovieView;
     self.contentView = theMovieView;
-    theScrubBar.action = @selector(scrub:);
     [self setReleasedWhenClosed:YES];
 
     id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
@@ -70,11 +68,20 @@
     thePlayButton.keyEquivalent = @" ";
     thePlayButton.target = self;
     thePlayButton.action = @selector(doTogglePlaying);
+
+    theScrubBar.target = self;
+    theScrubBar.action = @selector(doSetPosition:);
 }
+
 
 // xxx this should probably live elsewhere
 -(void)doTogglePlaying {
     [[self noirDoc] togglePlayingMovie];
+}
+
+-(IBAction)doSetPosition:(id)sender {
+    [[self noirDoc] setMovieTimeByFraction:[sender doubleValue]];
+    [self updateByTime:sender];
 }
 
 -(void)updatePlayButton:(BOOL)isPlaying {

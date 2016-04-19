@@ -60,15 +60,6 @@
 }
 
 #pragma mark -
-#pragma mark Widgets
-
--(IBAction)scrub:(id)sender
-{
-    [[self.window noirDoc] setMovieTimeByFraction:[sender doubleValue]];
-    [[self noirWindow] updateByTime:sender];
-}
-
-#pragma mark -
 #pragma mark Keyboard Events
 
 -(void)keyDown:(NSEvent *)anEvent
