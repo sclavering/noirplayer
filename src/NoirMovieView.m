@@ -73,7 +73,6 @@
     [self.layer insertSublayer:qtlayer atIndex:0];
     qtlayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     movie = aMovie;
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint
