@@ -98,11 +98,9 @@
             break;
         case NSUpArrowFunctionKey:
             [[self noirDocument] incrementVolume];
-            [[self noirWindow] showVolumeOverlay];
             break;
         case NSDownArrowFunctionKey:
             [[self noirDocument] decrementVolume];
-            [[self noirWindow] showVolumeOverlay];
             break;
         case 0x1B:
             [[self noirWindow] unFullScreen];

@@ -154,6 +154,7 @@
 -(void)updateVolume
 {
     [theVolumeView setVolume:[[theMovieView noirDocument] volume]];
+    [self showVolumeOverlay];
 }
 
 - (void)performMiniaturize:(id)sender
