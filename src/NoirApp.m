@@ -26,7 +26,7 @@
 
 - (void)mouseExited:(NSEvent *)theEvent
 {
-	[self testCursorMovement];
+    [self testCursorMovement];
 }
 
 /**
@@ -48,7 +48,7 @@
                                              clickCount:0
                                                pressure:1.0] retain];
         [self sendEvent:newEvent];
-		[newEvent release];
+        [newEvent release];
     }
 }
 

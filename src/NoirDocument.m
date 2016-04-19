@@ -21,7 +21,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(rebuildMenu)
                                                      name:@"RebuildAllMenus"
-                                                   object:nil];		
+                                                   object:nil];
     }
     return self;
 }
@@ -33,7 +33,7 @@
             [[self movieMenu] removeItem:menuObjects[i]];
         [menuObjects release];
     }
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 
@@ -81,7 +81,7 @@
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [[self window] updateVolume];
-	[[self window] orderFront:aController];
+    [[self window] orderFront:aController];
     [theMovieView openMovie:movie];
     NSSize aSize = [self naturalSize];
     [theWindow setAspectRatio:aSize];
@@ -93,9 +93,9 @@
 
 - (void)makeWindowControllers
 {
-	NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
+    NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
     [self addWindowController:controller];
-	[controller release];
+    [controller release];
 }
 
 - (void)showWindows
@@ -137,17 +137,17 @@ stuff won't work properly! */
     id items = [[[NSMutableArray array] retain] autorelease];
 
     id newItem = [[[NSMenuItem alloc] initWithTitle:@"Play/Pause" action:@selector(togglePlayingMovie) keyEquivalent:@""] autorelease];
-	[newItem setTarget:self];
-	[items addObject:newItem];
+    [newItem setTarget:self];
+    [items addObject:newItem];
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-	[newItem setSubmenu:[self videoTrackMenu]];
+    [newItem setSubmenu:[self videoTrackMenu]];
     [items addObject:newItem];
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-	[newItem setSubmenu:[self audioTrackMenu]];
+    [newItem setSubmenu:[self audioTrackMenu]];
     [items addObject:newItem];
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""] autorelease];

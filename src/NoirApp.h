@@ -7,7 +7,7 @@
 #import "NoirController.h"
 
 @interface NoirApp : NSApplication {
-	NSPoint lastPoint;
+    NSPoint lastPoint;
 }
 
 -(void)testCursorMovement;

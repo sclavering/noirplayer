@@ -12,12 +12,12 @@
 {
     self = [super initWithFrame:frame];
     if(self) {
-		scrub = [[NSImage imageNamed:@"scrubber"] retain];
-		value = 0.0;
-		loaded = 1.0;
-		target = nil;
-		action = NULL;
-		dragging = NO;
+        scrub = [[NSImage imageNamed:@"scrubber"] retain];
+        value = 0.0;
+        loaded = 1.0;
+        target = nil;
+        action = NULL;
+        dragging = NO;
     }
     return self;
 }

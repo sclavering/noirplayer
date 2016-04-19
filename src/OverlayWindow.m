@@ -22,7 +22,7 @@
 
 - (BOOL)acceptsFirstResponder
 {
-	return YES;
+    return YES;
 }
 
 -(BOOL)canBecomeMainWindow
@@ -38,20 +38,20 @@
 -(void)awakeFromNib
 {
     [self setHasShadow:NO];
-	self.nextResponder = self.parentWindow;
+    self.nextResponder = self.parentWindow;
 }
 
 -(void)mouseMoved:(NSEvent *)anEvent
 {
     NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
-					   location:[((NoirWindow *)self.parentWindow) convertScreenToBase:[NSEvent mouseLocation]]
-				      modifierFlags:0
-					  timestamp:0
-				       windowNumber:0
-					    context:nil
-					eventNumber:0
-					 clickCount:0
-					   pressure:1.0];
+        location:[((NoirWindow *)self.parentWindow) convertScreenToBase:[NSEvent mouseLocation]]
+        modifierFlags:0
+        timestamp:0
+        windowNumber:0
+        context:nil
+        eventNumber:0
+        clickCount:0
+        pressure:1.0];
     [((NoirWindow *)self.parentWindow) mouseMoved:newEvent];
 }
 
@@ -67,10 +67,10 @@
 
 - (void)sendEvent:(NSEvent *)theEvent
 {
-	if(theEvent.type == NSScrollWheel)
-		[((NoirWindow *)self.parentWindow) scrollWheel:theEvent];
-	else
-		[super sendEvent:theEvent];
+    if(theEvent.type == NSScrollWheel)
+        [((NoirWindow *)self.parentWindow) scrollWheel:theEvent];
+    else
+        [super sendEvent:theEvent];
 }
 
 @end

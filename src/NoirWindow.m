@@ -30,15 +30,12 @@
                   backing:(NSBackingStoreType)bufferingType
                     defer:(BOOL)flag
 {
-    if((self = [super initWithContentRect:contentRect
-								styleMask:NSBorderlessWindowMask
-								  backing:NSBackingStoreBuffered
-									defer:YES])){
+    if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])){
         timeUpdaterTimer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                            target:self
-                                                          selector:@selector(updateByTime:)
-                                                          userInfo:nil
-                                                           repeats:YES];
+            target:self
+            selector:@selector(updateByTime:)
+            userInfo:nil
+            repeats:YES];
         self.backgroundColor = [NSColor blackColor];
         [self setOpaque:YES];
         [self useOptimizedDrawing:YES];
@@ -57,14 +54,14 @@
     self.contentView = theMovieView;
     theScrubBar.action = @selector(scrub:);
     [self setReleasedWhenClosed:YES];
-	
-	id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
-	[tParagraph setAlignment:NSCenterTextAlignment];
+
+    id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+    [tParagraph setAlignment:NSCenterTextAlignment];
 
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
-    [self makeFirstResponder:self]; 
+    [self makeFirstResponder:self];
     [self setAcceptsMouseMovedEvents:YES];
-    
+
     thePlayButton.keyEquivalent = @" ";
     thePlayButton.target = self;
     thePlayButton.action = @selector(doTogglePlaying);
@@ -87,14 +84,14 @@
 
 -(void)close
 {
-	NSAutoreleasePool* tPool = [NSAutoreleasePool new];
+    NSAutoreleasePool* tPool = [NSAutoreleasePool new];
     [timeUpdaterTimer invalidate];
 
     [theMovieView close];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super close];
-	
-	[tPool release];
+
+    [tPool release];
 }
 
 #pragma mark Overriden Methods
@@ -141,11 +138,9 @@
     switch(anItem.tag){
         case 7:
             return YES;
-            break;
         default:
-            return [super validateMenuItem:anItem];        
+            return [super validateMenuItem:anItem];
     }
-    
 }
 
 -(IBAction)performClose:(id)sender
@@ -179,10 +174,10 @@
     id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
     [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]}] autorelease]];
 
-	if(theMovieView) {
-		[theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
-		[theScrubBar setLoadedValue:[doc percentLoaded]];
-	}
+    if(theMovieView) {
+        [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
+        [theScrubBar setLoadedValue:[doc percentLoaded]];
+    }
     [theScrubBar setNeedsDisplay:YES];
 }
 
@@ -210,7 +205,7 @@
     anOverlay.alphaValue = 0.0;
     anOverlay.level = self.level;
     [self addChildWindow:anOverlay ordered:NSWindowAbove];
-    [anOverlay orderFront:self];	
+    [anOverlay orderFront:self];
 }
 
 -(void)hideOverlays
@@ -318,11 +313,11 @@
 -(void)makeFullScreen
 {
     if(!fullScreen) {
-		fullScreen = YES;
-		[self setLevel:NSFloatingWindowLevel + 2];
-		[self makeKeyAndOrderFront:self];
-		beforeFullScreen = self.frame;
-		[self fillScreenSize];
+        fullScreen = YES;
+        [self setLevel:NSFloatingWindowLevel + 2];
+        [self makeKeyAndOrderFront:self];
+        beforeFullScreen = self.frame;
+        [self fillScreenSize];
     }
     [theOverlayControllerWindow setAlphaValue:0.0];
     [theOverlayTitleBar setAlphaValue:0.0];
@@ -332,7 +327,7 @@
 -(void)makeNormalScreen
 {
     if(fullScreen) {
-		[self setLevel:NSFloatingWindowLevel];
+        [self setLevel:NSFloatingWindowLevel];
         isFilling = NO;
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
@@ -457,10 +452,10 @@
 * Sets the internally stored aspect ratio size.
  */
 - (void)setAspectRatio:(NSSize)ratio
-{   
+{
     if((ratio.width == 0) || (ratio.height == 0)){
-		ratio.width = 1;
-		ratio.height = 1;
+        ratio.width = 1;
+        ratio.height = 1;
     }
     aspectRatio = ratio;
     super.aspectRatio = ratio;
@@ -553,7 +548,7 @@
 
 -(void)mouseUp:(NSEvent *)anEvent
 {
-    if(dropScreen){			// If the screen has been dropped onto a different display
+    if(dropScreen) { // If the screen has been dropped onto a different display
         [self centerOnScreen];
         if(isFilling) [self fillScreenSize];
     }
@@ -565,7 +560,7 @@
 
 -(void)setInitialDrag:(NSEvent *)anEvent
 {
-	initialDrag =[self convertScreenToBase:[NSEvent mouseLocation]];
+    initialDrag = [self convertScreenToBase:[NSEvent mouseLocation]];
 }
 
 -(void)scrollWheel:(NSEvent *)anEvent

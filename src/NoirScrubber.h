@@ -8,7 +8,7 @@
 @interface NoirScrubber : NSControl {
     NSImage* scrub;
     double value;
-	double loaded;
+    double loaded;
     id target;
     SEL action;
     bool dragging;

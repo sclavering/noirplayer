@@ -40,7 +40,7 @@
 -(void)mouseDown:(NSEvent *)anEvent
 {
     if(presentingWindow != nil)
-		[presentingWindow makeKeyAndOrderFront:anEvent];
+        [presentingWindow makeKeyAndOrderFront:anEvent];
 }
 
 -(void)mouseUp:(NSEvent *)anEvent

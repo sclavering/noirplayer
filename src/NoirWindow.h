@@ -19,14 +19,14 @@
     IBOutlet NoirScrubber* theScrubBar;
     IBOutlet id theTimeField;
     IBOutlet NSButton* thePlayButton;
-	
+
     BOOL windowOverlayControllerIsShowing;
     BOOL titleOverlayIsShowing;
 
     BOOL fullScreen;
     BOOL isFilling;
 
-    BOOL dropScreen;		/* Controls movie dropping onto other screens (not the primary display) */
+    BOOL dropScreen; // Controls movie dropping onto other screens (not the primary display)
     id timeUpdaterTimer;
     NSRect beforeFullScreen;
 

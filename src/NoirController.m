@@ -128,7 +128,7 @@ id controller;
 
 -(BOOL)isFullScreen
 {
-	return fullScreenMode;
+    return fullScreenMode;
 }
 
 -(void)unpresentScreen

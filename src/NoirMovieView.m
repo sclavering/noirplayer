@@ -30,29 +30,29 @@
 
 -(void)awakeFromNib
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self
-						 selector:@selector(rebuildTrackingRects)
-						     name:NSViewFrameDidChangeNotification
-						   object:self];	
-	trackingRect = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+        selector:@selector(rebuildTrackingRects)
+        name:NSViewFrameDidChangeNotification
+        object:self];
+    trackingRect = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
 }
 
 -(void)rebuildTrackingRects
 {
-	[self viewWillMoveToWindow:self.window];
+    [self viewWillMoveToWindow:self.window];
 }
 
 -(void)viewWillMoveToWindow:(NSWindow *)window
 {
-	if(self.window)
-		[self removeTrackingRect:trackingRect];
-	if(window)
-		trackingRect = [self addTrackingRect:self.bounds owner:window userData:nil assumeInside:NO];
+    if(self.window)
+        [self removeTrackingRect:trackingRect];
+    if(window)
+        trackingRect = [self addTrackingRect:self.bounds owner:window userData:nil assumeInside:NO];
 }
 
 -(void)close
 {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [qtlayer setMovie:nil];
     qtlayer = nil;
     movie = nil;
@@ -60,7 +60,7 @@
 
 -(void)dealloc
 {
-	[self close];
+    [self close];
     [super dealloc];
 }
 
@@ -85,7 +85,7 @@
 
 -(BOOL)acceptsFirstResponder
 {
-	return YES;
+    return YES;
 }
 
 #pragma mark -
@@ -105,52 +105,52 @@
     if((anEvent.modifierFlags & NSShiftKeyMask)) return;
     
     switch([anEvent.characters characterAtIndex:0]){
-		case ' ':
-			if(!anEvent.ARepeat) [[self noirDocument] togglePlayingMovie];
-			break;
-		case NSRightArrowFunctionKey:
+        case ' ':
+            if(!anEvent.ARepeat) [[self noirDocument] togglePlayingMovie];
+            break;
+        case NSRightArrowFunctionKey:
             if(!anEvent.ARepeat) [[self noirDocument] startStepping];
             [[self noirDocument] stepBy:SCRUB_STEP_DURATION];
-			break;
-		case NSLeftArrowFunctionKey:
-			if(anEvent.modifierFlags & NSCommandKeyMask){
+            break;
+        case NSLeftArrowFunctionKey:
+            if(anEvent.modifierFlags & NSCommandKeyMask){
                 [[self noirDocument] setCurrentMovieTime:0];
-				break;
-			}
+                break;
+            }
             if(!anEvent.ARepeat) [[self noirDocument] startStepping];
             [[self noirDocument] stepBy:-SCRUB_STEP_DURATION];
-			break;
-		case NSUpArrowFunctionKey:
-			[[self noirDocument] incrementVolume];
-			[[self noirWindow] showVolumeOverlay];
-			break;
-		case NSDownArrowFunctionKey:
-			[[self noirDocument] decrementVolume];
-			[[self noirWindow] showVolumeOverlay];
-			break;
-		case 0x1B:
-			[[self noirWindow] unFullScreen];
-			break;
-		default:
-			[super keyDown:anEvent];
+            break;
+        case NSUpArrowFunctionKey:
+            [[self noirDocument] incrementVolume];
+            [[self noirWindow] showVolumeOverlay];
+            break;
+        case NSDownArrowFunctionKey:
+            [[self noirDocument] decrementVolume];
+            [[self noirWindow] showVolumeOverlay];
+            break;
+        case 0x1B:
+            [[self noirWindow] unFullScreen];
+            break;
+        default:
+            [super keyDown:anEvent];
     }
 }
 
 -(void)keyUp:(NSEvent*)anEvent
 {
-	if((anEvent.modifierFlags & NSShiftKeyMask)) return;
+    if((anEvent.modifierFlags & NSShiftKeyMask)) return;
 
-	switch([anEvent.characters characterAtIndex:0]){
-		case ' ':
-			break;
-		case NSRightArrowFunctionKey:
-			[[self noirDocument] endStepping];
-			break;
-		case NSLeftArrowFunctionKey:
-			[[self noirDocument] endStepping];
-			break;
-		default:
-			[super keyUp:anEvent];
+    switch([anEvent.characters characterAtIndex:0]){
+        case ' ':
+            break;
+        case NSRightArrowFunctionKey:
+            [[self noirDocument] endStepping];
+            break;
+        case NSLeftArrowFunctionKey:
+            [[self noirDocument] endStepping];
+            break;
+        default:
+            [super keyUp:anEvent];
     }
 }
 
@@ -159,7 +159,7 @@
 
 - (BOOL)acceptsFirstMouse:(NSEvent *)theEvent
 {
-	return YES;
+    return YES;
 }
 
 - (void)mouseDown:(NSEvent *)anEvent
@@ -169,12 +169,12 @@
 
 - (void)mouseUp:(NSEvent *)anEvent
 {
-	[[self noirWindow] mouseUp:anEvent];
+    [[self noirWindow] mouseUp:anEvent];
 }
 
 - (void)mouseMoved:(NSEvent *)anEvent
 {
-	[[self noirWindow] mouseMoved:anEvent];
+    [[self noirWindow] mouseMoved:anEvent];
 }
 
 -(void)mouseDragged:(NSEvent *)anEvent
