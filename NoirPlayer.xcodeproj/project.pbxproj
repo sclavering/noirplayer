@@ -59,52 +59,52 @@
 /* Begin PBXFileReference section */
 		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		251FEFB6085670D800D38B8E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = src/app/NPMovieView.h; sourceTree = "<group>"; };
-		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = src/app/NPMovieView.m; sourceTree = "<group>"; };
+		257D61660753F92D00702BD0 /* NPMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPMovieView.h; path = src/NPMovieView.h; sourceTree = "<group>"; };
+		257D61670753F92D00702BD0 /* NPMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPMovieView.m; path = src/NPMovieView.m; sourceTree = "<group>"; };
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		259CC53707374066001ED5FA /* NPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplication.h; path = src/app/NPApplication.h; sourceTree = "<group>"; };
-		259CC53807374066001ED5FA /* NPApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplication.m; path = src/app/NPApplication.m; sourceTree = "<group>"; };
-		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = src/widgets/OverlaysControl.h; sourceTree = "<group>"; };
-		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = src/widgets/OverlaysControl.m; sourceTree = "<group>"; };
+		259CC53707374066001ED5FA /* NPApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NPApplication.h; path = src/NPApplication.h; sourceTree = "<group>"; };
+		259CC53807374066001ED5FA /* NPApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NPApplication.m; path = src/NPApplication.m; sourceTree = "<group>"; };
+		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = src/OverlaysControl.h; sourceTree = "<group>"; };
+		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = src/OverlaysControl.m; sourceTree = "<group>"; };
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
-		2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NoirDocument.m; path = src/app/NoirDocument.m; sourceTree = "<group>"; };
-		2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NoirDocument.h; path = src/app/NoirDocument.h; sourceTree = "<group>"; };
-		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/app/main.m; sourceTree = "<group>"; };
+		2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NoirDocument.m; path = src/NoirDocument.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NoirDocument.h; path = src/NoirDocument.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/main.m; sourceTree = "<group>"; };
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowProxy.h; path = src/app/MainWindowProxy.h; sourceTree = "<group>"; };
-		3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowProxy.m; path = src/app/MainWindowProxy.m; sourceTree = "<group>"; };
+		3E01F2E8065E9C1D00905F96 /* MainWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainWindowProxy.h; path = src/MainWindowProxy.h; sourceTree = "<group>"; };
+		3E01F2E9065E9C1D00905F96 /* MainWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainWindowProxy.m; path = src/MainWindowProxy.m; sourceTree = "<group>"; };
 		3E085CBB065C79EE005286A3 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/play.png; sourceTree = "<group>"; };
-		3E110B61069BD80100C5800B /* TitleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleTextField.h; path = src/widgets/TitleTextField.h; sourceTree = "<group>"; };
-		3E110B62069BD80100C5800B /* TitleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleTextField.m; path = src/widgets/TitleTextField.m; sourceTree = "<group>"; };
+		3E110B61069BD80100C5800B /* TitleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleTextField.h; path = src/TitleTextField.h; sourceTree = "<group>"; };
+		3E110B62069BD80100C5800B /* TitleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleTextField.m; path = src/TitleTextField.m; sourceTree = "<group>"; };
 		3E452FF00664719D00BC91B0 /* NoirIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NoirIcon.icns; path = Resources/NoirIcon.icns; sourceTree = "<group>"; };
 		3E4DF83606630D50001B9AC5 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		3E8CC450068AA1290034FCCC /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Resources/close.png; sourceTree = "<group>"; };
 		3E8CC452068AA1290034FCCC /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = minimize.png; path = Resources/minimize.png; sourceTree = "<group>"; };
-		3E95D49F06613F05008755D1 /* BlackWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlackWindow.h; path = src/widgets/BlackWindow.h; sourceTree = "<group>"; };
-		3E95D4A006613F05008755D1 /* BlackWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlackWindow.m; path = src/widgets/BlackWindow.m; sourceTree = "<group>"; };
+		3E95D49F06613F05008755D1 /* BlackWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlackWindow.h; path = src/BlackWindow.h; sourceTree = "<group>"; };
+		3E95D4A006613F05008755D1 /* BlackWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlackWindow.m; path = src/BlackWindow.m; sourceTree = "<group>"; };
 		3E9996CA06A50F1800D1898D /* volume_muted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_muted.png; path = Resources/volume_muted.png; sourceTree = "<group>"; };
 		3E9996CB06A50F1800D1898D /* volume_with_sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_with_sound.png; path = Resources/volume_with_sound.png; sourceTree = "<group>"; };
-		3E9996D006A5101500D1898D /* VolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeView.h; path = src/widgets/VolumeView.h; sourceTree = "<group>"; };
-		3E9996D106A5101500D1898D /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeView.m; path = src/widgets/VolumeView.m; sourceTree = "<group>"; };
-		3E9E628E0661708200B788A8 /* NoirScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirScrubber.h; path = src/widgets/NoirScrubber.h; sourceTree = "<group>"; };
-		3E9E628F0661708200B788A8 /* NoirScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirScrubber.m; path = src/widgets/NoirScrubber.m; sourceTree = "<group>"; };
+		3E9996D006A5101500D1898D /* VolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeView.h; path = src/VolumeView.h; sourceTree = "<group>"; };
+		3E9996D106A5101500D1898D /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeView.m; path = src/VolumeView.m; sourceTree = "<group>"; };
+		3E9E628E0661708200B788A8 /* NoirScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirScrubber.h; path = src/NoirScrubber.h; sourceTree = "<group>"; };
+		3E9E628F0661708200B788A8 /* NoirScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirScrubber.m; path = src/NoirScrubber.m; sourceTree = "<group>"; };
 		3E9E62940661724600B788A8 /* scrubber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubber.png; path = Resources/scrubber.png; sourceTree = "<group>"; };
 		3E9E64800661B95900B788A8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
 		3EB7EC5F065F39AA0002A470 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
-		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = src/widgets/OverlayWindow.h; sourceTree = "<group>"; };
-		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = src/widgets/OverlayWindow.m; sourceTree = "<group>"; };
+		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = src/OverlayWindow.h; sourceTree = "<group>"; };
+		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = src/OverlayWindow.m; sourceTree = "<group>"; };
 		3EEDF761065B4CFF00E3545C /* black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = black.png; path = Resources/black.png; sourceTree = "<group>"; };
-		3EEDF763065B507B00E3545C /* NoirWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirWindow.h; path = src/app/NoirWindow.h; sourceTree = "<group>"; };
-		3EEDF764065B507B00E3545C /* NoirWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirWindow.m; path = src/app/NoirWindow.m; sourceTree = "<group>"; };
-		3EEDF76B065B5ACD00E3545C /* NoirController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirController.h; path = src/app/NoirController.h; sourceTree = "<group>"; };
-		3EEDF76C065B5ACD00E3545C /* NoirController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirController.m; path = src/app/NoirController.m; sourceTree = "<group>"; };
+		3EEDF763065B507B00E3545C /* NoirWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirWindow.h; path = src/NoirWindow.h; sourceTree = "<group>"; };
+		3EEDF764065B507B00E3545C /* NoirWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirWindow.m; path = src/NoirWindow.m; sourceTree = "<group>"; };
+		3EEDF76B065B5ACD00E3545C /* NoirController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirController.h; path = src/NoirController.h; sourceTree = "<group>"; };
+		3EEDF76C065B5ACD00E3545C /* NoirController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirController.m; path = src/NoirController.m; sourceTree = "<group>"; };
 		69257CFA111DD28300C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		69257CFE111DD2A700C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NoirDocument.xib; sourceTree = "<group>"; };
-		6974971D0B56033F0030D4D2 /* TitleBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleBackgroundView.h; path = src/widgets/TitleBackgroundView.h; sourceTree = "<group>"; };
-		6974971E0B56033F0030D4D2 /* TitleBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleBackgroundView.m; path = src/widgets/TitleBackgroundView.m; sourceTree = "<group>"; };
+		6974971D0B56033F0030D4D2 /* TitleBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleBackgroundView.h; path = src/TitleBackgroundView.h; sourceTree = "<group>"; };
+		6974971E0B56033F0030D4D2 /* TitleBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleBackgroundView.m; path = src/TitleBackgroundView.m; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* NoirPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoirPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA81D9D41CC538D500827BED /* document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = document.icns; path = Resources/document.icns; sourceTree = "<group>"; };
@@ -170,7 +170,18 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		252BD45D07697C6A006CF96B /* app */ = {
+		2A37F4AAFDCFA73011CA2CEA /* NoirPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4ABFDCFA73011CA2CEA /* src */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = NoirPlayer;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* src */ = {
 			isa = PBXGroup;
 			children = (
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
@@ -186,13 +197,6 @@
 				2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */,
 				257D61660753F92D00702BD0 /* NPMovieView.h */,
 				257D61670753F92D00702BD0 /* NPMovieView.m */,
-			);
-			name = app;
-			sourceTree = "<group>";
-		};
-		25B912D707416725001B68D9 /* widgets */ = {
-			isa = PBXGroup;
-			children = (
 				25B913230741736A001B68D9 /* OverlaysControl.h */,
 				25B913240741736A001B68D9 /* OverlaysControl.m */,
 				3EDA2680065C8E570000CCEE /* OverlayWindow.h */,
@@ -207,26 +211,6 @@
 				3E9996D106A5101500D1898D /* VolumeView.m */,
 				6974971D0B56033F0030D4D2 /* TitleBackgroundView.h */,
 				6974971E0B56033F0030D4D2 /* TitleBackgroundView.m */,
-			);
-			name = widgets;
-			sourceTree = "<group>";
-		};
-		2A37F4AAFDCFA73011CA2CEA /* NoirPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				2A37F4ABFDCFA73011CA2CEA /* src */,
-				2A37F4B8FDCFA73011CA2CEA /* Resources */,
-				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
-				19C28FB0FE9D524F11CA2CBB /* Products */,
-			);
-			name = NoirPlayer;
-			sourceTree = "<group>";
-		};
-		2A37F4ABFDCFA73011CA2CEA /* src */ = {
-			isa = PBXGroup;
-			children = (
-				252BD45D07697C6A006CF96B /* app */,
-				25B912D707416725001B68D9 /* widgets */,
 			);
 			name = src;
 			sourceTree = "<group>";
