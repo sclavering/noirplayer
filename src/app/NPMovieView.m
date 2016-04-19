@@ -216,11 +216,4 @@
     [[self noirWindow] mouseDragged:anEvent];
 }
 
-#pragma mark -
-#pragma mark Pluggables
-
--(void)drawMovieFrame
-{
-}
-
 @end

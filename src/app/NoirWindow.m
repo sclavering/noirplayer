@@ -358,7 +358,6 @@
 		beforeFullScreen = self.frame;
 		[self fillScreenSize];
     }
-    [theMovieView drawMovieFrame];
     [theOverlayControllerWindow setAlphaValue:0.0];
     [theOverlayTitleBar setAlphaValue:0.0];
     [theOverlayVolume setAlphaValue:0.0];
@@ -373,7 +372,6 @@
         fullScreen = NO;
         [self resizeToAspectRatio];
     }
-    [theMovieView drawMovieFrame];
     [theOverlayTitleBar orderFront:self];
     [theOverlayVolume orderFront:self];
     [theOverlayControllerWindow orderFront:self];

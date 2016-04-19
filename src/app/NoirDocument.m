@@ -307,7 +307,6 @@ stuff won't work properly! */
 {
     double t = MIN([self currentMovieTime] + seconds, [self totalTime]);
     [self setCurrentMovieTime:MAX(t, 0)];
-    [theMovieView drawMovieFrame];
     [theWindow updateByTime:nil];
 }
 

@@ -54,6 +54,4 @@
 -(void)openMovie:(QTMovie*)movie;
 -(void)close;
 
--(void)drawMovieFrame;
-
 @end
