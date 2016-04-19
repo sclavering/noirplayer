@@ -3,17 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import "NoirMovieView.h"
-#import "NoirWindow.h"
-#import "NoirDocument.h"
-
-#define SCRUB_STEP_DURATION 5
 
 @implementation NoirMovieView
-
--(NoirWindow*)noirWindow
-{
-    return (NoirWindow*) self.window;
-}
 
 -(instancetype)initWithFrame:(NSRect)aRect
 {
@@ -57,61 +48,6 @@
 -(BOOL)acceptsFirstResponder
 {
     return YES;
-}
-
-#pragma mark -
-#pragma mark Keyboard Events
-
--(void)keyDown:(NSEvent *)anEvent
-{
-    if((anEvent.modifierFlags & NSShiftKeyMask)) return;
-    
-    switch([anEvent.characters characterAtIndex:0]){
-        case ' ':
-            if(!anEvent.ARepeat) [[self.window noirDoc] togglePlayingMovie];
-            break;
-        case NSRightArrowFunctionKey:
-            if(!anEvent.ARepeat) [[self.window noirDoc] startStepping];
-            [[self.window noirDoc] stepBy:SCRUB_STEP_DURATION];
-            break;
-        case NSLeftArrowFunctionKey:
-            if(anEvent.modifierFlags & NSCommandKeyMask){
-                [[self.window noirDoc] setCurrentMovieTime:0];
-                break;
-            }
-            if(!anEvent.ARepeat) [[self.window noirDoc] startStepping];
-            [[self.window noirDoc] stepBy:-SCRUB_STEP_DURATION];
-            break;
-        case NSUpArrowFunctionKey:
-            [[self.window noirDoc] incrementVolume];
-            break;
-        case NSDownArrowFunctionKey:
-            [[self.window noirDoc] decrementVolume];
-            break;
-        case 0x1B:
-            [[self noirWindow] unFullScreen];
-            break;
-        default:
-            [super keyDown:anEvent];
-    }
-}
-
--(void)keyUp:(NSEvent*)anEvent
-{
-    if((anEvent.modifierFlags & NSShiftKeyMask)) return;
-
-    switch([anEvent.characters characterAtIndex:0]){
-        case ' ':
-            break;
-        case NSRightArrowFunctionKey:
-            [[self.window noirDoc] endStepping];
-            break;
-        case NSLeftArrowFunctionKey:
-            [[self.window noirDoc] endStepping];
-            break;
-        default:
-            [super keyUp:anEvent];
-    }
 }
 
 #pragma mark -
