@@ -28,31 +28,8 @@
     return self;
 }
 
--(void)awakeFromNib
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self
-        selector:@selector(rebuildTrackingRects)
-        name:NSViewFrameDidChangeNotification
-        object:self];
-    trackingRect = [self addTrackingRect:self.bounds owner:self userData:nil assumeInside:NO];
-}
-
--(void)rebuildTrackingRects
-{
-    [self viewWillMoveToWindow:self.window];
-}
-
--(void)viewWillMoveToWindow:(NSWindow *)window
-{
-    if(self.window)
-        [self removeTrackingRect:trackingRect];
-    if(window)
-        trackingRect = [self addTrackingRect:self.bounds owner:window userData:nil assumeInside:NO];
-}
-
 -(void)close
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [qtlayer setMovie:nil];
     qtlayer = nil;
     movie = nil;

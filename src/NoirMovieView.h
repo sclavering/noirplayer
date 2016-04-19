@@ -11,7 +11,6 @@
 @interface NoirMovieView : NSView {
     QTMovie* movie;
     QTMovieLayer* qtlayer;
-    NSTrackingRectTag trackingRect;
 }
 
 -(NoirDocument*)noirDocument;
