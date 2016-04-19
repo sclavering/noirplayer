@@ -87,9 +87,8 @@
 -(void)close
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-    [qtview setMovie:nil];
-    [qtview removeFromSuperviewWithoutNeedingDisplay];
-    qtview = nil;
+    [qtlayer setMovie:nil];
+    qtlayer = nil;
     movie = nil;
 }
 
@@ -101,16 +100,12 @@
 
 -(void)openMovie:aMovie
 {
-    qtview = [[QTMovieView alloc] initWithFrame:self.bounds];
+    qtlayer = [QTMovieLayer layerWithMovie:aMovie];
+    qtlayer.frame = self.frame;
+    [self setWantsLayer:true];
     self.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
-    [qtview setFillColor:[NSColor blackColor]];
-    qtview.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
-    [qtview setControllerVisible:NO];
-    [qtview setEditable:NO];
-    [qtview setPreservesAspectRatio:NO];
-    [qtview setMovie:aMovie];
-    [self addSubview:qtview];
-
+    [self.layer insertSublayer:qtlayer atIndex:0];
+    qtlayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     movie = aMovie;
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
@@ -226,7 +221,6 @@
 
 -(void)drawMovieFrame
 {
-    [qtview setNeedsDisplay:YES];
 }
 
 @end

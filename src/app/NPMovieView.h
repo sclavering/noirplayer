@@ -44,7 +44,7 @@
 
 @interface NPMovieView : NSView {
     QTMovie* movie;
-    QTMovieView* qtview;
+    QTMovieLayer* qtlayer;
     NSTrackingRectTag trackingRect;
 }
 
