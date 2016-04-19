@@ -38,7 +38,6 @@
 
 
 #import <AppKit/AppKit.h>
-#import <Carbon/Carbon.h>
 #import "BlackWindow.h"
 #import "NoirWindow.h"
 

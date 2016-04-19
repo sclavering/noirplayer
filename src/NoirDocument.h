@@ -38,7 +38,6 @@
 
 @import Cocoa;
 
-#import <Carbon/Carbon.h>
 #import "NPMovieView.h"
 #import "NoirWindow.h"
 

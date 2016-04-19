@@ -36,7 +36,6 @@
 		3E9E62990661724600B788A8 /* scrubber.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62940661724600B788A8 /* scrubber.png */; };
 		3E9E64820661B95900B788A8 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64800661B95900B788A8 /* pause.png */; };
 		3E9E64830661B95900B788A8 /* pauseClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64810661B95900B788A8 /* pauseClick.png */; };
-		3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EB7EC5F065F39AA0002A470 /* Carbon.framework */; };
 		3EC8C601065DD31F00988449 /* playClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FE065DD31F00988449 /* playClick.png */; };
 		3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3EDA2680065C8E570000CCEE /* OverlayWindow.h */; };
 		3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EDA2681065C8E570000CCEE /* OverlayWindow.m */; };
@@ -92,7 +91,6 @@
 		3E9E62940661724600B788A8 /* scrubber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubber.png; path = Resources/scrubber.png; sourceTree = "<group>"; };
 		3E9E64800661B95900B788A8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
-		3EB7EC5F065F39AA0002A470 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
 		3EDA2680065C8E570000CCEE /* OverlayWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlayWindow.h; path = src/OverlayWindow.h; sourceTree = "<group>"; };
 		3EDA2681065C8E570000CCEE /* OverlayWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlayWindow.m; path = src/OverlayWindow.m; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2510A5B80B06374400CA8110 /* QTKit.framework in Frameworks */,
-				3EB7EC60065F39AA0002A470 /* Carbon.framework in Frameworks */,
 				251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */,
 				258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */,
 			);
@@ -131,7 +128,6 @@
 				258C2B700A2D713E00AC22BB /* IOKit.framework */,
 				251FEFB6085670D800D38B8E /* Cocoa.framework */,
 				25CC866D0831DDA800027929 /* QTKit.framework */,
-				3EB7EC5F065F39AA0002A470 /* Carbon.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";

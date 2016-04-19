@@ -37,7 +37,6 @@
 * ***** END LICENSE BLOCK ***** */
 
 #import "NoirScrubber.h"
-#import <Carbon/Carbon.h>
 
 #define OFFSET 10
 

@@ -567,7 +567,7 @@
 {
     if(fullScreen && !NSEqualRects([[[NSDocumentController sharedDocumentController] backgroundWindow] frame], [NSScreen mainScreen].frame)) {
         [[[NSDocumentController sharedDocumentController] backgroundWindow] setFrame:[NSScreen mainScreen].frame display:YES];
-        if([[NSScreen mainScreen] isEqualTo:[NSScreen screens][0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+        if([[NSScreen mainScreen] isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
         dropScreen = YES;
     }
     [self showOverLayTitle];

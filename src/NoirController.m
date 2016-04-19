@@ -156,7 +156,7 @@ id controller;
 {
     id screen = [NSScreen mainScreen];
     fullScreenMode = YES;
-    if([screen isEqualTo:[NSScreen screens][0]]) SetSystemUIMode(kUIModeAllHidden, kUIOptionAutoShowMenuBar);
+    if([screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
     [backgroundWindow setFrame:[screen frame] display:YES];
     [backgroundWindow orderBack:nil];
 }
@@ -169,7 +169,7 @@ id controller;
 -(void)unpresentScreen
 {
     fullScreenMode = NO;
-    SetSystemUIMode(kUIModeNormal, kUIModeNormal);
+    NSApp.presentationOptions = NSApplicationPresentationDefault;
     [backgroundWindow orderOut:nil];
 }
 
