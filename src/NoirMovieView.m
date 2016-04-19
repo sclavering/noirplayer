@@ -161,24 +161,4 @@
     return YES;
 }
 
-- (void)mouseDown:(NSEvent *)anEvent
-{
-    [[self noirWindow] mouseDown:anEvent];
-}
-
-- (void)mouseUp:(NSEvent *)anEvent
-{
-    [[self noirWindow] mouseUp:anEvent];
-}
-
-- (void)mouseMoved:(NSEvent *)anEvent
-{
-    [[self noirWindow] mouseMoved:anEvent];
-}
-
--(void)mouseDragged:(NSEvent *)anEvent
-{
-    [[self noirWindow] mouseDragged:anEvent];
-}
-
 @end
