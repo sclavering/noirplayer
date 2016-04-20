@@ -40,14 +40,6 @@
     [_qtmovie stop];
 }
 
--(double)percentLoaded {
-    NSTimeInterval tDuration;
-    QTGetTimeInterval([_qtmovie duration], &tDuration);
-    NSTimeInterval tMaxLoaded;
-    QTGetTimeInterval([_qtmovie maxTimeLoaded], &tMaxLoaded);
-    return tMaxLoaded / tDuration;
-}
-
 -(NSSize)naturalSize {
     NSSize sz = [[_qtmovie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
     return sz.width && sz.height ? sz : NSMakeSize(320, 240);

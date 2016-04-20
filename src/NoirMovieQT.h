@@ -18,7 +18,6 @@
 -(void)play;
 -(void)pause;
 
--(double)percentLoaded;
 -(NSSize)naturalSize;
 
 -(double)totalTime;

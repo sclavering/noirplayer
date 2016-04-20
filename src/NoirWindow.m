@@ -187,10 +187,7 @@
     id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
     [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]}] autorelease]];
 
-    if(theMovieView) {
-        [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
-        [theScrubBar setLoadedValue:[doc.movie percentLoaded]];
-    }
+    if(theMovieView) [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
     [theScrubBar setNeedsDisplay:YES];
 }
 

@@ -14,7 +14,6 @@
     if(self) {
         scrub = [[NSImage imageNamed:@"scrubber"] retain];
         value = 0.0;
-        loaded = 1.0;
         target = nil;
         action = NULL;
         dragging = NO;
@@ -31,13 +30,11 @@
 
 - (void)drawRect:(NSRect)rect
 {
-    if([self loadedValue] >= 0) {
         [self lockFocus];
 
         CGPoint points[2];
         points[0] = CGPointMake(OFFSET, floor(self.frame.size.height / 2.0));
         points[1] = CGPointMake(self.frame.size.width - OFFSET, floor(self.frame.size.height / 2.0));
-        points[1].x = (points[1].x - points[0].x) * [self loadedValue] + points[0].x;
 
         CGContextRef cgRef = [NSGraphicsContext currentContext].graphicsPort;
         CGContextSetAllowsAntialiasing(cgRef, NO);
@@ -58,17 +55,6 @@
         [[NSGraphicsContext currentContext] restoreGraphicsState];
 
         [self unlockFocus];
-    }
-}
-
--(void)setLoadedValue:(double)aValue
-{
-    loaded = aValue;
-}
-
--(double)loadedValue
-{
-    return loaded;
 }
 
 -(void)setDoubleValue:(double)aValue
