@@ -11,15 +11,14 @@
 @class NoirWindow;
 @class NoirMovieView;
 
-enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
-
 @interface NoirDocument : NSDocument
 {
     IBOutlet NoirMovieView *theMovieView;
     IBOutlet NoirWindow *theWindow;
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;
-    enum PreStepingStates preSteppingState;
+    bool _isStepping;
+    bool _wasPlayingBeforeStepping;
 }
 
 @property (readonly) NoirMovieQT* movie;

@@ -13,7 +13,6 @@
 {
     self = [super init];
     if(self){
-        preSteppingState = PSS_INACTIVE;
         menuObjects = nil;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(rebuildMenu)
@@ -215,7 +214,9 @@ stuff won't work properly! */
 
 -(void)startStepping
 {
-    if(preSteppingState == PSS_INACTIVE) preSteppingState = [_movie isPlaying] ? PSS_PLAYING : PSS_STOPPED;
+    if(_isStepping) return;
+    _isStepping = true;
+    _wasPlayingBeforeStepping = [_movie isPlaying];
     [self pauseMovie];
 }
 
@@ -228,8 +229,8 @@ stuff won't work properly! */
 
 -(void)endStepping
 {
-    if(preSteppingState == PSS_PLAYING) [self playMovie];
-    preSteppingState = PSS_INACTIVE;
+    _isStepping = false;
+    if(_wasPlayingBeforeStepping) [self playMovie];
     [theWindow updateByTime:nil];
 }
 
