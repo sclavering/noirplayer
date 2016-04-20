@@ -102,7 +102,7 @@
                     <button tag="666" id="93">
                         <rect key="frame" x="4" y="0.0" width="24" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" alternateImage="close-highlight" tag="666" imageScaling="proportionallyDown" inset="2" id="264">
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" tag="666" imageScaling="proportionallyDown" inset="2" id="264">
                             <behavior key="behavior" lightByContents="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
@@ -149,7 +149,6 @@
     </objects>
     <resources>
         <image name="close" width="96" height="96"/>
-        <image name="close-highlight" width="128" height="128"/>
         <image name="minimize" width="96" height="96"/>
         <image name="play" width="128" height="128"/>
         <image name="playClick" width="128" height="128"/>
