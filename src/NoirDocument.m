@@ -81,7 +81,6 @@
 {
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
-    [[self window] updateVolume];
     [[self window] orderFront:aController];
     [theMovieView displayMovieLayer:[_movie getRenderingLayer]];
     NSSize aSize = [_movie naturalSize];
@@ -267,13 +266,13 @@ stuff won't work properly! */
 -(void)incrementVolume
 {
     [self setVolume:[self volume] + 0.1];
-    [theWindow updateVolume];
+    [theWindow updateVolumeIndicator];
 }
 
 -(void)decrementVolume
 {
     [self setVolume:[self volume] - 0.1];
-    [theWindow updateVolume];
+    [theWindow updateVolumeIndicator];
 }
 
 @end

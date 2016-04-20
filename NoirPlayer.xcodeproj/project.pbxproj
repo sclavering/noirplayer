@@ -25,10 +25,6 @@
 		3E8CC456068AA1290034FCCC /* minimize.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC452068AA1290034FCCC /* minimize.png */; };
 		3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E95D49F06613F05008755D1 /* BlackWindow.h */; };
 		3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E95D4A006613F05008755D1 /* BlackWindow.m */; };
-		3E9996CC06A50F1800D1898D /* volume_muted.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9996CA06A50F1800D1898D /* volume_muted.png */; };
-		3E9996CD06A50F1800D1898D /* volume_with_sound.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9996CB06A50F1800D1898D /* volume_with_sound.png */; };
-		3E9996D206A5101500D1898D /* VolumeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9996D006A5101500D1898D /* VolumeView.h */; };
-		3E9996D306A5101500D1898D /* VolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9996D106A5101500D1898D /* VolumeView.m */; };
 		3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9E628E0661708200B788A8 /* NoirScrubber.h */; };
 		3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E628F0661708200B788A8 /* NoirScrubber.m */; };
 		3E9E62990661724600B788A8 /* scrubber.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62940661724600B788A8 /* scrubber.png */; };
@@ -76,10 +72,6 @@
 		3E8CC452068AA1290034FCCC /* minimize.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = minimize.png; path = Resources/minimize.png; sourceTree = "<group>"; };
 		3E95D49F06613F05008755D1 /* BlackWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlackWindow.h; path = src/BlackWindow.h; sourceTree = "<group>"; };
 		3E95D4A006613F05008755D1 /* BlackWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlackWindow.m; path = src/BlackWindow.m; sourceTree = "<group>"; };
-		3E9996CA06A50F1800D1898D /* volume_muted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_muted.png; path = Resources/volume_muted.png; sourceTree = "<group>"; };
-		3E9996CB06A50F1800D1898D /* volume_with_sound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = volume_with_sound.png; path = Resources/volume_with_sound.png; sourceTree = "<group>"; };
-		3E9996D006A5101500D1898D /* VolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VolumeView.h; path = src/VolumeView.h; sourceTree = "<group>"; };
-		3E9996D106A5101500D1898D /* VolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VolumeView.m; path = src/VolumeView.m; sourceTree = "<group>"; };
 		3E9E628E0661708200B788A8 /* NoirScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirScrubber.h; path = src/NoirScrubber.h; sourceTree = "<group>"; };
 		3E9E628F0661708200B788A8 /* NoirScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirScrubber.m; path = src/NoirScrubber.m; sourceTree = "<group>"; };
 		3E9E62940661724600B788A8 /* scrubber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubber.png; path = Resources/scrubber.png; sourceTree = "<group>"; };
@@ -137,8 +129,6 @@
 		2513D20407BDA31600BB6055 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				3E9996CA06A50F1800D1898D /* volume_muted.png */,
-				3E9996CB06A50F1800D1898D /* volume_with_sound.png */,
 				3E8CC450068AA1290034FCCC /* close.png */,
 				3E8CC452068AA1290034FCCC /* minimize.png */,
 				3E9E64800661B95900B788A8 /* pause.png */,
@@ -188,8 +178,6 @@
 				3E9E628F0661708200B788A8 /* NoirScrubber.m */,
 				3E110B61069BD80100C5800B /* TitleTextField.h */,
 				3E110B62069BD80100C5800B /* TitleTextField.m */,
-				3E9996D006A5101500D1898D /* VolumeView.h */,
-				3E9996D106A5101500D1898D /* VolumeView.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -232,7 +220,6 @@
 				AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */,
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
 				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
-				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
 				259CC53907374066001ED5FA /* NoirApp.h in Headers */,
 				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61680753F92D00702BD0 /* NoirMovieView.h in Headers */,
@@ -307,8 +294,6 @@
 				3E452FF10664719D00BC91B0 /* NoirIcon.icns in Resources */,
 				3E8CC454068AA1290034FCCC /* close.png in Resources */,
 				3E8CC456068AA1290034FCCC /* minimize.png in Resources */,
-				3E9996CC06A50F1800D1898D /* volume_muted.png in Resources */,
-				3E9996CD06A50F1800D1898D /* volume_with_sound.png in Resources */,
 				69257CFB111DD28300C28210 /* MainMenu.xib in Resources */,
 				69257CFF111DD2A700C28210 /* NoirDocument.xib in Resources */,
 			);
@@ -330,7 +315,6 @@
 				AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */,
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
 				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
-				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,
 				259CC53A07374066001ED5FA /* NoirApp.m in Sources */,
 				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NoirMovieView.m in Sources */,

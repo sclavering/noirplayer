@@ -163,14 +163,17 @@
     [self close];
 }
 
--(void)updateVolume
-{
+-(void)updateVolumeIndicator {
     float vol = [[self noirDoc] volume];
-    [theVolumeView setVolume:vol];
     int percent = (int) floor(vol * 100);
     volumeIndicator.stringValue = [NSString stringWithFormat:@"Volume: %d%%", percent];
     volumeIndicator.hidden = false;
-    [self showVolumeOverlay];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeIndicator:) object:nil];
+    [self performSelector:@selector(hideVolumeIndicator:) withObject:nil afterDelay:1.0];
+}
+
+-(void)hideVolumeIndicator:(id)dummy {
+    volumeIndicator.hidden = true;
 }
 
 - (void)performMiniaturize:(id)sender
@@ -208,9 +211,6 @@
     NSRect currentFrame = self.frame;
     [self putOverlay:theOverlayControllerWindow inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height)];
     [self putOverlay:theOverlayTitleBar inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height)];
-    [self putOverlay:theOverlayVolume inFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(currentFrame) - NSMidX([theOverlayVolume frame]), NSMidY(currentFrame) - NSMidY([theOverlayVolume frame]))];
-    // Suppress the default black background.
-    [theOverlayVolume setBackgroundColor: [[NSColor blackColor] colorWithAlphaComponent:0.0]];
 }
 
 -(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame
@@ -292,23 +292,6 @@
     titleOverlayIsShowing = NO;
 }
 
--(void)showVolumeOverlay
-{
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeOverlay:) object:nil];
-    [self performSelector:@selector(hideVolumeOverlay:) withObject:nil afterDelay:1.0];
-    NSRect frame = self.frame;
-    NSRect visibleFrame = [NSScreen mainScreen].visibleFrame;
-    NSRect intersect = NSIntersectionRect(frame, visibleFrame);
-    [theOverlayVolume setFrame:NSOffsetRect([theOverlayVolume frame], NSMidX(intersect) - NSMidX([theOverlayVolume frame]), NSMidY(intersect) - NSMidY([theOverlayVolume frame])) display:YES];
-    [theOverlayVolume setAlphaValue:1.0];
-}
-
--(void)hideVolumeOverlay:(id)dummy
-{
-    volumeIndicator.hidden = true;
-    [theOverlayVolume setAlphaValue:0.0];
-}
-
 #pragma mark -
 #pragma mark Window Toggles
 
@@ -336,7 +319,6 @@
     }
     [theOverlayControllerWindow setAlphaValue:0.0];
     [theOverlayTitleBar setAlphaValue:0.0];
-    [theOverlayVolume setAlphaValue:0.0];
 }
 
 -(void)makeNormalScreen
@@ -349,7 +331,6 @@
         [self resizeToAspectRatio];
     }
     [theOverlayTitleBar orderFront:self];
-    [theOverlayVolume orderFront:self];
     [theOverlayControllerWindow orderFront:self];
     [self hideOverLayWindow];
     [self setInitialDrag:nil];

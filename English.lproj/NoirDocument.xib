@@ -49,12 +49,10 @@
                 <outlet property="theMovieView" destination="120" id="124"/>
                 <outlet property="theOverlayControllerWindow" destination="33" id="254"/>
                 <outlet property="theOverlayTitleBar" destination="89" id="95"/>
-                <outlet property="theOverlayVolume" destination="105" id="110"/>
                 <outlet property="thePlayButton" destination="34" id="83"/>
                 <outlet property="theScrubBar" destination="79" id="80"/>
                 <outlet property="theTimeField" destination="71" id="75"/>
                 <outlet property="theTitleField" destination="92" id="96"/>
-                <outlet property="theVolumeView" destination="108" id="109"/>
                 <outlet property="volumeIndicator" destination="lpw-to-Z79" id="t73-6c-kSb"/>
             </connections>
         </window>
@@ -143,30 +141,11 @@
             </connections>
             <point key="canvasLocation" x="287.5" y="334"/>
         </window>
-        <window title="Volume" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="105" userLabel="Sound Adjustment" customClass="OverlayWindow">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="312" y="323" width="116" height="96"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <value key="minSize" type="size" width="115" height="96"/>
-            <view key="contentView" id="106">
-                <rect key="frame" x="0.0" y="0.0" width="116" height="96"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <imageView id="108" customClass="VolumeView">
-                        <rect key="frame" x="6" y="-3" width="102" height="102"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="volume_with_sound" id="267"/>
-                    </imageView>
-                </subviews>
-            </view>
-        </window>
     </objects>
     <resources>
         <image name="close" width="96" height="96"/>
         <image name="minimize" width="96" height="96"/>
         <image name="play" width="128" height="128"/>
         <image name="playClick" width="128" height="128"/>
-        <image name="volume_with_sound" width="96" height="96"/>
     </resources>
 </document>

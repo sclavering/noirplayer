@@ -13,8 +13,6 @@
     IBOutlet NoirMovieView* theMovieView;
     IBOutlet id theOverlayControllerWindow;
     IBOutlet id theOverlayTitleBar;
-    IBOutlet id theOverlayVolume;
-    IBOutlet id theVolumeView;
     IBOutlet NSTextField* volumeIndicator;
     IBOutlet id theTitleField;
 
@@ -43,7 +41,8 @@
 
 -(BOOL)validateMenuItem:(NSMenuItem*)anItem;
 -(IBAction)performClose:(id)sender;
--(void)updateVolume;
+-(void)updateVolumeIndicator;
+-(void)hideVolumeIndicator:(id)dummy;
 -(void)performMiniaturize:(id)sender;
 -(IBAction)updateByTime:(id)sender;
 
@@ -58,8 +57,6 @@
 -(void)showOverLayTitle;
 -(void)setOverlayTitleLocation;
 -(void)hideOverLayTitle;
--(void)showVolumeOverlay;
--(void)hideVolumeOverlay:(id)dummy;
 
 #pragma mark -
 #pragma mark Window Toggles
