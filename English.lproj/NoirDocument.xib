@@ -24,9 +24,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView id="120" customClass="NoirMovieView">
+                    <customView wantsLayer="YES" id="120" customClass="NoirMovieView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField hidden="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lpw-to-Z79">
+                                <rect key="frame" x="130" y="180" width="150" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <shadow key="shadow" blurRadius="8">
+                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </shadow>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Volume: 100%" usesSingleLineMode="YES" id="2BN-cX-GDh">
+                                    <font key="font" metaFont="system" size="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </customView>
                 </subviews>
             </view>
@@ -41,6 +55,7 @@
                 <outlet property="theTimeField" destination="71" id="75"/>
                 <outlet property="theTitleField" destination="92" id="96"/>
                 <outlet property="theVolumeView" destination="108" id="109"/>
+                <outlet property="volumeIndicator" destination="lpw-to-Z79" id="t73-6c-kSb"/>
             </connections>
         </window>
         <window title="Scrubber" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="33" userLabel="Scrubber Overlay" customClass="OverlayWindow">

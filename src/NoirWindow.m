@@ -165,7 +165,11 @@
 
 -(void)updateVolume
 {
-    [theVolumeView setVolume:[[self noirDoc] volume]];
+    float vol = [[self noirDoc] volume];
+    [theVolumeView setVolume:vol];
+    int percent = (int) floor(vol * 100);
+    volumeIndicator.stringValue = [NSString stringWithFormat:@"Volume: %d%%", percent];
+    volumeIndicator.hidden = false;
     [self showVolumeOverlay];
 }
 
@@ -301,6 +305,7 @@
 
 -(void)hideVolumeOverlay:(id)dummy
 {
+    volumeIndicator.hidden = true;
     [theOverlayVolume setAlphaValue:0.0];
 }
 

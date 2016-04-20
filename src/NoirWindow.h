@@ -15,6 +15,7 @@
     IBOutlet id theOverlayTitleBar;
     IBOutlet id theOverlayVolume;
     IBOutlet id theVolumeView;
+    IBOutlet NSTextField* volumeIndicator;
     IBOutlet id theTitleField;
 
     IBOutlet NoirScrubber* theScrubBar;
