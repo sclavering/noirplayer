@@ -74,7 +74,7 @@ id controller;
     NSEnumerator *enumerator = [NSApp.orderedDocuments objectEnumerator];
     id each;
     while((each = [enumerator nextObject])) {
-        if(![each isPlaying]) continue;
+        if(![((NoirDocument*)each).movie isPlaying]) continue;
         UpdateSystemActivity(OverallAct);
         return;
     }

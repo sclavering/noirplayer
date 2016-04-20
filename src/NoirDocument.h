@@ -4,6 +4,7 @@
 
 @import Cocoa;
 
+#import "NoirMovieQT.h"
 #import "NoirMovieView.h"
 #import "NoirWindow.h"
 
@@ -18,9 +19,12 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
     IBOutlet NoirWindow *theWindow;
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;
-    QTMovie* movie;
     enum PreStepingStates preSteppingState;
 }
+
+@property (readonly) NoirMovieQT* movie;
+
+-(void)closeMovie;
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 
@@ -31,17 +35,11 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 -(NSMenu *)movieMenu;
 -(void)rebuildMenu;
 -(NSMutableArray*)videoMenuItems;
--(NSMenu*)audioTrackMenu;
--(NSMenu*)videoTrackMenu;
 -(NSMenu*)aspectRatioMenu;
 -(id)window;
 
--(NSSize)naturalSize;
--(double)percentLoaded;
-
 #pragma mark Play/Pause
 
--(BOOL)isPlaying;
 -(void)togglePlayingMovie;
 -(void)playMovie;
 -(void)pauseMovie;
@@ -54,9 +52,6 @@ enum PreStepingStates { PSS_INACTIVE, PSS_STOPPED, PSS_PLAYING };
 
 #pragma mark Time
 
--(double)totalTime;
--(double)currentMovieTime;
--(void)setCurrentMovieTime:(double)aDouble;
 -(double)currentTimeAsFraction;
 -(void)setMovieTimeByFraction:(double)when;
 

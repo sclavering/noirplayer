@@ -51,6 +51,8 @@
 		8D15AC310486D014006FF6A4 /* NoirDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		AA81D9D51CC538D500827BED /* document.icns in Resources */ = {isa = PBXBuildFile; fileRef = AA81D9D41CC538D500827BED /* document.icns */; };
+		AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */ = {isa = PBXBuildFile; fileRef = AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */; };
+		AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81D9E01CC6F88600827BED /* NoirMovieQT.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +102,8 @@
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* NoirPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoirPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA81D9D41CC538D500827BED /* document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = document.icns; path = Resources/document.icns; sourceTree = "<group>"; };
+		AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirMovieQT.h; path = src/NoirMovieQT.h; sourceTree = "<group>"; };
+		AA81D9E01CC6F88600827BED /* NoirMovieQT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirMovieQT.m; path = src/NoirMovieQT.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +169,8 @@
 		2A37F4ABFDCFA73011CA2CEA /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */,
+				AA81D9E01CC6F88600827BED /* NoirMovieQT.m */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 				259CC53707374066001ED5FA /* NoirApp.h */,
 				259CC53807374066001ED5FA /* NoirApp.m */,
@@ -230,6 +236,7 @@
 				3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */,
 				3E01F2EA065E9C1D00905F96 /* MainWindowProxy.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
+				AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */,
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
 				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
 				3E9996D206A5101500D1898D /* VolumeView.h in Headers */,
@@ -328,6 +335,7 @@
 				3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */,
 				3E01F2EB065E9C1D00905F96 /* MainWindowProxy.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
+				AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */,
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
 				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
 				3E9996D306A5101500D1898D /* VolumeView.m in Sources */,

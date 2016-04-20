@@ -4,11 +4,8 @@
 
 #import "NoirDocument.h"
 #import "NoirApp.h"
+#import "NoirMovieQT.h"
 
-
-@interface QTMovie(IdlingAdditions)
--(QTTime)maxTimeLoaded;
-@end
 
 @implementation NoirDocument
 
@@ -55,11 +52,16 @@
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    movie = [QTMovie movieWithURL:url error:outError];
+    _movie = [[NoirMovieQT alloc] initWithURL:url error:outError];
+    if(!_movie) return false;
     [theWindow setTitleWithRepresentedFilename:url.path];
     [NSApp changeWindowsItem:theWindow title:theWindow.title filename:YES];
     [NSApp updateWindowsItem:theWindow];
-    return movie ? YES : NO;
+    return true;
+}
+
+-(void)closeMovie {
+    [_movie close];
 }
 
 #pragma mark -
@@ -67,7 +69,7 @@
 
 - (void)windowDidMiniaturize:(NSNotification *)aNotification
 {
-    wasPlayingBeforeMini = [self isPlaying];
+    wasPlayingBeforeMini = [_movie isPlaying];
     [self pauseMovie];
 }
 
@@ -82,8 +84,8 @@
     [NSApp updateWindowsItem:theWindow];
     [[self window] updateVolume];
     [[self window] orderFront:aController];
-    [theMovieView openMovie:movie];
-    NSSize aSize = [self naturalSize];
+    [theMovieView displayMovieLayer:[_movie getRenderingLayer]];
+    NSSize aSize = [_movie naturalSize];
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow initialDefaultSize];
@@ -121,7 +123,7 @@ stuff won't work properly! */
         [menuObjects release];
         menuObjects = nil;
     }
-    
+
     if([[self window] isKeyWindow]) {
         menuObjects = [[NSMutableArray array] retain];
         id videoMenuItems = [self videoMenuItems];
@@ -142,12 +144,12 @@ stuff won't work properly! */
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-    [newItem setSubmenu:[self videoTrackMenu]];
+    [newItem setSubmenu:[_movie videoTrackMenu]];
     [items addObject:newItem];
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
     [newItem setTarget:self];
-    [newItem setSubmenu:[self audioTrackMenu]];
+    [newItem setSubmenu:[_movie audioTrackMenu]];
     [items addObject:newItem];
 
     newItem = [[[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""] autorelease];
@@ -155,38 +157,6 @@ stuff won't work properly! */
     [items addObject:newItem];
 
     return items;
-}
-
--(NSMenu*)audioTrackMenu
-{
-    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [movie tracksOfMediaType:@"soun"];
-    for(NSUInteger i = 0; i < tArray.count; i++) {
-        QTTrack* tTrack = tArray[i];
-        NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
-        tItem.representedObject = tTrack;
-        tItem.target = self;
-        if([tTrack isEnabled]) tItem.state = NSOnState;
-        [tReturnMenu addItem:tItem];
-    }
-    return tReturnMenu;
-}
-
--(NSMenu*)videoTrackMenu
-{
-    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [movie tracksOfMediaType:@"vide"];
-    for(NSUInteger i = 0; i < tArray.count; i++) {
-        QTTrack* tTrack = tArray[i];
-        NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
-        tItem.representedObject = tTrack;
-        tItem.target = self;
-        if([tTrack isEnabled]) tItem.state = NSOnState;
-        [tReturnMenu addItem:tItem];
-    }
-    return tReturnMenu;
 }
 
 -(NSMenu*)aspectRatioMenu
@@ -212,7 +182,7 @@ stuff won't work properly! */
 -(void)selectAspectRatio:(id)sender
 {
     float val = [[sender representedObject] floatValue];
-    NSSize ratio = val ? NSMakeSize(val, 1) : [self naturalSize];
+    NSSize ratio = val ? NSMakeSize(val, 1) : [_movie naturalSize];
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
 }
@@ -222,57 +192,37 @@ stuff won't work properly! */
     return theWindow;
 }
 
--(double)percentLoaded
-{
-    NSTimeInterval tDuration;
-    QTGetTimeInterval([movie duration], &tDuration);
-    NSTimeInterval tMaxLoaded;
-    QTGetTimeInterval([movie maxTimeLoaded], &tMaxLoaded);
-    return tMaxLoaded / tDuration;
-}
-
--(NSSize)naturalSize
-{
-    NSSize sz = [[movie attributeForKey: QTMovieNaturalSizeAttribute] sizeValue];
-    return sz.width && sz.height ? sz : NSMakeSize(320, 240);
-}
-
 #pragma mark Play/Pause
-
--(BOOL)isPlaying
-{
-    return [movie rate] != 0.0;
-}
 
 -(void)togglePlayingMovie
 {
-    [self isPlaying] ? [self pauseMovie] : [self playMovie];
+    [_movie isPlaying] ? [self pauseMovie] : [self playMovie];
 }
 
 -(void)playMovie
 {
-    [movie play];
-    [theWindow updatePlayButton:[self isPlaying]];
+    [_movie play];
+    [theWindow updatePlayButton:[_movie isPlaying]];
 }
 
 -(void)pauseMovie
 {
-    [movie stop];
-    [theWindow updatePlayButton:[self isPlaying]];
+    [_movie pause];
+    [theWindow updatePlayButton:[_movie isPlaying]];
 }
 
 #pragma mark Stepping
 
 -(void)startStepping
 {
-    if(preSteppingState == PSS_INACTIVE) preSteppingState = [self isPlaying] ? PSS_PLAYING : PSS_STOPPED;
+    if(preSteppingState == PSS_INACTIVE) preSteppingState = [_movie isPlaying] ? PSS_PLAYING : PSS_STOPPED;
     [self pauseMovie];
 }
 
 -(void)stepBy:(int)seconds
 {
-    double t = MIN([self currentMovieTime] + seconds, [self totalTime]);
-    [self setCurrentMovieTime:MAX(t, 0)];
+    double t = MIN(self.movie.currentTime + seconds, _movie.totalTime);
+    _movie.currentTime = MAX(t, 0);
     [theWindow updateByTime:nil];
 }
 
@@ -285,38 +235,21 @@ stuff won't work properly! */
 
 #pragma mark Time
 
--(double)totalTime
-{
-    QTTime duration = [movie duration];
-    return duration.timeValue / duration.timeScale;
-}
-
--(double)currentMovieTime
-{
-    QTTime current = [movie currentTime];
-    return current.timeValue / current.timeScale;
-}
-
--(void)setCurrentMovieTime:(double)newMovieTime
-{
-    [movie setCurrentTime:QTMakeTime(newMovieTime, 1)];
-}
-
 -(double)currentTimeAsFraction
 {
-    return [self currentMovieTime] / [self totalTime];
+    return _movie.currentTime / [_movie totalTime];
 }
 
 -(void)setMovieTimeByFraction:(double)when
 {
-    [self setCurrentMovieTime:[self totalTime] * when];
+    self.movie.currentTime = _movie.totalTime * when;
 }
 
 #pragma mark Volume
 
 -(float)volume
 {
-    float volume = [movie volume];
+    float volume = [_movie volume];
     if(volume < 0.0) volume = 0.0;
     if(volume > 2.0) volume = 2.0;
     return volume;
@@ -326,8 +259,7 @@ stuff won't work properly! */
 {
     if(aVolume < 0.0) aVolume = 0.0;
     if(aVolume > 2.0) aVolume = 2.0;
-    [movie setVolume:aVolume];
-    [movie setMuted:NO];
+    [_movie setVolume:aVolume];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 

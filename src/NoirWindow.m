@@ -99,7 +99,7 @@
     NSAutoreleasePool* tPool = [NSAutoreleasePool new];
     [timeUpdaterTimer invalidate];
 
-    [theMovieView close];
+    [[self noirDoc] closeMovie];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super close];
 
@@ -181,15 +181,15 @@
 
     NoirDocument* doc = self.windowController.document;
 
-    int t = [doc totalTime];
-    int c = [doc currentMovieTime];
+    int t = doc.movie.totalTime;
+    int c = doc.movie.currentTime;
     int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
     id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
     [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]}] autorelease]];
 
     if(theMovieView) {
         [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
-        [theScrubBar setLoadedValue:[doc percentLoaded]];
+        [theScrubBar setLoadedValue:[doc.movie percentLoaded]];
     }
     [theScrubBar setNeedsDisplay:YES];
 }
@@ -604,8 +604,8 @@
             [[self noirDoc] stepBy:SCRUB_STEP_DURATION];
             break;
         case NSLeftArrowFunctionKey:
-            if(anEvent.modifierFlags & NSCommandKeyMask){
-                [[self noirDoc] setCurrentMovieTime:0];
+            if(anEvent.modifierFlags & NSCommandKeyMask) {
+                [self noirDoc].movie.currentTime = 0;
                 break;
             }
             if(!anEvent.ARepeat) [[self noirDoc] startStepping];

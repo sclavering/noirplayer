@@ -14,28 +14,18 @@
     return self;
 }
 
--(void)close
-{
-    [qtlayer setMovie:nil];
-    qtlayer = nil;
-    movie = nil;
-}
-
 -(void)dealloc
 {
-    [self close];
     [super dealloc];
 }
 
--(void)openMovie:aMovie
+-(void)displayMovieLayer:(CALayer*)layer
 {
-    qtlayer = [QTMovieLayer layerWithMovie:aMovie];
-    qtlayer.frame = self.frame;
+    layer.frame = self.frame;
     [self setWantsLayer:true];
     self.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
-    [self.layer insertSublayer:qtlayer atIndex:0];
-    qtlayer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
-    movie = aMovie;
+    [self.layer insertSublayer:layer atIndex:0];
+    layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
 
 -(NSView *)hitTest:(NSPoint)aPoint
