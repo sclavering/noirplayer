@@ -72,7 +72,7 @@
 -(void)setLevel:(NSInteger)windowLevel;
 -(void)resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
 -(NSRect)calcResizeSize:(NSSize)aSize;
--(void)resize:(float)amount animate:(BOOL)animate;
+-(void)adjustHeightRetainingAspectRatio:(float)amount;
 - (void)setTitle:(NSString *)aString;
 -(void)initialDefaultSize;
 -(IBAction)halfSize:(id)sender;

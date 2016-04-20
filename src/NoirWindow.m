@@ -388,20 +388,14 @@
     return newRect;
 }
 
-/**
-* Resize the window by a floating point percentage value, with 1.0 being no change.
- * Setting animate to YES will cause the window to animate while resizing.
- */
--(void)resize:(float)amount animate:(BOOL)animate
-{
-    float deltaHeight = amount;
-    float newHeight = self.frame.size.height + deltaHeight;
+-(void)adjustHeightRetainingAspectRatio:(float)amount {
+    float newHeight = self.frame.size.height + amount;
     float newWidth = (self.aspectRatio.width/self.aspectRatio.height)*newHeight;
     if(newHeight <= self.minSize.height) {
-        newHeight =self.frame.size.height;
-        newWidth= self.frame.size.width;
+        newHeight = self.frame.size.height;
+        newWidth = self.frame.size.width;
     }
-    [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:animate];
+    [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:false];
 }
 
 - (void)setTitle:(NSString *)aString
@@ -568,7 +562,7 @@
         [doc stepBy:SCRUB_STEP_DURATION * deltaX];
         [doc endStepping];
     }
-    if(deltaY) [self resize:deltaY * 5 animate:NO];
+    if(deltaY) [self adjustHeightRetainingAspectRatio:deltaY * 5];
 }
 
 #pragma mark -
