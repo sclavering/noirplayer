@@ -45,7 +45,6 @@
         [self setOpaque:YES];
         [self useOptimizedDrawing:YES];
         [self setHasShadow:YES];
-        dropScreen = NO;
         isFilling = NO;
         windowOverlayControllerIsShowing = NO;
         titleOverlayIsShowing = NO;
@@ -388,6 +387,7 @@
 }
 
 -(void)adjustHeightRetainingAspectRatio:(float)amount {
+    if(fullScreen) return;
     float newHeight = self.frame.size.height + amount;
     float newWidth = (self.aspectRatio.width/self.aspectRatio.height)*newHeight;
     if(newHeight <= self.minSize.height) {
@@ -420,9 +420,9 @@
 
 -(void)resizeNormalByScaler:(float)aScaler
 {
+    if(fullScreen) return;
     isFilling = NO;
     [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
-    if(fullScreen) [self centerOnScreen];
     [self setInitialDrag:nil];
 }
 
@@ -515,17 +515,9 @@
 
 -(void)mouseDragged:(NSEvent *)anEvent
 {
-    if(fullScreen && !NSEqualRects([[[NSDocumentController sharedDocumentController] backgroundWindow] frame], [NSScreen mainScreen].frame)) {
-        [[[NSDocumentController sharedDocumentController] backgroundWindow] setFrame:[NSScreen mainScreen].frame display:YES];
-        if([[NSScreen mainScreen] isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
-        dropScreen = YES;
-    }
+    if(fullScreen) return;
     [self showOverLayTitle];
-    /* If we don't do a remove, the child window gets automatically placed when the parent window moves, even if we try
-        to set the location manually. */
-    if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
     [self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
-    if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 
@@ -537,11 +529,6 @@
 
 -(void)mouseUp:(NSEvent *)anEvent
 {
-    if(dropScreen) { // If the screen has been dropped onto a different display
-        [self centerOnScreen];
-        if(isFilling) [self fillScreenSize];
-    }
-    dropScreen = NO;
     [self hideOverLayTitle];
 }
 

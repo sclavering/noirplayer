@@ -26,7 +26,6 @@
     BOOL fullScreen;
     BOOL isFilling;
 
-    BOOL dropScreen; // Controls movie dropping onto other screens (not the primary display)
     id timeUpdaterTimer;
     NSRect beforeFullScreen;
 
