@@ -73,7 +73,6 @@
 -(NSRect)calcResizeSize:(NSSize)aSize;
 -(void)adjustHeightRetainingAspectRatio:(float)amount;
 - (void)setTitle:(NSString *)aString;
--(void)initialDefaultSize;
 -(IBAction)halfSize:(id)sender;
 -(IBAction)normalSize:(id)sender;
 -(IBAction)doubleSize:(id)sender;

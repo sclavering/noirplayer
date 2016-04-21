@@ -476,11 +476,6 @@
     return NSMakeSize(newWidth, self.frame.size.height);
 }
 
--(void)initialDefaultSize
-{
-    [self resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:YES];
-}
-
 -(void)resizeToAspectRatio
 {
     NSSize aSize = [self getResizeAspectRatioSize];

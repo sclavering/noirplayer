@@ -86,7 +86,7 @@
     NSSize aSize = [_movie naturalSize];
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
-    [theWindow initialDefaultSize];
+    [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
     [theWindow setTitle:theWindow.title];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
