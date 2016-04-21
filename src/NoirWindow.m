@@ -434,7 +434,10 @@
     newRect.origin.x = 0;
     newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
-    [self centerOnScreen];
+    [self setInitialDrag:nil];
+    [self removeChildWindow:theOverlayTitleBar];
+    [self setFrame:[self centerRect:self.frame] display:YES];
+    [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 /**
@@ -476,7 +479,6 @@
 -(void)initialDefaultSize
 {
     [self resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:YES];
-    if(fullScreen) [self centerOnScreen];
 }
 
 -(void)resizeToAspectRatio
@@ -484,14 +486,6 @@
     NSSize aSize = [self getResizeAspectRatioSize];
     [self resizeWithSize:aSize animate:YES];
     if(isFilling) [self fillScreenSize];
-}
-
--(void)centerOnScreen
-{
-    [self setInitialDrag:nil];
-    if(fullScreen) [self removeChildWindow:theOverlayTitleBar];
-    [self setFrame:[self centerRect:self.frame] display:YES];
-    if(fullScreen) [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 -(NSRect)centerRect:(NSRect)aRect

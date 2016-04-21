@@ -82,7 +82,6 @@
 -(NSSize)getResizeAspectRatioSize;
 -(void)resizeToAspectRatio;
 -(void)resizeNormalByScaler:(float)aScaler;
--(void)centerOnScreen;
 -(NSRect)centerRect:(NSRect)aRect;
 
 #pragma mark -
