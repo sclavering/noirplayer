@@ -30,11 +30,6 @@ static id overlayControl = nil;
     return self;
 }
 
--(BOOL)isLocation:(NSPoint)aScreenPoint inWindow:(id)aWindow
-{
-    return NSMouseInRect(aScreenPoint, [aWindow frame], NO);
-}
-
 -(BOOL)inControlRegion:(NSPoint)aScreenPoint forWindow:(NoirWindow *)aWindow
 {
     if([aWindow isFullScreen]){
@@ -91,7 +86,7 @@ static id overlayControl = nil;
                 hitTopMost = YES;
                 continue;
             }
-            if([self isLocation:aScreenPoint inWindow:aWindow]) {
+            if(NSMouseInRect(aScreenPoint, [aWindow frame], NO)) {
                 hitTopMost = YES;
             }
         }
