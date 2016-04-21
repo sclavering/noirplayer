@@ -79,10 +79,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     </customView>
                     <textField verticalHuggingPriority="750" id="71">
-                        <rect key="frame" x="328" y="9" width="83" height="14"/>
+                        <rect key="frame" x="323" y="9" width="83" height="14"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="259">
-                            <font key="font" metaFont="smallSystem"/>
+                            <font key="font" metaFont="systemBold" size="11"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
                         </textFieldCell>

@@ -191,8 +191,7 @@
     int t = doc.movie.totalTime;
     int c = doc.movie.currentTime;
     int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
-    id str = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
-    [theTimeField setAttributedStringValue: [[[NSAttributedString alloc] initWithString:str attributes:@{NSFontAttributeName: [NSFont boldSystemFontOfSize:[NSFont systemFontSizeForControlSize:NSSmallControlSize]]}] autorelease]];
+    theTimeField.stringValue =  [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
 
     if(theMovieView) [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
     [theScrubBar setNeedsDisplay:YES];

@@ -17,7 +17,7 @@
     IBOutlet id theTitleField;
 
     IBOutlet NoirScrubber* theScrubBar;
-    IBOutlet id theTimeField;
+    IBOutlet NSTextField* theTimeField;
     IBOutlet NSButton* thePlayButton;
 
     BOOL windowOverlayControllerIsShowing;
