@@ -94,7 +94,7 @@
 -(void)mouseMoved:(NSEvent *)anEvent;
 -(void)mouseUp:(NSEvent *)anEvent;
 -(void)setInitialDrag:(NSEvent *)anEvent;
--(void)scrollWheel:(NSEvent *)anEvent;
+-(void)scrollWheel:(NSEvent *)ev;
 
 #pragma mark -
 #pragma mark Misc

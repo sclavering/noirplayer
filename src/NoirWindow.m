@@ -552,16 +552,15 @@
     initialDrag = [self convertScreenToBase:[NSEvent mouseLocation]];
 }
 
--(void)scrollWheel:(NSEvent *)anEvent
-{
-    float deltaX = anEvent.deltaX, deltaY = anEvent.deltaY;
-    if(deltaX) {
+-(void)scrollWheel:(NSEvent *)ev {
+    if(ev.deltaY) {
+        [self adjustHeightRetainingAspectRatio:ev.deltaY * 5];
+    } else if(ev.deltaX) {
         id doc = self.windowController.document;
         [doc startStepping];
-        [doc stepBy:SCRUB_STEP_DURATION * deltaX];
+        [doc stepBy:SCRUB_STEP_DURATION * ev.deltaX];
         [doc endStepping];
     }
-    if(deltaY) [self adjustHeightRetainingAspectRatio:deltaY * 5];
 }
 
 #pragma mark -
