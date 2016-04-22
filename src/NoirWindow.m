@@ -57,9 +57,6 @@
     self.contentView = theMovieView;
     [self setReleasedWhenClosed:YES];
 
-    id tParagraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-    [tParagraph setAlignment:NSCenterTextAlignment];
-
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
     [self setAcceptsMouseMovedEvents:YES];
