@@ -14,10 +14,6 @@
     return self;
 }
 
--(void)dealloc
-{
-    [super dealloc];
-}
 
 -(void)displayMovieLayer:(CALayer*)layer
 {

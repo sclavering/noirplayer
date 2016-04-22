@@ -69,10 +69,10 @@
 }
 
 -(NSMenu*)audioTrackMenu {
-    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSMenu* tReturnMenu = [[NSMenu alloc] init];
     for(QTTrack* tTrack in [_qtmovie tracksOfMediaType:@"soun"]) {
         NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        NSMenuItem* tItem = [[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""];
         tItem.representedObject = tTrack;
         tItem.target = self;
         if([tTrack isEnabled]) tItem.state = NSOnState;
@@ -82,10 +82,10 @@
 }
 
 -(NSMenu*)videoTrackMenu {
-    NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
+    NSMenu* tReturnMenu = [[NSMenu alloc] init];
     for(QTTrack* tTrack in [_qtmovie tracksOfMediaType:@"vide"]) {
         NSDictionary* tDict = [tTrack trackAttributes];
-        NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
+        NSMenuItem* tItem = [[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""];
         tItem.representedObject = tTrack;
         tItem.target = self;
         if([tTrack isEnabled]) tItem.state = NSOnState;

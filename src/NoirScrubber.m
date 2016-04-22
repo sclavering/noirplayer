@@ -12,7 +12,7 @@
 {
     self = [super initWithFrame:frame];
     if(self) {
-        scrub = [[NSImage imageNamed:@"scrubber"] retain];
+        scrub = [NSImage imageNamed:@"scrubber"];
         value = 0.0;
         target = nil;
         action = NULL;
@@ -21,12 +21,6 @@
     return self;
 }
 
--(void)dealloc
-{
-    [scrub release];
-    [target release];
-    [super dealloc];
-}
 
 - (void)drawRect:(NSRect)rect
 {
@@ -69,8 +63,7 @@
 
 -(void)setTarget:(id)aTarget
 {
-    [target release];
-    target = [aTarget retain];
+    target = aTarget;
 }
 
 -(id)target

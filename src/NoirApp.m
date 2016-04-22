@@ -38,7 +38,7 @@
 {
     if(!NSEqualPoints(lastPoint, [NSEvent mouseLocation])){
         lastPoint = [NSEvent mouseLocation];
-        NSEvent *newEvent = [[NSEvent mouseEventWithType:NSMouseMoved
+        NSEvent *newEvent = [NSEvent mouseEventWithType:NSMouseMoved
                                                location:lastPoint
                                           modifierFlags:0
                                               timestamp:0
@@ -46,9 +46,8 @@
                                                 context:nil
                                             eventNumber:0
                                              clickCount:0
-                                               pressure:1.0] retain];
+                                               pressure:1.0];
         [self sendEvent:newEvent];
-        [newEvent release];
     }
 }
 

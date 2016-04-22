@@ -57,7 +57,7 @@
     self.contentView = theMovieView;
     [self setReleasedWhenClosed:YES];
 
-    id tParagraph = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+    id tParagraph = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     [tParagraph setAlignment:NSCenterTextAlignment];
 
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
@@ -95,14 +95,14 @@
 
 -(void)close
 {
-    NSAutoreleasePool* tPool = [NSAutoreleasePool new];
-    [timeUpdaterTimer invalidate];
+    @autoreleasepool {
+        [timeUpdaterTimer invalidate];
 
-    [[self noirDoc] closeMovie];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super close];
+        [[self noirDoc] closeMovie];
+        [[NSNotificationCenter defaultCenter] removeObserver:self];
+        [super close];
 
-    [tPool release];
+    }
 }
 
 #pragma mark Overriden Methods

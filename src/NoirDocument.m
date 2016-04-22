@@ -26,10 +26,8 @@
 {
     if(menuObjects != nil){
         for(id item in menuObjects) [[self movieMenu] removeItem:item];
-        [menuObjects release];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [super dealloc];
 }
 
 #pragma mark -
@@ -94,7 +92,6 @@
 {
     NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
     [self addWindowController:controller];
-    [controller release];
 }
 
 - (void)showWindows
@@ -116,12 +113,11 @@ stuff won't work properly! */
 
     if(menuObjects != nil) {
         for(id item in menuObjects) [[self movieMenu] removeItem:item];
-        [menuObjects release];
         menuObjects = nil;
     }
 
     if([[self window] isKeyWindow]) {
-        menuObjects = [[NSMutableArray array] retain];
+        menuObjects = [NSMutableArray array];
         id videoMenuItems = [self videoMenuItems];
         for(NSUInteger i = 0; i < [videoMenuItems count]; i++) {
             [[self movieMenu] insertItem:videoMenuItems[i] atIndex:i];
@@ -132,23 +128,23 @@ stuff won't work properly! */
 
 -(NSMutableArray*)videoMenuItems
 {
-    id items = [[[NSMutableArray array] retain] autorelease];
+    id items = [NSMutableArray array];
 
-    id newItem = [[[NSMenuItem alloc] initWithTitle:@"Play/Pause" action:@selector(togglePlayingMovie) keyEquivalent:@""] autorelease];
+    id newItem = [[NSMenuItem alloc] initWithTitle:@"Play/Pause" action:@selector(togglePlayingMovie) keyEquivalent:@""];
     [newItem setTarget:self];
     [items addObject:newItem];
 
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""] autorelease];
+    newItem = [[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""];
     [newItem setTarget:self];
     [newItem setSubmenu:[_movie videoTrackMenu]];
     [items addObject:newItem];
 
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""] autorelease];
+    newItem = [[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""];
     [newItem setTarget:self];
     [newItem setSubmenu:[_movie audioTrackMenu]];
     [items addObject:newItem];
 
-    newItem = [[[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""] autorelease];
+    newItem = [[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""];
     [newItem setSubmenu:[self aspectRatioMenu]];
     [items addObject:newItem];
 
@@ -157,11 +153,11 @@ stuff won't work properly! */
 
 -(NSMenu*)aspectRatioMenu
 {
-    NSMenu* m = [[[NSMenu alloc] init] autorelease];
+    NSMenu* m = [[NSMenu alloc] init];
     NSString* labels[] = { @"Natural", @"16:9", @"16:10", @"4:3" };
     float values[] = { 0, 16.0 / 9.0, 16.0 / 10.0, 4.0 / 3.0 };
     for(int i = 0; i != 4; ++i) {
-        NSMenuItem* mi = [[[NSMenuItem alloc] initWithTitle:labels[i] action:@selector(selectAspectRatio:) keyEquivalent:@""] autorelease];
+        NSMenuItem* mi = [[NSMenuItem alloc] initWithTitle:labels[i] action:@selector(selectAspectRatio:) keyEquivalent:@""];
         mi.representedObject = @(values[i]);
         mi.target = self;
         [m addItem:mi];

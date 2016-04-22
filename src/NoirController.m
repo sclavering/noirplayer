@@ -37,8 +37,6 @@ id controller;
 {
     [mouseMoveTimer invalidate];
     [antiSleepTimer invalidate];
-    [lastCursorMoveDate release];
-    [super dealloc];
 }
 
 -(NSInteger)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions
@@ -56,7 +54,6 @@ id controller;
     NSRect tempRect =[NSScreen screens][0].frame;
     NSPoint tempPoint =[NSEvent mouseLocation];
     if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
-        [lastCursorMoveDate release];
         lastCursorMoveDate = [[NSDate alloc] init];
         lastMouseLocation= tempPoint;
         [NSCursor setHiddenUntilMouseMoves:NO];
