@@ -6,15 +6,6 @@
 
 @implementation NoirMovieView
 
--(instancetype)initWithFrame:(NSRect)aRect
-{
-    if ((self = [super initWithFrame:aRect])) {
-        [self setAutoresizesSubviews:YES];
-    }
-    return self;
-}
-
-
 -(void)displayMovieLayer:(CALayer*)layer
 {
     layer.frame = self.frame;
