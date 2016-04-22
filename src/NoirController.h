@@ -20,7 +20,6 @@
 
 -(void)checkMouseLocation:(id)sender;
 -(id)mainDocument;
--(void)changedWindow:(NSNotification *)notification;
 
 #pragma mark -
 #pragma mark Interface
