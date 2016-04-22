@@ -70,9 +70,7 @@
 
 -(NSMenu*)audioTrackMenu {
     NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [_qtmovie tracksOfMediaType:@"soun"];
-    for(NSUInteger i = 0; i < tArray.count; i++) {
-        QTTrack* tTrack = tArray[i];
+    for(QTTrack* tTrack in [_qtmovie tracksOfMediaType:@"soun"]) {
         NSDictionary* tDict = [tTrack trackAttributes];
         NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
         tItem.representedObject = tTrack;
@@ -85,9 +83,7 @@
 
 -(NSMenu*)videoTrackMenu {
     NSMenu* tReturnMenu = [[[NSMenu alloc] init] autorelease];
-    NSArray* tArray = [_qtmovie tracksOfMediaType:@"vide"];
-    for(NSUInteger i = 0; i < tArray.count; i++) {
-        QTTrack* tTrack = tArray[i];
+    for(QTTrack* tTrack in [_qtmovie tracksOfMediaType:@"vide"]) {
         NSDictionary* tDict = [tTrack trackAttributes];
         NSMenuItem* tItem = [[[NSMenuItem alloc] initWithTitle:tDict[@"QTTrackDisplayNameAttribute"] action:@selector(toggleTrack:) keyEquivalent:@""] autorelease];
         tItem.representedObject = tTrack;

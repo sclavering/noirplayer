@@ -76,10 +76,8 @@ static id overlayControl = nil;
 
 -(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint
 {
-    id someWindows = NSApp.orderedWindows;
     BOOL hitTopMost = NO;
-    for(unsigned i = 0; i < [someWindows count]; i++) {
-        id aWindow = someWindows[i];
+    for(id aWindow in NSApp.orderedWindows) {
         if(![aWindow isKindOfClass:[NoirWindow class]]) continue;
         if(!hitTopMost) {
             if([self showOverlayForWindow:aWindow atPoint:aScreenPoint]) {

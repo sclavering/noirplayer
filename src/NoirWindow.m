@@ -339,11 +339,8 @@
     return fullScreen;
 }
 
--(void)setLevel:(NSInteger)windowLevel
-{
-    id enumerator = [self.childWindows objectEnumerator];
-    id object;
-    while((object = [enumerator nextObject])) [object setLevel:windowLevel];
+-(void)setLevel:(NSInteger)windowLevel {
+    for(id object in self.childWindows) [object setLevel:windowLevel];
     super.level = windowLevel;
 }
 

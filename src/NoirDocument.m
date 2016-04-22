@@ -25,8 +25,7 @@
 -(void)dealloc
 {
     if(menuObjects != nil){
-        for(NSUInteger i = 0; i < menuObjects.count; i++)
-            [[self movieMenu] removeItem:menuObjects[i]];
+        for(id item in menuObjects) [[self movieMenu] removeItem:item];
         [menuObjects release];
     }
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -116,8 +115,7 @@ stuff won't work properly! */
     // xxx this ought to show a Volume menu on the Movie menu
 
     if(menuObjects != nil) {
-        for(NSUInteger i = 0; i < menuObjects.count; i++)
-            [[self movieMenu] removeItem:menuObjects[i]];
+        for(id item in menuObjects) [[self movieMenu] removeItem:item];
         [menuObjects release];
         menuObjects = nil;
     }

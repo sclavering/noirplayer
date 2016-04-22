@@ -71,9 +71,7 @@ id controller;
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void)preventSleep:(id)sender
 {
-    NSEnumerator *enumerator = [NSApp.orderedDocuments objectEnumerator];
-    id each;
-    while((each = [enumerator nextObject])) {
+    for(id each in NSApp.orderedDocuments) {
         if(![((NoirDocument*)each).movie isPlaying]) continue;
         UpdateSystemActivity(OverallAct);
         return;
@@ -92,12 +90,10 @@ id controller;
 #pragma mark -
 #pragma mark Interface
 
--(IBAction)openDocument:(id)sender
-{
-    NSArray *files = [self URLsFromRunningOpenPanel];
-    for(unsigned i = 0; i < files.count; i++) {
+-(IBAction)openDocument:(id)sender {
+    NSArray* files = [self URLsFromRunningOpenPanel];
+    for(id url in files) {
         NSError* tError = nil;
-        id url = files[i];
         [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         if(tError) [NSApp presentError:tError];
     }
