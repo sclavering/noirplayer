@@ -254,7 +254,6 @@ stuff won't work properly! */
     if(aVolume < 0.0) aVolume = 0.0;
     if(aVolume > 2.0) aVolume = 2.0;
     [_movie setVolume:aVolume];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
 }
 
 -(void)incrementVolume
