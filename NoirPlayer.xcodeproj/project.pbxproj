@@ -12,8 +12,6 @@
 		257D61680753F92D00702BD0 /* NoirMovieView.h in Headers */ = {isa = PBXBuildFile; fileRef = 257D61660753F92D00702BD0 /* NoirMovieView.h */; };
 		257D61690753F92D00702BD0 /* NoirMovieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 257D61670753F92D00702BD0 /* NoirMovieView.m */; };
 		258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258C2B700A2D713E00AC22BB /* IOKit.framework */; };
-		259CC53907374066001ED5FA /* NoirApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 259CC53707374066001ED5FA /* NoirApp.h */; };
-		259CC53A07374066001ED5FA /* NoirApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CC53807374066001ED5FA /* NoirApp.m */; };
 		3E085CBC065C79EE005286A3 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E085CBB065C79EE005286A3 /* play.png */; };
 		3E110B63069BD80100C5800B /* TitleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E110B61069BD80100C5800B /* TitleTextField.h */; };
 		3E110B64069BD80100C5800B /* TitleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* TitleTextField.m */; };
@@ -55,8 +53,6 @@
 		257D61660753F92D00702BD0 /* NoirMovieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirMovieView.h; path = src/NoirMovieView.h; sourceTree = "<group>"; };
 		257D61670753F92D00702BD0 /* NoirMovieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirMovieView.m; path = src/NoirMovieView.m; sourceTree = "<group>"; };
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
-		259CC53707374066001ED5FA /* NoirApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirApp.h; path = src/NoirApp.h; sourceTree = "<group>"; };
-		259CC53807374066001ED5FA /* NoirApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirApp.m; path = src/NoirApp.m; sourceTree = "<group>"; };
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NoirDocument.m; path = src/NoirDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NoirDocument.h; path = src/NoirDocument.h; sourceTree = "<group>"; };
@@ -158,8 +154,6 @@
 				AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */,
 				AA81D9E01CC6F88600827BED /* NoirMovieQT.m */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
-				259CC53707374066001ED5FA /* NoirApp.h */,
-				259CC53807374066001ED5FA /* NoirApp.m */,
 				3EEDF763065B507B00E3545C /* NoirWindow.h */,
 				3EEDF764065B507B00E3545C /* NoirWindow.m */,
 				3EEDF76B065B5ACD00E3545C /* NoirController.h */,
@@ -221,7 +215,6 @@
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
 				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
 				AA561CD21CCAB471008021B8 /* NoirOverlayRootView.h in Headers */,
-				259CC53907374066001ED5FA /* NoirApp.h in Headers */,
 				257D61680753F92D00702BD0 /* NoirMovieView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +309,6 @@
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
 				AA561CD31CCAB471008021B8 /* NoirOverlayRootView.m in Sources */,
 				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
-				259CC53A07374066001ED5FA /* NoirApp.m in Sources */,
 				257D61690753F92D00702BD0 /* NoirMovieView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

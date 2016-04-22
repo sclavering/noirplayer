@@ -8,7 +8,6 @@
 #import "NoirDocument.h"
 #import "NoirController.h"
 #import "NoirScrubber.h"
-#import "NoirApp.h"
 
 #define SCRUB_STEP_DURATION 5
 
