@@ -14,8 +14,6 @@
 		258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258C2B700A2D713E00AC22BB /* IOKit.framework */; };
 		259CC53907374066001ED5FA /* NoirApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 259CC53707374066001ED5FA /* NoirApp.h */; };
 		259CC53A07374066001ED5FA /* NoirApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CC53807374066001ED5FA /* NoirApp.m */; };
-		25B913250741736A001B68D9 /* OverlaysControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 25B913230741736A001B68D9 /* OverlaysControl.h */; };
-		25B913260741736A001B68D9 /* OverlaysControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 25B913240741736A001B68D9 /* OverlaysControl.m */; };
 		3E085CBC065C79EE005286A3 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E085CBB065C79EE005286A3 /* play.png */; };
 		3E110B63069BD80100C5800B /* TitleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E110B61069BD80100C5800B /* TitleTextField.h */; };
 		3E110B64069BD80100C5800B /* TitleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* TitleTextField.m */; };
@@ -44,6 +42,8 @@
 		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
 		8D15AC310486D014006FF6A4 /* NoirDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		AA561CD21CCAB471008021B8 /* NoirOverlayRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = AA561CD01CCAB471008021B8 /* NoirOverlayRootView.h */; };
+		AA561CD31CCAB471008021B8 /* NoirOverlayRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA561CD11CCAB471008021B8 /* NoirOverlayRootView.m */; };
 		AA81D9D51CC538D500827BED /* document.icns in Resources */ = {isa = PBXBuildFile; fileRef = AA81D9D41CC538D500827BED /* document.icns */; };
 		AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */ = {isa = PBXBuildFile; fileRef = AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */; };
 		AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */ = {isa = PBXBuildFile; fileRef = AA81D9E01CC6F88600827BED /* NoirMovieQT.m */; };
@@ -57,8 +57,6 @@
 		258C2B700A2D713E00AC22BB /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = /System/Library/Frameworks/IOKit.framework; sourceTree = "<absolute>"; };
 		259CC53707374066001ED5FA /* NoirApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirApp.h; path = src/NoirApp.h; sourceTree = "<group>"; };
 		259CC53807374066001ED5FA /* NoirApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirApp.m; path = src/NoirApp.m; sourceTree = "<group>"; };
-		25B913230741736A001B68D9 /* OverlaysControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OverlaysControl.h; path = src/OverlaysControl.h; sourceTree = "<group>"; };
-		25B913240741736A001B68D9 /* OverlaysControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OverlaysControl.m; path = src/OverlaysControl.m; sourceTree = "<group>"; };
 		25CC866D0831DDA800027929 /* QTKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = NoirDocument.m; path = src/NoirDocument.m; sourceTree = "<group>"; };
 		2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NoirDocument.h; path = src/NoirDocument.h; sourceTree = "<group>"; };
@@ -89,6 +87,8 @@
 		69257CFE111DD2A700C28210 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/NoirDocument.xib; sourceTree = "<group>"; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* NoirPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoirPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA561CD01CCAB471008021B8 /* NoirOverlayRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirOverlayRootView.h; path = src/NoirOverlayRootView.h; sourceTree = "<group>"; };
+		AA561CD11CCAB471008021B8 /* NoirOverlayRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirOverlayRootView.m; path = src/NoirOverlayRootView.m; sourceTree = "<group>"; };
 		AA81D9D41CC538D500827BED /* document.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = document.icns; path = Resources/document.icns; sourceTree = "<group>"; };
 		AA81D9DF1CC6F88600827BED /* NoirMovieQT.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirMovieQT.h; path = src/NoirMovieQT.h; sourceTree = "<group>"; };
 		AA81D9E01CC6F88600827BED /* NoirMovieQT.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirMovieQT.m; path = src/NoirMovieQT.m; sourceTree = "<group>"; };
@@ -166,10 +166,10 @@
 				3EEDF76C065B5ACD00E3545C /* NoirController.m */,
 				2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* NoirDocument.m */,
+				AA561CD01CCAB471008021B8 /* NoirOverlayRootView.h */,
+				AA561CD11CCAB471008021B8 /* NoirOverlayRootView.m */,
 				257D61660753F92D00702BD0 /* NoirMovieView.h */,
 				257D61670753F92D00702BD0 /* NoirMovieView.m */,
-				25B913230741736A001B68D9 /* OverlaysControl.h */,
-				25B913240741736A001B68D9 /* OverlaysControl.m */,
 				3EDA2680065C8E570000CCEE /* OverlayWindow.h */,
 				3EDA2681065C8E570000CCEE /* OverlayWindow.m */,
 				3E95D49F06613F05008755D1 /* BlackWindow.h */,
@@ -220,8 +220,8 @@
 				AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */,
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
 				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
+				AA561CD21CCAB471008021B8 /* NoirOverlayRootView.h in Headers */,
 				259CC53907374066001ED5FA /* NoirApp.h in Headers */,
-				25B913250741736A001B68D9 /* OverlaysControl.h in Headers */,
 				257D61680753F92D00702BD0 /* NoirMovieView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,9 +314,9 @@
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
 				AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */,
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
+				AA561CD31CCAB471008021B8 /* NoirOverlayRootView.m in Sources */,
 				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
 				259CC53A07374066001ED5FA /* NoirApp.m in Sources */,
-				25B913260741736A001B68D9 /* OverlaysControl.m in Sources */,
 				257D61690753F92D00702BD0 /* NoirMovieView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

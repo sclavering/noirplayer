@@ -2,12 +2,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+#import "NoirWindow.h"
+
 #import "NoirMovieView.h"
 #import "NoirDocument.h"
-#import "OverlaysControl.h"
 #import "NoirController.h"
 #import "NoirScrubber.h"
-#import "NoirWindow.h"
 #import "NoirApp.h"
 
 #define SCRUB_STEP_DURATION 5
@@ -59,7 +59,6 @@
 
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
-    [self setAcceptsMouseMovedEvents:YES];
 
     thePlayButton.keyEquivalent = @" ";
     thePlayButton.target = self;
@@ -284,6 +283,11 @@
     titleOverlayIsShowing = NO;
 }
 
+-(void)mouseExitedOverlayWindow:(NSWindow*)overlay {
+    if(overlay == theOverlayTitleBar) [self hideOverLayTitle];
+    else if(overlay == theOverlayControllerWindow) [self hideOverLayWindow];
+}
+
 #pragma mark -
 #pragma mark Window Toggles
 
@@ -498,13 +502,6 @@
     if(fullScreen) return;
     [self showOverLayTitle];
     [self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
-}
-
-
-/* Used to detect what controls the mouse is currently over. */
-- (void)mouseMoved:(NSEvent *)anEvent
-{
-    [[OverlaysControl control] mouseMovedInScreenPoint:[self convertBaseToScreen:anEvent.locationInWindow]];
 }
 
 -(void)mouseUp:(NSEvent *)anEvent

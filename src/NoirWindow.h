@@ -57,6 +57,8 @@
 -(void)setOverlayTitleLocation;
 -(void)hideOverLayTitle;
 
+-(void)mouseExitedOverlayWindow:(NSWindow*)overlay;
+
 #pragma mark -
 #pragma mark Window Toggles
 
@@ -88,7 +90,6 @@
 
 -(void)mouseDown:(NSEvent *)anEvent;
 -(void)mouseDragged:(NSEvent *)anEvent;
--(void)mouseMoved:(NSEvent *)anEvent;
 -(void)mouseUp:(NSEvent *)anEvent;
 -(void)setInitialDrag:(NSEvent *)anEvent;
 -(void)scrollWheel:(NSEvent *)ev;

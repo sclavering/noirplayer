@@ -4,6 +4,8 @@
 
 #import "NoirMovieView.h"
 
+#import "NoirWindow.h"
+
 @implementation NoirMovieView
 
 -(void)displayMovieLayer:(CALayer*)layer
@@ -34,5 +36,34 @@
 {
     return YES;
 }
+
+// Set up tracking areas to trigger showing the title bar and control bars.
+-(void)updateTrackingAreas {
+    while(self.trackingAreas.count) [self removeTrackingArea:self.trackingAreas[0]];
+
+    NSRect titleRect = self.bounds;
+    float titlebarHeight = [((NoirWindow*)self.window) titlebarHeight];
+    titleRect.origin.y = titleRect.size.height - titlebarHeight;
+    titleRect.size.height = titlebarHeight;
+    [self addTrackingArea: [[NSTrackingArea alloc] initWithRect:titleRect options:NSTrackingMouseEnteredAndExited|NSTrackingActiveInActiveApp owner:self userInfo:nil]];
+
+    NSRect controlsRect = self.bounds;
+    controlsRect.size.height = [((NoirWindow*)self.window) scrubberHeight];
+    [self addTrackingArea: [[NSTrackingArea alloc] initWithRect:controlsRect options:NSTrackingMouseEnteredAndExited|NSTrackingActiveInActiveApp owner:self userInfo:nil]];
+}
+
+-(void)mouseEntered:(NSEvent*)ev {
+    NoirWindow* win = (NoirWindow*)self.window;
+    if(ev.locationInWindow.y > [win scrubberHeight]) {
+        [win showOverLayTitle];
+    } else {
+        [win showOverlayControlBar];
+    }
+}
+
+-(void)mouseExited:(NSEvent*)ev {
+    // We don't do anything here, because showing the child window will cause an immediate exit of the tracking area.
+}
+
 
 @end

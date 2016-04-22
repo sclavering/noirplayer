@@ -4,14 +4,5 @@
 
 @import Cocoa;
 
-@class NoirWindow;
-
-@interface OverlaysControl : NSObject {
-}
-
-+(id)control;
--(void)mouseMovedInScreenPoint:(NSPoint)aScreenPoint;
-
--(BOOL)showOverlayForWindow:(NoirWindow *)aWindow atPoint:(NSPoint)aScreenPoint;
-
+@interface NoirOverlayRootView : NSView
 @end

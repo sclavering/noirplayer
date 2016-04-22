@@ -55,14 +55,14 @@
     [((NoirWindow *)self.parentWindow) mouseMoved:newEvent];
 }
 
-- (void)mouseEntered:(NSEvent *)theEvent
-{
-    [NSApp mouseEntered:theEvent];
+// mouseEntered/mouseLeaved are called because NoirOverlayRootView sets up a tracking-area with us as the "owner" (i.e. target).
+
+-(void)mouseEntered:(NSEvent *)ev {
+    // Do nothing.  NoirMovieMovie has its own tracking-area that's used to triggering showing the overlay window.
 }
 
-- (void)mouseExited:(NSEvent *)theEvent
-{
-    [NSApp mouseExited:theEvent];
+-(void)mouseExited:(NSEvent *)ev {
+    [((NoirWindow*)self.parentWindow) mouseExitedOverlayWindow:self];
 }
 
 - (void)sendEvent:(NSEvent *)theEvent
