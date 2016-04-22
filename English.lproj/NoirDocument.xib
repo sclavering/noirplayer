@@ -136,9 +136,6 @@
                     </button>
                 </subviews>
             </view>
-            <connections>
-                <outlet property="theNoirWindow" destination="5" id="166"/>
-            </connections>
             <point key="canvasLocation" x="287.5" y="334"/>
         </window>
     </objects>
