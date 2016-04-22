@@ -97,11 +97,8 @@
 {
     @autoreleasepool {
         [timeUpdaterTimer invalidate];
-
         [[self noirDoc] closeMovie];
-        [[NSNotificationCenter defaultCenter] removeObserver:self];
         [super close];
-
     }
 }
 
