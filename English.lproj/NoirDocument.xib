@@ -45,98 +45,97 @@
                 </subviews>
             </view>
             <connections>
+                <outlet property="controlsOverlay" destination="PCO-IA-gl2" id="8wn-Qb-cmL"/>
                 <outlet property="delegate" destination="-2" id="28"/>
+                <outlet property="overlayWindow" destination="33" id="Qzm-cz-NCX"/>
                 <outlet property="theMovieView" destination="120" id="124"/>
-                <outlet property="theOverlayControllerWindow" destination="33" id="254"/>
-                <outlet property="theOverlayTitleBar" destination="89" id="95"/>
                 <outlet property="thePlayButton" destination="34" id="83"/>
                 <outlet property="theScrubBar" destination="79" id="80"/>
                 <outlet property="theTimeField" destination="71" id="75"/>
-                <outlet property="theTitleField" destination="92" id="96"/>
+                <outlet property="titleOverlay" destination="L4y-kC-DUS" id="0Uc-WU-bsx"/>
                 <outlet property="volumeIndicator" destination="lpw-to-Z79" id="t73-6c-kSb"/>
             </connections>
         </window>
-        <window title="Scrubber" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="33" userLabel="Scrubber Overlay" customClass="OverlayWindow">
+        <window title="Scrubber" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="33" userLabel="Overlay Window" customClass="OverlayWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="239" y="227" width="416" height="32"/>
+            <rect key="contentRect" x="239" y="227" width="320" height="240"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <value key="minSize" type="size" width="213" height="32"/>
-            <view key="contentView" id="32" customClass="NoirOverlayRootView">
-                <rect key="frame" x="0.0" y="0.0" width="416" height="32"/>
+            <value key="minSize" type="size" width="131" height="86"/>
+            <view key="contentView" id="32">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button id="34">
-                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <buttonCell key="cell" type="square" title="Play" bezelStyle="shadowlessSquare" image="play" imagePosition="only" alignment="center" alternateImage="playClick" imageScaling="proportionallyDown" inset="2" id="256">
-                            <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <customView id="79" customClass="NoirScrubber">
-                        <rect key="frame" x="33" y="0.0" width="298" height="32"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                    <customView id="PCO-IA-gl2" userLabel="Controls Overlay" customClass="NoirOverlayView">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button id="34">
+                                <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <buttonCell key="cell" type="square" title="Play" bezelStyle="shadowlessSquare" image="play" imagePosition="only" alignment="center" alternateImage="playClick" imageScaling="proportionallyDown" inset="2" id="256">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <customView id="79" customClass="NoirScrubber">
+                                <rect key="frame" x="33" y="0.0" width="196" height="32"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                            </customView>
+                            <textField verticalHuggingPriority="750" id="71">
+                                <rect key="frame" x="230" y="9" width="83" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="259">
+                                    <font key="font" metaFont="smallSystemBold"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </customView>
-                    <textField verticalHuggingPriority="750" id="71">
-                        <rect key="frame" x="323" y="9" width="83" height="14"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="right" id="259">
-                            <font key="font" metaFont="smallSystemBold"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
-                        </textFieldCell>
-                    </textField>
+                    <view id="L4y-kC-DUS" userLabel="Title Overlay" customClass="NoirOverlayView">
+                        <rect key="frame" x="0.0" y="216" width="320" height="24"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <button tag="666" id="hqn-nB-AUw" userLabel="Close Button">
+                                <rect key="frame" x="4" y="0.0" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" tag="666" imageScaling="proportionallyDown" inset="2" id="Fil-zB-kPk">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="performClose:" target="5" id="6gt-eF-FuQ"/>
+                                </connections>
+                            </button>
+                            <button id="Mrk-cV-WLU" userLabel="Minimise Button">
+                                <rect key="frame" x="24" y="0.0" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="minimize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="umo-Tk-EM9">
+                                    <behavior key="behavior" lightByContents="YES"/>
+                                    <font key="font" metaFont="system" size="10"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="performMiniaturize:" target="5" id="dRY-jC-05m"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" id="QtN-7j-3cN" userLabel="Title Text" customClass="TitleTextField">
+                                <rect key="frame" x="49" y="2" width="274" height="20"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Noir Player" id="BEW-nI-esW">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
+                                </textFieldCell>
+                                <connections>
+                                    <outlet property="theNoirWindow" destination="5" id="AkI-vY-W6z"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                    </view>
                 </subviews>
             </view>
-        </window>
-        <window title="Title" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" visibleAtLaunch="NO" animationBehavior="default" id="89" userLabel="Title Overlay" customClass="OverlayWindow">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="25" y="435" width="373" height="24"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
-            <value key="minSize" type="size" width="131" height="5"/>
-            <view key="contentView" id="90" customClass="NoirOverlayRootView">
-                <rect key="frame" x="0.0" y="0.0" width="373" height="24"/>
-                <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <textField verticalHuggingPriority="750" id="92" customClass="TitleTextField">
-                        <rect key="frame" x="49" y="2" width="327" height="20"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Noir Player" id="263">
-                            <font key="font" metaFont="system"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
-                        </textFieldCell>
-                        <connections>
-                            <outlet property="theNoirWindow" destination="5" id="104"/>
-                        </connections>
-                    </textField>
-                    <button tag="666" id="93">
-                        <rect key="frame" x="4" y="0.0" width="24" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="close" imagePosition="only" alignment="center" tag="666" imageScaling="proportionallyDown" inset="2" id="264">
-                            <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="performClose:" target="5" id="175"/>
-                        </connections>
-                    </button>
-                    <button id="94">
-                        <rect key="frame" x="24" y="0.0" width="24" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
-                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="minimize" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="265">
-                            <behavior key="behavior" lightByContents="YES"/>
-                            <font key="font" metaFont="system" size="10"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="performMiniaturize:" target="5" id="101"/>
-                        </connections>
-                    </button>
-                </subviews>
-            </view>
-            <point key="canvasLocation" x="287.5" y="334"/>
+            <point key="canvasLocation" x="274" y="581"/>
         </window>
     </objects>
     <resources>

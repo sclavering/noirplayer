@@ -4,5 +4,5 @@
 
 @import Cocoa;
 
-@interface NoirOverlayRootView : NSView
+@interface NoirOverlayView : NSView
 @end

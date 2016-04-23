@@ -7,21 +7,22 @@
 @class NoirMovieView;
 @class NoirScrubber;
 @class NoirDocument;
+@class NoirOverlayView;
+@class OverlayWindow;
 
 @interface NoirWindow : NSWindow
 {
     IBOutlet NoirMovieView* theMovieView;
-    IBOutlet id theOverlayControllerWindow;
-    IBOutlet id theOverlayTitleBar;
     IBOutlet NSTextField* volumeIndicator;
     IBOutlet id theTitleField;
+
+    IBOutlet OverlayWindow* overlayWindow;
+    IBOutlet NoirOverlayView* controlsOverlay;
+    IBOutlet NoirOverlayView* titleOverlay;
 
     IBOutlet NoirScrubber* theScrubBar;
     IBOutlet NSTextField* theTimeField;
     IBOutlet NSButton* thePlayButton;
-
-    BOOL windowOverlayControllerIsShowing;
-    BOOL titleOverlayIsShowing;
 
     BOOL fullScreen;
     BOOL isFilling;
@@ -35,9 +36,6 @@
 
 -(NoirDocument*)noirDoc;
 
--(float)scrubberHeight;
--(float)titlebarHeight;
-
 -(BOOL)validateMenuItem:(NSMenuItem*)anItem;
 -(IBAction)performClose:(id)sender;
 -(void)updateVolumeIndicator;
@@ -47,17 +45,15 @@
 
 #pragma mark -
 #pragma mark Overlays
--(void)setupOverlays;
--(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame;
--(void)hideOverlays;
--(void)showOverlayControlBar;
--(void)setOverlayControllerWindowLocation;
--(void)hideOverLayWindow;
--(void)showOverLayTitle;
--(void)setOverlayTitleLocation;
--(void)hideOverLayTitle;
 
--(void)mouseExitedOverlayWindow:(NSWindow*)overlay;
+-(void)setupOverlays;
+-(void)hideControlsOverlay;
+-(void)hideTitleOverlay;
+
+-(void)mouseEnteredOverlayView:(NSView*)overlay;
+-(void)mouseExitedOverlayView:(NSView*)overlay;
+
+-(void)onSelfMovedOrResized:(NSNotification*)notification;
 
 #pragma mark -
 #pragma mark Window Toggles
@@ -90,7 +86,6 @@
 
 -(void)mouseDown:(NSEvent *)anEvent;
 -(void)mouseDragged:(NSEvent *)anEvent;
--(void)mouseUp:(NSEvent *)anEvent;
 -(void)setInitialDrag:(NSEvent *)anEvent;
 -(void)scrollWheel:(NSEvent *)ev;
 

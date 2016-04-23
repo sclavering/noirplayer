@@ -8,6 +8,8 @@
 #import "NoirDocument.h"
 #import "NoirController.h"
 #import "NoirScrubber.h"
+#import "NoirOverlayView.h"
+#import "OverlayWindow.h"
 
 #define SCRUB_STEP_DURATION 5
 
@@ -17,16 +19,6 @@
 -(NoirDocument*)noirDoc
 {
     return self.windowController.document;
-}
-
--(float)scrubberHeight
-{
-    return [theOverlayControllerWindow frame].size.height;
-}
-
--(float)titlebarHeight
-{
-    return [theOverlayTitleBar frame].size.height;
 }
 
 - (instancetype)initWithContentRect:(NSRect)contentRect
@@ -45,8 +37,9 @@
         [self useOptimizedDrawing:YES];
         [self setHasShadow:YES];
         isFilling = NO;
-        windowOverlayControllerIsShowing = NO;
-        titleOverlayIsShowing = NO;
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidResizeNotification object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidMoveNotification object:self];
     }
     return self;
 }
@@ -65,6 +58,11 @@
 
     theScrubBar.target = self;
     theScrubBar.action = @selector(doSetPosition:);
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidMoveNotification object:self];
 }
 
 
@@ -98,25 +96,6 @@
 }
 
 #pragma mark Overriden Methods
-
--(void)resignMainWindow
-{
-    [self hideOverLayWindow];
-    [self hideOverLayTitle];
-    [super resignMainWindow];
-}
-
--(void)setFrame:(NSRect)frameRect display:(BOOL)displayFlag
-{
-    [super setFrame:frameRect display:displayFlag];
-    [self setOverlayControllerWindowLocation];
-    [self setOverlayTitleLocation];
-}
-
--(void)setFrameOrigin:(NSPoint)orign
-{
-    [super setFrameOrigin:orign];
-}
 
 -(BOOL)canBecomeMainWindow
 {
@@ -192,99 +171,39 @@
 #pragma mark -
 #pragma mark Overlays
 
-/**
-* Setup the locations of all of the overlays given the initial setup of the window. There are three
- * primary overlay windows: the controller bar, the title bar and the volume window.
- */
--(void)setupOverlays
-{
-    NSRect currentFrame = self.frame;
-    [self putOverlay:theOverlayControllerWindow inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y, currentFrame.size.width, [theOverlayControllerWindow frame].size.height)];
-    [self putOverlay:theOverlayTitleBar inFrame:NSMakeRect(currentFrame.origin.x, currentFrame.origin.y + currentFrame.size.height-[theOverlayTitleBar frame].size.height, currentFrame.size.width, [theOverlayTitleBar frame].size.height)];
+-(void)setupOverlays {
+    [overlayWindow setFrame:self.frame display:false];
+    overlayWindow.level = self.level;
+    [self addChildWindow:overlayWindow ordered:NSWindowAbove];
+    [overlayWindow orderFront:self];
+    [self hideControlsOverlay];
+    [self hideTitleOverlay];
 }
 
--(void)putOverlay:(NSWindow*)anOverlay inFrame:(NSRect)aFrame
-{
-    [anOverlay setFrame:aFrame display:NO];
-    anOverlay.alphaValue = 0.0;
-    anOverlay.level = self.level;
-    [self addChildWindow:anOverlay ordered:NSWindowAbove];
-    [anOverlay orderFront:self];
+-(void)hideControlsOverlay {
+    controlsOverlay.alphaValue = 0.0;
 }
 
--(void)hideOverlays
-{
-    [self hideOverLayWindow];
-    [self hideOverLayTitle];
+-(void)hideTitleOverlay {
+    titleOverlay.alphaValue = 0.0;
 }
 
--(void)showOverlayControlBar
-{
-    if(windowOverlayControllerIsShowing) return;
-    [self updateByTime:self];
-    [self setOverlayControllerWindowLocation];
-    [theOverlayControllerWindow setAlphaValue:1.0];
-    windowOverlayControllerIsShowing = YES;
-}
-
-/**
-* All of this logic is to set the location of the controller/scrubber bar that appears upon mouseover -- its
- * location is dependant on the screen position of the window, the mode of the window, and the location
- * of the window.
- */
--(void)setOverlayControllerWindowLocation
-{
-    NSRect mainFrame = [NSScreen mainScreen].visibleFrame;
-    NSRect r = fullScreen ? mainFrame : NSIntersectionRect(self.frame, mainFrame);
-    [theOverlayControllerWindow setFrame:NSMakeRect(r.origin.x, r.origin.y, r.size.width, [theOverlayControllerWindow frame].size.height) display:YES];
-}
-
--(void)hideOverLayWindow
-{
-    if(!windowOverlayControllerIsShowing) return;
-    [theOverlayControllerWindow setAlphaValue:0.0];
-    windowOverlayControllerIsShowing = NO;
-}
-
--(void)showOverLayTitle
-{
-    [self setOverlayTitleLocation];
-    if(titleOverlayIsShowing) return;
-    [theOverlayTitleBar setAlphaValue:1.0];
-    titleOverlayIsShowing = YES;
-}
-
-/**
-* All of this logic is to set the location of the title bar that appears upon mouseover -- its location is
- * dependant on the screen position of the window, the mode of the window, and the location of the window.
- */
--(void)setOverlayTitleLocation
-{
-    NSRect frame = self.frame;
-    NSRect visibleFrame = [NSScreen mainScreen].visibleFrame;
-    NSRect intersect = NSIntersectionRect(frame,visibleFrame);
-    if(!fullScreen) {
-        [theOverlayTitleBar setFrame:NSMakeRect(intersect.origin.x, intersect.origin.y + intersect.size.height - [theOverlayTitleBar frame].size.height, intersect.size.width, [theOverlayTitleBar frame].size.height) display:YES];
-    } else {
-        if([[NSScreen mainScreen] isEqualTo:[NSScreen screens][0]]) {
-            visibleFrame = [NSScreen mainScreen].frame;
-            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height - NSApp.mainMenu.menuBarHeight, visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
-        } else {
-            [theOverlayTitleBar setFrame:NSMakeRect(visibleFrame.origin.x, visibleFrame.origin.y + visibleFrame.size.height - [theOverlayTitleBar frame].size.height, visibleFrame.size.width, [theOverlayTitleBar frame].size.height) display:YES];
-        }
+-(void)mouseEnteredOverlayView:(NSView*)overlay {
+    if(overlay == titleOverlay) {
+        titleOverlay.alphaValue = 1.0;
+    } else if(overlay == controlsOverlay) {
+        [self updateByTime:self];
+        controlsOverlay.alphaValue = 1.0;
     }
 }
 
--(void)hideOverLayTitle
-{
-    if(!titleOverlayIsShowing) return;
-    [theOverlayTitleBar setAlphaValue:0.0];
-    titleOverlayIsShowing = NO;
+-(void)mouseExitedOverlayView:(NSView*)overlay {
+    if(overlay == titleOverlay) [self hideTitleOverlay];
+    else if(overlay == controlsOverlay) [self hideControlsOverlay];
 }
 
--(void)mouseExitedOverlayWindow:(NSWindow*)overlay {
-    if(overlay == theOverlayTitleBar) [self hideOverLayTitle];
-    else if(overlay == theOverlayControllerWindow) [self hideOverLayWindow];
+-(void)onSelfMovedOrResized:(NSNotification*)notification {
+    [overlayWindow setFrame:self.frame display:false];
 }
 
 #pragma mark -
@@ -312,8 +231,6 @@
         beforeFullScreen = self.frame;
         [self fillScreenSize];
     }
-    [theOverlayControllerWindow setAlphaValue:0.0];
-    [theOverlayTitleBar setAlphaValue:0.0];
 }
 
 -(void)makeNormalScreen
@@ -325,9 +242,7 @@
         fullScreen = NO;
         [self resizeToAspectRatio];
     }
-    [theOverlayTitleBar orderFront:self];
-    [theOverlayControllerWindow orderFront:self];
-    [self hideOverLayWindow];
+    [overlayWindow orderFront:self];
     [self setInitialDrag:nil];
 }
 
@@ -337,8 +252,8 @@
 }
 
 -(void)setLevel:(NSInteger)windowLevel {
-    for(id object in self.childWindows) [object setLevel:windowLevel];
-    super.level = windowLevel;
+    overlayWindow.level = windowLevel;
+    [super setLevel:windowLevel];
 }
 
 /**
@@ -429,9 +344,7 @@
     newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
     [self setInitialDrag:nil];
-    [self removeChildWindow:theOverlayTitleBar];
     [self setFrame:[self centerRect:self.frame] display:YES];
-    [self addChildWindow:theOverlayTitleBar ordered:NSWindowAbove];
 }
 
 /**
@@ -499,13 +412,7 @@
 -(void)mouseDragged:(NSEvent *)anEvent
 {
     if(fullScreen) return;
-    [self showOverLayTitle];
     [self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
-}
-
--(void)mouseUp:(NSEvent *)anEvent
-{
-    [self hideOverLayTitle];
 }
 
 /* These two events always get passed down to the view. */
