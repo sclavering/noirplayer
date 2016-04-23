@@ -37,14 +37,6 @@
     self.nextResponder = self.parentWindow;
 }
 
-- (void)sendEvent:(NSEvent *)theEvent
-{
-    if(theEvent.type == NSScrollWheel)
-        [((NoirWindow *)self.parentWindow) scrollWheel:theEvent];
-    else
-        [super sendEvent:theEvent];
-}
-
 // Forward mouseDown/mouseDragged to the parent window, so it can implement dragging the window around.
 
 -(void)mouseDown:(NSEvent *)ev {
@@ -53,6 +45,12 @@
 
 -(void)mouseDragged:(NSEvent *)ev {
     [self.parentWindow mouseDragged:ev];
+}
+
+// Forward this so the scrollwheel works even over the title or control bars.
+
+-(void)scrollWheel:(NSEvent *)ev {
+    [self.parentWindow scrollWheel:ev];
 }
 
 @end
