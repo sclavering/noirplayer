@@ -44,8 +44,9 @@
     return self;
 }
 
--(void)awakeFromNib
-{
+-(void)awakeFromNib {
+    [self initOverlayWindow];
+
     self.contentView = theMovieView;
     [self setReleasedWhenClosed:YES];
 
@@ -171,7 +172,7 @@
 #pragma mark -
 #pragma mark Overlays
 
--(void)setupOverlays {
+-(void)initOverlayWindow {
     [overlayWindow setFrame:self.frame display:false];
     overlayWindow.level = self.level;
     [self addChildWindow:overlayWindow ordered:NSWindowAbove];

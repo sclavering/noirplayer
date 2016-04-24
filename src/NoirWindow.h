@@ -46,7 +46,7 @@
 #pragma mark -
 #pragma mark Overlays
 
--(void)setupOverlays;
+-(void)initOverlayWindow;
 -(void)hideControlsOverlay;
 -(void)hideTitleOverlay;
 

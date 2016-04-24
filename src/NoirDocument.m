@@ -93,12 +93,6 @@
     [self addWindowController:controller];
 }
 
-- (void)showWindows
-{
-    [super showWindows];
-    [(NoirWindow *)[self window] setupOverlays];
-}
-
 -(NSMenu *)movieMenu
 {
     return [NSApp.mainMenu itemWithTitle:NSLocalizedString(@"Movie",@"Movie")].submenu;
