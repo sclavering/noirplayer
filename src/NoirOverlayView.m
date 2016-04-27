@@ -12,7 +12,9 @@
 
 -(void)awakeFromNib {
     [self setWantsLayer:true];
-    self.layer.backgroundColor = CGColorCreateGenericGray(0.0, 0.55);
+    CGColorRef bg = CGColorCreateGenericGray(0.0, 0.55);
+    self.layer.backgroundColor = bg;
+    CFRelease(bg);
 
     [self addTrackingArea: [[NSTrackingArea alloc] initWithRect:self.bounds options:NSTrackingMouseEnteredAndExited|NSTrackingActiveInActiveApp|NSTrackingInVisibleRect owner:self userInfo:nil]];
 }
