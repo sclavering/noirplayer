@@ -5,15 +5,12 @@
 @import Cocoa;
 
 #import "NoirMovieQT.h"
-#import "NoirMovieView.h"
 #import "NoirWindow.h"
 
 @class NoirWindow;
-@class NoirMovieView;
 
 @interface NoirDocument : NSDocument
 {
-    IBOutlet NoirMovieView *theMovieView;
     IBOutlet NoirWindow *theWindow;
     NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;

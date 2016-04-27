@@ -78,7 +78,7 @@
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [[self window] orderFront:aController];
-    [theMovieView displayMovieLayer:[_movie getRenderingLayer]];
+    [_movie showInView:theWindow.contentView];
     NSSize aSize = [_movie naturalSize];
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);

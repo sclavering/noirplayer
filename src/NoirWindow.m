@@ -4,7 +4,7 @@
 
 #import "NoirWindow.h"
 
-#import "NoirMovieView.h"
+#import "NoirRootView.h"
 #import "NoirDocument.h"
 #import "NoirController.h"
 #import "NoirScrubber.h"
@@ -47,7 +47,6 @@
 -(void)awakeFromNib {
     [self initOverlayWindow];
 
-    self.contentView = theMovieView;
     [self setReleasedWhenClosed:YES];
 
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
@@ -164,7 +163,7 @@
     int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
     theTimeField.stringValue =  [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
 
-    if(theMovieView) [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
+    [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
     [theScrubBar setNeedsDisplay:YES];
 }
 

@@ -4,5 +4,5 @@
 
 @import Cocoa;
 
-@interface NoirMovieView : NSView
+@interface NoirRootView : NSView
 @end

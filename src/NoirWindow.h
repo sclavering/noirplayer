@@ -4,7 +4,7 @@
 
 @import Cocoa;
 
-@class NoirMovieView;
+@class NoirRootView;
 @class NoirScrubber;
 @class NoirDocument;
 @class NoirOverlayView;
@@ -12,7 +12,6 @@
 
 @interface NoirWindow : NSWindow
 {
-    IBOutlet NoirMovieView* theMovieView;
     IBOutlet NSTextField* volumeIndicator;
     IBOutlet id theTitleField;
 

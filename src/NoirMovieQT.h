@@ -11,7 +11,7 @@
 
 -(instancetype)initWithURL:(NSURL*)url error:(NSError**)outError;
 
--(CALayer*)getRenderingLayer;
+-(void)showInView:(NSView*)view;
 -(void)close;
 
 -(BOOL)isPlaying;

@@ -7,7 +7,6 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NoirDocument">
             <connections>
-                <outlet property="theMovieView" destination="120" id="126"/>
                 <outlet property="theWindow" destination="5" id="29"/>
                 <outlet property="window" destination="5" id="18"/>
             </connections>
@@ -20,21 +19,14 @@
             <rect key="contentRect" x="48" y="148" width="320" height="240"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <value key="minSize" type="size" width="131" height="86"/>
-            <view key="contentView" id="6">
+            <view key="contentView" id="6" customClass="NoirRootView">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
-                <subviews>
-                    <customView wantsLayer="YES" id="120" customClass="NoirMovieView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </customView>
-                </subviews>
             </view>
             <connections>
                 <outlet property="controlsOverlay" destination="PCO-IA-gl2" id="8wn-Qb-cmL"/>
                 <outlet property="delegate" destination="-2" id="28"/>
                 <outlet property="overlayWindow" destination="33" id="Qzm-cz-NCX"/>
-                <outlet property="theMovieView" destination="120" id="124"/>
                 <outlet property="thePlayButton" destination="34" id="83"/>
                 <outlet property="theScrubBar" destination="79" id="80"/>
                 <outlet property="theTimeField" destination="71" id="75"/>

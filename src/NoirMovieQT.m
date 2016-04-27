@@ -19,8 +19,13 @@
     return self;
 }
 
--(CALayer*)getRenderingLayer {
-    return [QTMovieLayer layerWithMovie:_qtmovie];
+-(void)showInView:(NSView*)view {
+    CALayer* layer = [QTMovieLayer layerWithMovie:_qtmovie];
+    layer.frame = view.frame;
+    [view setWantsLayer:true];
+    view.autoresizingMask = (NSViewWidthSizable | NSViewHeightSizable);
+    [view.layer insertSublayer:layer atIndex:0];
+    layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
 }
 
 -(void)close {
