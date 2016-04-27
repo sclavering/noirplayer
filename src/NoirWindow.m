@@ -136,7 +136,7 @@
 
 -(void)updateVolumeIndicator {
     float vol = [[self noirDoc] volume];
-    int percent = (int) floor(vol * 100);
+    int percent = (int) round(vol * 100);
     volumeIndicator.stringValue = [NSString stringWithFormat:@"Volume: %d%%", percent];
     volumeIndicator.hidden = false;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeIndicator:) object:nil];

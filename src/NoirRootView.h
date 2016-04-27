@@ -5,7 +5,4 @@
 @import Cocoa;
 
 @interface NoirMovieView : NSView
-
--(void)displayMovieLayer:(CALayer*)layer;
-
 @end
