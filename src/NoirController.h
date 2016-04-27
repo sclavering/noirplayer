@@ -21,22 +21,11 @@
 -(void)checkMouseLocation:(id)sender;
 -(id)mainDocument;
 
-#pragma mark -
-#pragma mark Interface
-
 -(IBAction)openDocument:(id)sender;
+
 -(IBAction)toggleFullScreen:(id)sender;
-
-#pragma mark -
-#pragma mark Presentation
-
--(void)presentScreen;
--(void)unpresentScreen;
 -(void)enterFullScreen;
 -(void)exitFullScreen;
-
-#pragma mark -
-#pragma mark Accessor Methods
 
 -(id)backgroundWindow;
 

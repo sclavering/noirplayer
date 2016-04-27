@@ -77,9 +77,6 @@ id controller;
     return [self documentForWindow:NSApp.mainWindow];
 }
 
-#pragma mark -
-#pragma mark Interface
-
 -(IBAction)openDocument:(id)sender {
     NSArray* files = [self URLsFromRunningOpenPanel];
     for(id url in files) {
@@ -100,35 +97,20 @@ id controller;
     }
 }
 
-#pragma mark -
-#pragma mark Presentation
-
--(void)presentScreen
-{
-    id screen = [NSScreen mainScreen];
-    fullScreenMode = YES;
-    if([screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
-    [backgroundWindow setFrame:[screen frame] display:YES];
-    [backgroundWindow orderBack:nil];
-}
-
 -(BOOL)isFullScreen
 {
     return fullScreenMode;
-}
-
--(void)unpresentScreen
-{
-    fullScreenMode = NO;
-    NSApp.presentationOptions = NSApplicationPresentationDefault;
-    [backgroundWindow orderOut:nil];
 }
 
 -(void)enterFullScreen
 {
     id tempWindow = NSApp.mainWindow;
     [tempWindow makeFullScreen];
-    [self presentScreen];
+    id screen = [NSScreen mainScreen];
+    fullScreenMode = YES;
+    if([screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
+    [backgroundWindow setFrame:[screen frame] display:YES];
+    [backgroundWindow orderBack:nil];
     [backgroundWindow setPresentingWindow:tempWindow];
 }
 
@@ -136,11 +118,10 @@ id controller;
 {
     id tempWindow = NSApp.mainWindow;
     if(tempWindow) [tempWindow makeNormalScreen];
-    [self unpresentScreen];
+    fullScreenMode = NO;
+    NSApp.presentationOptions = NSApplicationPresentationDefault;
+    [backgroundWindow orderOut:nil];
 }
-
-#pragma mark -
-#pragma mark Accessor Methods
 
 -(id)backgroundWindow
 {
