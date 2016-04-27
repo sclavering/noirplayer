@@ -190,7 +190,7 @@
 
 -(void)mouseEnteredOverlayView:(NSView*)overlay {
     if(overlay == titleOverlay) {
-        titleOverlay.alphaValue = 1.0;
+        if(!fullScreen) titleOverlay.alphaValue = 1.0;
     } else if(overlay == controlsOverlay) {
         [self updateByTime:self];
         controlsOverlay.alphaValue = 1.0;
@@ -230,6 +230,7 @@
         [self makeKeyAndOrderFront:self];
         beforeFullScreen = self.frame;
         [self fillScreenSize];
+        [overlayWindow setFrame:[NSScreen mainScreen].frame display:false];
     }
 }
 
