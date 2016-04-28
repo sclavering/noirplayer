@@ -89,6 +89,13 @@
                 <menuItem title="Presentation" id="213">
                     <menu key="submenu" title="Presentation" id="214">
                         <items>
+                            <menuItem title="Play/Pause" keyEquivalent=" " id="XiH-1g-jNW">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="togglePlayingMovie:" target="-1" id="iGA-ff-sME"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="7ZA-9d-z6c"/>
                             <menuItem title="Half Size" keyEquivalent="0" id="225">
                                 <connections>
                                     <action selector="halfSize:" target="-1" id="231"/>

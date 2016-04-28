@@ -36,7 +36,7 @@
 
 #pragma mark Play/Pause
 
--(void)togglePlayingMovie;
+-(IBAction)togglePlayingMovie:(id)sender;
 -(void)playMovie;
 -(void)pauseMovie;
 

@@ -116,11 +116,7 @@
 {
     id items = [NSMutableArray array];
 
-    id newItem = [[NSMenuItem alloc] initWithTitle:@"Play/Pause" action:@selector(togglePlayingMovie) keyEquivalent:@""];
-    [newItem setTarget:self];
-    [items addObject:newItem];
-
-    newItem = [[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""];
+    id newItem = [[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""];
     [newItem setSubmenu:[self aspectRatioMenu]];
     [items addObject:newItem];
 
@@ -156,8 +152,7 @@
 
 #pragma mark Play/Pause
 
--(void)togglePlayingMovie
-{
+-(IBAction)togglePlayingMovie:(id)sender {
     [_movie isPlaying] ? [self pauseMovie] : [self playMovie];
 }
 

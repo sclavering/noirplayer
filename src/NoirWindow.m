@@ -47,9 +47,8 @@
     if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
 
-    thePlayButton.keyEquivalent = @" ";
-    thePlayButton.target = self;
-    thePlayButton.action = @selector(doTogglePlaying);
+    thePlayButton.target = self.windowController.document;
+    thePlayButton.action = @selector(togglePlayingMovie:);
 
     theScrubBar.target = self;
     theScrubBar.action = @selector(doSetPosition:);
@@ -58,12 +57,6 @@
 -(void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidResizeNotification object:self];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSWindowDidMoveNotification object:self];
-}
-
-
-// xxx this should probably live elsewhere
--(void)doTogglePlaying {
-    [[self noirDoc] togglePlayingMovie];
 }
 
 -(IBAction)doSetPosition:(id)sender {
@@ -436,9 +429,6 @@
     if((anEvent.modifierFlags & NSShiftKeyMask)) return;
     
     switch([anEvent.characters characterAtIndex:0]){
-        case ' ':
-            if(!anEvent.ARepeat) [[self noirDoc] togglePlayingMovie];
-            break;
         case NSRightArrowFunctionKey:
             if(!anEvent.ARepeat) [[self noirDoc] startStepping];
             [[self noirDoc] stepBy:SCRUB_STEP_DURATION];
@@ -471,8 +461,6 @@
     if((anEvent.modifierFlags & NSShiftKeyMask)) return;
 
     switch([anEvent.characters characterAtIndex:0]){
-        case ' ':
-            break;
         case NSRightArrowFunctionKey:
             [[self noirDoc] endStepping];
             break;
