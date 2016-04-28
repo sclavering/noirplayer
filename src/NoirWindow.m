@@ -115,14 +115,10 @@
 
 #pragma mark Interface Items
 
-- (BOOL)validateMenuItem:(NSMenuItem*)anItem
-{
-    switch(anItem.tag){
-        case 7:
-            return YES;
-        default:
-            return [super validateMenuItem:anItem];
-    }
+- (BOOL)validateMenuItem:(NSMenuItem*)anItem {
+    // Without this, the "Close" and "Minimize" menu items are permanently disabled.
+    if(anItem.tag == 7) return YES;
+    return [super validateMenuItem:anItem];
 }
 
 -(IBAction)performClose:(id)sender
