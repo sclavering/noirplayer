@@ -20,8 +20,10 @@
 
 -(NSSize)naturalSize;
 
--(double)totalTime;
-@property (nonatomic, getter=currentTime, setter=setCurrentTime:) double currentTime;
+-(double)currentTimeAsFraction;
+-(void)setCurrentTimeAsFraction:(double)when;
+-(void)adjustCurrentTimeBySeconds:(int)num;
+-(NSString*)currentTimeString;
 
 -(float)volume;
 -(void)setVolume:(float)val;

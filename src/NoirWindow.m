@@ -72,7 +72,7 @@
 }
 
 -(IBAction)doSetPosition:(id)sender {
-    [[self noirDoc] setMovieTimeByFraction:[sender doubleValue]];
+    [[self noirDoc].movie setCurrentTimeAsFraction:[sender doubleValue]];
     [self updateByTime:sender];
 }
 
@@ -157,13 +157,8 @@
         return;
 
     NoirDocument* doc = self.windowController.document;
-
-    int t = doc.movie.totalTime;
-    int c = doc.movie.currentTime;
-    int mc = c / 60, sc = c % 60, mt = t / 60, st = t % 60;
-    theTimeField.stringValue =  [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
-
-    [theScrubBar setDoubleValue:[doc currentTimeAsFraction]];
+    theTimeField.stringValue = [doc.movie currentTimeString];
+    [theScrubBar setDoubleValue:[doc.movie currentTimeAsFraction]];
     [theScrubBar setNeedsDisplay:YES];
 }
 
@@ -451,7 +446,8 @@
             break;
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask) {
-                [self noirDoc].movie.currentTime = 0;
+                [[self noirDoc].movie setCurrentTimeAsFraction: 0];
+                [self updateByTime:nil];
                 break;
             }
             if(!anEvent.ARepeat) [[self noirDoc] startStepping];

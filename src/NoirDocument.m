@@ -206,10 +206,8 @@ stuff won't work properly! */
     [self pauseMovie];
 }
 
--(void)stepBy:(int)seconds
-{
-    double t = MIN(self.movie.currentTime + seconds, _movie.totalTime);
-    _movie.currentTime = MAX(t, 0);
+-(void)stepBy:(int)seconds {
+    [self.movie adjustCurrentTimeBySeconds:seconds];
     [theWindow updateByTime:nil];
 }
 
@@ -218,18 +216,6 @@ stuff won't work properly! */
     _isStepping = false;
     if(_wasPlayingBeforeStepping) [self playMovie];
     [theWindow updateByTime:nil];
-}
-
-#pragma mark Time
-
--(double)currentTimeAsFraction
-{
-    return _movie.currentTime / [_movie totalTime];
-}
-
--(void)setMovieTimeByFraction:(double)when
-{
-    self.movie.currentTime = _movie.totalTime * when;
 }
 
 #pragma mark Volume

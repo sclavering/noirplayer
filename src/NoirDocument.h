@@ -46,11 +46,6 @@
 -(void)stepBy:(int)aSeconds;
 -(void)endStepping;
 
-#pragma mark Time
-
--(double)currentTimeAsFraction;
--(void)setMovieTimeByFraction:(double)when;
-
 #pragma mark Volume
 
 -(float)volume;

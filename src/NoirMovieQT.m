@@ -50,17 +50,37 @@
     return sz.width && sz.height ? sz : NSMakeSize(320, 240);
 }
 
--(double)totalTime {
+-(double)currentTimeAsFraction {
+    return [self _currentTime] / [self _totalTime];
+}
+
+-(void)setCurrentTimeAsFraction:(double)when {
+    [self _setCurrentTime: [self _totalTime] * when];
+}
+
+-(void)adjustCurrentTimeBySeconds:(int)num {
+    [self _setCurrentTime: MAX(0, MIN([self _totalTime], [self _currentTime] + num))];
+}
+
+-(NSString*)currentTimeString {
+    int t = [self _totalTime];
+    int c = [self _currentTime];
+    int mc = c / 60, sc = c % 60;
+    int mt = t / 60, st = t % 60;
+    return [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
+}
+
+-(double)_totalTime {
     QTTime duration = [_qtmovie duration];
     return duration.timeValue / duration.timeScale;
 }
 
--(double)currentTime {
+-(double)_currentTime {
     QTTime current = [_qtmovie currentTime];
     return current.timeValue / current.timeScale;
 }
 
--(void)setCurrentTime:(double)newMovieTime {
+-(void)_setCurrentTime:(double)newMovieTime {
     [_qtmovie setCurrentTime:QTMakeTime(newMovieTime, 1)];
 }
 
