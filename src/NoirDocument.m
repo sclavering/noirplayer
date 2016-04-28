@@ -11,12 +11,8 @@
 - (instancetype)init
 {
     self = [super init];
-    if(self){
+    if(self) {
         menuObjects = nil;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(rebuildMenu)
-                                                     name:@"RebuildAllMenus"
-                                                   object:nil];
     }
     return self;
 }
@@ -84,7 +80,7 @@
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
     [theWindow setTitle:theWindow.title];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
+    [self rebuildMenu];
 }
 
 - (void)makeWindowControllers
@@ -98,10 +94,7 @@
     return [NSApp.mainMenu itemWithTitle:NSLocalizedString(@"Movie",@"Movie")].submenu;
 }
 
-/* Always call this method by raising the notification "RebuildAllMenus" otherwise
-stuff won't work properly! */
--(void)rebuildMenu
-{
+-(void)rebuildMenu {
     // xxx this ought to show a Volume menu on the Movie menu
 
     if(menuObjects != nil) {

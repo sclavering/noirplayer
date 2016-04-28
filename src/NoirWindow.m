@@ -97,12 +97,6 @@
     return YES;
 }
 
--(void)becomeKeyWindow
-{
-    [super becomeKeyWindow];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:nil];
-}
-
 -(BOOL)canBecomeKeyWindow
 {
     return YES;
