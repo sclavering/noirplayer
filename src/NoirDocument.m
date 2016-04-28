@@ -208,14 +208,14 @@ stuff won't work properly! */
 
 -(void)stepBy:(int)seconds {
     [self.movie adjustCurrentTimeBySeconds:seconds];
-    [theWindow updateByTime:nil];
+    [theWindow updateTimeInterface];
 }
 
 -(void)endStepping
 {
     _isStepping = false;
     if(_wasPlayingBeforeStepping) [self playMovie];
-    [theWindow updateByTime:nil];
+    [theWindow updateTimeInterface];
 }
 
 #pragma mark Volume

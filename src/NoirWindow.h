@@ -26,7 +26,8 @@
     BOOL fullScreen;
     BOOL isFilling;
 
-    id timeUpdaterTimer;
+    NSTimer* timeInterfaceUpdateTimer;
+
     NSRect beforeFullScreen;
 
     NSSize aspectRatio;
@@ -40,7 +41,12 @@
 -(void)updateVolumeIndicator;
 -(void)hideVolumeIndicator:(id)dummy;
 -(void)performMiniaturize:(id)sender;
--(IBAction)updateByTime:(id)sender;
+
+#pragma mark Time Interface
+
+-(void)startPeriodicTimeInterfaceUpdates;
+-(void)scheduledUpdateTimeInterface:(id)sender;
+-(void)updateTimeInterface;
 
 #pragma mark -
 #pragma mark Overlays

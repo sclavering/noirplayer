@@ -27,11 +27,6 @@
                     defer:(BOOL)flag
 {
     if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])){
-        timeUpdaterTimer = [NSTimer scheduledTimerWithTimeInterval:1
-            target:self
-            selector:@selector(updateByTime:)
-            userInfo:nil
-            repeats:YES];
         self.backgroundColor = [NSColor blackColor];
         [self setOpaque:YES];
         [self useOptimizedDrawing:YES];
@@ -73,7 +68,7 @@
 
 -(IBAction)doSetPosition:(id)sender {
     [[self noirDoc].movie setCurrentTimeAsFraction:[sender doubleValue]];
-    [self updateByTime:sender];
+    [self updateTimeInterface];
 }
 
 -(void)updatePlayButton:(BOOL)isPlaying {
@@ -89,7 +84,7 @@
 -(void)close
 {
     @autoreleasepool {
-        [timeUpdaterTimer invalidate];
+        if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
         [[self noirDoc] closeMovie];
         [super close];
     }
@@ -147,17 +142,30 @@
     if(!fullScreen) [self miniaturize:sender];
 }
 
--(IBAction)updateByTime:(id)sender
-{
-    if((sender != self) && theScrubBar.hidden)
-        return;
+#pragma mark Time Interface
 
+-(void)startPeriodicTimeInterfaceUpdates {
+    timeInterfaceUpdateTimer = [NSTimer
+        scheduledTimerWithTimeInterval:0.5
+        target:self
+        selector:@selector(scheduledUpdateTimeInterface:)
+        userInfo:nil
+        repeats:YES
+    ];
+    [self updateTimeInterface];
+}
+
+// This exists solely because of the requirements of [NSTimer scheduledTimerWithTimeInterval:...selector:...].
+-(void)scheduledUpdateTimeInterface:(id)sender {
+    [self updateTimeInterface];
+}
+
+-(void)updateTimeInterface {
     NoirDocument* doc = self.windowController.document;
     theTimeField.stringValue = [doc.movie currentTimeString];
     [theScrubBar setDoubleValue:[doc.movie currentTimeAsFraction]];
     [theScrubBar setNeedsDisplay:YES];
 }
-
 
 #pragma mark -
 #pragma mark Overlays
@@ -173,6 +181,7 @@
 
 -(void)hideControlsOverlay {
     controlsOverlay.alphaValue = 0.0;
+    if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
 }
 
 -(void)hideTitleOverlay {
@@ -183,8 +192,8 @@
     if(overlay == titleOverlay) {
         if(!fullScreen) titleOverlay.alphaValue = 1.0;
     } else if(overlay == controlsOverlay) {
-        [self updateByTime:self];
         controlsOverlay.alphaValue = 1.0;
+        [self startPeriodicTimeInterfaceUpdates];
     }
 }
 
@@ -443,7 +452,7 @@
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask) {
                 [[self noirDoc].movie setCurrentTimeAsFraction: 0];
-                [self updateByTime:nil];
+                [self updateTimeInterface];
                 break;
             }
             if(!anEvent.ARepeat) [[self noirDoc] startStepping];
