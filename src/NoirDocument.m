@@ -127,16 +127,6 @@ stuff won't work properly! */
     [newItem setTarget:self];
     [items addObject:newItem];
 
-    newItem = [[NSMenuItem alloc] initWithTitle:@"Video Tracks" action:NULL keyEquivalent:@""];
-    [newItem setTarget:self];
-    [newItem setSubmenu:[_movie videoTrackMenu]];
-    [items addObject:newItem];
-
-    newItem = [[NSMenuItem alloc] initWithTitle:@"Audio Tracks" action:NULL keyEquivalent:@""];
-    [newItem setTarget:self];
-    [newItem setSubmenu:[_movie audioTrackMenu]];
-    [items addObject:newItem];
-
     newItem = [[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""];
     [newItem setSubmenu:[self aspectRatioMenu]];
     [items addObject:newItem];
@@ -156,12 +146,6 @@ stuff won't work properly! */
         [m addItem:mi];
     }
     return m;
-}
-
--(IBAction)toggleTrack:(id)sender
-{
-    [[sender representedObject] setEnabled:![[sender representedObject] isEnabled]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RebuildAllMenus" object:self];
 }
 
 -(void)selectAspectRatio:(id)sender

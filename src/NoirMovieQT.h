@@ -28,7 +28,4 @@
 -(float)volume;
 -(void)setVolume:(float)val;
 
--(NSMenu*)audioTrackMenu;
--(NSMenu*)videoTrackMenu;
-
 @end
