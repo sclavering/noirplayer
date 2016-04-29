@@ -4,7 +4,7 @@
 
 @import Cocoa;
 
-#import "NoirMovieQT.h"
+#import "NoirMovieLAVP.h"
 #import "NoirWindow.h"
 
 @class NoirWindow;
@@ -17,7 +17,7 @@
     bool _wasPlayingBeforeStepping;
 }
 
-@property (readonly) NoirMovieQT* movie;
+@property (readonly) NoirMovieLAVP* movie;
 
 -(void)closeMovie;
 

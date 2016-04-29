@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import "NoirDocument.h"
-#import "NoirMovieQT.h"
+#import "NoirMovieLAVP.h"
 
 
 @implementation NoirDocument
@@ -26,7 +26,7 @@
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    _movie = [[NoirMovieQT alloc] initWithURL:url error:outError];
+    _movie = [[NoirMovieLAVP alloc] initWithURL:url error:outError];
     if(!_movie) return false;
     [theWindow setTitleWithRepresentedFilename:url.path];
     [NSApp changeWindowsItem:theWindow title:theWindow.title filename:YES];
