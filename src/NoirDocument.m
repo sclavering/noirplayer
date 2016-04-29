@@ -8,23 +8,6 @@
 
 @implementation NoirDocument
 
-- (instancetype)init
-{
-    self = [super init];
-    if(self) {
-        menuObjects = nil;
-    }
-    return self;
-}
-
--(void)dealloc
-{
-    if(menuObjects != nil){
-        for(id item in menuObjects) [[self movieMenu] removeItem:item];
-    }
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark -
 #pragma mark File Operations
 
@@ -80,7 +63,6 @@
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
     [theWindow setTitle:theWindow.title];
-    [self rebuildMenu];
 }
 
 - (void)makeWindowControllers
@@ -89,58 +71,10 @@
     [self addWindowController:controller];
 }
 
--(NSMenu *)movieMenu
-{
-    return [NSApp.mainMenu itemWithTitle:NSLocalizedString(@"Movie",@"Movie")].submenu;
-}
-
--(void)rebuildMenu {
-    // xxx this ought to show a Volume menu on the Movie menu
-
-    if(menuObjects != nil) {
-        for(id item in menuObjects) [[self movieMenu] removeItem:item];
-        menuObjects = nil;
-    }
-
-    if([[self window] isKeyWindow]) {
-        menuObjects = [NSMutableArray array];
-        id videoMenuItems = [self videoMenuItems];
-        for(NSUInteger i = 0; i < [videoMenuItems count]; i++) {
-            [[self movieMenu] insertItem:videoMenuItems[i] atIndex:i];
-            [menuObjects addObject:videoMenuItems[i]];
-        }
-    }
-}
-
--(NSMutableArray*)videoMenuItems
-{
-    id items = [NSMutableArray array];
-
-    id newItem = [[NSMenuItem alloc] initWithTitle:@"Aspect Ratio" action:NULL keyEquivalent:@""];
-    [newItem setSubmenu:[self aspectRatioMenu]];
-    [items addObject:newItem];
-
-    return items;
-}
-
--(NSMenu*)aspectRatioMenu
-{
-    NSMenu* m = [[NSMenu alloc] init];
-    NSString* labels[] = { @"Natural", @"16:9", @"16:10", @"4:3" };
-    float values[] = { 0, 16.0 / 9.0, 16.0 / 10.0, 4.0 / 3.0 };
-    for(int i = 0; i != 4; ++i) {
-        NSMenuItem* mi = [[NSMenuItem alloc] initWithTitle:labels[i] action:@selector(selectAspectRatio:) keyEquivalent:@""];
-        mi.representedObject = @(values[i]);
-        mi.target = self;
-        [m addItem:mi];
-    }
-    return m;
-}
-
--(void)selectAspectRatio:(id)sender
-{
-    float val = [[sender representedObject] floatValue];
-    NSSize ratio = val ? NSMakeSize(val, 1) : [_movie naturalSize];
+// The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
+-(IBAction)selectAspectRatio:(id)sender {
+    id obj = [sender representedObject];
+    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie naturalSize];
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
 }

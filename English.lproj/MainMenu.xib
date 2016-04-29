@@ -86,8 +86,8 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Presentation" id="213">
-                    <menu key="submenu" title="Presentation" id="214">
+                <menuItem title="Movie" id="213">
+                    <menu key="submenu" title="Movie" id="214">
                         <items>
                             <menuItem title="Play/Pause" keyEquivalent=" " id="XiH-1g-jNW">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -116,11 +116,55 @@
                                     <action selector="toggleFullScreen:" target="210" id="287"/>
                                 </connections>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="OFb-Xj-Oy0"/>
+                            <menuItem title="Aspect Ratio" id="SCr-98-57q">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Aspect Ratio" id="oqk-D9-xCE">
+                                    <items>
+                                        <menuItem title="Natural" id="GZt-vX-3z8">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="selectAspectRatio:" target="-1" id="I2n-JF-YFU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="16:9  (1.78:1)" id="5Jg-Jx-aFk">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="representedObject">
+                                                    <real key="value" value="1.778"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="selectAspectRatio:" target="-1" id="RKp-kM-xih"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="16:10  (1.6:1)" id="vdX-HJ-z6X">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="representedObject">
+                                                    <real key="value" value="1.6000000000000001"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="selectAspectRatio:" target="-1" id="IuG-Mo-sbO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="4:3  (1.33:1)" id="Hf5-zA-gXD">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="representedObject">
+                                                    <real key="value" value="1.333"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="selectAspectRatio:" target="-1" id="eUk-J8-Mio"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                     </menu>
-                </menuItem>
-                <menuItem title="Movie" id="294">
-                    <menu key="submenu" title="Movie" id="296"/>
                 </menuItem>
                 <menuItem title="Window" id="19">
                     <menu key="submenu" title="Window" systemMenu="window" id="24">

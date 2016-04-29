@@ -12,7 +12,6 @@
 @interface NoirDocument : NSDocument
 {
     IBOutlet NoirWindow *theWindow;
-    NSMutableArray *menuObjects;
     BOOL wasPlayingBeforeMini;
     bool _isStepping;
     bool _wasPlayingBeforeStepping;
@@ -28,10 +27,7 @@
 
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification;
 -(void)windowControllerDidLoadNib:(NSWindowController *) aController;
--(NSMenu *)movieMenu;
--(void)rebuildMenu;
--(NSMutableArray*)videoMenuItems;
--(NSMenu*)aspectRatioMenu;
+-(IBAction)selectAspectRatio:(id)sender;
 -(id)window;
 
 #pragma mark Play/Pause
