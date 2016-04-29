@@ -56,7 +56,7 @@
 {
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
-    [[self window] orderFront:aController];
+    [theWindow orderFront:aController];
     [_movie showInView:theWindow.contentView];
     NSSize aSize = [_movie naturalSize];
     [theWindow setAspectRatio:aSize];
@@ -77,11 +77,6 @@
     NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie naturalSize];
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
-}
-
--(id)window
-{
-    return theWindow;
 }
 
 #pragma mark Play/Pause

@@ -28,7 +28,6 @@
 -(void)windowDidDeminiaturize:(NSNotification *)aNotification;
 -(void)windowControllerDidLoadNib:(NSWindowController *) aController;
 -(IBAction)selectAspectRatio:(id)sender;
--(id)window;
 
 #pragma mark Play/Pause
 
