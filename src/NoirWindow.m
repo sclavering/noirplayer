@@ -442,12 +442,6 @@
             if(!anEvent.ARepeat) [[self noirDoc] startStepping];
             [[self noirDoc] stepBy:-SCRUB_STEP_DURATION];
             break;
-        case NSUpArrowFunctionKey:
-            [[self noirDoc] incrementVolume];
-            break;
-        case NSDownArrowFunctionKey:
-            [[self noirDoc] decrementVolume];
-            break;
         case 0x1B:
             [self unFullScreen];
             break;

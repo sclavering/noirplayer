@@ -45,7 +45,7 @@
 
 -(float)volume;
 -(void)setVolume:(float)aVolume;
--(void)incrementVolume;
--(void)decrementVolume;
+-(IBAction)incrementVolume:(id)sender;
+-(IBAction)decrementVolume:(id)sender;
 
 @end

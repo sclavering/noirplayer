@@ -163,6 +163,19 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem isSeparatorItem="YES" id="B5b-0A-WIz"/>
+                            <menuItem title="Increase Volume" keyEquivalent="" id="XqU-31-dVV">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="incrementVolume:" target="-1" id="vyd-fE-lE1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Decrease Volume" keyEquivalent="" id="XCE-st-rbm">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="decrementVolume:" target="-1" id="cgR-94-ucA"/>
+                                </connections>
+                            </menuItem>
                         </items>
                     </menu>
                 </menuItem>

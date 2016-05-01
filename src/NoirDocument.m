@@ -136,14 +136,12 @@
     [_movie setVolume:aVolume];
 }
 
--(void)incrementVolume
-{
+-(IBAction)incrementVolume:(id)sender {
     [self setVolume:[self volume] + 0.1];
     [theWindow updateVolumeIndicator];
 }
 
--(void)decrementVolume
-{
+-(IBAction)decrementVolume:(id)sender {
     [self setVolume:[self volume] - 0.1];
     [theWindow updateVolumeIndicator];
 }
