@@ -31,6 +31,7 @@
                 <outlet property="theScrubBar" destination="79" id="80"/>
                 <outlet property="theTimeField" destination="71" id="75"/>
                 <outlet property="titleOverlay" destination="L4y-kC-DUS" id="0Uc-WU-bsx"/>
+                <outlet property="titleField" destination="QtN-7j-3cN" id="oet-dr-T23"/>
                 <outlet property="volumeIndicator" destination="lpw-to-Z79" id="t73-6c-kSb"/>
             </connections>
         </window>

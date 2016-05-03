@@ -294,10 +294,9 @@
     [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:false];
 }
 
-- (void)setTitle:(NSString *)aString
-{
-    [theTitleField setStringValue:aString];
-    super.title = aString;
+-(void)setTitle:(NSString*)title {
+    [titleField setStringValue:title];
+    super.title = title;
 }
 
 -(IBAction)halfSize:(id)sender

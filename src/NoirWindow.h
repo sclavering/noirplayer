@@ -13,12 +13,12 @@
 @interface NoirWindow : NSWindow
 {
     IBOutlet NSTextField* volumeIndicator;
-    IBOutlet id theTitleField;
 
     IBOutlet OverlayWindow* overlayWindow;
     IBOutlet NoirOverlayView* controlsOverlay;
     IBOutlet NoirOverlayView* titleOverlay;
 
+    IBOutlet NSTextField* titleField;
     IBOutlet NoirScrubber* theScrubBar;
     IBOutlet NSTextField* theTimeField;
     IBOutlet NSButton* thePlayButton;
