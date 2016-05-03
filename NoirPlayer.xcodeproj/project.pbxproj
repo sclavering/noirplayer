@@ -11,8 +11,6 @@
 		251FEFB7085670D800D38B8E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 251FEFB6085670D800D38B8E /* Cocoa.framework */; };
 		258C2B710A2D713E00AC22BB /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258C2B700A2D713E00AC22BB /* IOKit.framework */; };
 		3E085CBC065C79EE005286A3 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E085CBB065C79EE005286A3 /* play.png */; };
-		3E110B63069BD80100C5800B /* TitleTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E110B61069BD80100C5800B /* TitleTextField.h */; };
-		3E110B64069BD80100C5800B /* TitleTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E110B62069BD80100C5800B /* TitleTextField.m */; };
 		3E452FF10664719D00BC91B0 /* NoirIcon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 3E452FF00664719D00BC91B0 /* NoirIcon.icns */; };
 		3E4DF83706630D50001B9AC5 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 3E4DF83506630D50001B9AC5 /* Credits.html */; };
 		3E8CC454068AA1290034FCCC /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8CC450068AA1290034FCCC /* close.png */; };
@@ -56,8 +54,6 @@
 		2A37F4AEFDCFA73011CA2CEA /* NoirDocument.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = NoirDocument.h; path = src/NoirDocument.h; sourceTree = "<group>"; };
 		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; name = main.m; path = src/main.m; sourceTree = "<group>"; };
 		3E085CBB065C79EE005286A3 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = play.png; path = Resources/play.png; sourceTree = "<group>"; };
-		3E110B61069BD80100C5800B /* TitleTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TitleTextField.h; path = src/TitleTextField.h; sourceTree = "<group>"; };
-		3E110B62069BD80100C5800B /* TitleTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TitleTextField.m; path = src/TitleTextField.m; sourceTree = "<group>"; };
 		3E452FF00664719D00BC91B0 /* NoirIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = NoirIcon.icns; path = Resources/NoirIcon.icns; sourceTree = "<group>"; };
 		3E4DF83606630D50001B9AC5 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = English; path = English.lproj/Credits.html; sourceTree = "<group>"; };
 		3E8CC450068AA1290034FCCC /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Resources/close.png; sourceTree = "<group>"; };
@@ -170,8 +166,6 @@
 				3E95D4A006613F05008755D1 /* BlackWindow.m */,
 				3E9E628E0661708200B788A8 /* NoirScrubber.h */,
 				3E9E628F0661708200B788A8 /* NoirScrubber.m */,
-				3E110B61069BD80100C5800B /* TitleTextField.h */,
-				3E110B62069BD80100C5800B /* TitleTextField.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -214,7 +208,6 @@
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
 				AA81D9E21CC6F88600827BED /* NoirMovieQT.h in Headers */,
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
-				3E110B63069BD80100C5800B /* TitleTextField.h in Headers */,
 				AA561CD21CCAB471008021B8 /* NoirOverlayView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +301,6 @@
 				AA81D9E31CC6F88600827BED /* NoirMovieQT.m in Sources */,
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
 				AA561CD31CCAB471008021B8 /* NoirOverlayView.m in Sources */,
-				3E110B64069BD80100C5800B /* TitleTextField.m in Sources */,
 				AA339A781CCCF1FD0024153F /* NoirRootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

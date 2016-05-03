@@ -97,7 +97,7 @@
                                     <action selector="performMiniaturize:" target="5" id="dRY-jC-05m"/>
                                 </connections>
                             </button>
-                            <textField verticalHuggingPriority="750" id="QtN-7j-3cN" userLabel="Title Text" customClass="TitleTextField">
+                            <textField verticalHuggingPriority="750" id="QtN-7j-3cN" userLabel="Title Text">
                                 <rect key="frame" x="49" y="2" width="274" height="20"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Noir Player" id="BEW-nI-esW">
@@ -105,9 +105,6 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.67000002000000003" colorSpace="calibratedRGB"/>
                                 </textFieldCell>
-                                <connections>
-                                    <outlet property="theNoirWindow" destination="5" id="AkI-vY-W6z"/>
-                                </connections>
                             </textField>
                         </subviews>
                     </view>
