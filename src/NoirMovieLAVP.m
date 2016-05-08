@@ -61,13 +61,7 @@
 }
 
 -(void)setCurrentTimeAsFraction:(double)when {
-    // If you seek with rate != 0 the seeking takes ages (several seconds).
-    double prevRate = _stream.rate;
-    [_stream stop];
-    _stream.strictSeek = false;
     [_stream setPosition:when];
-    _stream.strictSeek = true;
-    _stream.rate = prevRate;
 }
 
 -(void)adjustCurrentTimeBySeconds:(int)num {
@@ -102,7 +96,6 @@
 
 -(void)setVolume:(float)val {
     [_stream setVolume:val];
-    [_stream setMuted:false];
 }
 
 @end
