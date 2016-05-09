@@ -36,20 +36,20 @@
 }
 
 -(void)close {
-    [_stream stop];
+    _stream.rate = 0.0;
     [_view setStream:nil];
 }
 
 -(BOOL)isPlaying {
-    return [_stream rate] != 0.0;
+    return _stream.rate != 0.0;
 }
 
 -(void)play {
-    [_stream setRate:1.0];
+    _stream.rate = 1.0;
 }
 
 -(void)pause {
-    [_stream stop];
+    _stream.rate = 0.0;
 }
 
 -(NSSize)naturalSize {
