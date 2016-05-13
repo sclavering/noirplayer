@@ -7,7 +7,7 @@
 @interface NoirMovieLAVP : NSObject
 {
     LAVPView* _view;
-    LAVPStream* _stream;
+    LAVPMovie* _movie;
 }
 
 -(instancetype)initWithURL:(NSURL*)url error:(NSError**)outError;
