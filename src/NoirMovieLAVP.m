@@ -65,29 +65,15 @@
 }
 
 -(void)adjustCurrentTimeBySeconds:(int)num {
-    [self _setCurrentTime: MAX(0, MIN([self _totalTime], [self _currentTime] + num))];
+    _stream.currentTimeInMicroseconds = MAX(0, MIN(_stream.currentTimeInMicroseconds, _stream.currentTimeInMicroseconds + num * 1000000));
 }
 
 -(NSString*)currentTimeString {
-    int t = [self _totalTime];
-    int c = [self _currentTime];
+    int t = _stream.durationInMicroseconds / 1000000;
+    int c = _stream.currentTimeInMicroseconds / 1000000;
     int mc = c / 60, sc = c % 60;
     int mt = t / 60, st = t % 60;
     return [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
-}
-
--(double)_totalTime {
-    QTTime duration = [_stream duration];
-    return duration.timeValue / duration.timeScale;
-}
-
--(double)_currentTime {
-    QTTime current = [_stream currentTime];
-    return current.timeValue / current.timeScale;
-}
-
--(void)_setCurrentTime:(double)newMovieTime {
-    [_stream setCurrentTime:QTMakeTime(newMovieTime, 1)];
 }
 
 -(float)volume {
