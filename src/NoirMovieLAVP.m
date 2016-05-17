@@ -36,20 +36,20 @@
 }
 
 -(void)close {
-    _movie.rate = 0.0;
+    _movie.paused = true;
     [_view setMovie:nil];
 }
 
 -(BOOL)isPlaying {
-    return _movie.rate != 0.0;
+    return !_movie.paused;
 }
 
 -(void)play {
-    _movie.rate = 1.0;
+    _movie.paused = false;
 }
 
 -(void)pause {
-    _movie.rate = 0.0;
+    _movie.paused = true;
 }
 
 -(NSSize)naturalSize {
