@@ -76,12 +76,4 @@
     return [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
 }
 
--(float)volume {
-    return [_movie volume];
-}
-
--(void)setVolume:(float)val {
-    [_movie setVolume:val];
-}
-
 @end

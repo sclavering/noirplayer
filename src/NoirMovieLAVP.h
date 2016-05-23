@@ -7,6 +7,7 @@
 @interface NoirMovieLAVP : NSObject
 {
     LAVPView* _view;
+@public
     LAVPMovie* _movie;
 }
 
@@ -25,8 +26,5 @@
 -(void)setCurrentTimeAsFraction:(double)when;
 -(void)adjustCurrentTimeBySeconds:(int)num;
 -(NSString*)currentTimeString;
-
--(float)volume;
--(void)setVolume:(float)val;
 
 @end

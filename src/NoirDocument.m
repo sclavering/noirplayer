@@ -15,9 +15,13 @@
 {
     // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
 
-    id tDict = @{@"MajorVersion": @0,
+    id tDict = @{
+        @"MajorVersion": @0,
         @"MinorVersion": @1,
-        @"Contents": @{@"Volume": @([self volume])}};
+        @"Contents": @{
+            @"VolumePercent": @([self volumePercent])
+        },
+    };
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
     return tData;
@@ -121,28 +125,21 @@
 
 #pragma mark Volume
 
--(float)volume
-{
-    float volume = [_movie volume];
-    if(volume < 0.0) volume = 0.0;
-    if(volume > 2.0) volume = 2.0;
-    return volume;
+-(int)volumePercent {
+    return _movie->_movie.volumePercent;
 }
 
--(void)setVolume:(float)aVolume
-{
-    if(aVolume < 0.0) aVolume = 0.0;
-    if(aVolume > 2.0) aVolume = 2.0;
-    [_movie setVolume:aVolume];
+-(void)setVolumePercent:(int)percent {
+    _movie->_movie.volumePercent = MAX(MIN(percent, 200), 0);
 }
 
 -(IBAction)incrementVolume:(id)sender {
-    [self setVolume:[self volume] + 0.1];
+    [self setVolumePercent:[self volumePercent] + 10];
     [theWindow updateVolumeIndicator];
 }
 
 -(IBAction)decrementVolume:(id)sender {
-    [self setVolume:[self volume] - 0.1];
+    [self setVolumePercent:[self volumePercent] - 10];
     [theWindow updateVolumeIndicator];
 }
 

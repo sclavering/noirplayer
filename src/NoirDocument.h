@@ -43,8 +43,8 @@
 
 #pragma mark Volume
 
--(float)volume;
--(void)setVolume:(float)aVolume;
+-(int)volumePercent;
+-(void)setVolumePercent:(int)percent;
 -(IBAction)incrementVolume:(id)sender;
 -(IBAction)decrementVolume:(id)sender;
 
