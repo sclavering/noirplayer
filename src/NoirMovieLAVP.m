@@ -40,8 +40,4 @@
     [_view setMovie:nil];
 }
 
--(void)adjustCurrentTimeBySeconds:(int)num {
-    _movie.currentTimeInMicroseconds += num * 1000000;
-}
-
 @end

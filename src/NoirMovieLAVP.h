@@ -15,6 +15,5 @@
 
 -(void)showInView:(NSView*)view;
 -(void)close;
--(void)adjustCurrentTimeBySeconds:(int)num;
 
 @end

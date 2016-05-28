@@ -109,7 +109,7 @@
 }
 
 -(void)stepBy:(int)seconds {
-    [self.movie adjustCurrentTimeBySeconds:seconds];
+    _movie->_movie.currentTimeInMicroseconds += seconds * 1000000;
     [theWindow updateTimeInterface];
 }
 
