@@ -16,10 +16,6 @@
 -(void)showInView:(NSView*)view;
 -(void)close;
 
--(BOOL)isPlaying;
--(void)play;
--(void)pause;
-
 -(NSSize)naturalSize;
 
 -(double)currentTimeAsFraction;

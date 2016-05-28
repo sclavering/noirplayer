@@ -40,18 +40,6 @@
     [_view setMovie:nil];
 }
 
--(BOOL)isPlaying {
-    return !_movie.paused;
-}
-
--(void)play {
-    _movie.paused = false;
-}
-
--(void)pause {
-    _movie.paused = true;
-}
-
 -(NSSize)naturalSize {
     return [_movie frameSize];
 }

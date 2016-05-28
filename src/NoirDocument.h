@@ -31,9 +31,8 @@
 
 #pragma mark Play/Pause
 
+@property bool paused;
 -(IBAction)togglePlayingMovie:(id)sender;
--(void)playMovie;
--(void)pauseMovie;
 
 #pragma mark Stepping
 

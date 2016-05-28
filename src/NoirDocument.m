@@ -47,13 +47,13 @@
 
 - (void)windowDidMiniaturize:(NSNotification *)aNotification
 {
-    wasPlayingBeforeMini = [_movie isPlaying];
-    [self pauseMovie];
+    wasPlayingBeforeMini = !self.paused;
+    self.paused = true;
 }
 
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
-    if(wasPlayingBeforeMini) [self playMovie];
+    if(wasPlayingBeforeMini) self.paused = false;
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -86,19 +86,16 @@
 #pragma mark Play/Pause
 
 -(IBAction)togglePlayingMovie:(id)sender {
-    [_movie isPlaying] ? [self pauseMovie] : [self playMovie];
+    self.paused = !self.paused;
 }
 
--(void)playMovie
-{
-    [_movie play];
-    [theWindow updatePlayButton:[_movie isPlaying]];
+-(bool)paused {
+    return _movie->_movie.paused;
 }
 
--(void)pauseMovie
-{
-    [_movie pause];
-    [theWindow updatePlayButton:[_movie isPlaying]];
+-(void)setPaused:(bool)val {
+    _movie->_movie.paused = val;
+    [theWindow updatePlayButton:!_movie->_movie.paused];
 }
 
 #pragma mark Stepping
@@ -107,8 +104,8 @@
 {
     if(_isStepping) return;
     _isStepping = true;
-    _wasPlayingBeforeStepping = [_movie isPlaying];
-    [self pauseMovie];
+    _wasPlayingBeforeStepping = !self.paused;
+    self.paused = true;
 }
 
 -(void)stepBy:(int)seconds {
@@ -119,7 +116,7 @@
 -(void)endStepping
 {
     _isStepping = false;
-    if(_wasPlayingBeforeStepping) [self playMovie];
+    if(_wasPlayingBeforeStepping) self.paused = false;
     [theWindow updateTimeInterface];
 }
 

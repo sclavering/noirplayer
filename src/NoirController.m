@@ -65,8 +65,8 @@ id controller;
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void)preventSleep:(id)sender
 {
-    for(id each in NSApp.orderedDocuments) {
-        if(![((NoirDocument*)each).movie isPlaying]) continue;
+    for(id doc in NSApp.orderedDocuments) {
+        if(((NoirDocument*)doc).paused) continue;
         UpdateSystemActivity(OverallAct);
         return;
     }
@@ -85,7 +85,7 @@ id controller;
         if(tError) [NSApp presentError:tError];
     }
     if(!NSApp.mainWindow) NSLog(@"no main window");
-    if(files.count) [[self mainDocument] playMovie];
+    if(files.count) ((NoirDocument*)self.mainDocument).paused = false;
 }
 
 -(IBAction)toggleFullScreen:(id)sender
