@@ -35,9 +35,7 @@
 
 #pragma mark Stepping
 
--(void)startStepping;
 -(void)stepBy:(int)aSeconds;
--(void)endStepping;
 
 #pragma mark Volume
 

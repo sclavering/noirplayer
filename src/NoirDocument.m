@@ -95,23 +95,8 @@
 
 #pragma mark Stepping
 
--(void)startStepping
-{
-    if(_isStepping) return;
-    _isStepping = true;
-    _wasPlayingBeforeStepping = !self.paused;
-    self.paused = true;
-}
-
 -(void)stepBy:(int)seconds {
     _movie.currentTimeInMicroseconds += seconds * 1000000;
-    [theWindow updateTimeInterface];
-}
-
--(void)endStepping
-{
-    _isStepping = false;
-    if(_wasPlayingBeforeStepping) self.paused = false;
     [theWindow updateTimeInterface];
 }
 

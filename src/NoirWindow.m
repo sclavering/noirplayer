@@ -434,9 +434,7 @@
         [self adjustHeightRetainingAspectRatio:ev.deltaY * 5];
     } else if(ev.deltaX) {
         id doc = self.windowController.document;
-        [doc startStepping];
         [doc stepBy:SCRUB_STEP_DURATION * ev.deltaX];
-        [doc endStepping];
     }
 }
 
@@ -449,7 +447,6 @@
     
     switch([anEvent.characters characterAtIndex:0]){
         case NSRightArrowFunctionKey:
-            if(!anEvent.ARepeat) [[self noirDoc] startStepping];
             [[self noirDoc] stepBy:SCRUB_STEP_DURATION];
             break;
         case NSLeftArrowFunctionKey:
@@ -458,7 +455,6 @@
                 [self updateTimeInterface];
                 break;
             }
-            if(!anEvent.ARepeat) [[self noirDoc] startStepping];
             [[self noirDoc] stepBy:-SCRUB_STEP_DURATION];
             break;
         case 0x1B:
@@ -466,22 +462,6 @@
             break;
         default:
             [super keyDown:anEvent];
-    }
-}
-
--(void)keyUp:(NSEvent*)anEvent
-{
-    if((anEvent.modifierFlags & NSShiftKeyMask)) return;
-
-    switch([anEvent.characters characterAtIndex:0]){
-        case NSRightArrowFunctionKey:
-            [[self noirDoc] endStepping];
-            break;
-        case NSLeftArrowFunctionKey:
-            [[self noirDoc] endStepping];
-            break;
-        default:
-            [super keyUp:anEvent];
     }
 }
 
