@@ -147,8 +147,13 @@
 
 -(void)updateTimeInterface {
     NoirDocument* doc = self.windowController.document;
-    theTimeField.stringValue = [doc.movie currentTimeString];
-    [theScrubBar setDoubleValue:doc.movie->_movie.currentTimeAsFraction];
+    LAVPMovie* mov = doc.movie->_movie;
+    int t = mov.durationInMicroseconds / 1000000;
+    int c = mov.currentTimeInMicroseconds / 1000000;
+    int mc = c / 60, sc = c % 60;
+    int mt = t / 60, st = t % 60;
+    theTimeField.stringValue = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
+    [theScrubBar setDoubleValue:mov.currentTimeAsFraction];
     [theScrubBar setNeedsDisplay:YES];
 }
 

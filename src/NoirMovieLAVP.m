@@ -44,12 +44,4 @@
     _movie.currentTimeInMicroseconds += num * 1000000;
 }
 
--(NSString*)currentTimeString {
-    int t = _movie.durationInMicroseconds / 1000000;
-    int c = _movie.currentTimeInMicroseconds / 1000000;
-    int mc = c / 60, sc = c % 60;
-    int mt = t / 60, st = t % 60;
-    return [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
-}
-
 @end
