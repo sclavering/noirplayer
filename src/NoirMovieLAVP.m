@@ -40,10 +40,6 @@
     [_view setMovie:nil];
 }
 
--(NSSize)naturalSize {
-    return [_movie frameSize];
-}
-
 -(void)adjustCurrentTimeBySeconds:(int)num {
     _movie.currentTimeInMicroseconds += num * 1000000;
 }

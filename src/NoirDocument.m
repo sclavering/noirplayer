@@ -62,7 +62,7 @@
     [NSApp updateWindowsItem:theWindow];
     [theWindow orderFront:aController];
     [_movie showInView:theWindow.contentView];
-    NSSize aSize = [_movie naturalSize];
+    NSSize aSize = [_movie->_movie naturalSize];
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
@@ -78,7 +78,7 @@
 // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
 -(IBAction)selectAspectRatio:(id)sender {
     id obj = [sender representedObject];
-    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie naturalSize];
+    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie->_movie naturalSize];
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
 }
