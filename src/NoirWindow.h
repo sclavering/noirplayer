@@ -9,6 +9,7 @@
 @class NoirDocument;
 @class NoirOverlayView;
 @class OverlayWindow;
+@class LAVPMovie;
 
 @interface NoirWindow : NSWindow
 {
@@ -41,6 +42,8 @@
 -(void)updateVolumeIndicator;
 -(void)hideVolumeIndicator:(id)dummy;
 -(void)performMiniaturize:(id)sender;
+
+-(void)showMovie:(LAVPMovie*)movie;
 
 #pragma mark Time Interface
 

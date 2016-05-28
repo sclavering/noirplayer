@@ -4,8 +4,9 @@
 
 @import Cocoa;
 
-#import "NoirMovieQT.h"
 #import "NoirWindow.h"
+#import "libavPlayer/libavPlayer.h"
+
 
 @class NoirWindow;
 
@@ -17,9 +18,7 @@
     bool _wasPlayingBeforeStepping;
 }
 
-@property (readonly) NoirMovieQT* movie;
-
--(void)closeMovie;
+@property (readonly) LAVPMovie* movie;
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 
@@ -31,9 +30,8 @@
 
 #pragma mark Play/Pause
 
+@property bool paused;
 -(IBAction)togglePlayingMovie:(id)sender;
--(void)playMovie;
--(void)pauseMovie;
 
 #pragma mark Stepping
 
@@ -43,8 +41,8 @@
 
 #pragma mark Volume
 
--(float)volume;
--(void)setVolume:(float)aVolume;
+-(int)volumePercent;
+-(void)setVolumePercent:(int)percent;
 -(IBAction)incrementVolume:(id)sender;
 -(IBAction)decrementVolume:(id)sender;
 

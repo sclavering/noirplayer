@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import "NoirDocument.h"
-#import "NoirMovieQT.h"
 
 
 @implementation NoirDocument
@@ -15,9 +14,13 @@
 {
     // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
 
-    id tDict = @{@"MajorVersion": @0,
+    id tDict = @{
+        @"MajorVersion": @0,
         @"MinorVersion": @1,
-        @"Contents": @{@"Volume": @([self volume])}};
+        @"Contents": @{
+            @"VolumePercent": @([self volumePercent])
+        },
+    };
     NSString* tErrror = nil;
     NSData* tData = [NSPropertyListSerialization dataFromPropertyList:tDict format:NSPropertyListXMLFormat_v1_0 errorDescription:&tErrror];
     return tData;
@@ -26,7 +29,7 @@
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    _movie = [[NoirMovieQT alloc] initWithURL:url error:outError];
+    _movie = [[LAVPMovie alloc] initWithURL:url error:outError];
     if(!_movie) return false;
     [theWindow setTitleWithRepresentedFilename:url.path];
     [NSApp changeWindowsItem:theWindow title:theWindow.title filename:YES];
@@ -34,22 +37,18 @@
     return true;
 }
 
--(void)closeMovie {
-    [_movie close];
-}
-
 #pragma mark -
 #pragma mark Window Information
 
 - (void)windowDidMiniaturize:(NSNotification *)aNotification
 {
-    wasPlayingBeforeMini = [_movie isPlaying];
-    [self pauseMovie];
+    wasPlayingBeforeMini = !self.paused;
+    self.paused = true;
 }
 
 - (void)windowDidDeminiaturize:(NSNotification *)aNotification
 {
-    if(wasPlayingBeforeMini) [self playMovie];
+    if(wasPlayingBeforeMini) self.paused = false;
 }
 
 - (void)windowControllerDidLoadNib:(NSWindowController *)aController
@@ -57,8 +56,8 @@
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [theWindow orderFront:aController];
-    [_movie showInView:theWindow.contentView];
-    NSSize aSize = [_movie naturalSize];
+    [theWindow showMovie:_movie];
+    NSSize aSize = _movie.naturalSize;
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
@@ -74,7 +73,7 @@
 // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
 -(IBAction)selectAspectRatio:(id)sender {
     id obj = [sender representedObject];
-    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie naturalSize];
+    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : _movie.naturalSize;
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
 }
@@ -82,19 +81,16 @@
 #pragma mark Play/Pause
 
 -(IBAction)togglePlayingMovie:(id)sender {
-    [_movie isPlaying] ? [self pauseMovie] : [self playMovie];
+    self.paused = !self.paused;
 }
 
--(void)playMovie
-{
-    [_movie play];
-    [theWindow updatePlayButton:[_movie isPlaying]];
+-(bool)paused {
+    return _movie.paused;
 }
 
--(void)pauseMovie
-{
-    [_movie pause];
-    [theWindow updatePlayButton:[_movie isPlaying]];
+-(void)setPaused:(bool)val {
+    _movie.paused = val;
+    [theWindow updatePlayButton:!_movie.paused];
 }
 
 #pragma mark Stepping
@@ -103,46 +99,39 @@
 {
     if(_isStepping) return;
     _isStepping = true;
-    _wasPlayingBeforeStepping = [_movie isPlaying];
-    [self pauseMovie];
+    _wasPlayingBeforeStepping = !self.paused;
+    self.paused = true;
 }
 
 -(void)stepBy:(int)seconds {
-    [self.movie adjustCurrentTimeBySeconds:seconds];
+    _movie.currentTimeInMicroseconds += seconds * 1000000;
     [theWindow updateTimeInterface];
 }
 
 -(void)endStepping
 {
     _isStepping = false;
-    if(_wasPlayingBeforeStepping) [self playMovie];
+    if(_wasPlayingBeforeStepping) self.paused = false;
     [theWindow updateTimeInterface];
 }
 
 #pragma mark Volume
 
--(float)volume
-{
-    float volume = [_movie volume];
-    if(volume < 0.0) volume = 0.0;
-    if(volume > 2.0) volume = 2.0;
-    return volume;
+-(int)volumePercent {
+    return _movie.volumePercent;
 }
 
--(void)setVolume:(float)aVolume
-{
-    if(aVolume < 0.0) aVolume = 0.0;
-    if(aVolume > 2.0) aVolume = 2.0;
-    [_movie setVolume:aVolume];
+-(void)setVolumePercent:(int)percent {
+    _movie.volumePercent = MAX(MIN(percent, 200), 0);
 }
 
 -(IBAction)incrementVolume:(id)sender {
-    [self setVolume:[self volume] + 0.1];
+    [self setVolumePercent:[self volumePercent] + 10];
     [theWindow updateVolumeIndicator];
 }
 
 -(IBAction)decrementVolume:(id)sender {
-    [self setVolume:[self volume] - 0.1];
+    [self setVolumePercent:[self volumePercent] - 10];
     [theWindow updateVolumeIndicator];
 }
 

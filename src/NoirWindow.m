@@ -11,6 +11,8 @@
 #import "NoirOverlayView.h"
 #import "OverlayWindow.h"
 
+#import "libavPlayer/libavPlayer.h"
+
 #define SCRUB_STEP_DURATION 5
 
 
@@ -60,7 +62,7 @@
 }
 
 -(IBAction)doSetPosition:(id)sender {
-    [[self noirDoc].movie setCurrentTimeAsFraction:[sender doubleValue]];
+    self.noirDoc.movie.currentTimeAsFraction = [sender doubleValue];
     [self updateTimeInterface];
 }
 
@@ -78,9 +80,24 @@
 {
     @autoreleasepool {
         if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
-        [[self noirDoc] closeMovie];
+        // xxx why doesn't this happen automatically?
+        [(LAVPLayer*)self.contentView.layer.sublayers[0] invalidate];
         [super close];
     }
+}
+
+-(void)showMovie:(LAVPMovie*)movie {
+    NSView* view = self.contentView;
+    [view setWantsLayer:YES];
+    CALayer* rootLayer = view.layer;
+    rootLayer.needsDisplayOnBoundsChange = YES;
+    LAVPLayer* _layer = [LAVPLayer layer];
+    [_layer setMovie:movie];
+    _layer.stretchVideoToFitLayer = true;
+    _layer.frame = rootLayer.frame;
+    _layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    _layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
+    [rootLayer addSublayer:_layer];
 }
 
 #pragma mark Overriden Methods
@@ -105,15 +122,13 @@
 
 -(IBAction)performClose:(id)sender
 {
-    [self.windowController.document pauseMovie];
     [self orderOut:sender]; //order out before stops double button click from causing crash
     if(fullScreen) [[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
     [self close];
 }
 
 -(void)updateVolumeIndicator {
-    float vol = [[self noirDoc] volume];
-    int percent = (int) round(vol * 100);
+    int percent = [[self noirDoc] volumePercent];
     volumeIndicator.stringValue = [NSString stringWithFormat:@"Volume: %d%%", percent];
     volumeIndicator.hidden = false;
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeIndicator:) object:nil];
@@ -149,8 +164,13 @@
 
 -(void)updateTimeInterface {
     NoirDocument* doc = self.windowController.document;
-    theTimeField.stringValue = [doc.movie currentTimeString];
-    [theScrubBar setDoubleValue:[doc.movie currentTimeAsFraction]];
+    LAVPMovie* mov = doc.movie;
+    int t = mov.durationInMicroseconds / 1000000;
+    int c = mov.currentTimeInMicroseconds / 1000000;
+    int mc = c / 60, sc = c % 60;
+    int mt = t / 60, st = t % 60;
+    theTimeField.stringValue = [NSString stringWithFormat:@"%d:%02d / %d:%02d", mc, sc, mt, st];
+    [theScrubBar setDoubleValue:mov.currentTimeAsFraction];
     [theScrubBar setNeedsDisplay:YES];
 }
 
@@ -434,7 +454,7 @@
             break;
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask) {
-                [[self noirDoc].movie setCurrentTimeAsFraction: 0];
+                self.noirDoc.movie.currentTimeAsFraction = 0;
                 [self updateTimeInterface];
                 break;
             }
