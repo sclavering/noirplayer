@@ -44,14 +44,6 @@
     return [_movie frameSize];
 }
 
--(double)currentTimeAsFraction {
-    return [_movie position];
-}
-
--(void)setCurrentTimeAsFraction:(double)when {
-    [_movie setPosition:when];
-}
-
 -(void)adjustCurrentTimeBySeconds:(int)num {
     _movie.currentTimeInMicroseconds += num * 1000000;
 }

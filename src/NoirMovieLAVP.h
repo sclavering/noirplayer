@@ -18,8 +18,6 @@
 
 -(NSSize)naturalSize;
 
--(double)currentTimeAsFraction;
--(void)setCurrentTimeAsFraction:(double)when;
 -(void)adjustCurrentTimeBySeconds:(int)num;
 -(NSString*)currentTimeString;
 
