@@ -6,7 +6,7 @@
 
 @interface NoirMovieLAVP : NSObject
 {
-    LAVPView* _view;
+    LAVPLayer* _layer;
 @public
     LAVPMovie* _movie;
 }

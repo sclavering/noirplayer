@@ -5,17 +5,6 @@
 #import "NoirMovieLAVP.h"
 
 
-@interface NoirLAVPView : LAVPView
-@end
-
-@implementation NoirLAVPView
-// So we can start dragging the video window even when the app is in the background.
--(BOOL)acceptsFirstMouse:(NSEvent *)ev {
-    return true;
-}
-@end
-
-
 @implementation NoirMovieLAVP
 
 -(instancetype)initWithURL:(NSURL*)url error:(NSError**)outError {
@@ -26,18 +15,20 @@
 }
 
 -(void)showInView:(NSView*)view {
-    _view = [[NoirLAVPView alloc] init];
-    [_view setMovie:_movie];
-    _view.frame = view.frame;
-    [view addSubview:_view];
-    view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
-    // view.layer.needsDisplayOnBoundsChange = YES;
-    _view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    [view setWantsLayer:YES];
+    CALayer *rootLayer = view.layer;
+    rootLayer.needsDisplayOnBoundsChange = YES;
+    _layer = [LAVPLayer layer];
+    [_layer setMovie:_movie];
+    _layer.stretchVideoToFitLayer = true;
+    _layer.frame = rootLayer.frame;
+    _layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    _layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
+    [rootLayer addSublayer:_layer];
 }
 
 -(void)close {
-    _movie.paused = true;
-    [_view setMovie:nil];
+    [_layer setMovie:nil];
 }
 
 @end
