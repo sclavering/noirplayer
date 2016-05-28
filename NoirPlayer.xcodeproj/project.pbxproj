@@ -37,8 +37,6 @@
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		AA339A771CCCF1FD0024153F /* NoirRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = AA339A751CCCF1FD0024153F /* NoirRootView.h */; };
 		AA339A781CCCF1FD0024153F /* NoirRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA339A761CCCF1FD0024153F /* NoirRootView.m */; };
-		AA339A7D1CD40F390024153F /* NoirMovieLAVP.h in Headers */ = {isa = PBXBuildFile; fileRef = AA339A7B1CD40F390024153F /* NoirMovieLAVP.h */; };
-		AA339A7E1CD40F390024153F /* NoirMovieLAVP.m in Sources */ = {isa = PBXBuildFile; fileRef = AA339A7C1CD40F390024153F /* NoirMovieLAVP.m */; };
 		AA561CD21CCAB471008021B8 /* NoirOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = AA561CD01CCAB471008021B8 /* NoirOverlayView.h */; };
 		AA561CD31CCAB471008021B8 /* NoirOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = AA561CD11CCAB471008021B8 /* NoirOverlayView.m */; };
 		AA79F8651CD54DD9006D473F /* libavPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA79F8641CD54DD9006D473F /* libavPlayer.framework */; };
@@ -93,8 +91,6 @@
 		8D15AC370486D014006FF6A4 /* NoirPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoirPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA339A751CCCF1FD0024153F /* NoirRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirRootView.h; path = src/NoirRootView.h; sourceTree = "<group>"; };
 		AA339A761CCCF1FD0024153F /* NoirRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirRootView.m; path = src/NoirRootView.m; sourceTree = "<group>"; };
-		AA339A7B1CD40F390024153F /* NoirMovieLAVP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirMovieLAVP.h; path = src/NoirMovieLAVP.h; sourceTree = "<group>"; };
-		AA339A7C1CD40F390024153F /* NoirMovieLAVP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirMovieLAVP.m; path = src/NoirMovieLAVP.m; sourceTree = "<group>"; };
 		AA561CD01CCAB471008021B8 /* NoirOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirOverlayView.h; path = src/NoirOverlayView.h; sourceTree = "<group>"; };
 		AA561CD11CCAB471008021B8 /* NoirOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirOverlayView.m; path = src/NoirOverlayView.m; sourceTree = "<group>"; };
 		AA79F8641CD54DD9006D473F /* libavPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = libavPlayer.framework; sourceTree = "<group>"; };
@@ -164,8 +160,6 @@
 			children = (
 				AA339A751CCCF1FD0024153F /* NoirRootView.h */,
 				AA339A761CCCF1FD0024153F /* NoirRootView.m */,
-				AA339A7B1CD40F390024153F /* NoirMovieLAVP.h */,
-				AA339A7C1CD40F390024153F /* NoirMovieLAVP.m */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 				3EEDF763065B507B00E3545C /* NoirWindow.h */,
 				3EEDF764065B507B00E3545C /* NoirWindow.m */,
@@ -220,7 +214,6 @@
 				3EEDF765065B507B00E3545C /* NoirWindow.h in Headers */,
 				3EEDF76D065B5ACD00E3545C /* NoirController.h in Headers */,
 				3EDA2682065C8E570000CCEE /* OverlayWindow.h in Headers */,
-				AA339A7D1CD40F390024153F /* NoirMovieLAVP.h in Headers */,
 				3E95D4A106613F05008755D1 /* BlackWindow.h in Headers */,
 				3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */,
 				AA561CD21CCAB471008021B8 /* NoirOverlayView.h in Headers */,
@@ -313,7 +306,6 @@
 				3EEDF766065B507B00E3545C /* NoirWindow.m in Sources */,
 				3EEDF76E065B5ACD00E3545C /* NoirController.m in Sources */,
 				3EDA2683065C8E570000CCEE /* OverlayWindow.m in Sources */,
-				AA339A7E1CD40F390024153F /* NoirMovieLAVP.m in Sources */,
 				3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */,
 				3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */,
 				AA561CD31CCAB471008021B8 /* NoirOverlayView.m in Sources */,

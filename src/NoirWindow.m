@@ -11,6 +11,8 @@
 #import "NoirOverlayView.h"
 #import "OverlayWindow.h"
 
+#import "libavPlayer/libavPlayer.h"
+
 #define SCRUB_STEP_DURATION 5
 
 
@@ -60,7 +62,7 @@
 }
 
 -(IBAction)doSetPosition:(id)sender {
-    self.noirDoc.movie->_movie.currentTimeAsFraction = [sender doubleValue];
+    self.noirDoc.movie.currentTimeAsFraction = [sender doubleValue];
     [self updateTimeInterface];
 }
 
@@ -78,9 +80,24 @@
 {
     @autoreleasepool {
         if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
-        [[self noirDoc] closeMovie];
+        // xxx why doesn't this happen automatically?
+        [(LAVPLayer*)self.contentView.layer.sublayers[0] invalidate];
         [super close];
     }
+}
+
+-(void)showMovie:(LAVPMovie*)movie {
+    NSView* view = self.contentView;
+    [view setWantsLayer:YES];
+    CALayer* rootLayer = view.layer;
+    rootLayer.needsDisplayOnBoundsChange = YES;
+    LAVPLayer* _layer = [LAVPLayer layer];
+    [_layer setMovie:movie];
+    _layer.stretchVideoToFitLayer = true;
+    _layer.frame = rootLayer.frame;
+    _layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
+    _layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
+    [rootLayer addSublayer:_layer];
 }
 
 #pragma mark Overriden Methods
@@ -147,7 +164,7 @@
 
 -(void)updateTimeInterface {
     NoirDocument* doc = self.windowController.document;
-    LAVPMovie* mov = doc.movie->_movie;
+    LAVPMovie* mov = doc.movie;
     int t = mov.durationInMicroseconds / 1000000;
     int c = mov.currentTimeInMicroseconds / 1000000;
     int mc = c / 60, sc = c % 60;
@@ -437,7 +454,7 @@
             break;
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask) {
-                self.noirDoc.movie->_movie.currentTimeAsFraction = 0;
+                self.noirDoc.movie.currentTimeAsFraction = 0;
                 [self updateTimeInterface];
                 break;
             }

@@ -4,8 +4,9 @@
 
 @import Cocoa;
 
-#import "NoirMovieLAVP.h"
 #import "NoirWindow.h"
+#import "libavPlayer/libavPlayer.h"
+
 
 @class NoirWindow;
 
@@ -17,9 +18,7 @@
     bool _wasPlayingBeforeStepping;
 }
 
-@property (readonly) NoirMovieLAVP* movie;
-
--(void)closeMovie;
+@property (readonly) LAVPMovie* movie;
 
 -(NSData *)dataRepresentationOfType:(NSString *)aType;
 

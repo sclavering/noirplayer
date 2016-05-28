@@ -3,7 +3,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import "NoirDocument.h"
-#import "NoirMovieLAVP.h"
 
 
 @implementation NoirDocument
@@ -30,16 +29,12 @@
 // Called when a file is dropped on the app icon
 -(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
 {
-    _movie = [[NoirMovieLAVP alloc] initWithURL:url error:outError];
+    _movie = [[LAVPMovie alloc] initWithURL:url error:outError];
     if(!_movie) return false;
     [theWindow setTitleWithRepresentedFilename:url.path];
     [NSApp changeWindowsItem:theWindow title:theWindow.title filename:YES];
     [NSApp updateWindowsItem:theWindow];
     return true;
-}
-
--(void)closeMovie {
-    [_movie close];
 }
 
 #pragma mark -
@@ -61,8 +56,8 @@
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [theWindow orderFront:aController];
-    [_movie showInView:theWindow.contentView];
-    NSSize aSize = [_movie->_movie naturalSize];
+    [theWindow showMovie:_movie];
+    NSSize aSize = _movie.naturalSize;
     [theWindow setAspectRatio:aSize];
     theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
     [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
@@ -78,7 +73,7 @@
 // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
 -(IBAction)selectAspectRatio:(id)sender {
     id obj = [sender representedObject];
-    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : [_movie->_movie naturalSize];
+    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : _movie.naturalSize;
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
 }
@@ -90,12 +85,12 @@
 }
 
 -(bool)paused {
-    return _movie->_movie.paused;
+    return _movie.paused;
 }
 
 -(void)setPaused:(bool)val {
-    _movie->_movie.paused = val;
-    [theWindow updatePlayButton:!_movie->_movie.paused];
+    _movie.paused = val;
+    [theWindow updatePlayButton:!_movie.paused];
 }
 
 #pragma mark Stepping
@@ -109,7 +104,7 @@
 }
 
 -(void)stepBy:(int)seconds {
-    _movie->_movie.currentTimeInMicroseconds += seconds * 1000000;
+    _movie.currentTimeInMicroseconds += seconds * 1000000;
     [theWindow updateTimeInterface];
 }
 
@@ -123,11 +118,11 @@
 #pragma mark Volume
 
 -(int)volumePercent {
-    return _movie->_movie.volumePercent;
+    return _movie.volumePercent;
 }
 
 -(void)setVolumePercent:(int)percent {
-    _movie->_movie.volumePercent = MAX(MIN(percent, 200), 0);
+    _movie.volumePercent = MAX(MIN(percent, 200), 0);
 }
 
 -(IBAction)incrementVolume:(id)sender {
