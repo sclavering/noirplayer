@@ -65,7 +65,7 @@
 }
 
 -(void)adjustCurrentTimeBySeconds:(int)num {
-    _movie.currentTimeInMicroseconds = MAX(0, MIN(_movie.currentTimeInMicroseconds, _movie.currentTimeInMicroseconds + num * 1000000));
+    _movie.currentTimeInMicroseconds += num * 1000000;
 }
 
 -(NSString*)currentTimeString {
