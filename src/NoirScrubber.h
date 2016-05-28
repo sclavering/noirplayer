@@ -10,7 +10,6 @@
     double value;
     id target;
     SEL action;
-    bool dragging;
 }
 
 -(double)doubleValue;

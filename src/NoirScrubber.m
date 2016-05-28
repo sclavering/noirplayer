@@ -12,41 +12,34 @@
 {
     self = [super initWithFrame:frame];
     if(self) {
-        scrub = [NSImage imageNamed:@"scrubber"];
         value = 0.0;
         target = nil;
         action = NULL;
-        dragging = NO;
     }
     return self;
 }
-
 
 - (void)drawRect:(NSRect)rect
 {
     [self lockFocus];
 
-    CGPoint points[2];
-    points[0] = CGPointMake(OFFSET, floor(self.frame.size.height / 2.0));
-    points[1] = CGPointMake(self.frame.size.width - OFFSET, floor(self.frame.size.height / 2.0));
+    CGFloat y = floor(self.frame.size.height / 2.0);
+    CGFloat x0 = 10;
+    CGFloat x2 = self.frame.size.width - OFFSET;
+    CGFloat x1 = (x2 - x0) * [self doubleValue] + x0;
 
     CGContextRef cgRef = [NSGraphicsContext currentContext].graphicsPort;
-    CGContextSetAllowsAntialiasing(cgRef, NO);
-    CGContextSetGrayStrokeColor(cgRef, 1.0, 1.0);
-    CGContextSetLineWidth(cgRef, 1);
-    CGContextSetLineCap(cgRef, kCGLineCapRound);
-    CGContextStrokeLineSegments(cgRef, points, 2);
     CGContextSetAllowsAntialiasing(cgRef, YES);
+    CGContextSetLineWidth(cgRef, 4);
+    CGContextSetLineCap(cgRef, kCGLineCapRound);
 
-    float scrubWidth = self.frame.size.height;
-    float scrubHeight = self.frame.size.height;
+    CGPoint points[2] = { CGPointMake(x0, y), CGPointMake(x2, y) };
+    CGContextSetGrayStrokeColor(cgRef, 0.4, 1.0);
+    CGContextStrokeLineSegments(cgRef, points, 2);
 
-    [[NSGraphicsContext currentContext] saveGraphicsState];
-    [NSGraphicsContext currentContext].imageInterpolation = NSImageInterpolationHigh;
-    NSPoint tPoint = NSMakePoint(OFFSET + ([self doubleValue] * (self.frame.size.width - (OFFSET * 2))), self.frame.size.height / 2);
-    NSRect tScrubRect = NSMakeRect(tPoint.x, tPoint.y, scrubWidth, scrubHeight);
-    [scrub drawInRect:NSIntegralRect(NSOffsetRect(tScrubRect, -tScrubRect.size.width / 2.0, -tScrubRect.size.height / 2.0)) fromRect:NSMakeRect(0, 0, scrub.size.width, scrub.size.height) operation:NSCompositeSourceOver fraction:1.0];
-    [[NSGraphicsContext currentContext] restoreGraphicsState];
+    points[1] = CGPointMake(x1, y);
+    CGContextSetGrayStrokeColor(cgRef, 1.0, 1.0);
+    CGContextStrokeLineSegments(cgRef, points, 2);
 
     [self unlockFocus];
 }
@@ -89,13 +82,11 @@
 
 -(void)mouseUp:(NSEvent *)anEvent
 {
-    dragging = NO;
     [self setNeedsDisplay:YES];
 }
 
 -(void)mouseDown:(NSEvent *)anEvent
 {
-    dragging = YES;
     [self _doUpdate:anEvent];
     [self.target performSelector:self.action withObject:self];
 }

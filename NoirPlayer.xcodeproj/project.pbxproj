@@ -19,7 +19,6 @@
 		3E95D4A206613F05008755D1 /* BlackWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E95D4A006613F05008755D1 /* BlackWindow.m */; };
 		3E9E62900661708200B788A8 /* NoirScrubber.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E9E628E0661708200B788A8 /* NoirScrubber.h */; };
 		3E9E62910661708200B788A8 /* NoirScrubber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E9E628F0661708200B788A8 /* NoirScrubber.m */; };
-		3E9E62990661724600B788A8 /* scrubber.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E62940661724600B788A8 /* scrubber.png */; };
 		3E9E64820661B95900B788A8 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64800661B95900B788A8 /* pause.png */; };
 		3E9E64830661B95900B788A8 /* pauseClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E9E64810661B95900B788A8 /* pauseClick.png */; };
 		3EC8C601065DD31F00988449 /* playClick.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EC8C5FE065DD31F00988449 /* playClick.png */; };
@@ -62,7 +61,6 @@
 		3E95D4A006613F05008755D1 /* BlackWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlackWindow.m; path = src/BlackWindow.m; sourceTree = "<group>"; };
 		3E9E628E0661708200B788A8 /* NoirScrubber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoirScrubber.h; path = src/NoirScrubber.h; sourceTree = "<group>"; };
 		3E9E628F0661708200B788A8 /* NoirScrubber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoirScrubber.m; path = src/NoirScrubber.m; sourceTree = "<group>"; };
-		3E9E62940661724600B788A8 /* scrubber.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scrubber.png; path = Resources/scrubber.png; sourceTree = "<group>"; };
 		3E9E64800661B95900B788A8 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pause.png; path = Resources/pause.png; sourceTree = "<group>"; };
 		3E9E64810661B95900B788A8 /* pauseClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pauseClick.png; path = Resources/pauseClick.png; sourceTree = "<group>"; };
 		3EC8C5FE065DD31F00988449 /* playClick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = playClick.png; path = Resources/playClick.png; sourceTree = "<group>"; };
@@ -125,7 +123,6 @@
 				3E8CC452068AA1290034FCCC /* minimize.png */,
 				3E9E64800661B95900B788A8 /* pause.png */,
 				3E9E64810661B95900B788A8 /* pauseClick.png */,
-				3E9E62940661724600B788A8 /* scrubber.png */,
 				3EC8C5FE065DD31F00988449 /* playClick.png */,
 				3E085CBB065C79EE005286A3 /* play.png */,
 				3EEDF761065B4CFF00E3545C /* black.png */,
@@ -272,7 +269,6 @@
 				3EEDF762065B4CFF00E3545C /* black.png in Resources */,
 				3E085CBC065C79EE005286A3 /* play.png in Resources */,
 				3EC8C601065DD31F00988449 /* playClick.png in Resources */,
-				3E9E62990661724600B788A8 /* scrubber.png in Resources */,
 				3E9E64820661B95900B788A8 /* pause.png in Resources */,
 				3E9E64830661B95900B788A8 /* pauseClick.png in Resources */,
 				AA81D9D51CC538D500827BED /* document.icns in Resources */,
