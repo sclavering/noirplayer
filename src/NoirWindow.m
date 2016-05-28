@@ -105,7 +105,6 @@
 
 -(IBAction)performClose:(id)sender
 {
-    [self.windowController.document pauseMovie];
     [self orderOut:sender]; //order out before stops double button click from causing crash
     if(fullScreen) [[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
     [self close];
