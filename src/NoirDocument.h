@@ -20,28 +20,28 @@
 
 @property (readonly) LAVPMovie* movie;
 
--(NSData *)dataRepresentationOfType:(NSString *)aType;
+-(NSData *) dataRepresentationOfType:(NSString *)aType;
 
 #pragma mark Window Information
 
--(void)windowDidDeminiaturize:(NSNotification *)aNotification;
--(void)windowControllerDidLoadNib:(NSWindowController *) aController;
--(IBAction)selectAspectRatio:(id)sender;
+-(void) windowDidDeminiaturize:(NSNotification *)aNotification;
+-(void) windowControllerDidLoadNib:(NSWindowController *) aController;
+-(IBAction) selectAspectRatio:(id)sender;
 
 #pragma mark Play/Pause
 
 @property bool paused;
--(IBAction)togglePlayingMovie:(id)sender;
+-(IBAction) togglePlayingMovie:(id)sender;
 
 #pragma mark Stepping
 
--(void)stepBy:(int)aSeconds;
+-(void) stepBy:(int)aSeconds;
 
 #pragma mark Volume
 
--(int)volumePercent;
--(void)setVolumePercent:(int)percent;
--(IBAction)incrementVolume:(id)sender;
--(IBAction)decrementVolume:(id)sender;
+-(int) volumePercent;
+-(void) setVolumePercent:(int)percent;
+-(IBAction) incrementVolume:(id)sender;
+-(IBAction) decrementVolume:(id)sender;
 
 @end

@@ -6,12 +6,11 @@
 
 @implementation NoirRootView
 
--(BOOL)acceptsFirstResponder
-{
+-(BOOL) acceptsFirstResponder {
     return YES;
 }
 
--(BOOL)acceptsFirstMouse:(NSEvent *)ev {
+-(BOOL) acceptsFirstMouse:(NSEvent *)ev {
     // So we can drag the windows even when the app is in the background.  Not sure why this needs to be here rather than in the overlay's view.
     return true;
 }

@@ -9,18 +9,15 @@ id controller;
 
 @implementation NoirController
 
-+(id)controller
-{
++(id) controller {
     return controller;
 }
 
-+(void)setController:(id)aNoirController
-{
++(void) setController:(id)aNoirController {
     controller = aNoirController;
 }
 
--(void)awakeFromNib
-{
+-(void) awakeFromNib {
     lastMouseLocation = NSMakePoint(0, 0);
     fullScreenMode = NO;
     mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkMouseLocation:) userInfo:nil repeats:YES]; // Auto-hides mouse.
@@ -30,14 +27,12 @@ id controller;
     antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(preventSleep:) userInfo:nil repeats:YES];
 }
 
--(void)dealloc
-{
+-(void) dealloc {
     [mouseMoveTimer invalidate];
     [antiSleepTimer invalidate];
 }
 
--(NSInteger)runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions
-{
+-(NSInteger) runModalOpenPanel:(NSOpenPanel *)openPanel forTypes:(NSArray *)openableFileExtensions {
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
@@ -46,8 +41,7 @@ id controller;
         @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_"]];
 }
 
--(void)checkMouseLocation:(id)sender
-{
+-(void) checkMouseLocation:(id)sender {
     NSRect tempRect =[NSScreen screens][0].frame;
     NSPoint tempPoint =[NSEvent mouseLocation];
     if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
@@ -63,8 +57,7 @@ id controller;
 }
 
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
--(void)preventSleep:(id)sender
-{
+-(void) preventSleep:(id)sender {
     for(id doc in NSApp.orderedDocuments) {
         if(((NoirDocument*)doc).paused) continue;
         UpdateSystemActivity(OverallAct);
@@ -72,12 +65,11 @@ id controller;
     }
 }
 
--(id)mainDocument
-{
+-(id) mainDocument {
     return [self documentForWindow:NSApp.mainWindow];
 }
 
--(IBAction)openDocument:(id)sender {
+-(IBAction) openDocument:(id)sender {
     NSArray* files = [self URLsFromRunningOpenPanel];
     for(id url in files) {
         NSError* tError = nil;
@@ -88,8 +80,7 @@ id controller;
     if(files.count) ((NoirDocument*)self.mainDocument).paused = false;
 }
 
--(IBAction)toggleFullScreen:(id)sender
-{
+-(IBAction) toggleFullScreen:(id)sender {
     if(fullScreenMode) {
         [self exitFullScreen];
     } else if([NSApp.mainWindow isKindOfClass:[NoirWindow self]]) {
@@ -97,13 +88,11 @@ id controller;
     }
 }
 
--(BOOL)isFullScreen
-{
+-(BOOL) isFullScreen {
     return fullScreenMode;
 }
 
--(void)enterFullScreen
-{
+-(void) enterFullScreen {
     id tempWindow = NSApp.mainWindow;
     [tempWindow makeFullScreen];
     id screen = [NSScreen mainScreen];
@@ -114,8 +103,7 @@ id controller;
     [backgroundWindow setPresentingWindow:tempWindow];
 }
 
--(void)exitFullScreen
-{
+-(void) exitFullScreen {
     id tempWindow = NSApp.mainWindow;
     if(tempWindow) [tempWindow makeNormalScreen];
     fullScreenMode = NO;
@@ -123,8 +111,7 @@ id controller;
     [backgroundWindow orderOut:nil];
 }
 
--(id)backgroundWindow
-{
+-(id) backgroundWindow {
     return backgroundWindow;
 }
 

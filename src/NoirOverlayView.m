@@ -10,7 +10,7 @@
 
 @implementation NoirOverlayView
 
--(void)awakeFromNib {
+-(void) awakeFromNib {
     [self setWantsLayer:true];
     CGColorRef bg = CGColorCreateGenericGray(0.0, 0.55);
     self.layer.backgroundColor = bg;
@@ -19,11 +19,11 @@
     [self addTrackingArea: [[NSTrackingArea alloc] initWithRect:self.bounds options:NSTrackingMouseEnteredAndExited|NSTrackingActiveInActiveApp|NSTrackingInVisibleRect owner:self userInfo:nil]];
 }
 
--(void)mouseEntered:(NSEvent *)ev {
+-(void) mouseEntered:(NSEvent *)ev {
     [((NoirWindow*)self.window.parentWindow) mouseEnteredOverlayView:self];
 }
 
--(void)mouseExited:(NSEvent *)ev {
+-(void) mouseExited:(NSEvent *)ev {
     [((NoirWindow*)self.window.parentWindow) mouseExitedOverlayView:self];
 }
 

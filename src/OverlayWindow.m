@@ -7,8 +7,7 @@
 
 @implementation OverlayWindow
 
--(instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
-{
+-(instancetype) initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
     if((self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES])) {
         self.backgroundColor = [[NSColor blackColor] colorWithAlphaComponent:0];
         [self setOpaque:NO];
@@ -16,40 +15,36 @@
     return self;
 }
 
-- (BOOL)acceptsFirstResponder
-{
+-(BOOL) acceptsFirstResponder {
     return YES;
 }
 
--(BOOL)canBecomeMainWindow
-{
+-(BOOL) canBecomeMainWindow {
     return NO;
 }
 
--(BOOL)canBecomeKeyWindow
-{
+-(BOOL) canBecomeKeyWindow {
     return NO;
 }
 
--(void)awakeFromNib
-{
+-(void) awakeFromNib {
     [self setHasShadow:NO];
     self.nextResponder = self.parentWindow;
 }
 
 // Forward mouseDown/mouseDragged to the parent window, so it can implement dragging the window around.
 
--(void)mouseDown:(NSEvent *)ev {
+-(void) mouseDown:(NSEvent *)ev {
     [self.parentWindow mouseDown:ev];
 }
 
--(void)mouseDragged:(NSEvent *)ev {
+-(void) mouseDragged:(NSEvent *)ev {
     [self.parentWindow mouseDragged:ev];
 }
 
 // Forward this so the scrollwheel works even over the title or control bars.
 
--(void)scrollWheel:(NSEvent *)ev {
+-(void) scrollWheel:(NSEvent *)ev {
     [self.parentWindow scrollWheel:ev];
 }
 

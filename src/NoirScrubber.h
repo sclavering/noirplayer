@@ -5,16 +5,17 @@
 #import <AppKit/AppKit.h>
 
 
-@interface NoirScrubber : NSControl {
+@interface NoirScrubber : NSControl
+{
     NSImage* scrub;
     double value;
     id target;
     SEL action;
 }
 
--(double)doubleValue;
--(void)setDoubleValue:(double)aValue;
+-(double) doubleValue;
+-(void) setDoubleValue:(double)aValue;
 
--(void)_doUpdate:(NSEvent*)ev;
+-(void) _doUpdate:(NSEvent*)ev;
 
 @end

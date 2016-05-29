@@ -35,71 +35,71 @@
     NSPoint initialDrag;
 }
 
--(NoirDocument*)noirDoc;
+-(NoirDocument*) noirDoc;
 
--(BOOL)validateMenuItem:(NSMenuItem*)anItem;
--(IBAction)performClose:(id)sender;
--(void)updateVolumeIndicator;
--(void)hideVolumeIndicator:(id)dummy;
--(void)performMiniaturize:(id)sender;
+-(BOOL) validateMenuItem:(NSMenuItem*)anItem;
+-(IBAction) performClose:(id)sender;
+-(void) updateVolumeIndicator;
+-(void) hideVolumeIndicator:(id)dummy;
+-(void) performMiniaturize:(id)sender;
 
--(void)showMovie:(LAVPMovie*)movie;
+-(void) showMovie:(LAVPMovie*)movie;
 
 #pragma mark Time Interface
 
--(void)startPeriodicTimeInterfaceUpdates;
--(void)scheduledUpdateTimeInterface:(id)sender;
--(void)updateTimeInterface;
+-(void) startPeriodicTimeInterfaceUpdates;
+-(void) scheduledUpdateTimeInterface:(id)sender;
+-(void) updateTimeInterface;
 
 #pragma mark -
 #pragma mark Overlays
 
--(void)initOverlayWindow;
--(void)hideControlsOverlay;
--(void)hideTitleOverlay;
+-(void) initOverlayWindow;
+-(void) hideControlsOverlay;
+-(void) hideTitleOverlay;
 
--(void)mouseEnteredOverlayView:(NSView*)overlay;
--(void)mouseExitedOverlayView:(NSView*)overlay;
+-(void) mouseEnteredOverlayView:(NSView*)overlay;
+-(void) mouseExitedOverlayView:(NSView*)overlay;
 
--(void)onSelfMovedOrResized:(NSNotification*)notification;
+-(void) onSelfMovedOrResized:(NSNotification*)notification;
 
 #pragma mark -
 #pragma mark Window Toggles
 
--(BOOL)toggleWindowFullScreen;
--(void)unFullScreen;
+-(BOOL) toggleWindowFullScreen;
+-(void) unFullScreen;
 
 #pragma mark Window Attributes
 
--(void)makeFullScreen;
--(void)makeNormalScreen;
--(BOOL)isFullScreen;
--(void)setLevel:(NSInteger)windowLevel;
--(void)resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
--(NSRect)calcResizeSize:(NSSize)aSize;
--(void)adjustHeightRetainingAspectRatio:(float)amount;
-- (void)setTitle:(NSString *)aString;
--(IBAction)halfSize:(id)sender;
--(IBAction)normalSize:(id)sender;
--(IBAction)doubleSize:(id)sender;
--(void)fillScreenSize;
--(void)setAspectRatio:(NSSize)ratio;
--(NSSize)getResizeAspectRatioSize;
--(void)resizeToAspectRatio;
--(void)resizeNormalByScaler:(float)aScaler;
--(NSRect)centerRect:(NSRect)aRect;
+-(void) makeFullScreen;
+-(void) makeNormalScreen;
+-(BOOL) isFullScreen;
+-(void) setLevel:(NSInteger)windowLevel;
+-(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
+-(NSRect) calcResizeSize:(NSSize)aSize;
+-(void) adjustHeightRetainingAspectRatio:(float)amount;
+-(void) setTitle:(NSString *)aString;
+-(IBAction) halfSize:(id)sender;
+-(IBAction) normalSize:(id)sender;
+-(IBAction) doubleSize:(id)sender;
+-(void) fillScreenSize;
+-(void) setAspectRatio:(NSSize)ratio;
+-(NSSize) getResizeAspectRatioSize;
+-(void) resizeToAspectRatio;
+-(void) resizeNormalByScaler:(float)aScaler;
+-(NSRect) centerRect:(NSRect)aRect;
 
 #pragma mark -
 #pragma mark Mouse Events
 
--(void)mouseDown:(NSEvent *)anEvent;
--(void)mouseDragged:(NSEvent *)anEvent;
--(void)setInitialDrag:(NSEvent *)anEvent;
--(void)scrollWheel:(NSEvent *)ev;
+-(void) mouseDown:(NSEvent *)anEvent;
+-(void) mouseDragged:(NSEvent *)anEvent;
+-(void) setInitialDrag:(NSEvent *)anEvent;
+-(void) scrollWheel:(NSEvent *)ev;
 
 #pragma mark -
 #pragma mark Misc
 
--(void)updatePlayButton:(BOOL)isPlaying;
+-(void) updatePlayButton:(BOOL)isPlaying;
 
 @end

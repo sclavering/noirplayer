@@ -8,8 +8,7 @@
 
 @implementation BlackWindow
 
-- (instancetype)initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag
-{
+-(instancetype) initWithContentRect:(NSRect)contentRect styleMask:(NSUInteger)aStyle backing:(NSBackingStoreType)bufferingType defer:(BOOL)flag {
     self = [super initWithContentRect:contentRect styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES];
     self.backgroundColor = [NSColor blackColor];
     presentingWindow =nil;
@@ -17,38 +16,31 @@
     return self;
 }
 
-- (BOOL)canBecomeMainWindow
-{
+-(BOOL) canBecomeMainWindow {
     return NO;
 }
 
-- (BOOL)canBecomeKeyWindow
-{
+-(BOOL) canBecomeKeyWindow {
     return NO;
 }
 
--(void)setPresentingWindow:(id)window
-{
+-(void) setPresentingWindow:(id)window {
     presentingWindow = window;
 }
 
-- (BOOL)isExcludedFromWindowsMenu
-{
+-(BOOL) isExcludedFromWindowsMenu {
     return YES;
 }
 
--(void)mouseDown:(NSEvent *)anEvent
-{
+-(void) mouseDown:(NSEvent *)anEvent {
     if(presentingWindow != nil)
         [presentingWindow makeKeyAndOrderFront:anEvent];
 }
 
--(void)mouseUp:(NSEvent *)anEvent
-{
+-(void) mouseUp:(NSEvent *)anEvent {
 }
 
--(void)orderOut:(id)sender
-{
+-(void) orderOut:(id)sender {
     presentingWindow = nil;
     [super orderOut:sender];
 }

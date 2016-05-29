@@ -6,10 +6,11 @@
 #import "NoirController.h"
 #import "NoirWindow.h"
 
-@interface BlackWindow : NSWindow {
+@interface BlackWindow : NSWindow
+{
     id presentingWindow;
 }
 
--(void)setPresentingWindow:(id)window;
+-(void) setPresentingWindow:(id)window;
 
 @end

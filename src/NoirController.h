@@ -6,7 +6,8 @@
 #import "BlackWindow.h"
 #import "NoirWindow.h"
 
-@interface NoirController : NSDocumentController {
+@interface NoirController : NSDocumentController
+{
     bool fullScreenMode;
     NSDate* lastCursorMoveDate;
     NSPoint lastMouseLocation;
@@ -15,18 +16,18 @@
     id antiSleepTimer;
 }
 
-+(id)controller;
-+(void)setController:(id)aNoirController;
++(id) controller;
++(void) setController:(id)aNoirController;
 
--(void)checkMouseLocation:(id)sender;
--(id)mainDocument;
+-(void) checkMouseLocation:(id)sender;
+-(id) mainDocument;
 
--(IBAction)openDocument:(id)sender;
+-(IBAction) openDocument:(id)sender;
 
--(IBAction)toggleFullScreen:(id)sender;
--(void)enterFullScreen;
--(void)exitFullScreen;
+-(IBAction) toggleFullScreen:(id)sender;
+-(void) enterFullScreen;
+-(void) exitFullScreen;
 
--(id)backgroundWindow;
+-(id) backgroundWindow;
 
 @end

@@ -10,8 +10,7 @@
 #pragma mark -
 #pragma mark File Operations
 
-- (NSData *)dataRepresentationOfType:(NSString *)aType
-{
+-(NSData *) dataRepresentationOfType:(NSString *)aType {
     // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
 
     id tDict = @{
@@ -27,8 +26,7 @@
 }
 
 // Called when a file is dropped on the app icon
--(BOOL)readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError
-{
+-(BOOL) readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError {
     _movie = [[LAVPMovie alloc] initWithURL:url error:outError];
     if(!_movie) return false;
     [theWindow setTitleWithRepresentedFilename:url.path];
@@ -40,19 +38,16 @@
 #pragma mark -
 #pragma mark Window Information
 
-- (void)windowDidMiniaturize:(NSNotification *)aNotification
-{
+-(void) windowDidMiniaturize:(NSNotification *)aNotification {
     wasPlayingBeforeMini = !self.paused;
     self.paused = true;
 }
 
-- (void)windowDidDeminiaturize:(NSNotification *)aNotification
-{
+-(void) windowDidDeminiaturize:(NSNotification *)aNotification {
     if(wasPlayingBeforeMini) self.paused = false;
 }
 
-- (void)windowControllerDidLoadNib:(NSWindowController *)aController
-{
+-(void) windowControllerDidLoadNib:(NSWindowController *)aController {
     [super windowControllerDidLoadNib:aController];
     [NSApp updateWindowsItem:theWindow];
     [theWindow orderFront:aController];
@@ -64,14 +59,13 @@
     [theWindow setTitle:theWindow.title];
 }
 
-- (void)makeWindowControllers
-{
+-(void) makeWindowControllers {
     NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
     [self addWindowController:controller];
 }
 
 // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
--(IBAction)selectAspectRatio:(id)sender {
+-(IBAction) selectAspectRatio:(id)sender {
     id obj = [sender representedObject];
     NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : _movie.naturalSize;
     [theWindow setAspectRatio:ratio];
@@ -80,22 +74,22 @@
 
 #pragma mark Play/Pause
 
--(IBAction)togglePlayingMovie:(id)sender {
+-(IBAction) togglePlayingMovie:(id)sender {
     self.paused = !self.paused;
 }
 
--(bool)paused {
+-(bool) paused {
     return _movie.paused;
 }
 
--(void)setPaused:(bool)val {
+-(void) setPaused:(bool)val {
     _movie.paused = val;
     [theWindow updatePlayButton:!_movie.paused];
 }
 
 #pragma mark Stepping
 
--(void)stepBy:(int)seconds {
+-(void) stepBy:(int)seconds {
     _movie.currentTimeInMicroseconds += seconds * 1000000;
     [theWindow updateTimeInterface];
 }

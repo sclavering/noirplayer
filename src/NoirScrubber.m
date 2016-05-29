@@ -8,8 +8,7 @@
 
 @implementation NoirScrubber
 
-- (instancetype)initWithFrame:(NSRect)frame
-{
+-(instancetype) initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
         value = 0.0;
@@ -19,8 +18,7 @@
     return self;
 }
 
-- (void)drawRect:(NSRect)rect
-{
+-(void) drawRect:(NSRect)rect {
     [self lockFocus];
 
     CGFloat y = floor(self.frame.size.height / 2.0);
@@ -44,55 +42,45 @@
     [self unlockFocus];
 }
 
--(void)setDoubleValue:(double)aValue
-{
+-(void) setDoubleValue:(double)aValue {
     value = aValue;
 }
 
--(double)doubleValue
-{
+-(double) doubleValue {
     return value;
 }
 
--(void)setTarget:(id)aTarget
-{
+-(void) setTarget:(id)aTarget {
     target = aTarget;
 }
 
--(id)target
-{
+-(id) target {
     return target;
 }
 
--(void)setAction:(SEL)anAction
-{
+-(void) setAction:(SEL)anAction {
     action = anAction;
 }
 
--(SEL)action
-{
+-(SEL) action {
     return action;
 }
 
-- (void)mouseDragged:(NSEvent *)anEvent
-{
+-(void) mouseDragged:(NSEvent *)anEvent {
     [self _doUpdate:anEvent];
     [self.target performSelector:self.action withObject:self];
 }
 
--(void)mouseUp:(NSEvent *)anEvent
-{
+-(void) mouseUp:(NSEvent *)anEvent {
     [self setNeedsDisplay:YES];
 }
 
--(void)mouseDown:(NSEvent *)anEvent
-{
+-(void) mouseDown:(NSEvent *)anEvent {
     [self _doUpdate:anEvent];
     [self.target performSelector:self.action withObject:self];
 }
 
--(void)_doUpdate:(NSEvent*)ev
-{
+-(void) _doUpdate:(NSEvent*)ev {
     float loc = [self convertPoint:ev.locationInWindow fromView:nil].x;
     if(loc <= OFFSET) {
         [self setDoubleValue:0.0];
