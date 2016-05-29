@@ -87,6 +87,21 @@
     [theWindow updatePlayButton:!_movie.paused];
 }
 
+#pragma mark Play Speed
+
+-(IBAction) playFaster:(id)sender {
+    [self _adjustSpeed:+5];
+}
+
+-(IBAction) playSlower:(id)sender {
+    [self _adjustSpeed:-5];
+}
+
+-(void) _adjustSpeed:(int)change {
+    int percent = _movie.playbackSpeedPercent = MAX(10, MIN(200, _movie.playbackSpeedPercent + change));
+    [theWindow showStatusMessage:[NSString stringWithFormat:@"Speed: %d%%", percent]];
+}
+
 #pragma mark Stepping
 
 -(void) stepBy:(int)seconds {

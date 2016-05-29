@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner">
@@ -174,6 +174,17 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="decrementVolume:" target="-1" id="cgR-94-ucA"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="Q7G-NM-MGy"/>
+                            <menuItem title="Play Faster" keyEquivalent="=" id="th4-nn-TLF">
+                                <connections>
+                                    <action selector="playFaster:" target="-1" id="j7n-Ev-0P5"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Play Slower" keyEquivalent="-" id="AXW-yZ-LEK">
+                                <connections>
+                                    <action selector="playSlower:" target="-1" id="8Cz-1m-Fgb"/>
                                 </connections>
                             </menuItem>
                         </items>

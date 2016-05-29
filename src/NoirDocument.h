@@ -33,6 +33,11 @@
 @property bool paused;
 -(IBAction) togglePlayingMovie:(id)sender;
 
+#pragma mark Play Speed
+
+-(IBAction) playFaster:(id)sender;
+-(IBAction) playSlower:(id)sender;
+
 #pragma mark Stepping
 
 -(void) stepBy:(int)aSeconds;
