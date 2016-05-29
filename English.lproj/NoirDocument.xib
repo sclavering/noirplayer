@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NoirDocument">
@@ -27,12 +27,12 @@
                 <outlet property="controlsOverlay" destination="PCO-IA-gl2" id="8wn-Qb-cmL"/>
                 <outlet property="delegate" destination="-2" id="28"/>
                 <outlet property="overlayWindow" destination="33" id="Qzm-cz-NCX"/>
+                <outlet property="statusMessage" destination="lpw-to-Z79" id="YdP-q3-xHI"/>
                 <outlet property="thePlayButton" destination="34" id="83"/>
                 <outlet property="theScrubBar" destination="79" id="80"/>
                 <outlet property="theTimeField" destination="71" id="75"/>
-                <outlet property="titleOverlay" destination="L4y-kC-DUS" id="0Uc-WU-bsx"/>
                 <outlet property="titleField" destination="QtN-7j-3cN" id="oet-dr-T23"/>
-                <outlet property="volumeIndicator" destination="lpw-to-Z79" id="t73-6c-kSb"/>
+                <outlet property="titleOverlay" destination="L4y-kC-DUS" id="0Uc-WU-bsx"/>
             </connections>
         </window>
         <window title="Scrubber" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" deferred="NO" hasShadow="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="33" userLabel="Overlay Window" customClass="OverlayWindow">
@@ -109,10 +109,10 @@
                             </textField>
                         </subviews>
                     </view>
-                    <textField hidden="YES" wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lpw-to-Z79">
+                    <textField hidden="YES" wantsLayer="YES" horizontalHuggingPriority="251" verticalHuggingPriority="750" id="lpw-to-Z79" userLabel="Status Message">
                         <rect key="frame" x="154" y="186" width="136" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Volume: 100%" drawsBackground="YES" usesSingleLineMode="YES" id="2BN-cX-GDh">
+                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Status Msg" drawsBackground="YES" usesSingleLineMode="YES" id="2BN-cX-GDh">
                             <font key="font" metaFont="system" size="20"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.55000000000000004" colorSpace="calibratedRGB"/>

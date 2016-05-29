@@ -96,22 +96,21 @@
 
 #pragma mark Volume
 
--(int)volumePercent {
+-(int) volumePercent {
     return _movie.volumePercent;
 }
 
--(void)setVolumePercent:(int)percent {
-    _movie.volumePercent = MAX(MIN(percent, 200), 0);
+-(IBAction) incrementVolume:(id)sender {
+    [self _adjustVolume:+10];
 }
 
--(IBAction)incrementVolume:(id)sender {
-    [self setVolumePercent:[self volumePercent] + 10];
-    [theWindow updateVolumeIndicator];
+-(IBAction) decrementVolume:(id)sender {
+    [self _adjustVolume:-10];
 }
 
--(IBAction)decrementVolume:(id)sender {
-    [self setVolumePercent:[self volumePercent] - 10];
-    [theWindow updateVolumeIndicator];
+-(void) _adjustVolume:(int)change {
+    int percent = _movie.volumePercent = MAX(0, MIN(200, _movie.volumePercent + change));
+    [theWindow showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
 }
 
 @end

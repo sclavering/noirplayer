@@ -13,7 +13,7 @@
 
 @interface NoirWindow : NSWindow
 {
-    IBOutlet NSTextField* volumeIndicator;
+    IBOutlet NSTextField* statusMessage;
 
     IBOutlet OverlayWindow* overlayWindow;
     IBOutlet NoirOverlayView* controlsOverlay;
@@ -39,11 +39,12 @@
 
 -(BOOL) validateMenuItem:(NSMenuItem*)anItem;
 -(IBAction) performClose:(id)sender;
--(void) updateVolumeIndicator;
--(void) hideVolumeIndicator:(id)dummy;
 -(void) performMiniaturize:(id)sender;
 
 -(void) showMovie:(LAVPMovie*)movie;
+
+-(void) showStatusMessage:(NSString*)str;
+-(void) hideStatusMessage:(id)dummy;
 
 #pragma mark Time Interface
 

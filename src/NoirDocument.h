@@ -40,7 +40,6 @@
 #pragma mark Volume
 
 -(int) volumePercent;
--(void) setVolumePercent:(int)percent;
 -(IBAction) incrementVolume:(id)sender;
 -(IBAction) decrementVolume:(id)sender;
 

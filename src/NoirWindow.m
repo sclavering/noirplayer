@@ -121,16 +121,18 @@
     [self close];
 }
 
--(void) updateVolumeIndicator {
-    int percent = [[self noirDoc] volumePercent];
-    volumeIndicator.stringValue = [NSString stringWithFormat:@"Volume: %d%%", percent];
-    volumeIndicator.hidden = false;
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideVolumeIndicator:) object:nil];
-    [self performSelector:@selector(hideVolumeIndicator:) withObject:nil afterDelay:1.0];
+-(void) showStatusMessage:(NSString*)str {
+    statusMessage.stringValue = str;
+    statusMessage.hidden = false;
+    CGFloat right = statusMessage.frame.origin.x + statusMessage.frame.size.width;
+    [statusMessage sizeToFit];
+    [statusMessage setFrameOrigin:CGPointMake(right - statusMessage.frame.size.width, statusMessage.frame.origin.y)];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideStatusMessage:) object:nil];
+    [self performSelector:@selector(hideStatusMessage:) withObject:nil afterDelay:1.0];
 }
 
--(void) hideVolumeIndicator:(id)dummy {
-    volumeIndicator.hidden = true;
+-(void) hideStatusMessage:(id)dummy {
+    statusMessage.hidden = true;
 }
 
 -(void) performMiniaturize:(id)sender {
