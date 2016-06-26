@@ -76,8 +76,6 @@ id controller;
         [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         if(tError) [NSApp presentError:tError];
     }
-    if(!NSApp.mainWindow) NSLog(@"no main window");
-    if(files.count) ((NoirDocument*)self.mainDocument).paused = false;
 }
 
 -(IBAction) toggleFullScreen:(id)sender {
