@@ -113,10 +113,6 @@
 			</array>
 			<key>CFBundleTypeName</key>
 			<string>Windows Media Video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>ASF_</string>
-			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
@@ -135,10 +131,6 @@
 			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Windows video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>VfW</string>
-			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
@@ -156,10 +148,6 @@
 			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>Quicktime video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>MooV</string>
-			</array>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
