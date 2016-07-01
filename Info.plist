@@ -15,14 +15,10 @@
 			</array>
 		</dict>
 		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>ogm</string>
-			</array>
+			<key>CFBundleTypeName</key>
+			<string>Movie</string>
 			<key>CFBundleTypeIconFile</key>
 			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>OGM Video</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
@@ -31,192 +27,34 @@
 			<string>NoirDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>Binary</string>
-		</dict>
-		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>asf</string>
+				<string>avi</string>
+				<string>divx</string>
+				<string>flv</string>
+				<string>m4v</string>
+				<string>mkv</string>
+				<string>mov</string>
+				<string>mp4</string>
+				<string>mpeg</string>
+				<string>mpg4</string>
+				<string>mpg</string>
 				<string>ogg</string>
+				<string>ogm</string>
+				<string>qt</string>
+				<string>wmv</string>
 			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
 			<key>CFBundleTypeMIMETypes</key>
 			<array>
 				<string>application/ogg</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>OGG Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>divx</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/x-divx</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>DivX Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>flv</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/x-flv</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Flash Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>wmv</string>
-				<string>asf</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/x-ms-wmv</string>
-				<string>video/x-ms-asf</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>Windows Media Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>avi</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>Windows video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>mov</string>
-				<string>qt</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>Quicktime video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>mpg</string>
-				<string>mpeg</string>
-				<string>m15</string>
-				<string>m75</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>MPEG video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>mpg4</string>
-				<string>mp4</string>
-				<string>m4v</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
 				<string>video/mp4</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>MPEG4 video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>mkv</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
+				<string>video/x-divx</string>
+				<string>video/x-flv</string>
 				<string>video/x-matroska</string>
+				<string>video/x-ms-asf</string>
+				<string>video/x-ms-wmv</string>
 			</array>
-			<key>CFBundleTypeName</key>
-			<string>Matroska video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
 		</dict>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
