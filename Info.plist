@@ -17,42 +17,6 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>nsv</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>Nullsoft Streaming Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>nuv</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>MythTV Nuppel Video</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
 				<string>ogm</string>
 			</array>
 			<key>CFBundleTypeIconFile</key>
@@ -85,24 +49,6 @@
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>vdvd</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>Virtual DVD</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<true/>
 			<key>NSDocumentClass</key>
 			<string>NoirDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
@@ -233,54 +179,6 @@
 			<string>document.icns</string>
 			<key>CFBundleTypeName</key>
 			<string>MPEG video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>MPEG</string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>m2v</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/mpeg2</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>MPEG2 video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>m2v </string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>3gpp</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/3gpp</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>3GPP</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
@@ -335,51 +233,6 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>fli</string>
-				<string>flc</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeMIMETypes</key>
-			<array>
-				<string>video/flc</string>
-			</array>
-			<key>CFBundleTypeName</key>
-			<string>FLI </string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>FLI </string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>dv</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>DV video</string>
-			<key>CFBundleTypeOSTypes</key>
-			<array>
-				<string>dvc!</string>
-			</array>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
 				<string>*</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -394,24 +247,6 @@
 			<false/>
 			<key>NSDocumentClass</key>
 			<string>NoirDocument</string>
-		</dict>
-		<dict>
-			<key>CFBundleTypeExtensions</key>
-			<array>
-				<string>gvi</string>
-			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string>document.icns</string>
-			<key>CFBundleTypeName</key>
-			<string>GVI</string>
-			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
-			<key>LSTypeIsPackage</key>
-			<false/>
-			<key>NSDocumentClass</key>
-			<string>NoirDocument</string>
-			<key>NSPersistentStoreTypeKey</key>
-			<string>Binary</string>
 		</dict>
 	</array>
 	<key>CFBundleExecutable</key>
