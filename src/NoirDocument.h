@@ -37,10 +37,4 @@
 
 -(void) stepBy:(int)aSeconds;
 
-#pragma mark Volume
-
--(int) volumePercent;
--(IBAction) incrementVolume:(id)sender;
--(IBAction) decrementVolume:(id)sender;
-
 @end

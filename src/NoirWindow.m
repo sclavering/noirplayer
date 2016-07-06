@@ -457,4 +457,21 @@
     [self showStatusMessage:[NSString stringWithFormat:@"Speed: %d%%", percent]];
 }
 
+#pragma mark -
+#pragma mark Volume
+
+-(IBAction) incrementVolume:(id)sender {
+    [self _adjustVolume:+10];
+}
+
+-(IBAction) decrementVolume:(id)sender {
+    [self _adjustVolume:-10];
+}
+
+-(void) _adjustVolume:(int)change {
+    LAVPMovie* mov = self.noirDoc.movie;
+    int percent = mov.volumePercent = MAX(0, MIN(200, mov.volumePercent + change));
+    [self showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
+}
+
 @end

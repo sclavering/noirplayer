@@ -109,4 +109,10 @@
 -(IBAction) playFaster:(id)sender;
 -(IBAction) playSlower:(id)sender;
 
+#pragma mark -
+#pragma mark Volume
+
+-(IBAction) incrementVolume:(id)sender;
+-(IBAction) decrementVolume:(id)sender;
+
 @end

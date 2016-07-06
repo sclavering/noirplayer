@@ -17,7 +17,7 @@
         @"MajorVersion": @0,
         @"MinorVersion": @1,
         @"Contents": @{
-            @"VolumePercent": @([self volumePercent])
+            @"VolumePercent": @(self.movie.volumePercent),
         },
     };
     NSString* tErrror = nil;
@@ -92,25 +92,6 @@
 -(void) stepBy:(int)seconds {
     _movie.currentTimeInMicroseconds += seconds * 1000000;
     [theWindow updateTimeInterface];
-}
-
-#pragma mark Volume
-
--(int) volumePercent {
-    return _movie.volumePercent;
-}
-
--(IBAction) incrementVolume:(id)sender {
-    [self _adjustVolume:+10];
-}
-
--(IBAction) decrementVolume:(id)sender {
-    [self _adjustVolume:-10];
-}
-
--(void) _adjustVolume:(int)change {
-    int percent = _movie.volumePercent = MAX(0, MIN(200, _movie.volumePercent + change));
-    [theWindow showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
 }
 
 @end
