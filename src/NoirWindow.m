@@ -440,4 +440,21 @@
     }
 }
 
+#pragma mark -
+#pragma mark Playback Speed
+
+-(IBAction) playFaster:(id)sender {
+    [self _adjustSpeed:+5];
+}
+
+-(IBAction) playSlower:(id)sender {
+    [self _adjustSpeed:-5];
+}
+
+-(void) _adjustSpeed:(int)change {
+    LAVPMovie* mov = self.noirDoc.movie;
+    int percent = mov.playbackSpeedPercent = MAX(10, MIN(200, mov.playbackSpeedPercent + change));
+    [self showStatusMessage:[NSString stringWithFormat:@"Speed: %d%%", percent]];
+}
+
 @end

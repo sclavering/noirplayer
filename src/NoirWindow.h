@@ -103,4 +103,10 @@
 
 -(void) updatePlayButton:(BOOL)isPlaying;
 
+#pragma mark -
+#pragma mark Playback Speed
+
+-(IBAction) playFaster:(id)sender;
+-(IBAction) playSlower:(id)sender;
+
 @end
