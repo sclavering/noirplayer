@@ -36,9 +36,19 @@ id controller;
     [openPanel setAllowsMultipleSelection:YES];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:YES];
-    return [super runModalOpenPanel:openPanel forTypes:@[@"avi", @"mov", @"qt", @"mpg", @"mpeg", @"m15", @"m75", @"m2v", @"3gpp", @"mpg4", @"mp4", @"mkv", @"flv", @"divx", @"m4v", @"swf", @"fli", @"flc", @"dv", @"wmv", @"asf", @"ogg",
-        // Finder types
-        @"VfW", @"MooV", @"MPEG", @"m2v ", @"mpg4", @"SWFL", @"FLI ", @"dvc!", @"ASF_"]];
+    return [super runModalOpenPanel:openPanel forTypes:@[
+        @"public.movie",
+        // This should match the filename extensions declared in Info.plist
+        // We should only need to list those that aren't already covered by the public.movie UTI per https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+        @"asf",
+        @"divx",
+        @"flv",
+        @"m4v",
+        @"mkv",
+        @"ogg",
+        @"ogm",
+        @"webm",
+    ]];
 }
 
 -(void) checkMouseLocation:(id)sender {
