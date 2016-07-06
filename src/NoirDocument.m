@@ -87,11 +87,4 @@
     [theWindow updatePlayButton:!_movie.paused];
 }
 
-#pragma mark Stepping
-
--(void) stepBy:(int)seconds {
-    _movie.currentTimeInMicroseconds += seconds * 1000000;
-    [theWindow updateTimeInterface];
-}
-
 @end

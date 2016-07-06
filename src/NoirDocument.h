@@ -33,8 +33,4 @@
 @property bool paused;
 -(IBAction) togglePlayingMovie:(id)sender;
 
-#pragma mark Stepping
-
--(void) stepBy:(int)aSeconds;
-
 @end

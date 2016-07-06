@@ -60,8 +60,7 @@
 }
 
 -(IBAction) doSetPosition:(id)sender {
-    self.noirDoc.movie.currentTimeAsFraction = [sender doubleValue];
-    [self updateTimeInterface];
+    [self _seekToFraction:[sender doubleValue]];
 }
 
 -(void) updatePlayButton:(BOOL)isPlaying {
@@ -158,8 +157,7 @@
 }
 
 -(void) updateTimeInterface {
-    NoirDocument* doc = self.windowController.document;
-    LAVPMovie* mov = doc.movie;
+    LAVPMovie* mov = self.noirDoc.movie;
     int t = mov.durationInMicroseconds / 1000000;
     int c = mov.currentTimeInMicroseconds / 1000000;
     int mc = c / 60, sc = c % 60;
@@ -409,8 +407,7 @@
     if(ev.deltaY) {
         [self adjustHeightRetainingAspectRatio:ev.deltaY * 5];
     } else if(ev.deltaX) {
-        id doc = self.windowController.document;
-        [doc stepBy:SCRUB_STEP_DURATION * ev.deltaX];
+        [self _stepBy:SCRUB_STEP_DURATION * ev.deltaX];
     }
 }
 
@@ -422,15 +419,14 @@
     
     switch([anEvent.characters characterAtIndex:0]){
         case NSRightArrowFunctionKey:
-            [[self noirDoc] stepBy:SCRUB_STEP_DURATION];
+            [self _stepBy:SCRUB_STEP_DURATION];
             break;
         case NSLeftArrowFunctionKey:
             if(anEvent.modifierFlags & NSCommandKeyMask) {
-                self.noirDoc.movie.currentTimeAsFraction = 0;
-                [self updateTimeInterface];
+                [self _seekToFraction:0];
                 break;
             }
-            [[self noirDoc] stepBy:-SCRUB_STEP_DURATION];
+            [self _stepBy:-SCRUB_STEP_DURATION];
             break;
         case 0x1B:
             [self unFullScreen];
@@ -438,6 +434,17 @@
         default:
             [super keyDown:anEvent];
     }
+}
+
+-(void) _seekToFraction:(double)pos {
+    self.noirDoc.movie.currentTimeAsFraction = pos;
+    [self updateTimeInterface];
+}
+
+-(void) _stepBy:(int)seconds {
+    LAVPMovie* mov = self.noirDoc.movie;
+    mov.currentTimeInMicroseconds += seconds * 1000000;
+    [self updateTimeInterface];
 }
 
 #pragma mark -
