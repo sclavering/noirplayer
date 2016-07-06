@@ -35,6 +35,8 @@
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidResizeNotification object:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidMoveNotification object:self];
+
+        self.movableByWindowBackground = true;
     }
     return self;
 }
@@ -240,7 +242,6 @@
         [self resizeToAspectRatio];
     }
     [overlayWindow orderFront:self];
-    [self setInitialDrag:nil];
 }
 
 -(BOOL) isFullScreen {
@@ -321,7 +322,6 @@
     if(fullScreen) return;
     isFilling = NO;
     [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
-    [self setInitialDrag:nil];
 }
 
 -(void) fillScreenSize {
@@ -331,7 +331,6 @@
     newRect.origin.x = 0;
     newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
-    [self setInitialDrag:nil];
     [self setFrame:[self centerRect:self.frame] display:YES];
 }
 
@@ -385,22 +384,8 @@
 
 -(void) mouseDown:(NSEvent *)anEvent {
     if(anEvent.clickCount > 0 && anEvent.clickCount % 2 == 0) {
-        [self setInitialDrag:anEvent];
         [self toggleWindowFullScreen];
-    } else {
-        [self setInitialDrag:anEvent];
     }
-}
-
--(void) mouseDragged:(NSEvent *)anEvent {
-    if(fullScreen) return;
-    [self setFrameOrigin:NSMakePoint([NSEvent mouseLocation].x-initialDrag.x,[NSEvent mouseLocation].y-initialDrag.y)];
-}
-
-/* These two events always get passed down to the view. */
-
--(void) setInitialDrag:(NSEvent *)anEvent {
-    initialDrag = [self convertScreenToBase:[NSEvent mouseLocation]];
 }
 
 -(void) scrollWheel:(NSEvent *)ev {

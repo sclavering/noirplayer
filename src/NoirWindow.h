@@ -32,7 +32,6 @@
     NSRect beforeFullScreen;
 
     NSSize aspectRatio;
-    NSPoint initialDrag;
 }
 
 -(NoirDocument*) noirDoc;
@@ -94,8 +93,6 @@
 #pragma mark Mouse Events
 
 -(void) mouseDown:(NSEvent *)anEvent;
--(void) mouseDragged:(NSEvent *)anEvent;
--(void) setInitialDrag:(NSEvent *)anEvent;
 -(void) scrollWheel:(NSEvent *)ev;
 
 #pragma mark -
