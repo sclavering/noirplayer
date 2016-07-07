@@ -91,7 +91,6 @@
     rootLayer.needsDisplayOnBoundsChange = YES;
     LAVPLayer* _layer = [LAVPLayer layer];
     [_layer setMovie:movie];
-    _layer.stretchVideoToFitLayer = true;
     _layer.frame = rootLayer.frame;
     _layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     _layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
