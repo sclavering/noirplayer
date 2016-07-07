@@ -215,7 +215,6 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="Help" id="103"/>
             </items>
         </menu>
         <customObject id="210" userLabel="NoirController" customClass="NoirController"/>
