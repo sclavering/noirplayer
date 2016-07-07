@@ -75,10 +75,6 @@ id controller;
     }
 }
 
--(id) mainDocument {
-    return [self documentForWindow:NSApp.mainWindow];
-}
-
 -(IBAction) openDocument:(id)sender {
     NSArray* files = [self URLsFromRunningOpenPanel];
     for(id url in files) {

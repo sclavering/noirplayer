@@ -20,7 +20,6 @@
 +(void) setController:(id)aNoirController;
 
 -(void) checkMouseLocation:(id)sender;
--(id) mainDocument;
 
 -(IBAction) openDocument:(id)sender;
 
