@@ -92,10 +92,6 @@ id controller;
     }
 }
 
--(BOOL) isFullScreen {
-    return fullScreenMode;
-}
-
 -(void) enterFullScreen {
     id tempWindow = NSApp.mainWindow;
     [tempWindow makeFullScreen];
