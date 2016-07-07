@@ -73,7 +73,6 @@
 
 -(void) makeFullScreen;
 -(void) makeNormalScreen;
--(BOOL) isFullScreen;
 -(void) setLevel:(NSInteger)windowLevel;
 -(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
 -(NSRect) calcResizeSize:(NSSize)aSize;

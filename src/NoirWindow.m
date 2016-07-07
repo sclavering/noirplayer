@@ -46,7 +46,7 @@
 
     [self setReleasedWhenClosed:YES];
 
-    if(![self isFullScreen]) [self setLevel:NSFloatingWindowLevel];
+    if(!fullScreen) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
 
     thePlayButton.target = self.windowController.document;
@@ -242,10 +242,6 @@
         [self resizeToAspectRatio];
     }
     [overlayWindow orderFront:self];
-}
-
--(BOOL) isFullScreen {
-    return fullScreen;
 }
 
 -(void) setLevel:(NSInteger)windowLevel {
