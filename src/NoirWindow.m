@@ -95,6 +95,19 @@
     _layer.autoresizingMask = kCALayerWidthSizable | kCALayerHeightSizable;
     _layer.backgroundColor = CGColorGetConstantColor(kCGColorBlack);
     [rootLayer addSublayer:_layer];
+
+    // Resize the time-indicator to suit the length of the text we'll be showing in it.
+    // For the text before the "/", we round up to the next power of 10, as that ought to be just a smidgen wider than any other string that'll later be shown there.
+    double oldWidth = theTimeField.frame.size.width;
+    int t = movie.durationInMicroseconds / 1000000;
+    int mt = t / 60, st = t % 60;
+    int placeholder = pow(10, ceil(log10(mt)));
+    NSString* longestString = [NSString stringWithFormat:@"%d:00 / %d:%02d", placeholder, mt, st];
+    theTimeField.stringValue = longestString;
+    [theTimeField sizeToFit];
+    double widthChange = theTimeField.frame.size.width - oldWidth;
+    [theTimeField setFrameOrigin:NSMakePoint(theTimeField.frame.origin.x - widthChange, theTimeField.frame.origin.y)];
+    [theScrubBar setFrameSize:NSMakeSize(theScrubBar.frame.size.width - widthChange, theScrubBar.frame.size.height)];
 }
 
 #pragma mark Overriden Methods
