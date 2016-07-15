@@ -4,12 +4,15 @@
 
 @import Cocoa;
 
+#import "BlackWindow.h"
+
 @class NoirRootView;
 @class NoirScrubber;
 @class NoirDocument;
 @class NoirOverlayView;
 @class OverlayWindow;
 @class LAVPMovie;
+@class BlackWindow;
 
 @interface NoirWindow : NSWindow
 {
@@ -29,6 +32,7 @@
     NSTimer* timeInterfaceUpdateTimer;
 
     NSRect beforeFullScreen;
+    BlackWindow* _fullScreenBackground;
 
     NSSize aspectRatio;
 }
@@ -83,5 +87,10 @@
 
 -(IBAction) incrementVolume:(id)sender;
 -(IBAction) decrementVolume:(id)sender;
+
+#pragma mark -
+#pragma mark Full Screen
+
+-(IBAction) toggleNoirFullScreen:(id)sender;
 
 @end

@@ -113,7 +113,7 @@
                             </menuItem>
                             <menuItem title="Full Screen" keyEquivalent="f" id="281">
                                 <connections>
-                                    <action selector="toggleFullScreen:" target="210" id="287"/>
+                                    <action selector="toggleNoirFullScreen:" target="-1" id="j9b-4X-Ab8"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="OFb-Xj-Oy0"/>

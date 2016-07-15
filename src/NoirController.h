@@ -3,16 +3,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #import <AppKit/AppKit.h>
-#import "BlackWindow.h"
-#import "NoirWindow.h"
 
 @interface NoirController : NSDocumentController
 {
-    bool fullScreenMode;
     NSDate* lastCursorMoveDate;
     NSPoint lastMouseLocation;
     NSTimer* mouseMoveTimer;
-    id backgroundWindow;
     id antiSleepTimer;
 }
 
@@ -22,11 +18,5 @@
 -(void) checkMouseLocation:(id)sender;
 
 -(IBAction) openDocument:(id)sender;
-
--(IBAction) toggleFullScreen:(id)sender;
--(void) enterFullScreen;
--(void) exitFullScreen;
-
--(id) backgroundWindow;
 
 @end

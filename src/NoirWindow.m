@@ -6,7 +6,6 @@
 
 #import "NoirRootView.h"
 #import "NoirDocument.h"
-#import "NoirController.h"
 #import "NoirScrubber.h"
 #import "NoirOverlayView.h"
 #import "OverlayWindow.h"
@@ -119,7 +118,7 @@
 
 -(IBAction) performClose:(id)sender {
     [self orderOut:sender]; //order out before stops double button click from causing crash
-    if(fullScreen) [[NSDocumentController sharedDocumentController] toggleFullScreen:sender];
+    if(fullScreen) [self exitFullScreen];
     [self close];
 }
 
@@ -210,17 +209,6 @@
 }
 
 #pragma mark -
-#pragma mark Window Toggles
-
--(BOOL) toggleWindowFullScreen {
-    [[NoirController controller] toggleFullScreen:self];
-    return fullScreen;
-}
-
--(void) unFullScreen {
-    [[NoirController controller] exitFullScreen];
-}
-
 #pragma mark Window Attributes
 
 -(void) makeFullScreen {
@@ -362,7 +350,7 @@
 
 -(void) mouseDown:(NSEvent *)anEvent {
     if(anEvent.clickCount > 0 && anEvent.clickCount % 2 == 0) {
-        [self toggleWindowFullScreen];
+        [self toggleNoirFullScreen:nil];
     }
 }
 
@@ -392,7 +380,7 @@
             [self _stepBy:-SCRUB_STEP_DURATION];
             break;
         case 0x1B:
-            [self unFullScreen];
+            [self exitFullScreen];
             break;
         default:
             [super keyDown:anEvent];
@@ -452,6 +440,34 @@
     LAVPMovie* mov = self.noirDoc.movie;
     int percent = mov.volumePercent = MAX(0, MIN(200, mov.volumePercent + change));
     [self showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
+}
+
+#pragma mark -
+#pragma mark Full Screen
+
+// Note: we currently use our own full-screen mechanism, not the standard macOS one.  This is partly historical, and partly that my attempts to get the built-in one to work on our floating windows were unsuccessful.
+
+-(IBAction) toggleNoirFullScreen:(id)sender {
+    if(fullScreen) [self exitFullScreen];
+    else [self enterFullScreen];
+}
+
+-(void) enterFullScreen {
+    if(fullScreen) return;
+    [self makeFullScreen];
+    if([self.screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
+    _fullScreenBackground = [[BlackWindow alloc] init];
+    [_fullScreenBackground setFrame:[self.screen frame] display:YES];
+    [_fullScreenBackground orderBack:nil];
+    [_fullScreenBackground setPresentingWindow:self];
+}
+
+-(void) exitFullScreen {
+    if(!fullScreen) return;
+    [self makeNormalScreen];
+    NSApp.presentationOptions = NSApplicationPresentationDefault;
+    [_fullScreenBackground orderOut:nil];
+    _fullScreenBackground = nil;
 }
 
 @end

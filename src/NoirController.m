@@ -19,10 +19,8 @@ id controller;
 
 -(void) awakeFromNib {
     lastMouseLocation = NSMakePoint(0, 0);
-    fullScreenMode = NO;
     mouseMoveTimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(checkMouseLocation:) userInfo:nil repeats:YES]; // Auto-hides mouse.
     lastCursorMoveDate = [[NSDate alloc] init];
-    backgroundWindow = [[BlackWindow alloc] init];
     [NoirController setController:self];
     antiSleepTimer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(preventSleep:) userInfo:nil repeats:YES];
 }
@@ -57,9 +55,9 @@ id controller;
     if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
         lastCursorMoveDate = [[NSDate alloc] init];
         lastMouseLocation= tempPoint;
-        [NSCursor setHiddenUntilMouseMoves:NO];
+        // [NSCursor setHiddenUntilMouseMoves:NO];
     } else {
-        if(fullScreenMode && lastCursorMoveDate.timeIntervalSinceNow < -3) [NSCursor setHiddenUntilMouseMoves:YES];
+        if(lastCursorMoveDate.timeIntervalSinceNow < -3) [NSCursor setHiddenUntilMouseMoves:YES];
     }
     
     tempRect.origin.y=tempRect.size.height -24;
@@ -82,37 +80,6 @@ id controller;
         [self openDocumentWithContentsOfURL:url display:YES error:&tError];
         if(tError) [NSApp presentError:tError];
     }
-}
-
--(IBAction) toggleFullScreen:(id)sender {
-    if(fullScreenMode) {
-        [self exitFullScreen];
-    } else if([NSApp.mainWindow isKindOfClass:[NoirWindow self]]) {
-        [self enterFullScreen];
-    }
-}
-
--(void) enterFullScreen {
-    id tempWindow = NSApp.mainWindow;
-    [tempWindow makeFullScreen];
-    id screen = [NSScreen mainScreen];
-    fullScreenMode = YES;
-    if([screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
-    [backgroundWindow setFrame:[screen frame] display:YES];
-    [backgroundWindow orderBack:nil];
-    [backgroundWindow setPresentingWindow:tempWindow];
-}
-
--(void) exitFullScreen {
-    id tempWindow = NSApp.mainWindow;
-    if(tempWindow) [tempWindow makeNormalScreen];
-    fullScreenMode = NO;
-    NSApp.presentationOptions = NSApplicationPresentationDefault;
-    [backgroundWindow orderOut:nil];
-}
-
--(id) backgroundWindow {
-    return backgroundWindow;
 }
 
 @end
