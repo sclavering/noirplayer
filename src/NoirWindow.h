@@ -41,49 +41,25 @@
 
 -(void) showMovie:(LAVPMovie*)movie;
 
--(void) showStatusMessage:(NSString*)str;
--(void) hideStatusMessage:(id)dummy;
-
-#pragma mark Time Interface
-
--(void) startPeriodicTimeInterfaceUpdates;
--(void) scheduledUpdateTimeInterface:(id)sender;
--(void) updateTimeInterface;
-
 #pragma mark -
 #pragma mark Overlays
-
--(void) initOverlayWindow;
--(void) hideControlsOverlay;
--(void) hideTitleOverlay;
 
 -(void) mouseEnteredOverlayView:(NSView*)overlay;
 -(void) mouseExitedOverlayView:(NSView*)overlay;
 
--(void) onSelfMovedOrResized:(NSNotification*)notification;
-
 #pragma mark -
-#pragma mark Window Toggles
-
--(BOOL) toggleWindowFullScreen;
--(void) unFullScreen;
-
 #pragma mark Window Attributes
 
 -(void) makeFullScreen;
 -(void) makeNormalScreen;
 -(void) setLevel:(NSInteger)windowLevel;
 -(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
--(NSRect) calcResizeSize:(NSSize)aSize;
--(void) adjustHeightRetainingAspectRatio:(float)amount;
 -(void) setTitle:(NSString *)aString;
 -(IBAction) halfSize:(id)sender;
 -(IBAction) normalSize:(id)sender;
 -(IBAction) doubleSize:(id)sender;
 -(void) setAspectRatio:(NSSize)ratio;
 -(void) resizeToAspectRatio;
--(void) resizeNormalByScaler:(float)aScaler;
--(NSRect) centerRect:(NSRect)aRect;
 
 #pragma mark -
 #pragma mark Mouse Events
