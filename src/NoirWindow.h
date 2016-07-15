@@ -68,9 +68,9 @@
 -(void) scrollWheel:(NSEvent *)ev;
 
 #pragma mark -
-#pragma mark Misc
+#pragma mark Play/Pause
 
--(void) updatePlayButton:(BOOL)isPlaying;
+@property bool paused;
 
 #pragma mark -
 #pragma mark Playback Speed

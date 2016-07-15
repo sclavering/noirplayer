@@ -48,7 +48,7 @@
     if(!fullScreen) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
 
-    thePlayButton.target = self.windowController.document;
+    thePlayButton.target = self;
     thePlayButton.action = @selector(togglePlayingMovie:);
 
     theScrubBar.target = self;
@@ -62,16 +62,6 @@
 
 -(IBAction) doSetPosition:(id)sender {
     [self _seekToFraction:[sender doubleValue]];
-}
-
--(void) updatePlayButton:(BOOL)isPlaying {
-    if(isPlaying) {
-        thePlayButton.image = [NSImage imageNamed:@"pause"];
-        thePlayButton.alternateImage = [NSImage imageNamed:@"pauseClick"];
-    } else {
-        thePlayButton.image = [NSImage imageNamed:@"play"];
-        thePlayButton.alternateImage = [NSImage imageNamed:@"playClick"];
-    }
 }
 
 -(void) close {
@@ -418,6 +408,16 @@
     LAVPMovie* mov = self.noirDoc.movie;
     mov.currentTimeInMicroseconds += seconds * 1000000;
     [self updateTimeInterface];
+}
+
+#pragma mark -
+#pragma mark Play/Pause
+
+-(IBAction) togglePlayingMovie:(id)sender {
+    LAVPMovie* mov = self.noirDoc.movie;
+    bool paused = mov.paused = !mov.paused;
+    thePlayButton.image = [NSImage imageNamed:(paused ? @"play" : @"pause")];
+    thePlayButton.alternateImage = [NSImage imageNamed:(paused ? @"playClick" : @"pauseClick")];
 }
 
 #pragma mark -

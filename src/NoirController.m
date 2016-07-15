@@ -69,7 +69,7 @@ id controller;
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
 -(void) preventSleep:(id)sender {
     for(id doc in NSApp.orderedDocuments) {
-        if(((NoirDocument*)doc).paused) continue;
+        if(((NoirDocument*)doc).movie.paused) continue;
         UpdateSystemActivity(OverallAct);
         return;
     }

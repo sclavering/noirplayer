@@ -28,9 +28,4 @@
 -(void) windowControllerDidLoadNib:(NSWindowController *) aController;
 -(IBAction) selectAspectRatio:(id)sender;
 
-#pragma mark Play/Pause
-
-@property bool paused;
--(IBAction) togglePlayingMovie:(id)sender;
-
 @end

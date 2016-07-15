@@ -39,12 +39,12 @@
 #pragma mark Window Information
 
 -(void) windowDidMiniaturize:(NSNotification *)aNotification {
-    wasPlayingBeforeMini = !self.paused;
-    self.paused = true;
+    wasPlayingBeforeMini = !self.movie.paused;
+    self.movie.paused = true;
 }
 
 -(void) windowDidDeminiaturize:(NSNotification *)aNotification {
-    if(wasPlayingBeforeMini) self.paused = false;
+    if(wasPlayingBeforeMini) self.movie.paused = false;
 }
 
 -(void) windowControllerDidLoadNib:(NSWindowController *)aController {
@@ -70,21 +70,6 @@
     NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : _movie.naturalSize;
     [theWindow setAspectRatio:ratio];
     [theWindow resizeToAspectRatio];
-}
-
-#pragma mark Play/Pause
-
--(IBAction) togglePlayingMovie:(id)sender {
-    self.paused = !self.paused;
-}
-
--(bool) paused {
-    return _movie.paused;
-}
-
--(void) setPaused:(bool)val {
-    _movie.paused = val;
-    [theWindow updatePlayButton:!_movie.paused];
 }
 
 @end
