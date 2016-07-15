@@ -31,7 +31,6 @@
         [self setOpaque:YES];
         [self useOptimizedDrawing:YES];
         [self setHasShadow:YES];
-        isFilling = NO;
 
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidResizeNotification object:self];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidMoveNotification object:self];
@@ -248,7 +247,6 @@
 -(void) makeNormalScreen {
     if(fullScreen) {
         [self setLevel:NSFloatingWindowLevel];
-        isFilling = NO;
         [self setFrame:beforeFullScreen display:NO];
         fullScreen = NO;
         [self resizeToAspectRatio];
@@ -328,23 +326,24 @@
 
 -(void) resizeNormalByScaler:(float)aScaler {
     if(fullScreen) return;
-    isFilling = NO;
     [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
 }
 
 -(void) fillScreenSize {
-    isFilling = YES;
-    NSSize aSize = [self getResizeAspectRatioSize];
+    NSSize ratio = self.aspectRatio;
+    NSRect frame = self.screen.frame;
+    float width = frame.size.width;
+    float height = frame.size.height;
+    float calcHeigth =(width / ratio.width) * ratio.height;
+    NSSize aSize = calcHeigth > height
+        ? NSMakeSize((height / ratio.height) * ratio.width, height)
+        : NSMakeSize(width, (width / ratio.width) * ratio.height);
     NSRect newRect = [self calcResizeSize:aSize];
     newRect.origin.x = 0;
     newRect = [self centerRect:newRect];
     [self setFrame:newRect display:YES];
-    [self setFrame:[self centerRect:self.frame] display:YES];
 }
 
-/**
-* Sets the internally stored aspect ratio size.
- */
 -(void) setAspectRatio:(NSSize)ratio {
     if((ratio.width == 0) || (ratio.height == 0)){
         ratio.width = 1;
@@ -355,31 +354,12 @@
     self.minSize = NSMakeSize((self.aspectRatio.width/self.aspectRatio.height) *self.minSize.height,self.minSize.height);
 }
 
-/**
-* Get the size given the aspect ratio and current size. This returns a size that has the same height
- * as the current window, but with the width adjusted wrt to the aspect ratio. Or if the window is
- * full screen, it returns a size that has the width stretched out to fit the screen,
- * assuming the current video is also screen filling.
- */
-
--(NSSize) getResizeAspectRatioSize {
+-(void) resizeToAspectRatio {
     NSSize ratio = self.aspectRatio;
     float newWidth = ((self.frame.size.height / ratio.height) * ratio.width);
-    if(isFilling) {
-        NSRect frame = self.screen.frame;
-        float width = frame.size.width;
-        float height = frame.size.height;
-        float calcHeigth =(width / ratio.width) * ratio.height;
-        if(calcHeigth > height) return NSMakeSize((height / ratio.height) * ratio.width, height);
-        return NSMakeSize(width, (width / ratio.width) * ratio.height);
-    }
-    return NSMakeSize(newWidth, self.frame.size.height);
-}
-
--(void) resizeToAspectRatio {
-    NSSize aSize = [self getResizeAspectRatioSize];
+    NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
     [self resizeWithSize:aSize animate:YES];
-    if(isFilling) [self fillScreenSize];
+    if(fullScreen) [self fillScreenSize];
 }
 
 -(NSRect) centerRect:(NSRect)aRect {

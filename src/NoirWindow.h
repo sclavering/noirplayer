@@ -25,7 +25,6 @@
     IBOutlet NSButton* thePlayButton;
 
     BOOL fullScreen;
-    BOOL isFilling;
 
     NSTimer* timeInterfaceUpdateTimer;
 
@@ -81,9 +80,7 @@
 -(IBAction) halfSize:(id)sender;
 -(IBAction) normalSize:(id)sender;
 -(IBAction) doubleSize:(id)sender;
--(void) fillScreenSize;
 -(void) setAspectRatio:(NSSize)ratio;
--(NSSize) getResizeAspectRatioSize;
 -(void) resizeToAspectRatio;
 -(void) resizeNormalByScaler:(float)aScaler;
 -(NSRect) centerRect:(NSRect)aRect;
