@@ -27,10 +27,9 @@
     IBOutlet NSTextField* theTimeField;
     IBOutlet NSButton* thePlayButton;
 
-    BOOL fullScreen;
-
     NSTimer* timeInterfaceUpdateTimer;
 
+    bool fullScreen;
     NSRect beforeFullScreen;
     BlackWindow* _fullScreenBackground;
 
@@ -54,8 +53,6 @@
 #pragma mark -
 #pragma mark Window Attributes
 
--(void) makeFullScreen;
--(void) makeNormalScreen;
 -(void) setLevel:(NSInteger)windowLevel;
 -(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
 -(void) setTitle:(NSString *)aString;

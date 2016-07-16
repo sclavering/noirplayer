@@ -211,27 +211,6 @@
 #pragma mark -
 #pragma mark Window Attributes
 
--(void) makeFullScreen {
-    if(!fullScreen) {
-        fullScreen = YES;
-        [self setLevel:NSFloatingWindowLevel + 2];
-        [self makeKeyAndOrderFront:self];
-        beforeFullScreen = self.frame;
-        [self fillScreenSize];
-        [overlayWindow setFrame:[NSScreen mainScreen].frame display:false];
-    }
-}
-
--(void) makeNormalScreen {
-    if(fullScreen) {
-        [self setLevel:NSFloatingWindowLevel];
-        [self setFrame:beforeFullScreen display:NO];
-        fullScreen = NO;
-        [self resizeToAspectRatio];
-    }
-    [overlayWindow orderFront:self];
-}
-
 -(void) setLevel:(NSInteger)windowLevel {
     overlayWindow.level = windowLevel;
     [super setLevel:windowLevel];
@@ -307,21 +286,6 @@
     [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
 }
 
--(void) fillScreenSize {
-    NSSize ratio = self.aspectRatio;
-    NSRect frame = self.screen.frame;
-    float width = frame.size.width;
-    float height = frame.size.height;
-    float calcHeigth =(width / ratio.width) * ratio.height;
-    NSSize aSize = calcHeigth > height
-        ? NSMakeSize((height / ratio.height) * ratio.width, height)
-        : NSMakeSize(width, (width / ratio.width) * ratio.height);
-    NSRect newRect = [self calcResizeSize:aSize];
-    newRect.origin.x = 0;
-    newRect = [self centerRect:newRect];
-    [self setFrame:newRect display:YES];
-}
-
 -(void) setAspectRatio:(NSSize)ratio {
     if((ratio.width == 0) || (ratio.height == 0)){
         ratio.width = 1;
@@ -337,12 +301,7 @@
     float newWidth = ((self.frame.size.height / ratio.height) * ratio.width);
     NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
     [self resizeWithSize:aSize animate:YES];
-    if(fullScreen) [self fillScreenSize];
-}
-
--(NSRect) centerRect:(NSRect)aRect {
-    NSRect screenRect = fullScreen ? self.screen.frame : self.screen.visibleFrame;
-    return NSOffsetRect(aRect, NSMidX(screenRect) - NSMidX(aRect), NSMidY(screenRect) - NSMidY(aRect));
+    if(fullScreen) [self _fillScreen];
 }
 
 #pragma mark -
@@ -454,7 +413,12 @@
 
 -(void) enterFullScreen {
     if(fullScreen) return;
-    [self makeFullScreen];
+    fullScreen = true;
+    [self setLevel:NSFloatingWindowLevel + 2];
+    [self makeKeyAndOrderFront:self];
+    beforeFullScreen = self.frame;
+    [self _fillScreen];
+    [overlayWindow setFrame:[NSScreen mainScreen].frame display:false];
     if([self.screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
     _fullScreenBackground = [[BlackWindow alloc] init];
     [_fullScreenBackground setFrame:[self.screen frame] display:YES];
@@ -462,9 +426,26 @@
     [_fullScreenBackground setPresentingWindow:self];
 }
 
+-(void) _fillScreen {
+    NSSize ratio = self.aspectRatio;
+    NSRect screenFrame = self.screen.frame;
+    NSSize space = screenFrame.size;
+    int h = space.width / ratio.width * ratio.height;
+    int w = space.height / ratio.height * ratio.width;
+    NSRect frame = h > space.height
+        ? NSMakeRect((space.width - w) / 2, 0, w, space.height)
+        : NSMakeRect(0, (space.height - h) / 2, space.width, h);
+    frame.origin.x += screenFrame.origin.x;
+    frame.origin.y += screenFrame.origin.y;
+    [self setFrame:frame display:YES];
+}
+
 -(void) exitFullScreen {
     if(!fullScreen) return;
-    [self makeNormalScreen];
+    fullScreen = false;
+    [self setLevel:NSFloatingWindowLevel];
+    [self setFrame:beforeFullScreen display:false];
+    [self resizeToAspectRatio];
     NSApp.presentationOptions = NSApplicationPresentationDefault;
     [_fullScreenBackground orderOut:nil];
     _fullScreenBackground = nil;
