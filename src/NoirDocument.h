@@ -22,10 +22,7 @@
 
 -(NSData *) dataRepresentationOfType:(NSString *)aType;
 
-#pragma mark Window Information
-
 -(void) windowDidDeminiaturize:(NSNotification *)aNotification;
 -(void) windowControllerDidLoadNib:(NSWindowController *) aController;
--(IBAction) selectAspectRatio:(id)sender;
 
 @end

@@ -96,6 +96,8 @@
     double widthChange = theTimeField.frame.size.width - oldWidth;
     [theTimeField setFrameOrigin:NSMakePoint(theTimeField.frame.origin.x - widthChange, theTimeField.frame.origin.y)];
     [theScrubBar setFrameSize:NSMakeSize(theScrubBar.frame.size.width - widthChange, theScrubBar.frame.size.height)];
+
+    [self _setInitialSize:movie.naturalSize];
 }
 
 #pragma mark Overriden Methods
@@ -216,10 +218,20 @@
     [super setLevel:windowLevel];
 }
 
-/**
-* Resize the window to the given resolution. Resizes the window depending on the window pinning preferences.
- * Setting animate to YES will cause the window to perform an animated resizing effect.
- */
+-(void) setTitle:(NSString*)title {
+    [titleField setStringValue:title];
+    super.title = title;
+}
+
+#pragma mark -
+#pragma mark Window Sizing
+
+-(void) _setInitialSize:(NSSize)naturalSize {
+    [self _setAspectRatio:naturalSize];
+    self.minSize = NSMakeSize(150 * naturalSize.width / naturalSize.height, 150);
+    [self resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:NO];
+}
+
 -(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate {
     [self setFrame:[self calcResizeSize:aSize] display:YES animate:animate];
 }
@@ -264,9 +276,12 @@
     [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:false];
 }
 
--(void) setTitle:(NSString*)title {
-    [titleField setStringValue:title];
-    super.title = title;
+-(IBAction) selectAspectRatio:(id)sender {
+    // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
+    id obj = [sender representedObject];
+    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : self.noirDoc.movie.naturalSize;
+    [self _setAspectRatio:ratio];
+    [self _resizeToAspectRatio];
 }
 
 -(IBAction) halfSize:(id)sender {
@@ -286,19 +301,14 @@
     [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
 }
 
--(void) setAspectRatio:(NSSize)ratio {
-    if((ratio.width == 0) || (ratio.height == 0)){
-        ratio.width = 1;
-        ratio.height = 1;
-    }
-    aspectRatio = ratio;
-    super.aspectRatio = ratio;
-    self.minSize = NSMakeSize((self.aspectRatio.width/self.aspectRatio.height) *self.minSize.height,self.minSize.height);
+-(void) _setAspectRatio:(NSSize)ratio {
+    self.aspectRatio = ratio;
+    self.minSize = NSMakeSize(self.minSize.height / ratio.height * ratio.width, self.minSize.height);
 }
 
--(void) resizeToAspectRatio {
+-(void) _resizeToAspectRatio {
     NSSize ratio = self.aspectRatio;
-    float newWidth = ((self.frame.size.height / ratio.height) * ratio.width);
+    float newWidth = self.frame.size.height / ratio.height * ratio.width;
     NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
     [self resizeWithSize:aSize animate:YES];
     if(fullScreen) [self _fillScreen];
@@ -445,7 +455,7 @@
     fullScreen = false;
     [self setLevel:NSFloatingWindowLevel];
     [self setFrame:beforeFullScreen display:false];
-    [self resizeToAspectRatio];
+    [self _resizeToAspectRatio];
     NSApp.presentationOptions = NSApplicationPresentationDefault;
     [_fullScreenBackground orderOut:nil];
     _fullScreenBackground = nil;

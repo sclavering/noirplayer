@@ -32,8 +32,6 @@
     bool fullScreen;
     NSRect beforeFullScreen;
     BlackWindow* _fullScreenBackground;
-
-    NSSize aspectRatio;
 }
 
 -(NoirDocument*) noirDoc;
@@ -54,13 +52,15 @@
 #pragma mark Window Attributes
 
 -(void) setLevel:(NSInteger)windowLevel;
--(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate;
 -(void) setTitle:(NSString *)aString;
+
+#pragma mark -
+#pragma mark Window Sizing
+
+-(IBAction) selectAspectRatio:(id)sender;
 -(IBAction) halfSize:(id)sender;
 -(IBAction) normalSize:(id)sender;
 -(IBAction) doubleSize:(id)sender;
--(void) setAspectRatio:(NSSize)ratio;
--(void) resizeToAspectRatio;
 
 #pragma mark -
 #pragma mark Mouse Events

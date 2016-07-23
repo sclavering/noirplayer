@@ -52,24 +52,12 @@
     [NSApp updateWindowsItem:theWindow];
     [theWindow orderFront:aController];
     [theWindow showMovie:_movie];
-    NSSize aSize = _movie.naturalSize;
-    [theWindow setAspectRatio:aSize];
-    theWindow.minSize = NSMakeSize(150 * aSize.width / aSize.height, 150);
-    [theWindow resizeWithSize:NSMakeSize(theWindow.aspectRatio.width, theWindow.aspectRatio.height) animate:NO];
     [theWindow setTitle:theWindow.title];
 }
 
 -(void) makeWindowControllers {
     NSWindowController *controller = [[NSWindowController alloc] initWithWindowNibName:@"NoirDocument" owner:self];
     [self addWindowController:controller];
-}
-
-// The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
--(IBAction) selectAspectRatio:(id)sender {
-    id obj = [sender representedObject];
-    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : _movie.naturalSize;
-    [theWindow setAspectRatio:ratio];
-    [theWindow resizeToAspectRatio];
 }
 
 @end
