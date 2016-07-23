@@ -31,8 +31,8 @@
         [self useOptimizedDrawing:YES];
         [self setHasShadow:YES];
 
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidResizeNotification object:self];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onSelfMovedOrResized:) name:NSWindowDidMoveNotification object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onSelfMovedOrResized:) name:NSWindowDidResizeNotification object:self];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_onSelfMovedOrResized:) name:NSWindowDidMoveNotification object:self];
 
         self.movableByWindowBackground = true;
     }
@@ -40,7 +40,7 @@
 }
 
 -(void) awakeFromNib {
-    [self initOverlayWindow];
+    [self _initOverlayWindow];
 
     [self setReleasedWhenClosed:YES];
 
@@ -120,21 +120,21 @@
 
 -(IBAction) performClose:(id)sender {
     [self orderOut:sender]; //order out before stops double button click from causing crash
-    if(fullScreen) [self exitFullScreen];
+    if(fullScreen) [self _exitFullScreen];
     [self close];
 }
 
--(void) showStatusMessage:(NSString*)str {
+-(void) _showStatusMessage:(NSString*)str {
     statusMessage.stringValue = str;
     statusMessage.hidden = false;
     CGFloat right = statusMessage.frame.origin.x + statusMessage.frame.size.width;
     [statusMessage sizeToFit];
     [statusMessage setFrameOrigin:CGPointMake(right - statusMessage.frame.size.width, statusMessage.frame.origin.y)];
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideStatusMessage:) object:nil];
-    [self performSelector:@selector(hideStatusMessage:) withObject:nil afterDelay:1.0];
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(_hideStatusMessage:) object:nil];
+    [self performSelector:@selector(_hideStatusMessage:) withObject:nil afterDelay:1.0];
 }
 
--(void) hideStatusMessage:(id)dummy {
+-(void) _hideStatusMessage:(id)dummy {
     statusMessage.hidden = true;
 }
 
@@ -144,23 +144,23 @@
 
 #pragma mark Time Interface
 
--(void) startPeriodicTimeInterfaceUpdates {
+-(void) _startPeriodicTimeInterfaceUpdates {
     timeInterfaceUpdateTimer = [NSTimer
         scheduledTimerWithTimeInterval:0.5
         target:self
-        selector:@selector(scheduledUpdateTimeInterface:)
+        selector:@selector(_scheduledUpdateTimeInterface:)
         userInfo:nil
         repeats:YES
     ];
-    [self updateTimeInterface];
+    [self _updateTimeInterface];
 }
 
 // This exists solely because of the requirements of [NSTimer scheduledTimerWithTimeInterval:...selector:...].
--(void) scheduledUpdateTimeInterface:(id)sender {
-    [self updateTimeInterface];
+-(void) _scheduledUpdateTimeInterface:(id)sender {
+    [self _updateTimeInterface];
 }
 
--(void) updateTimeInterface {
+-(void) _updateTimeInterface {
     LAVPMovie* mov = self.noirDoc.movie;
     int t = mov.durationInMicroseconds / 1000000;
     int c = mov.currentTimeInMicroseconds / 1000000;
@@ -174,21 +174,21 @@
 #pragma mark -
 #pragma mark Overlays
 
--(void) initOverlayWindow {
+-(void) _initOverlayWindow {
     [overlayWindow setFrame:self.frame display:false];
     overlayWindow.level = self.level;
     [self addChildWindow:overlayWindow ordered:NSWindowAbove];
     [overlayWindow orderFront:self];
-    [self hideControlsOverlay];
-    [self hideTitleOverlay];
+    [self _hideControlsOverlay];
+    [self _hideTitleOverlay];
 }
 
--(void) hideControlsOverlay {
+-(void) _hideControlsOverlay {
     controlsOverlay.alphaValue = 0.0;
     if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
 }
 
--(void) hideTitleOverlay {
+-(void) _hideTitleOverlay {
     titleOverlay.alphaValue = 0.0;
 }
 
@@ -197,16 +197,16 @@
         if(!fullScreen) titleOverlay.alphaValue = 1.0;
     } else if(overlay == controlsOverlay) {
         controlsOverlay.alphaValue = 1.0;
-        [self startPeriodicTimeInterfaceUpdates];
+        [self _startPeriodicTimeInterfaceUpdates];
     }
 }
 
 -(void) mouseExitedOverlayView:(NSView*)overlay {
-    if(overlay == titleOverlay) [self hideTitleOverlay];
-    else if(overlay == controlsOverlay) [self hideControlsOverlay];
+    if(overlay == titleOverlay) [self _hideTitleOverlay];
+    else if(overlay == controlsOverlay) [self _hideControlsOverlay];
 }
 
--(void) onSelfMovedOrResized:(NSNotification*)notification {
+-(void) _onSelfMovedOrResized:(NSNotification*)notification {
     [overlayWindow setFrame:self.frame display:false];
 }
 
@@ -229,14 +229,14 @@
 -(void) _setInitialSize:(NSSize)naturalSize {
     [self _setAspectRatio:naturalSize];
     self.minSize = NSMakeSize(150 * naturalSize.width / naturalSize.height, 150);
-    [self resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:NO];
+    [self _resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:NO];
 }
 
--(void) resizeWithSize:(NSSize)aSize animate:(BOOL)animate {
-    [self setFrame:[self calcResizeSize:aSize] display:YES animate:animate];
+-(void) _resizeWithSize:(NSSize)aSize animate:(BOOL)animate {
+    [self setFrame:[self _calcResizeSize:aSize] display:YES animate:animate];
 }
 
--(NSRect) calcResizeSize:(NSSize)aSize {
+-(NSRect) _calcResizeSize:(NSSize)aSize {
     float newHeight = aSize.height;
     float newWidth = aSize.width;
 
@@ -265,7 +265,7 @@
     return newRect;
 }
 
--(void) adjustHeightRetainingAspectRatio:(float)amount {
+-(void) _adjustHeightRetainingAspectRatio:(float)amount {
     if(fullScreen) return;
     float newHeight = self.frame.size.height + amount;
     float newWidth = (self.aspectRatio.width/self.aspectRatio.height)*newHeight;
@@ -273,7 +273,7 @@
         newHeight = self.frame.size.height;
         newWidth = self.frame.size.width;
     }
-    [self resizeWithSize:NSMakeSize(newWidth, newHeight) animate:false];
+    [self _resizeWithSize:NSMakeSize(newWidth, newHeight) animate:false];
 }
 
 -(IBAction) selectAspectRatio:(id)sender {
@@ -285,20 +285,20 @@
 }
 
 -(IBAction) halfSize:(id)sender {
-    [self resizeNormalByScaler:0.5];
+    [self _resizeNormalByScaler:0.5];
 }
 
 -(IBAction) normalSize:(id)sender {
-    [self resizeNormalByScaler:1.0];
+    [self _resizeNormalByScaler:1.0];
 }
 
 -(IBAction) doubleSize:(id)sender {
-    [self resizeNormalByScaler:2.0];
+    [self _resizeNormalByScaler:2.0];
 }
 
--(void) resizeNormalByScaler:(float)aScaler {
+-(void) _resizeNormalByScaler:(float)aScaler {
     if(fullScreen) return;
-    [self resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
+    [self _resizeWithSize: NSMakeSize(aScaler * self.aspectRatio.width, aScaler * self.aspectRatio.height) animate:NO];
 }
 
 -(void) _setAspectRatio:(NSSize)ratio {
@@ -310,7 +310,7 @@
     NSSize ratio = self.aspectRatio;
     float newWidth = self.frame.size.height / ratio.height * ratio.width;
     NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
-    [self resizeWithSize:aSize animate:YES];
+    [self _resizeWithSize:aSize animate:YES];
     if(fullScreen) [self _fillScreen];
 }
 
@@ -325,7 +325,7 @@
 
 -(void) scrollWheel:(NSEvent *)ev {
     if(ev.deltaY) {
-        [self adjustHeightRetainingAspectRatio:ev.deltaY * 5];
+        [self _adjustHeightRetainingAspectRatio:ev.deltaY * 5];
     } else if(ev.deltaX) {
         [self _stepBy:SCRUB_STEP_DURATION * ev.deltaX];
     }
@@ -349,7 +349,7 @@
             [self _stepBy:-SCRUB_STEP_DURATION];
             break;
         case 0x1B:
-            [self exitFullScreen];
+            [self _exitFullScreen];
             break;
         default:
             [super keyDown:anEvent];
@@ -358,13 +358,13 @@
 
 -(void) _seekToFraction:(double)pos {
     self.noirDoc.movie.currentTimeAsFraction = pos;
-    [self updateTimeInterface];
+    [self _updateTimeInterface];
 }
 
 -(void) _stepBy:(int)seconds {
     LAVPMovie* mov = self.noirDoc.movie;
     mov.currentTimeInMicroseconds += seconds * 1000000;
-    [self updateTimeInterface];
+    [self _updateTimeInterface];
 }
 
 #pragma mark -
@@ -391,7 +391,7 @@
 -(void) _adjustSpeed:(int)change {
     LAVPMovie* mov = self.noirDoc.movie;
     int percent = mov.playbackSpeedPercent = MAX(10, MIN(200, mov.playbackSpeedPercent + change));
-    [self showStatusMessage:[NSString stringWithFormat:@"Speed: %d%%", percent]];
+    [self _showStatusMessage:[NSString stringWithFormat:@"Speed: %d%%", percent]];
 }
 
 #pragma mark -
@@ -408,7 +408,7 @@
 -(void) _adjustVolume:(int)change {
     LAVPMovie* mov = self.noirDoc.movie;
     int percent = mov.volumePercent = MAX(0, MIN(200, mov.volumePercent + change));
-    [self showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
+    [self _showStatusMessage:[NSString stringWithFormat:@"Volume: %d%%", percent]];
 }
 
 #pragma mark -
@@ -417,11 +417,11 @@
 // Note: we currently use our own full-screen mechanism, not the standard macOS one.  This is partly historical, and partly that my attempts to get the built-in one to work on our floating windows were unsuccessful.
 
 -(IBAction) toggleNoirFullScreen:(id)sender {
-    if(fullScreen) [self exitFullScreen];
-    else [self enterFullScreen];
+    if(fullScreen) [self _exitFullScreen];
+    else [self _enterFullScreen];
 }
 
--(void) enterFullScreen {
+-(void) _enterFullScreen {
     if(fullScreen) return;
     fullScreen = true;
     [self setLevel:NSFloatingWindowLevel + 2];
@@ -450,7 +450,7 @@
     [self setFrame:frame display:YES];
 }
 
--(void) exitFullScreen {
+-(void) _exitFullScreen {
     if(!fullScreen) return;
     fullScreen = false;
     [self setLevel:NSFloatingWindowLevel];
