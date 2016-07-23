@@ -20,9 +20,4 @@
 
 @property (readonly) LAVPMovie* movie;
 
--(NSData *) dataRepresentationOfType:(NSString *)aType;
-
--(void) windowDidDeminiaturize:(NSNotification *)aNotification;
--(void) windowControllerDidLoadNib:(NSWindowController *) aController;
-
 @end

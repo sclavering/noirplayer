@@ -7,12 +7,7 @@
 
 @implementation NoirDocument
 
-#pragma mark -
-#pragma mark File Operations
-
 -(NSData *) dataRepresentationOfType:(NSString *)aType {
-    // Insert code here to write your document from the given data.  You can also choose to override -fileWrapperRepresentationOfType: or -writeToFile:ofType: instead.
-
     id tDict = @{
         @"MajorVersion": @0,
         @"MinorVersion": @1,
@@ -25,7 +20,6 @@
     return tData;
 }
 
-// Called when a file is dropped on the app icon
 -(BOOL) readFromURL:(NSURL *)url ofType:(NSString *)docType error:(NSError **)outError {
     _movie = [[LAVPMovie alloc] initWithURL:url error:outError];
     if(!_movie) return false;
@@ -35,14 +29,13 @@
     return true;
 }
 
-#pragma mark -
-#pragma mark Window Information
-
+// Part of the NSWindowDelegate protocol
 -(void) windowDidMiniaturize:(NSNotification *)aNotification {
     wasPlayingBeforeMini = !self.movie.paused;
     self.movie.paused = true;
 }
 
+// Part of the NSWindowDelegate protocol
 -(void) windowDidDeminiaturize:(NSNotification *)aNotification {
     if(wasPlayingBeforeMini) self.movie.paused = false;
 }
