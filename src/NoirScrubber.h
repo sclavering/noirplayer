@@ -9,13 +9,9 @@
 {
     NSImage* scrub;
     double value;
-    id target;
-    SEL action;
 }
 
 -(double) doubleValue;
 -(void) setDoubleValue:(double)aValue;
-
--(void) _doUpdate:(NSEvent*)ev;
 
 @end

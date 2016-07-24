@@ -12,8 +12,6 @@
     self = [super initWithFrame:frame];
     if(self) {
         value = 0.0;
-        target = nil;
-        action = NULL;
     }
     return self;
 }
@@ -50,25 +48,9 @@
     return value;
 }
 
--(void) setTarget:(id)aTarget {
-    target = aTarget;
-}
-
--(id) target {
-    return target;
-}
-
--(void) setAction:(SEL)anAction {
-    action = anAction;
-}
-
--(SEL) action {
-    return action;
-}
-
 -(void) mouseDragged:(NSEvent *)anEvent {
     [self _doUpdate:anEvent];
-    [self.target performSelector:self.action withObject:self];
+    [NSApp sendAction:self.action to:self.target from:self];
 }
 
 -(void) mouseUp:(NSEvent *)anEvent {
@@ -77,7 +59,7 @@
 
 -(void) mouseDown:(NSEvent *)anEvent {
     [self _doUpdate:anEvent];
-    [self.target performSelector:self.action withObject:self];
+    [NSApp sendAction:self.action to:self.target from:self];
 }
 
 -(void) _doUpdate:(NSEvent*)ev {
