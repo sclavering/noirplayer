@@ -46,12 +46,6 @@
 
     if(!fullScreen) [self setLevel:NSFloatingWindowLevel];
     [self makeFirstResponder:self];
-
-    thePlayButton.target = self;
-    thePlayButton.action = @selector(togglePlayingMovie:);
-
-    theScrubBar.target = self;
-    theScrubBar.action = @selector(doSetPosition:);
 }
 
 -(void) dealloc {

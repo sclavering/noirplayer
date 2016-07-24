@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none">
     <dependencies>
         <deployment version="1060" identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10117"/>
@@ -56,10 +56,16 @@
                                     <behavior key="behavior" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="togglePlayingMovie:" target="-1" id="Tea-9O-N5O"/>
+                                </connections>
                             </button>
                             <customView id="79" customClass="NoirScrubber">
                                 <rect key="frame" x="33" y="0.0" width="196" height="32"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                <connections>
+                                    <action selector="doSetPosition:" target="-1" id="Lrc-YZ-t8P"/>
+                                </connections>
                             </customView>
                             <textField verticalHuggingPriority="750" id="71">
                                 <rect key="frame" x="230" y="9" width="83" height="14"/>
