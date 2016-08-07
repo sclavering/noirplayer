@@ -2,6 +2,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
+@import QuartzCore; // for CATransaction
+
 #import "NoirWindow.h"
 
 #import "NoirRootView.h"
@@ -57,11 +59,15 @@
     [self _seekToFraction:[sender doubleValue]];
 }
 
+-(LAVPLayer*) _movieLayer {
+    return (LAVPLayer*) self.contentView.layer.sublayers[0];
+}
+
 -(void) close {
     @autoreleasepool {
         if(timeInterfaceUpdateTimer) [timeInterfaceUpdateTimer invalidate];
         // xxx why doesn't this happen automatically?
-        [(LAVPLayer*)self.contentView.layer.sublayers[0] invalidate];
+        [self._movieLayer invalidate];
         [super close];
     }
 }
@@ -302,11 +308,14 @@
 }
 
 -(void) _resizeToAspectRatio {
-    NSSize ratio = self.aspectRatio;
-    float newWidth = self.frame.size.height / ratio.height * ratio.width;
-    NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
-    [self _resizeWithSize:aSize animate:YES];
-    if(fullScreen) [self _fillScreen];
+    if(fullScreen) {
+        [self _adjustMovieLayerSizeForFullScreen];
+    } else {
+        NSSize ratio = self.aspectRatio;
+        float newWidth = self.frame.size.height / ratio.height * ratio.width;
+        NSSize aSize = NSMakeSize(newWidth, self.frame.size.height);
+        [self _resizeWithSize:aSize animate:YES];
+    }
 }
 
 #pragma mark -
@@ -422,16 +431,13 @@
     [self setLevel:NSFloatingWindowLevel + 2];
     [self makeKeyAndOrderFront:self];
     beforeFullScreen = self.frame;
-    [self _fillScreen];
-    [overlayWindow setFrame:[NSScreen mainScreen].frame display:false];
-    if([self.screen isEqualTo:[NSScreen screens][0]]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
-    _fullScreenBackground = [[BlackWindow alloc] init];
-    [_fullScreenBackground setFrame:[self.screen frame] display:YES];
-    [_fullScreenBackground orderBack:nil];
-    [_fullScreenBackground setPresentingWindow:self];
+    [self setFrame:self.screen.frame display:true];
+    [self _adjustMovieLayerSizeForFullScreen];
+    [overlayWindow setFrame:self.screen.frame display:true];
+    if(self.screen == NSScreen.screens[0]) NSApp.presentationOptions = NSApplicationPresentationHideDock | NSApplicationPresentationAutoHideMenuBar;
 }
 
--(void) _fillScreen {
+-(void) _adjustMovieLayerSizeForFullScreen {
     NSSize ratio = self.aspectRatio;
     NSRect screenFrame = self.screen.frame;
     NSSize space = screenFrame.size;
@@ -442,7 +448,8 @@
         : NSMakeRect(0, (space.height - h) / 2, space.width, h);
     frame.origin.x += screenFrame.origin.x;
     frame.origin.y += screenFrame.origin.y;
-    [self setFrame:frame display:YES];
+
+    [self _resizeMovieLayerWithoutAnimation:frame];
 }
 
 -(void) _exitFullScreen {
@@ -450,10 +457,17 @@
     fullScreen = false;
     [self setLevel:NSFloatingWindowLevel];
     [self setFrame:beforeFullScreen display:false];
+    [self _resizeMovieLayerWithoutAnimation:NSMakeRect(0, 0, beforeFullScreen.size.width, beforeFullScreen.size.height)];
     [self _resizeToAspectRatio];
     NSApp.presentationOptions = NSApplicationPresentationDefault;
-    [_fullScreenBackground orderOut:nil];
-    _fullScreenBackground = nil;
+}
+
+-(void) _resizeMovieLayerWithoutAnimation:(NSRect) frame {
+    // This exists because setting CALayer's .frame is animated by default.
+    [CATransaction begin];
+    [CATransaction setAnimationDuration:0.0];
+    self._movieLayer.frame = frame;
+    [CATransaction commit];
 }
 
 @end

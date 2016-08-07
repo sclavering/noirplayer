@@ -4,15 +4,11 @@
 
 @import Cocoa;
 
-#import "BlackWindow.h"
-
-@class NoirRootView;
 @class NoirScrubber;
 @class NoirDocument;
 @class NoirOverlayView;
 @class OverlayWindow;
 @class LAVPMovie;
-@class BlackWindow;
 
 @interface NoirWindow : NSWindow
 {
@@ -31,7 +27,6 @@
 
     bool fullScreen;
     NSRect beforeFullScreen;
-    BlackWindow* _fullScreenBackground;
 }
 
 -(NoirDocument*) noirDoc;
