@@ -271,10 +271,11 @@
 }
 
 -(IBAction) selectAspectRatio:(id)sender {
-    // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode.
+    NSSize sz = self.noirDoc.movie.naturalSize;
+    // The menu items have .representedObject set to a float NSNumber via the "User Defined Runtime Attributes" field in Xcode (except for the "Natural" one).
     id obj = [sender representedObject];
-    NSSize ratio = obj ? NSMakeSize([obj floatValue], 1) : self.noirDoc.movie.naturalSize;
-    [self _setAspectRatio:ratio];
+    if(obj) sz = NSMakeSize(sz.height * [obj floatValue], sz.height);
+    [self _setAspectRatio:sz];
     [self _resizeToAspectRatio];
 }
 
