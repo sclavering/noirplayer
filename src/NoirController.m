@@ -50,18 +50,13 @@ id controller;
 }
 
 -(void) checkMouseLocation:(id)sender {
-    NSRect tempRect =[NSScreen screens][0].frame;
     NSPoint tempPoint =[NSEvent mouseLocation];
     if(!NSEqualPoints(lastMouseLocation, tempPoint)) {
         lastCursorMoveDate = [[NSDate alloc] init];
         lastMouseLocation= tempPoint;
-        // [NSCursor setHiddenUntilMouseMoves:NO];
     } else {
         if(lastCursorMoveDate.timeIntervalSinceNow < -3) [NSCursor setHiddenUntilMouseMoves:YES];
     }
-    
-    tempRect.origin.y=tempRect.size.height -24;
-    tempRect.size.height =32;
 }
 
 /* As per Technical Q&A QA1160: http://developer.apple.com/qa/qa2004/qa1160.html */
