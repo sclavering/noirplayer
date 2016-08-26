@@ -229,7 +229,17 @@
 -(void) _setInitialSize:(NSSize)naturalSize {
     [self _setAspectRatio:naturalSize];
     self.minSize = NSMakeSize(150 * naturalSize.width / naturalSize.height, 150);
-    [self _resizeWithSize:NSMakeSize(self.aspectRatio.width, self.aspectRatio.height) animate:NO];
+    NSRect space = self.screen.visibleFrame;
+    // Always make the initial size at least a little smaller than the screen, since otherwise it can look like we've started out full-screen, which is confusing.
+    double w0 = self.aspectRatio.width;
+    double w = MIN(w0, space.size.width - 20);
+    double h0 = self.aspectRatio.height;
+    double h = MIN(w / w0 * h0, space.size.height - 20);
+    w = h / h0 * w0;
+    // Center windows initially (since there's no other obvious choice).  The NSDocument magic will actually cascade any but the first window, but that's fine.
+    double x = (space.size.width - w) / 2;
+    double y = (space.size.height - h) / 2;
+    [self setFrame:NSMakeRect(x, y, w, h) display:true animate:false];
 }
 
 -(void) _resizeWithSize:(NSSize)aSize animate:(BOOL)animate {
